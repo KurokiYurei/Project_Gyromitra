@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class CameraController : MonoBehaviour
     public LayerMask m_CollisionLayerMask;
     void Start()
     {
-
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -34,6 +35,13 @@ public class CameraController : MonoBehaviour
         l_Direction.Normalize();
 
         float l_Yaw = Mathf.Atan2(l_Direction.x, l_Direction.z);
+
+        float l_MouseDeltaX = Input.GetAxis("Mouse X");
+        float l_MouseDeltaY = Input.GetAxis("Mouse Y");
+
+        l_Yaw += l_MouseDeltaX * (m_YawRotationalSpeed * Mathf.Deg2Rad) * Time.deltaTime;
+        m_Pitch += l_MouseDeltaY * (m_PitchRotationalSped * Mathf.Deg2Rad) * Time.deltaTime;
+        m_Pitch = Mathf.Clamp(m_Pitch, m_MinPitchDistance * Mathf.Deg2Rad, m_MaxPitchDistance * Mathf.Deg2Rad);
 
         l_Direction = new Vector3(Mathf.Sin(l_Yaw) * Mathf.Cos(m_Pitch), Mathf.Sin(m_Pitch), Mathf.Cos(l_Yaw) * Mathf.Cos(m_Pitch));
         Vector3 l_DesiredPosition = m_LookAt.position - l_Direction * l_Distance;

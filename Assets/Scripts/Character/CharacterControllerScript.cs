@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class CharacterController : MonoBehaviour
+public class CharacterControllerScript : MonoBehaviour
 {
     public Camera m_Camera;
 
     [Header("Stats")]
     public float m_WalkSpeed = 1.5f;
+    //Vector3 m_Movement;
 
     [Header("Inputs")]
     //public KeyCode m_RightKeyCode = KeyCode.D;
@@ -40,8 +42,6 @@ public class CharacterController : MonoBehaviour
         l_Forward.Normalize();
         l_Right.Normalize();
 
-        Vector3 l_Movement = Vector3.zero;
-
         //Movement needs refactoring with new input system
         //if (Input.GetKey(m_RightKeyCode))
         //{
@@ -60,11 +60,7 @@ public class CharacterController : MonoBehaviour
         //    l_Movement -= l_Forward;
         //}
 
-        float l_Speed = m_WalkSpeed;
 
-        l_Movement.Normalize();
-
-        l_Movement *= l_Speed * Time.deltaTime;
 
         //Jump needs refactoring
         //if (Input.GetKeyDown(KeyCode.Space) && m_VerticalSpeed == 0.0f)
@@ -76,7 +72,7 @@ public class CharacterController : MonoBehaviour
         //m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
         //l_Movement.y = m_VerticalSpeed * Time.deltaTime;
 
-        //CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
+
 
         //if ((l_CollisionFlags & CollisionFlags.Below) != 0 && m_VerticalSpeed < 0.0f)
         //{
@@ -93,5 +89,27 @@ public class CharacterController : MonoBehaviour
         //    m_Timer += Time.deltaTime;
         //}
 
+
+
+    }
+
+    void OnMovement(InputValue input)
+    {
+        Vector3 l_Movement = Vector3.zero;
+
+        var value = input.Get<Vector3>();
+
+        l_Movement.x += value.x;
+        l_Movement.z += value.z;
+
+        float l_Speed = m_WalkSpeed;
+
+        l_Movement.Normalize();
+
+        l_Movement *= l_Speed * Time.deltaTime;
+
+        CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
+
+        print(value);
     }
 }
