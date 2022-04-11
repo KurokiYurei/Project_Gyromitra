@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -989,7 +989,7 @@ MonoBehaviour:
   m_WalkSpeed: 10
   m_VerticalSpeed: 0
   smoothInputSpeed: 0.01
-  m_LerpRotationPct: 0.9
+  m_LerpRotationPct: 0.025
 --- !u!54 &1481718371
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1031,7 +1031,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481718369}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 4.55116, y: 3.36, z: 10.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1040,7 +1040,7 @@ Transform:
   - {fileID: 58865708}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1481718374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,7 +1190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615594722}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.007999897, y: 0.48399997, z: -0.483}
+  m_LocalPosition: {x: 0.007999897, y: 0.48399997, z: 0.49}
   m_LocalScale: {x: 0.8553, y: 0.5, z: 0.10273}
   m_Children: []
   m_Father: {fileID: 1481718373}
@@ -1513,13 +1513,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140920232}
-  m_LocalRotation: {x: -0.00000011145638, y: 0.9891868, z: -0.14666103, w: -0.00000075174154}
-  m_LocalPosition: {x: 4.65, y: 4.674, z: 15.245}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 5.03, y: 4.86, z: 16.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 16.867, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &2140920236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,8 +1535,8 @@ MonoBehaviour:
   m_LookAt: {fileID: 58865708}
   m_MinDistance: 3
   m_MaxDistance: 6
-  m_YawRotationalSpeed: 360
-  m_PitchRotationalSped: 180
+  m_YawRotationalSpeed: 180
+  m_PitchRotationalSped: 90
   m_MinPitchDistance: -60
   m_MaxPitchDistance: 40
   m_CollisionLayerMask:

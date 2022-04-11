@@ -44,34 +44,31 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
-        //Vector3 l_Forward = m_Camera.transform.forward;
-        //Vector3 l_Right = m_Camera.transform.right;
-        //l_Forward.y = 0.0f;
-        //l_Right.y = 0.0f;
+        Vector3 l_Forward = m_Camera.transform.forward;
+        Vector3 l_Right = m_Camera.transform.right;
+        l_Forward.y = 0.0f;
+        l_Right.y = 0.0f;
 
-        //l_Forward.Normalize();
-        //l_Right.Normalize();
-
+        l_Forward.Normalize();
+        l_Right.Normalize();
 
         Vector3 l_Movement = Vector3.zero;
         Vector2 input = moveAction.ReadValue<Vector2>();
 
-        currenInputVector = Vector2.SmoothDamp(currenInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
-        //currenInputVector = input
+        //currenInputVector = Vector2.SmoothDamp(currenInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
 
-        //l_Movement = new Vector3(-input.x, 0, -input.y);
-        l_Movement = new Vector3(-currenInputVector.x, 0, -currenInputVector.y);
+        //l_Movement = new Vector3(currenInputVector.x, 0, currenInputVector.y);
+        l_Movement = l_Right * input.x;
+        l_Movement += l_Forward * input.y;
 
         float l_Speed = m_WalkSpeed;
 
         l_Movement.Normalize();
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(-l_Movement), m_LerpRotationPct);
+        if(input != Vector2.zero)
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(l_Movement), m_LerpRotationPct);
 
         l_Movement *= l_Speed * Time.deltaTime;
-
-
-
 
         //Jump needs refactoring
         //if (Input.GetKeyDown(KeyCode.Space) && m_VerticalSpeed == 0.0f)
@@ -81,13 +78,12 @@ public class CharacterControllerScript : MonoBehaviour
 
         //Gravity needs refactoring
         m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
-        l_Movement.y = m_VerticalSpeed * Time.deltaTime;
+        l_Movement.y = m_VerticalSpeed * Time.deltaTime; 
 
         CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
 
         if ((l_CollisionFlags & CollisionFlags.Below) != 0 && m_VerticalSpeed < 0.0f)
         {
-
             //m_OnGround = true;
             m_VerticalSpeed = 0.0f;
             //m_Timer = 0f;
@@ -102,17 +98,5 @@ public class CharacterControllerScript : MonoBehaviour
         {
             m_VerticalSpeed = 0.0f;
         }
-
-
-
-
-    }
-
-    void OnMovement(InputValue input)
-    {
-        //Vector3 l_Movement = Vector3.zero;
-
-
-
     }
 }
