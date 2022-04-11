@@ -9,56 +9,67 @@ public class CharacterControllerScript : MonoBehaviour
 
     [Header("Stats")]
     public float m_WalkSpeed = 1.5f;
-    //Vector3 m_Movement;
+    private bool m_OnGround;
+    public float m_VerticalSpeed = 0.0f;
+
+    public float smoothInputSpeed = 0.1f;
+
+    [Range(0.0f, 1.0f)]
+    public float m_LerpRotationPct = 0.9f;
 
     [Header("Inputs")]
-    //public KeyCode m_RightKeyCode = KeyCode.D;
-    //public KeyCode m_LeftKeyCode = KeyCode.A;
-    //public KeyCode m_UpKeyCode = KeyCode.W;
-    //public KeyCode m_DownKeyCode = KeyCode.S;
+    private PlayerInput playerInput;
+    private InputAction moveAction;
+
+    private Vector2 currenInputVector;
+    private Vector2 smoothInputVelocity;
 
     CharacterController m_CharacterController;
 
     Vector3 m_StartPosition;
     Quaternion m_StartRotation;
+    private float m_Timer;
 
     private void Awake()
     {
         m_CharacterController = GetComponent<CharacterController>();
+        playerInput = GetComponent<PlayerInput>();
+        moveAction = playerInput.actions["Movement"];
     }
     void Start()
     {
-        m_StartPosition = transform.position;
-        m_StartRotation = transform.rotation;
+        //m_StartPosition = transform.position;
+        //m_StartRotation = transform.rotation;
     }
 
     void Update()
     {
-        Vector3 l_Forward = m_Camera.transform.forward;
-        Vector3 l_Right = m_Camera.transform.right;
-        l_Forward.y = 0.0f;
-        l_Right.y = 0.0f;
+        //Vector3 l_Forward = m_Camera.transform.forward;
+        //Vector3 l_Right = m_Camera.transform.right;
+        //l_Forward.y = 0.0f;
+        //l_Right.y = 0.0f;
 
-        l_Forward.Normalize();
-        l_Right.Normalize();
+        //l_Forward.Normalize();
+        //l_Right.Normalize();
 
-        //Movement needs refactoring with new input system
-        //if (Input.GetKey(m_RightKeyCode))
-        //{
-        //    l_Movement = l_Right;
-        //}
-        //else if (Input.GetKey(m_LeftKeyCode))
-        //{
-        //    l_Movement -= l_Right;
-        //}
-        //if (Input.GetKey(m_UpKeyCode))
-        //{
-        //    l_Movement += l_Forward;
-        //}
-        //else if (Input.GetKey(m_DownKeyCode))
-        //{
-        //    l_Movement -= l_Forward;
-        //}
+
+        Vector3 l_Movement = Vector3.zero;
+        Vector2 input = moveAction.ReadValue<Vector2>();
+
+        currenInputVector = Vector2.SmoothDamp(currenInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
+        //currenInputVector = input
+
+        //l_Movement = new Vector3(-input.x, 0, -input.y);
+        l_Movement = new Vector3(-currenInputVector.x, 0, -currenInputVector.y);
+
+        float l_Speed = m_WalkSpeed;
+
+        l_Movement.Normalize();
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(-l_Movement), m_LerpRotationPct);
+
+        l_Movement *= l_Speed * Time.deltaTime;
+
 
 
 
@@ -69,25 +80,29 @@ public class CharacterControllerScript : MonoBehaviour
         //}
 
         //Gravity needs refactoring
-        //m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
-        //l_Movement.y = m_VerticalSpeed * Time.deltaTime;
+        m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
+        l_Movement.y = m_VerticalSpeed * Time.deltaTime;
 
+        CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
 
+        if ((l_CollisionFlags & CollisionFlags.Below) != 0 && m_VerticalSpeed < 0.0f)
+        {
 
-        //if ((l_CollisionFlags & CollisionFlags.Below) != 0 && m_VerticalSpeed < 0.0f)
-        //{
-        //    m_LongJumping = false;
-        //    m_WallJumping = false;
-        //    m_OnGround = true;
-        //    m_VerticalSpeed = 0.0f;
-        //    m_Timer = 0f;
-        //    m_JumpComboTimer += Time.deltaTime;
-        //}
-        //else
-        //{
-        //    m_OnGround = false;
-        //    m_Timer += Time.deltaTime;
-        //}
+            //m_OnGround = true;
+            m_VerticalSpeed = 0.0f;
+            //m_Timer = 0f;
+        }
+        else
+        {
+            //m_OnGround = false;
+            //m_Timer += Time.deltaTime;
+        }
+
+        if ((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0.0f)
+        {
+            m_VerticalSpeed = 0.0f;
+        }
+
 
 
 
@@ -95,21 +110,9 @@ public class CharacterControllerScript : MonoBehaviour
 
     void OnMovement(InputValue input)
     {
-        Vector3 l_Movement = Vector3.zero;
+        //Vector3 l_Movement = Vector3.zero;
 
-        var value = input.Get<Vector3>();
 
-        l_Movement.x += value.x;
-        l_Movement.z += value.z;
 
-        float l_Speed = m_WalkSpeed;
-
-        l_Movement.Normalize();
-
-        l_Movement *= l_Speed * Time.deltaTime;
-
-        CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
-
-        print(value);
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "Character",
+    "name": "CharacterInput",
     "maps": [
         {
             "name": "Character",
@@ -9,7 +9,7 @@
                     "name": "Movement",
                     "type": "Value",
                     "id": "c0d3233b-9061-487d-ac94-d7e7cea3e230",
-                    "expectedControlType": "Vector3",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -39,7 +39,7 @@
                 {
                     "name": "WASD",
                     "id": "721d7da3-99f4-4cd8-8ae6-0336389db82f",
-                    "path": "3DVector",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -48,7 +48,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Forward",
+                    "name": "Up",
                     "id": "a7a33196-67e3-4395-a745-58c40adb19f7",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -59,7 +59,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Backward",
+                    "name": "Down",
                     "id": "67abf8d0-56aa-4ee0-aac2-17e13f37992d",
                     "path": "<Keyboard>/s",
                     "interactions": "",
@@ -84,17 +84,6 @@
                     "name": "Right",
                     "id": "b480e61c-ff79-4174-b55a-5544273a72c9",
                     "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Up",
-                    "id": "c57d76e5-36e0-43fe-a0ef-a74c90b6becd",
-                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
