@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("Inputs")]
+    private PlayerInput playerInput;
+    private InputAction moveCamera;
+
     [Header("Camera")]
     public Transform m_LookAt;
 
@@ -23,11 +27,16 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        playerInput = GetComponent<PlayerInput>();
+        moveCamera = playerInput.actions["Look"];
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
+        Vector2 input = moveCamera.ReadValue<Vector2>();// * 0.5f;
+
         Vector3 l_Direction = m_LookAt.position - transform.position;
         float l_Distance = l_Direction.magnitude;
         l_Distance = Mathf.Clamp(l_Distance, m_MinDistance, m_MaxDistance);
@@ -36,8 +45,11 @@ public class CameraController : MonoBehaviour
 
         float l_Yaw = Mathf.Atan2(l_Direction.x, l_Direction.z);
 
-        float l_MouseDeltaX = Input.GetAxis("Mouse X");
-        float l_MouseDeltaY = Input.GetAxis("Mouse Y");
+        //float l_MouseDeltaX = Input.GetAxis("Mouse X");
+        //float l_MouseDeltaY = Input.GetAxis("Mouse Y");
+
+        float l_MouseDeltaX = input.x;
+        float l_MouseDeltaY = input.y;
 
         l_Yaw += l_MouseDeltaX * (m_YawRotationalSpeed * Mathf.Deg2Rad) * Time.deltaTime;
         m_Pitch += l_MouseDeltaY * (m_PitchRotationalSped * Mathf.Deg2Rad) * Time.deltaTime;
