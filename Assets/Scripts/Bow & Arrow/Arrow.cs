@@ -7,18 +7,23 @@ public class Arrow : MonoBehaviour
     // damage that the arrow does if we implement an Health Script
     // private float m_damage;
 
-    private float m_torque = 5f; 
+    private float m_torque = 5f;
 
     [SerializeField]
     private Rigidbody m_rigidBody;
 
     private string m_enemyTag;
-        
+
     private bool m_Hit;
+
+    [SerializeField]
+    private string m_mushroomSpawnable;
+    public Mushroom m_mushroomPrefab;
 
     private void Update()
     {
         transform.rotation = Quaternion.LookRotation(m_rigidBody.velocity);
+        //m_mushroom.GetComponent<Mushroom>();
     }
 
     public void SetEnemyTag(string enemyTag)
@@ -38,12 +43,22 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (m_Hit) return;
-        m_Hit = true; 
+        m_Hit = true;
 
-        if(other.CompareTag(m_enemyTag))
+        if (other.CompareTag(m_enemyTag))
         {
             // fer mal al enemic
             print("Hit Enemy");
+        }
+
+        if (other.CompareTag(m_mushroomSpawnable))
+        {
+            //Spawn del bolet
+            print("Bolet");
+            print(m_mushroomPrefab);
+            m_mushroomPrefab.SpawnMushroom(gameObject);
+            //Instantiate(m_mushroom, gameObject.transform.position, Quaternion.identity);
+
         }
 
         // si es vol que es quedi la fletxa encrustrada en l'objecte
