@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class CharacterControllerScript : MonoBehaviour
 {
@@ -18,13 +20,17 @@ public class CharacterControllerScript : MonoBehaviour
     public float m_LerpRotationPct = 0.9f;
 
     [Header("Inputs")]
-    private PlayerInput playerInput;
-    private InputAction moveAction;
+    private PlayerInput m_playerInput;
+    private InputAction m_moveAction;
 
     private Vector2 currenInputVector;
     private Vector2 smoothInputVelocity;
 
     CharacterController m_CharacterController;
+    CameraController m_CameraController;
+
+    [Header("Camera")]
+    private InputAction m_AimAction;
 
     Vector3 m_StartPosition;
     Quaternion m_StartRotation;
@@ -33,8 +39,10 @@ public class CharacterControllerScript : MonoBehaviour
     private void Awake()
     {
         m_CharacterController = GetComponent<CharacterController>();
-        playerInput = GetComponent<PlayerInput>();
-        moveAction = playerInput.actions["Movement"];
+        m_CameraController = m_Camera.GetComponent<CameraController>();
+        m_playerInput = GetComponent<PlayerInput>();
+        m_moveAction = m_playerInput.actions["Movement"];
+        m_AimAction = m_playerInput.actions["Aim"];
     }
     void Start()
     {
@@ -53,7 +61,7 @@ public class CharacterControllerScript : MonoBehaviour
         l_Right.Normalize();
 
         Vector3 l_Movement = Vector3.zero;
-        Vector2 input = moveAction.ReadValue<Vector2>();
+        Vector2 input = m_moveAction.ReadValue<Vector2>();
 
         //currenInputVector = Vector2.SmoothDamp(currenInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
 
@@ -101,5 +109,24 @@ public class CharacterControllerScript : MonoBehaviour
         {
             m_VerticalSpeed = 0.0f;
         }
+
+        // aim
+
+        m_AimAction.performed += Aim;
+        m_AimAction.canceled += Aim;
+    }
+
+    void Aim(CallbackContext ctx)
+    {
+        if (m_CameraController.GetIsAiming())
+        {
+            m_CameraController.SetIsAiming(false);
+        } else
+        {
+            m_CameraController.SetIsAiming(true);
+        }
+
+
+
     }
 }
