@@ -16,9 +16,13 @@ public class Arrow : MonoBehaviour
 
     private bool m_Hit;
 
-    [SerializeField]
-    private string m_mushroomSpawnable;
+    public string m_mushroomSpawnable;
     public Mushroom m_mushroomPrefab;
+
+    private void Start()
+    {
+        //m_mushroomSpawnable = m_mushroomPrefab.GetTag();
+    }
 
     private void Update()
     {
@@ -55,7 +59,7 @@ public class Arrow : MonoBehaviour
         {
             //Spawn del bolet
             print("Bolet");
-            print(m_mushroomPrefab);
+            //print(m_mushroomPrefab);
             m_mushroomPrefab.SpawnMushroom(gameObject);
             //Instantiate(m_mushroom, gameObject.transform.position, Quaternion.identity);
 

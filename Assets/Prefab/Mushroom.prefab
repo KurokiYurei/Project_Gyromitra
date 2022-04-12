@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 5287026607983033059}
   m_Layer: 0
   m_Name: Mushroom
-  m_TagString: Untagged
+  m_TagString: Mushroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,6 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mushroomPrefab: {fileID: 5287026607983033059}
+  m_timeToDestroy: 5
 --- !u!1 &4380325016653027813
 GameObject:
   m_ObjectHideFlags: 0

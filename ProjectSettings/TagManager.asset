@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - MushroomSpawnable
+  - Mushroom
   layers:
   - Default
   - TransparentFX
