@@ -24,6 +24,9 @@ public class CameraController : MonoBehaviour
     public float m_MaxPitchDistance = 85.0f;
 
     public LayerMask m_CollisionLayerMask;
+
+    [Range(0.0f, 1.0f)]
+    public float m_CameraSensivity = 0.5f;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -35,7 +38,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector2 input = moveCamera.ReadValue<Vector2>();// * 0.5f;
+        Vector2 input = moveCamera.ReadValue<Vector2>() * m_CameraSensivity;
 
         Vector3 l_Direction = m_LookAt.position - transform.position;
         float l_Distance = l_Direction.magnitude;

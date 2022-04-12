@@ -61,11 +61,14 @@ public class CharacterControllerScript : MonoBehaviour
         l_Movement = l_Right * input.x;
         l_Movement += l_Forward * input.y;
 
+        //l_Movement = l_Right * currenInputVector.x;
+        //l_Movement += l_Forward * currenInputVector.y;
+
         float l_Speed = m_WalkSpeed;
 
         l_Movement.Normalize();
 
-        if(input != Vector2.zero)
+        if (input != Vector2.zero)
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(l_Movement), m_LerpRotationPct);
 
         l_Movement *= l_Speed * Time.deltaTime;
@@ -78,7 +81,7 @@ public class CharacterControllerScript : MonoBehaviour
 
         //Gravity needs refactoring
         m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
-        l_Movement.y = m_VerticalSpeed * Time.deltaTime; 
+        l_Movement.y = m_VerticalSpeed * Time.deltaTime;
 
         CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
 
