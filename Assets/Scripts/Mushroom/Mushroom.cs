@@ -6,14 +6,20 @@ public class Mushroom : MonoBehaviour
 {
     [SerializeField]
     private Mushroom m_mushroomPrefab;
+
     private string m_mushroomTag;
+
+    //private PoolElements m_mushroomPool;
+    //public GameObject m_mushroomPrefabTest;
 
     private Mushroom m_currentMushroom;
 
     public float m_timeToDestroy = 5.0f;
+    public int m_maxMushrooms = 5;
     //public float m_currentTime;
     void Start()
     {
+        //m_mushroomPool = new PoolElements(m_maxMushrooms, null, m_mushroomPrefabTest);
         SetMushroomTag(gameObject.tag);
     }
 
@@ -32,6 +38,15 @@ public class Mushroom : MonoBehaviour
 
     public void SpawnMushroom(GameObject startPosition)
     {
+        //print(this.transform);
+        //print(m_mushroomPool);
+        //print(m_mushroomPrefab);
+
+        //GameObject l_mushroom = m_mushroomPool.GetNextElement();
+        //l_mushroom.SetActive(true);
+        //l_mushroom.transform.SetParent(null);
+        //l_mushroom.transform.position = startPosition.transform.position;
+
         m_currentMushroom = Instantiate(m_mushroomPrefab);
         m_currentMushroom.transform.position = startPosition.transform.position;
 

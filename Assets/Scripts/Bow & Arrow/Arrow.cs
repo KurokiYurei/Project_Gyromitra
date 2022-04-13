@@ -19,9 +19,10 @@ public class Arrow : MonoBehaviour
     public string m_mushroomSpawnable;
     public Mushroom m_mushroomPrefab;
 
-    private void Start()
+    private void Awake()
     {
         //m_mushroomSpawnable = m_mushroomPrefab.GetTag();
+
     }
 
     private void Update()
@@ -58,7 +59,7 @@ public class Arrow : MonoBehaviour
         if (other.CompareTag(m_mushroomSpawnable))
         {
             //Spawn del bolet
-            print("Bolet");
+            //print("Bolet");
             //print(m_mushroomPrefab);
             m_mushroomPrefab.SpawnMushroom(gameObject);
             //Instantiate(m_mushroom, gameObject.transform.position, Quaternion.identity);

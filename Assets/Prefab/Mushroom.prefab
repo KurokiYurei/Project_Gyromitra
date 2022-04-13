@@ -384,7 +384,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mushroomPrefab: {fileID: 5287026607983033059}
+  m_mushroomPrefabTest: {fileID: 3339725421873900907}
   m_timeToDestroy: 5
+  m_maxMushrooms: 5
 --- !u!1 &4380325016653027813
 GameObject:
   m_ObjectHideFlags: 0
