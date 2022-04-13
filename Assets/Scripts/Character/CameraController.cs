@@ -64,7 +64,6 @@ public class CameraController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, m_ShoulderCameraPosition.position, Time.deltaTime * m_Speed);
             transform.forward = m_ShoulderCameraPosition.transform.forward;
         }
-
         else
         {
             Vector2 input = moveCamera.ReadValue<Vector2>() * m_CameraSensivity;
