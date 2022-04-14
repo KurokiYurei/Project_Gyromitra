@@ -330,8 +330,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../Disseny i Produccio de Videojocs/3r Curs/3r Trimestre/Projecte/Test/Test.fspro
-  sourceBankPath: ..\..\Disseny i Produccio de Videojocs\3r Curs\3r Trimestre\Projecte\Test\Build
+  sourceProjectPath: Assets/FMOD/Dummy_Test/Dummy_Test.fspro
+  sourceBankPath: Assets\FMOD\Dummy_Test\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

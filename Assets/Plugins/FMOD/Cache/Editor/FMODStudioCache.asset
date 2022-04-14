@@ -20,7 +20,7 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 700
-  Exists: 1
+  Exists: 0
 --- !u!114 &-6542898135954921348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,6 +39,25 @@ MonoBehaviour:
   lastModified: 637855357730156080
   LoadResult: 0
   FileSizes: []
+  Exists: 0
+--- !u!114 &-966511913075341598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Dummy_Test/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637855375970563460
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -53,13 +72,34 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -7345981798613196223}
-  - {fileID: -6542898135954921348}
+  - {fileID: 7467604641214136153}
+  - {fileID: -966511913075341598}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
-  - {fileID: -6542898135954921348}
+  - {fileID: -966511913075341598}
   StringsBanks:
-  - {fileID: -7345981798613196223}
-  stringsBankWriteTime: 637855357730240877
+  - {fileID: 7467604641214136153}
+  stringsBankWriteTime: 637855375970630250
   cacheVersion: 6
+--- !u!114 &7467604641214136153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Dummy_Test/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637855375970630250
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 700
+  Exists: 1
