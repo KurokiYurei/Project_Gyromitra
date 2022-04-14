@@ -130,8 +130,8 @@ $RECYCLE.BIN/
 /[Aa]ssets/Plugins/FMOD/Cache/Editor.meta
 
 # Log-files
-fmod.log
-fmod_editor.log
+/fmod.log
+/fmod_editor.log
 
 # FMOD 1.10.x (Legacy)
 /Assets/FMODAssets/*
