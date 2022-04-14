@@ -116,6 +116,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Log-files
+fmod.log
+fmod_editor.log
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,unity,git
 
 
