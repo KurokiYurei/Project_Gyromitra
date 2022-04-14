@@ -58,6 +58,7 @@ public class Mushroom : MonoBehaviour
     {
         //print("Destroy mushroom");
         Destroy(this.gameObject, m_timeToDestroy);
+
         //gameObject.SetActive(false);
         //m_currentTime = 0.0f;
     }
