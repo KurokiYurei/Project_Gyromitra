@@ -70,8 +70,4 @@ public class Mushroom : MonoBehaviour
     {
         return m_mushroomTag;
     }
-
-
-
-
 }

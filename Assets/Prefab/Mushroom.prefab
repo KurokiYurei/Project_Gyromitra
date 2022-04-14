@@ -254,7 +254,6 @@ GameObject:
   - component: {fileID: 2716550689730870199}
   - component: {fileID: 2340975969403073781}
   - component: {fileID: 536732610260719021}
-  - component: {fileID: 6577113729787466966}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -325,19 +324,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6577113729787466966
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2554419003734544495}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3339725421873900907
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3548441118721107516}
   - component: {fileID: 5287026607983033059}
+  - component: {fileID: 5748486234059571125}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Mushroom
@@ -384,9 +371,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mushroomPrefab: {fileID: 5287026607983033059}
-  m_mushroomPrefabTest: {fileID: 3339725421873900907}
   m_timeToDestroy: 5
   m_maxMushrooms: 5
+--- !u!135 &5748486234059571125
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339725421873900907}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3626855
+  m_Center: {x: 0.0073984265, y: 0.49186915, z: 0}
 --- !u!1 &4380325016653027813
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +397,6 @@ GameObject:
   - component: {fileID: 1111801548126274085}
   - component: {fileID: 8952728879957907048}
   - component: {fileID: 8396042756867260984}
-  - component: {fileID: 3853607531942573491}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -474,19 +472,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3853607531942573491
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4380325016653027813}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4992681474605921646
 GameObject:
   m_ObjectHideFlags: 0
