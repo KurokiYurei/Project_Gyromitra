@@ -52,6 +52,32 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
+        //Movement function
+        Movement();
+
+        // aim
+
+        m_AimAction.performed += Aim;
+        m_AimAction.canceled += Aim;
+    }
+
+    void Aim(CallbackContext ctx)
+    {
+        if (m_CameraController.GetIsAiming())
+        {
+            m_CameraController.SetIsAiming(false);
+        }
+        else
+        {
+            m_CameraController.SetIsAiming(true);
+        }
+
+
+
+    }
+
+    private void Movement()
+    {
         Vector3 l_Forward = m_Camera.transform.forward;
         Vector3 l_Right = m_Camera.transform.right;
         l_Forward.y = 0.0f;
@@ -109,24 +135,5 @@ public class CharacterControllerScript : MonoBehaviour
         {
             m_VerticalSpeed = 0.0f;
         }
-
-        // aim
-
-        m_AimAction.performed += Aim;
-        m_AimAction.canceled += Aim;
-    }
-
-    void Aim(CallbackContext ctx)
-    {
-        if (m_CameraController.GetIsAiming())
-        {
-            m_CameraController.SetIsAiming(false);
-        } else
-        {
-            m_CameraController.SetIsAiming(true);
-        }
-
-
-
     }
 }
