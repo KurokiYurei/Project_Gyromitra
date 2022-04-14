@@ -22,7 +22,6 @@ public class Arrow : MonoBehaviour
     private void Awake()
     {
         //m_mushroomSpawnable = m_mushroomPrefab.GetTag();
-
     }
 
     private void Update()
@@ -63,7 +62,6 @@ public class Arrow : MonoBehaviour
             //print(m_mushroomPrefab);
             m_mushroomPrefab.SpawnMushroom(gameObject);
             //Instantiate(m_mushroom, gameObject.transform.position, Quaternion.identity);
-
         }
 
         // si es vol que es quedi la fletxa encrustrada en l'objecte
@@ -72,5 +70,4 @@ public class Arrow : MonoBehaviour
         //m_rigidBody.isKinematic = true;
         //transform.SetParent(other.transform);    
     }
-
 }

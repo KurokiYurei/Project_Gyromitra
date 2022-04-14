@@ -47,16 +47,14 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
-
-        // canviar la posicio del arc depenent de la posicio del ratoli
+        // canviar la posicio del arc depenent de la posicio del ratoli // EN TEORIA JA FET EN EL CHARACTER CONTROLLER
         /*
         m_mouseY -= Input.GetAxis("Mouse Y") * m_rotateSpeed;
         m_mouseY = Mathf.Clamp(m_mouseY, m_minRotation, m_maxRotation);
         m_weapon.transform.localRotation = Quaternion.Euler(m_mouseY, m_weapon.transform.localEulerAngles.y, m_weapon.transform.localEulerAngles.z);
         */
-
-        // canviar a input system nou
-        if (Input.GetMouseButtonDown(0))
+       
+        if (m_shootArrow.triggered)
         {
             m_fire = true;
         }
@@ -66,12 +64,11 @@ public class WeaponController : MonoBehaviour
             m_firePower += Time.deltaTime * m_firePowerSpeed;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (m_shootArrow.WasReleasedThisFrame())
         {
             m_weapon.FireArrow(m_firePower);
             m_firePower = 0f;
             m_fire = false;
         }
-
     }
 }

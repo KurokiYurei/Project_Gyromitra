@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -569,7 +569,7 @@ BoxCollider:
   m_GameObject: {fileID: 640111378}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1447,7 +1447,7 @@ BoxCollider:
   m_GameObject: {fileID: 1434048898}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1630,9 +1630,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2140920234}
   m_WalkSpeed: 10
-  m_VerticalSpeed: 0
+  m_JumpSpeed: 5
   smoothInputSpeed: 0.01
   m_LerpRotationPct: 0.025
+  m_ShoulderCameraPosition: {fileID: 1385126867}
+  m_Bow: {fileID: 420271469}
 --- !u!54 &1481718371
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1732,7 +1734,7 @@ MonoBehaviour:
   m_weapon: {fileID: 420271470}
   m_enemyTag: Enemy
   m_maxFirePower: 50
-  m_firePowerSpeed: 15
+  m_firePowerSpeed: 30
   m_rotateSpeed: 5
 --- !u!1 &1609580055
 GameObject:
@@ -1950,7 +1952,7 @@ BoxCollider:
   m_GameObject: {fileID: 1636425142}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2192,12 +2194,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LookAt: {fileID: 58865708}
+  m_currentRotation: {x: 0, y: 0, z: 0}
+  m_AimPitch: 0
+  m_AimYaw: 0
   m_MinDistance: 3
   m_MaxDistance: 6
   m_YawRotationalSpeed: 180
   m_PitchRotationalSped: 90
   m_MinPitchDistance: -60
   m_MaxPitchDistance: 40
+  m_MinAimPitchDistance: -30
+  m_MaxAimPitchDistance: 30
   m_CollisionLayerMask:
     serializedVersion: 2
     m_Bits: 55

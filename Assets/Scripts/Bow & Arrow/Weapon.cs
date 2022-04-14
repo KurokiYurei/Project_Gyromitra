@@ -50,7 +50,6 @@ public class Weapon : MonoBehaviour
 
         m_currentArrow.SetEnemyTag(m_enemyTag);
         m_isReloading = false;
-
     }
 
     public void FireArrow(float firepower)
@@ -66,5 +65,4 @@ public class Weapon : MonoBehaviour
     {
         return (!m_isReloading || m_currentArrow != null);
     }
-
 }

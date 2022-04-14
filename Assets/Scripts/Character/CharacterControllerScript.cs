@@ -11,8 +11,9 @@ public class CharacterControllerScript : MonoBehaviour
 
     [Header("Stats")]
     public float m_WalkSpeed = 1.5f;
-    private bool m_OnGround;
-    public float m_VerticalSpeed = 0.0f;
+    bool m_OnGround;
+    public float m_JumpSpeed = 5f;
+    float m_VerticalSpeed = 0.0f;
 
     public float smoothInputSpeed = 0.1f;
 
@@ -22,6 +23,7 @@ public class CharacterControllerScript : MonoBehaviour
     [Header("Inputs")]
     private PlayerInput m_playerInput;
     private InputAction m_moveAction;
+    private InputAction m_jumpAction;
 
     private Vector2 currenInputVector;
     private Vector2 smoothInputVelocity;
@@ -31,6 +33,8 @@ public class CharacterControllerScript : MonoBehaviour
 
     [Header("Camera")]
     private InputAction m_AimAction;
+    public Transform m_ShoulderCameraPosition;
+    public Transform m_Bow;
 
     Vector3 m_StartPosition;
     Quaternion m_StartRotation;
@@ -42,6 +46,7 @@ public class CharacterControllerScript : MonoBehaviour
         m_CameraController = m_Camera.GetComponent<CameraController>();
         m_playerInput = GetComponent<PlayerInput>();
         m_moveAction = m_playerInput.actions["Movement"];
+        m_jumpAction = m_playerInput.actions["Jump"];
         m_AimAction = m_playerInput.actions["Aim"];
     }
     void Start()
@@ -55,7 +60,13 @@ public class CharacterControllerScript : MonoBehaviour
         //Movement function
         Movement();
 
+        m_ShoulderCameraPosition.forward = m_Camera.transform.forward;
+
         // aim
+        if (m_CameraController.GetIsAiming())
+        {
+            RotWithCam();
+        }
 
         m_AimAction.performed += Aim;
         m_AimAction.canceled += Aim;
@@ -66,14 +77,34 @@ public class CharacterControllerScript : MonoBehaviour
         if (m_CameraController.GetIsAiming())
         {
             m_CameraController.SetIsAiming(false);
+
+            Vector3 l_Forward = transform.forward;
+            l_Forward.y = 0.0f;
+            m_Camera.transform.forward = l_Forward;
+            m_Bow.eulerAngles = transform.eulerAngles;
         }
         else
-        {
+        {        
+            m_CameraController.m_AimYaw = m_ShoulderCameraPosition.eulerAngles.y;
+            if (m_ShoulderCameraPosition.eulerAngles.x < 360 + m_CameraController.m_MinAimPitchDistance && m_ShoulderCameraPosition.eulerAngles.x > 180)
+                m_CameraController.m_AimPitch = m_CameraController.m_MinAimPitchDistance;
+            else if (m_ShoulderCameraPosition.eulerAngles.x >= 360 + m_CameraController.m_MinAimPitchDistance)
+                m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x - 360;
+            else
+                m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x;
+
             m_CameraController.SetIsAiming(true);
         }
+    }
 
+    private void RotWithCam()
+    {
+        Vector3 l_Forward = m_Camera.transform.forward;
+        l_Forward.y = 0.0f;
+        transform.forward = l_Forward;
 
-
+        Vector3 l_bowRot = m_ShoulderCameraPosition.eulerAngles;
+        m_Bow.eulerAngles = l_bowRot;
     }
 
     private void Movement()
@@ -102,16 +133,17 @@ public class CharacterControllerScript : MonoBehaviour
 
         l_Movement.Normalize();
 
-        if (input != Vector2.zero)
+        if (input != Vector2.zero && !m_CameraController.GetIsAiming())
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(l_Movement), m_LerpRotationPct);
 
         l_Movement *= l_Speed * Time.deltaTime;
 
         //Jump needs refactoring
-        //if (Input.GetKeyDown(KeyCode.Space) && m_VerticalSpeed == 0.0f)
-        //{
-        //    m_VerticalSpeed = m_JumpSpeed;
-        //}
+        if (m_jumpAction.triggered && (m_OnGround || m_Timer < 0.3f))
+        {
+            m_VerticalSpeed = m_JumpSpeed;
+            m_OnGround = false;
+        }
 
         //Gravity needs refactoring
         m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
@@ -119,16 +151,16 @@ public class CharacterControllerScript : MonoBehaviour
 
         CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
 
-        if ((l_CollisionFlags & CollisionFlags.Below) != 0 && m_VerticalSpeed < 0.0f)
+        if ((l_CollisionFlags & CollisionFlags.Below) != 0)
         {
-            //m_OnGround = true;
+            m_OnGround = true;
             m_VerticalSpeed = 0.0f;
-            //m_Timer = 0f;
+            m_Timer = 0f;
         }
         else
         {
-            //m_OnGround = false;
-            //m_Timer += Time.deltaTime;
+            m_OnGround = false;
+            m_Timer += Time.deltaTime;
         }
 
         if ((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0.0f)
