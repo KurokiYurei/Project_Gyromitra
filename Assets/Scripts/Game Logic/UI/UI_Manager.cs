@@ -17,7 +17,6 @@ public class UI_Manager : MonoBehaviour
 
     private float m_rayLength = 100f;
 
-    [SerializeField]
     private void Update()
     {
 
@@ -46,5 +45,10 @@ public class UI_Manager : MonoBehaviour
             l_imageList[i].color = color;
         }
 
+    }
+
+    public void ShowHud(bool show)
+    {
+        m_Crosshair.SetActive(show);
     }
 }

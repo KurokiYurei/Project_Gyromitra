@@ -36,6 +36,8 @@ public class CameraController : MonoBehaviour
     private bool m_isAiming;
     [SerializeField]
     private float m_Speed;
+    [SerializeField]
+    private GameObject m_UI;
 
     public void SetIsAiming(bool l_isAiming)
     {
@@ -63,9 +65,11 @@ public class CameraController : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, m_ShoulderCameraPosition.position, Time.deltaTime * m_Speed);
             transform.forward = m_ShoulderCameraPosition.transform.forward;
+            m_UI.GetComponent<UI_Manager>().ShowHud(true);
         }
         else
         {
+            m_UI.GetComponent<UI_Manager>().ShowHud(false);
             Vector2 input = moveCamera.ReadValue<Vector2>() * m_CameraSensivity;
 
             Vector3 l_Direction = m_LookAt.position - transform.position;
