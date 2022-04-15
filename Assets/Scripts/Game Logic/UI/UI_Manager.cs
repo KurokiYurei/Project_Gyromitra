@@ -11,6 +11,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private Transform m_arrowSpawnPoint;
 
+    [SerializeField]
+    private LineRenderer m_CircleRenderer;
+
     private static Vector3 m_centerOfScreen = new Vector3(0.5f, 0.5f, 0f);
 
     private RaycastHit m_rayCastHit;
@@ -48,5 +51,43 @@ public class UI_Manager : MonoBehaviour
     public void ShowHud(bool show)
     {
         m_Crosshair.SetActive(show);
+        if (show)
+        {
+            m_CircleRenderer.enabled = true;
+        } else
+        {
+            m_CircleRenderer.enabled = false;
+        }
+
+
     }
+
+   public void DrawCircle(int steps, float radius)
+   {
+
+        m_CircleRenderer.positionCount = steps;
+
+        for(int currentStep = 0; currentStep < steps; currentStep++)
+        {
+            float l_circumferenceProgress = (float)currentStep / steps;
+
+            float l_currentRadient = l_circumferenceProgress * 2 * Mathf.PI;
+
+            float l_XScale = Mathf.Cos(l_currentRadient);
+            float l_YScale = Mathf.Sin(l_currentRadient);
+
+            float x = l_XScale * radius;
+            float y = l_YScale * radius;
+
+            Vector3 l_currentPos = new Vector3(x, y, 0);
+
+            m_CircleRenderer.SetPosition(currentStep, l_currentPos);
+            m_CircleRenderer.startWidth = 1f;
+
+            // canviar la alpha del material per q
+            // m_CircleRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
+
+        }
+
+   }
 }
