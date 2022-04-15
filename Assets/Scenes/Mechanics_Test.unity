@@ -657,6 +657,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &404980227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404980228}
+  m_Layer: 6
+  m_Name: Camera Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &404980228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404980227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 1, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1481718373}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420271468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,6 +2014,7 @@ Transform:
   - {fileID: 420271469}
   - {fileID: 1385126867}
   - {fileID: 2076324836}
+  - {fileID: 404980228}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -2616,8 +2647,8 @@ MonoBehaviour:
   m_MaxDistance: 6
   m_YawRotationalSpeed: 180
   m_PitchRotationalSped: 90
-  m_MinPitchDistance: -60
-  m_MaxPitchDistance: 40
+  m_MinPitchDistance: -15
+  m_MaxPitchDistance: 20
   m_MinAimPitchDistance: -30
   m_MaxAimPitchDistance: 30
   m_CollisionLayerMask:
@@ -2625,9 +2656,11 @@ MonoBehaviour:
     m_Bits: 55
   m_CameraSensivity: 0.6
   m_ShoulderCameraPosition: {fileID: 1385126867}
+  m_NormalCameraPosition: {fileID: 404980228}
   m_isAiming: 0
   m_Speed: 0
   m_UI: {fileID: 2076324835}
+  m_cameraOffset: {x: 10, y: 0, z: 10}
 --- !u!114 &2140920237
 MonoBehaviour:
   m_ObjectHideFlags: 0

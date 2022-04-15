@@ -112,20 +112,23 @@ public class CharacterControllerScript : MonoBehaviour
         Vector2 input = m_moveAction.ReadValue<Vector2>();
 
         Vector3 l_Forward = m_Camera.transform.forward;
+        //Vector3 l_Forward = gameObject.transform.forward;
         Vector3 l_Right = m_Camera.transform.right;
+        //Vector3 l_Right = transform.right;
         l_Forward.y = 0.0f;
         l_Right.y = 0.0f;
+        //l_Right.z = l_Forward.z;
 
         l_Forward.Normalize();
         l_Right.Normalize();
 
         Vector3 l_Movement = Vector3.zero;
 
-
         //currenInputVector = Vector2.SmoothDamp(currenInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
 
         //l_Movement = new Vector3(currenInputVector.x, 0, currenInputVector.y);
-        l_Movement = l_Right * input.x;
+        l_Movement.x = l_Right.x * input.x;
+        //l_Movement = l_Forward * input.x;
         l_Movement += l_Forward * input.y;
 
         //l_Movement = l_Right * currenInputVector.x;
@@ -135,8 +138,12 @@ public class CharacterControllerScript : MonoBehaviour
 
         l_Movement.Normalize();
 
-        if (input != Vector2.zero && !m_CameraController.GetIsAiming())
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(l_Movement), m_LerpRotationPct);
+        //if (input != Vector2.zero && !m_CameraController.GetIsAiming())
+        //{
+        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(l_Movement), m_LerpRotationPct);
+        RotWithCam();
+        //}
+
 
         l_Movement *= l_Speed * Time.deltaTime;
 
