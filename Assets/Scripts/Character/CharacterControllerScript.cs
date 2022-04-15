@@ -68,22 +68,7 @@ public class CharacterControllerScript : MonoBehaviour
             RotWithCam();
         }
 
-        m_AimAction.performed += Aim;
-        m_AimAction.canceled += Aim;
-    }
-
-    void Aim(CallbackContext ctx)
-    {
-        if (m_CameraController.GetIsAiming())
-        {
-            m_CameraController.SetIsAiming(false);
-
-            Vector3 l_Forward = transform.forward;
-            l_Forward.y = 0.0f;
-            m_Camera.transform.forward = l_Forward;
-            m_Bow.eulerAngles = transform.eulerAngles;
-        }
-        else
+        if (m_AimAction.triggered)
         {
             m_CameraController.m_AimYaw = m_ShoulderCameraPosition.eulerAngles.y;
             if (m_ShoulderCameraPosition.eulerAngles.x < 360 + m_CameraController.m_MinAimPitchDistance && m_ShoulderCameraPosition.eulerAngles.x > 180)
@@ -95,7 +80,44 @@ public class CharacterControllerScript : MonoBehaviour
 
             m_CameraController.SetIsAiming(true);
         }
+        if (m_AimAction.WasReleasedThisFrame())
+        {
+            m_CameraController.SetIsAiming(false);
+
+            Vector3 l_Forward = transform.forward;
+            l_Forward.y = 0.0f;
+            m_Camera.transform.forward = l_Forward;
+            m_Bow.eulerAngles = transform.eulerAngles;
+        }
+
+        //m_AimAction.performed += Aim;
+        //m_AimAction.canceled += Aim;
     }
+
+    //void Aim(CallbackContext ctx)
+    //{
+    //    if (m_CameraController.GetIsAiming())
+    //    {
+    //        m_CameraController.SetIsAiming(false);
+
+    //        Vector3 l_Forward = transform.forward;
+    //        l_Forward.y = 0.0f;
+    //        m_Camera.transform.forward = l_Forward;
+    //        m_Bow.eulerAngles = transform.eulerAngles;
+    //    }
+    //    else
+    //    {
+    //        m_CameraController.m_AimYaw = m_ShoulderCameraPosition.eulerAngles.y;
+    //        if (m_ShoulderCameraPosition.eulerAngles.x < 360 + m_CameraController.m_MinAimPitchDistance && m_ShoulderCameraPosition.eulerAngles.x > 180)
+    //            m_CameraController.m_AimPitch = m_CameraController.m_MinAimPitchDistance;
+    //        else if (m_ShoulderCameraPosition.eulerAngles.x >= 360 + m_CameraController.m_MinAimPitchDistance)
+    //            m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x - 360;
+    //        else
+    //            m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x;
+
+    //        m_CameraController.SetIsAiming(true);
+    //    }
+    //}
 
     private void RotWithCam()
     {
