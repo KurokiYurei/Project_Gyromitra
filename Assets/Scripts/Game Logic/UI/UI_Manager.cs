@@ -50,7 +50,7 @@ public class UI_Manager : MonoBehaviour
 
     public void ShowHud(bool show)
     {
-        m_Crosshair.SetActive(show);
+        // m_Crosshair.SetActive(show);
         if (show)
         {
             m_CircleRenderer.enabled = true;
