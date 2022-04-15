@@ -122,14 +122,4 @@ public class UI_Manager : MonoBehaviour
 
    }
 
-    public float CalculateAlphaCircle(float maxRadius, float minRadius, float currentRadius)
-    {
-
-        float result = (maxRadius - currentRadius) / (maxRadius - minRadius);
-
-        print(result);
-
-        return result;
-
-    }
 }

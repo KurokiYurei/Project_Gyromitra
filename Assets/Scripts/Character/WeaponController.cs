@@ -114,6 +114,8 @@ public class WeaponController : MonoBehaviour
 
         checkRadiusCircle();
 
+        m_UI.SetAlphaCirlce(UtilsGyromitra.InversedNormalizedFloatFromARange(m_maxRadius, m_minRadius, m_currentRadius));
+
         m_UI.DrawCircle(m_Steps, m_currentRadius);
     }
 
