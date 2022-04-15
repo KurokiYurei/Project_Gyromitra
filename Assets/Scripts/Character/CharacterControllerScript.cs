@@ -84,7 +84,7 @@ public class CharacterControllerScript : MonoBehaviour
             m_Bow.eulerAngles = transform.eulerAngles;
         }
         else
-        {        
+        {
             m_CameraController.m_AimYaw = m_ShoulderCameraPosition.eulerAngles.y;
             if (m_ShoulderCameraPosition.eulerAngles.x < 360 + m_CameraController.m_MinAimPitchDistance && m_ShoulderCameraPosition.eulerAngles.x > 180)
                 m_CameraController.m_AimPitch = m_CameraController.m_MinAimPitchDistance;
@@ -109,6 +109,8 @@ public class CharacterControllerScript : MonoBehaviour
 
     private void Movement()
     {
+        Vector2 input = m_moveAction.ReadValue<Vector2>();
+
         Vector3 l_Forward = m_Camera.transform.forward;
         Vector3 l_Right = m_Camera.transform.right;
         l_Forward.y = 0.0f;
@@ -118,7 +120,7 @@ public class CharacterControllerScript : MonoBehaviour
         l_Right.Normalize();
 
         Vector3 l_Movement = Vector3.zero;
-        Vector2 input = m_moveAction.ReadValue<Vector2>();
+
 
         //currenInputVector = Vector2.SmoothDamp(currenInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
 
