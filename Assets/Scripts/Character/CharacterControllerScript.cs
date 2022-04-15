@@ -127,7 +127,7 @@ public class CharacterControllerScript : MonoBehaviour
         //currenInputVector = Vector2.SmoothDamp(currenInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
 
         //l_Movement = new Vector3(currenInputVector.x, 0, currenInputVector.y);
-        l_Movement.x = l_Right.x * input.x;
+        l_Movement = l_Right * input.x;
         //l_Movement = l_Forward * input.x;
         l_Movement += l_Forward * input.y;
 
