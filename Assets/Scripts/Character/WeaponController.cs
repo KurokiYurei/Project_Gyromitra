@@ -65,13 +65,13 @@ public class WeaponController : MonoBehaviour
         m_weapon.Reload();
         m_fire = false;
 
-        m_minRadius = 100f;
-        m_currentRadius = 200f;
-        m_maxRadius = 200f;
-        m_Steps = 2000;
+        m_minRadius = 50f;
+        m_currentRadius = 100f;
+        m_maxRadius = 100f;
+        m_Steps = 1000;
         m_SpeedCircle = 5f;
-        m_maxSpeedCircle = 200f;
-        m_minSpeedCircle = 100f;
+        m_maxSpeedCircle = 100f;
+        m_minSpeedCircle = 50f;
 
     }
 
