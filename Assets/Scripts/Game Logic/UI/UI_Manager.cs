@@ -20,6 +20,17 @@ public class UI_Manager : MonoBehaviour
 
     private float m_rayLength = 100f;
 
+    private float m_alphaCircle;
+
+    public Color m_color;
+
+    public Gradient m_gradient;
+
+    public void SetAlphaCirlce(float alpha)
+    {
+        m_alphaCircle = alpha;
+    }
+
     private void Update()
     {
         Debug.DrawRay(m_arrowSpawnPoint.transform.position, m_arrowSpawnPoint.transform.forward * m_rayLength, Color.red);
@@ -29,12 +40,10 @@ public class UI_Manager : MonoBehaviour
         {
 
             ChangeColorCrosshair(Color.red);
-            print("red");
 
         } else
         {
             ChangeColorCrosshair(Color.white);
-            print("white");
         }
     }
 
@@ -81,6 +90,28 @@ public class UI_Manager : MonoBehaviour
 
             Vector3 l_currentPos = new Vector3(x, y, 0);
 
+            m_color = new Color(1f, 1f, 1f, m_alphaCircle);
+
+            m_gradient = new Gradient();
+
+            GradientColorKey[] gck = new GradientColorKey[2];
+            GradientAlphaKey[] gak = new GradientAlphaKey[2];
+
+            gck[0].color = m_color;
+            gck[0].time = 0.0f;
+            gck[1].color = m_color;
+            gck[1].time = 1.0f;
+            gak[0].alpha = m_alphaCircle;
+            gak[0].time = 0.0f;
+            gak[1].alpha = m_alphaCircle;
+            gak[1].time = 1.0f;
+
+            m_gradient.SetKeys(gck, gak);
+
+            // canviar la alpha del material
+
+            m_CircleRenderer.colorGradient = m_gradient;
+
             m_CircleRenderer.SetPosition(currentStep, l_currentPos);
             m_CircleRenderer.startWidth = 1f;
 
@@ -90,4 +121,15 @@ public class UI_Manager : MonoBehaviour
         }
 
    }
+
+    public float CalculateAlphaCircle(float maxRadius, float minRadius, float currentRadius)
+    {
+
+        float result = (maxRadius - currentRadius) / (maxRadius - minRadius);
+
+        print(result);
+
+        return result;
+
+    }
 }

@@ -65,9 +65,9 @@ public class WeaponController : MonoBehaviour
         m_weapon.Reload();
         m_fire = false;
 
-        m_minRadius = 50f;
-        m_currentRadius = 100f;
-        m_maxRadius = 100f;
+        m_minRadius = 3f;
+        m_currentRadius = 50f;
+        m_maxRadius = 50f;
         m_Steps = 1000;
         m_SpeedCircle = 5f;
         m_maxSpeedCircle = 100f;
@@ -119,9 +119,9 @@ public class WeaponController : MonoBehaviour
 
     private void checkRadiusCircle()
     {
-        if (m_currentRadius < m_minRadius) m_currentRadius = m_minRadius;
-        if (m_currentRadius > m_maxRadius) m_currentRadius = m_maxRadius;
-        if (m_SpeedCircle < m_minSpeedCircle) m_SpeedCircle = m_minSpeedCircle;
-        if (m_SpeedCircle > m_maxSpeedCircle) m_SpeedCircle = m_maxSpeedCircle;
+        if (m_currentRadius <= m_minRadius) m_currentRadius = m_minRadius;
+        if (m_currentRadius >= m_maxRadius) m_currentRadius = m_maxRadius;
+        if (m_SpeedCircle <= m_minSpeedCircle) m_SpeedCircle = m_minSpeedCircle;
+        if (m_SpeedCircle >= m_maxSpeedCircle) m_SpeedCircle = m_maxSpeedCircle;
     }
 }

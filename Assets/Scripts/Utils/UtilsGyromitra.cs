@@ -27,4 +27,28 @@ public static class UtilsGyromitra
 
         return result;
     }
+
+    /// <summary>
+    /// Return the normalized value of the position of a float between two others
+    /// </summary>
+    /// <param name="max">Max value from range</param>
+    /// <param name="min">Min value from range</param>
+    /// <param name="current">Current value between the 2</param>
+    /// <returns>Float normalized of the position</returns>
+    public static float NormalizedFloatFromARange(float max, float min, float current)
+    {
+        return (current - min) / (max - min);
+    }
+
+    /// <summary>
+    /// Return the inverse normalized value of the position of a float between two others
+    /// </summary>
+    /// <param name="max">Max value from range</param>
+    /// <param name="min">Min value from range</param>
+    /// <param name="current">Current value between the 2</param>
+    /// <returns>Float inverserd normalized of the position</returns>
+    public static float InversedNormalizedFloatFromARange(float max, float min, float current)
+    {
+        return (max - current) / (max - min);
+    }
 }
