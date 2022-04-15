@@ -90,11 +90,13 @@ public class CameraController : MonoBehaviour
 
         transform.position = m_NormalCameraPosition.position;
 
-        Vector2 input = moveCamera.ReadValue<Vector2>() * m_CameraSensivity;
+        Vector2 input = moveCamera.ReadValue<Vector2>(); //* m_CameraSensivity;
 
         float l_MouseDeltaX = input.x;
         float l_MouseDeltaY = input.y;
 
+
+        //float l_Yaw += l_MouseDeltaX;
         m_AimYaw += l_MouseDeltaX;
         m_Pitch -= l_MouseDeltaY;
         m_Pitch = Mathf.Clamp(m_Pitch, m_MinPitchDistance, m_MaxPitchDistance);
@@ -138,7 +140,7 @@ public class CameraController : MonoBehaviour
         //transform.position = Vector3.Lerp(transform.position, m_ShoulderCameraPosition.position, Time.deltaTime * m_Speed);
         transform.position = m_ShoulderCameraPosition.position;
 
-        Vector2 input = moveCamera.ReadValue<Vector2>() * m_CameraSensivity;
+        Vector2 input = moveCamera.ReadValue<Vector2>();// * m_CameraSensivity;
 
         float l_MouseDeltaX = input.x;
         float l_MouseDeltaY = input.y;
