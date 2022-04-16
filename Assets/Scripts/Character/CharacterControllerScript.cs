@@ -60,6 +60,7 @@ public class CharacterControllerScript : MonoBehaviour
         //Movement function
         Movement();
 
+
         m_ShoulderCameraPosition.forward = m_Camera.transform.forward;
 
         // aim
@@ -169,12 +170,7 @@ public class CharacterControllerScript : MonoBehaviour
 
         l_Movement *= l_Speed * Time.deltaTime;
 
-        //Jump needs refactoring
-        if (m_jumpAction.triggered && (m_OnGround || m_Timer < 0.3f))
-        {
-            m_VerticalSpeed = m_JumpSpeed;
-            m_OnGround = false;
-        }
+        Jump();
 
         //Gravity needs refactoring
         m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
@@ -197,6 +193,16 @@ public class CharacterControllerScript : MonoBehaviour
         if ((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0.0f)
         {
             m_VerticalSpeed = 0.0f;
+        }
+    }
+
+    private void Jump()
+    {
+        //Jump needs refactoring
+        if (m_jumpAction.triggered && (m_OnGround || m_Timer < 0.3f))
+        {
+            m_VerticalSpeed = m_JumpSpeed;
+            m_OnGround = false;
         }
     }
 

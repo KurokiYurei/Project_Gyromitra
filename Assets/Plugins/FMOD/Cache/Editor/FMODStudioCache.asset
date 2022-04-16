@@ -55,7 +55,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Dummy_Test/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637855377532329742
+  lastModified: 637856220668209764
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -80,7 +80,7 @@ MonoBehaviour:
   - {fileID: -966511913075341598}
   StringsBanks:
   - {fileID: 7467604641214136153}
-  stringsBankWriteTime: 637855377532339706
+  stringsBankWriteTime: 637856220668209764
   cacheVersion: 6
 --- !u!114 &7467604641214136153
 MonoBehaviour:
@@ -97,7 +97,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Dummy_Test/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637855377532339706
+  lastModified: 637856220668209764
   LoadResult: 0
   FileSizes:
   - Name: Desktop
