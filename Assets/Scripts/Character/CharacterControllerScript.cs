@@ -206,11 +206,13 @@ public class CharacterControllerScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void SetVerticalSpeed(float newSpeed)
     {
-        if (other.CompareTag("Mushroom"))
-        {
-            m_VerticalSpeed = 10.0f;
-        }
+        m_VerticalSpeed = newSpeed;
+    }
+
+    public float GetVerticalSpeed()
+    {
+        return m_VerticalSpeed;
     }
 }

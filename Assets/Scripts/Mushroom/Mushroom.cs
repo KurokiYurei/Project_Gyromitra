@@ -71,4 +71,12 @@ public class Mushroom : MonoBehaviour
     {
         return m_mushroomTag;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<CharacterControllerScript>().SetVerticalSpeed(10.0f);
+        }
+    }
 }
