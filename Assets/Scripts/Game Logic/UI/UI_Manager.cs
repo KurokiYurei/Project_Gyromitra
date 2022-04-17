@@ -14,6 +14,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private LineRenderer m_CircleRenderer;
 
+    [SerializeField]
+    private Slider m_HealthBar;
+
     private static Vector3 m_centerOfScreen = new Vector3(0.5f, 0.5f, 0f);
 
     private RaycastHit m_rayCastHit;
@@ -53,7 +56,10 @@ public class UI_Manager : MonoBehaviour
 
         for (int i = 0; i < l_imageList.Length; i++)
         {
-            l_imageList[i].color = color;
+            if(l_imageList[i].name == "Crosshair")
+            {
+                l_imageList[i].color = color;
+            }
         }
     }
 
@@ -121,5 +127,10 @@ public class UI_Manager : MonoBehaviour
         }
 
    }
+
+    public void SetHealth(float health)
+    {
+        m_HealthBar.value = health;
+    }
 
 }

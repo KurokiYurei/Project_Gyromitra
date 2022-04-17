@@ -52,7 +52,6 @@ public class Arrow : MonoBehaviour
         if (other.CompareTag(m_enemyTag))
         {
             // fer mal al enemic
-            print("Hit Enemy");
         }
 
         if (other.CompareTag(m_mushroomSpawnable))
