@@ -12,7 +12,7 @@ public class CharacterControllerScript : MonoBehaviour
     [Header("Stats")]
     public float m_WalkSpeed = 1.5f;
     bool m_OnGround;
-    public float m_JumpSpeed = 5f;
+    public float m_JumpSpeed = 7.7f;
     float m_VerticalSpeed = 0.0f;
 
     public float smoothInputSpeed = 0.1f;
