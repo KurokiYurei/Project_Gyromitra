@@ -2592,7 +2592,9 @@ MonoBehaviour:
   m_weapon: {fileID: 420271470}
   m_enemyTag: Enemy
   m_maxFirePower: 50
+  m_minFirePower: 30
   m_firePowerSpeed: 30
+  m_fireMultiplyer: 0
   m_rotateSpeed: 5
   m_UI: {fileID: 2076324840}
   m_minRadius: 0
@@ -2600,6 +2602,16 @@ MonoBehaviour:
   m_maxRadius: 0
   m_Steps: 0
   m_SpeedCircle: 0
+  playerInput: {fileID: 0}
+  m_shootArrow:
+    m_Name: Shoot Arrow
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a2ac862a-6ce3-4caf-9b9e-ac7c77982a2d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &1609580055
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,6 +50,10 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// change the color of the crosshair if an enemy is in sight
+    /// </summary>
+    /// <param name="color"></param>
     public void ChangeColorCrosshair(Color color)
     {
         Image[] l_imageList = this.GetComponentsInChildren<Image>();
@@ -63,6 +67,10 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// shows the hud when shooting the arrow
+    /// </summary>
+    /// <param name="show"></param>
     public void ShowHud(bool show)
     {
         // m_Crosshair.SetActive(show);
@@ -77,8 +85,13 @@ public class UI_Manager : MonoBehaviour
 
     }
 
-   public void DrawCircle(int steps, float radius)
-   {
+    /// <summary>
+    /// Draws the reticle cirle using line renderer
+    /// </summary>
+    /// <param name="steps"></param>
+    /// <param name="radius"></param>
+    public void DrawCircle(int steps, float radius)
+    {
 
         m_CircleRenderer.positionCount = steps;
 
@@ -121,12 +134,9 @@ public class UI_Manager : MonoBehaviour
             m_CircleRenderer.SetPosition(currentStep, l_currentPos);
             m_CircleRenderer.startWidth = 1f;
 
-            // canviar la alpha del material per q
-            // m_CircleRenderer.material.SetColor("_Color", new Color(1f, 1f, 1f, 0.3f));
-
         }
 
-   }
+    }
 
     public void SetHealth(float health)
     {

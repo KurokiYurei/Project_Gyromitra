@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
+
+    [Header("Arrow Behaviour")]
     [SerializeField]
     private Weapon m_weapon;
 
@@ -16,19 +18,18 @@ public class WeaponController : MonoBehaviour
     private float m_maxFirePower;
 
     [SerializeField]
+    private float m_minFirePower;
+
+    [SerializeField]
     private float m_firePowerSpeed;
+    
+    [SerializeField]
+    private float m_fireMultiplyer;
 
     private float m_firePower;
 
     [SerializeField]
     private float m_rotateSpeed;
-    //[SerializeField]
-    //private float m_minRotation;
-
-    //[SerializeField]
-    //private float m_maxRotation;
-
-    //private float m_mouseY;
 
     private bool m_fire;
 
@@ -54,7 +55,9 @@ public class WeaponController : MonoBehaviour
     private float m_minSpeedCircle;
 
     [Header("Inputs")]
+    [SerializeField]
     private PlayerInput playerInput;
+    [SerializeField]
     private InputAction m_shootArrow;
 
     private void Awake()
@@ -64,6 +67,11 @@ public class WeaponController : MonoBehaviour
         m_weapon.SetEnemyTag(UtilsGyromitra.SearchForTag(m_enemyTag));
         m_weapon.Reload();
         m_fire = false;
+
+        m_maxFirePower = 50f;
+        m_minFirePower = 30f;
+
+        m_fireMultiplyer = 2f;
 
         m_minRadius = 3f;
         m_currentRadius = 50f;
@@ -77,12 +85,6 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
-        // canviar la posicio del arc depenent de la posicio del ratoli // EN TEORIA JA FET EN EL CHARACTER CONTROLLER
-        /*
-        m_mouseY -= Input.GetAxis("Mouse Y") * m_rotateSpeed;
-        m_mouseY = Mathf.Clamp(m_mouseY, m_minRotation, m_maxRotation);
-        m_weapon.transform.localRotation = Quaternion.Euler(m_mouseY, m_weapon.transform.localEulerAngles.y, m_weapon.transform.localEulerAngles.z);
-        */
 
         if (m_shootArrow.triggered)
         {
@@ -93,7 +95,7 @@ public class WeaponController : MonoBehaviour
         {
             if (m_firePower < m_maxFirePower)
             {
-                m_firePower += Time.deltaTime * m_firePowerSpeed;
+                m_firePower += Time.deltaTime * m_firePowerSpeed * m_fireMultiplyer;
             }
 
             m_SpeedCircle += Time.deltaTime * 40f;
@@ -107,6 +109,10 @@ public class WeaponController : MonoBehaviour
 
         if (m_shootArrow.WasReleasedThisFrame())
         {
+            if (m_firePower < m_minFirePower)
+            {
+                m_firePower = m_minFirePower;
+            }
             m_weapon.FireArrow(m_firePower);
             m_firePower = 0f;
             m_fire = false;
@@ -119,6 +125,9 @@ public class WeaponController : MonoBehaviour
         m_UI.DrawCircle(m_Steps, m_currentRadius);
     }
 
+    /// <summary>
+    /// Check if the radius of the reticle for his max and min radius
+    /// </summary>
     private void checkRadiusCircle()
     {
         if (m_currentRadius <= m_minRadius) m_currentRadius = m_minRadius;
