@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_mushroomPrefab: {fileID: 5287026607983033059}
-  m_timeToDestroy: 5
+  m_timeToDestroy: 1000
   m_maxMushrooms: 5
 --- !u!135 &5748486234059571125
 SphereCollider:

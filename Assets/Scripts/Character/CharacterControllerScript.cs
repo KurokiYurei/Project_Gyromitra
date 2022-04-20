@@ -30,6 +30,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     CharacterController m_CharacterController;
     CameraController m_CameraController;
+    Rigidbody m_Rigidbody;
 
     [Header("Camera")]
     private InputAction m_AimAction;
@@ -45,6 +46,7 @@ public class CharacterControllerScript : MonoBehaviour
     {
         m_CharacterController = GetComponent<CharacterController>();
         m_CameraController = m_Camera.GetComponent<CameraController>();
+        m_Rigidbody = GetComponent<Rigidbody>();
         m_playerInput = GetComponent<PlayerInput>();
         m_moveAction = m_playerInput.actions["Movement"];
         m_jumpAction = m_playerInput.actions["Jump"];
@@ -148,7 +150,7 @@ public class CharacterControllerScript : MonoBehaviour
         Jump();
 
         //Gravity needs refactoring
-        if(m_VerticalSpeed < 0f)
+        if (m_VerticalSpeed < 0f)
         {
             m_VerticalSpeed += Physics.gravity.y * Time.deltaTime * 1.5f;
         }
@@ -156,7 +158,7 @@ public class CharacterControllerScript : MonoBehaviour
         {
             m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
         }
-        
+
         l_Movement.y = m_VerticalSpeed * Time.deltaTime;
 
         CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
@@ -179,7 +181,7 @@ public class CharacterControllerScript : MonoBehaviour
             m_VerticalSpeed = 0.0f;
         }
 
-        if(m_Timer > 1f)
+        if (m_Timer > 1f)
         {
             jumped = true;
         }
@@ -205,12 +207,43 @@ public class CharacterControllerScript : MonoBehaviour
         return m_VerticalSpeed;
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Mushroom"))
         {
-            SetVerticalSpeed(10f);
+            //SetVerticalSpeed(10f);
+            m_CharacterController.enabled = false;
+            //m_Rigidbody.AddRelativeForce(transform.position * -10, ForceMode.Impulse);
+            //_Rigidbody.AddForce(this.transform.InverseTransformDirection(this.transform.forward) * 1000, ForceMode.Impulse);
+            //m_Rigidbody.AddRelativeForce(this.transform.InverseTransformDirection(this.transform.forward) * 100, ForceMode.Impulse);
+            print(m_Rigidbody);
+            //m_Rigidbody.velocity = gameObject.transform.forward * -1000;
+            //m_Rigidbody.AddExplosionForce(-10, other.GetComponent<Collision>().GetContact(0).point, 5);
+            m_CharacterController.enabled = true;
             jumped = true;
         }
     }
+
+    //public void MushroomBounce()
+    //{
+    //    print("Patata");
+    //    SetVerticalSpeed(10f);
+    //    //gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * -10);
+    //    //m_Rigidbody.AddRelativeForce(Vector3.forward * 1000);
+
+    //}
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    //Rigidbody otherRB = collision.rigidbody;
+    //    if (collision.transform.tag == "Mushroom")
+    //    {
+    //        m_CharacterController.enabled = false;
+    //        print("collision");
+    //        m_Rigidbody.AddExplosionForce(10, collision.contacts[0].point, 5);
+    //        m_CharacterController.enabled = true;
+    //    }
+
+    //}
 }

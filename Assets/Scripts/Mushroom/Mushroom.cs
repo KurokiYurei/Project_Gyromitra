@@ -71,4 +71,24 @@ public class Mushroom : MonoBehaviour
     {
         return m_mushroomTag;
     }
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        Rigidbody rb = other.attachedRigidbody;
+    //        //other.GetComponent<CharacterControllerScript>().SetVerticalSpeed(10.0f);
+    //        //print(other.GetComponent<CharacterController>().attachedRigidbody);
+    //        //print(other.GetComponent<Rigidbody>());
+    //        //other.GetComponent<CharacterController>().attachedRigidbody.AddRelativeForce(other.attachedRigidbody.centerOfMass * -1, ForceMode.Impulse);
+    //        //other.GetComponent<Rigidbody>().AddRelativeForce(other.attachedRigidbody.centerOfMass, ForceMode.Impulse);
+    //        //other.GetComponent<Rigidbody>().AddForce(other.transform.position * -10);
+    //        //other.attachedRigidbody.AddForce(other.transform.position * 100, ForceMode.Impulse);
+    //        //other.GetComponent<CharacterControllerScript>().MushroomBounce();
+    //        rb.AddExplosionForce(10, other.con);
+    //    }
+    //}
+
+
 }
