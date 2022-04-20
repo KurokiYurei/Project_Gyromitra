@@ -42,6 +42,10 @@ public class CharacterControllerScript : MonoBehaviour
     float m_Timer;
     bool jumped;
 
+    float m_bounceTimer;
+    bool m_bouncing;
+    Vector3 m_bounceDirection;
+
     private void Awake()
     {
         m_CharacterController = GetComponent<CharacterController>();
@@ -120,34 +124,52 @@ public class CharacterControllerScript : MonoBehaviour
 
         Vector3 l_Movement = Vector3.zero;
 
-        //currenInputVector = Vector2.SmoothDamp(currenInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
-
-        //l_Movement = new Vector3(currenInputVector.x, 0, currenInputVector.y);
-        l_Movement = l_Right * input.x;
-        //l_Movement = l_Forward * input.x;
-        l_Movement += l_Forward * input.y;
-
-        //l_Movement = l_Right * currenInputVector.x;
-        //l_Movement += l_Forward * currenInputVector.y;
-
-        float l_Speed = m_WalkSpeed;
-
-        if (jumped)
-        {
-            l_Speed /= 3f;
-        }
-
-        l_Movement.Normalize();
-
-        //if (input != Vector2.zero && !m_CameraController.GetIsAiming())
-        //{
-        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(l_Movement), m_LerpRotationPct);
         RotWithCam();
-        //}
 
-        l_Movement *= l_Speed * Time.deltaTime;
+        if (!m_bouncing)
+        {
+            
 
-        Jump();
+            //currenInputVector = Vector2.SmoothDamp(currenInputVector, input, ref smoothInputVelocity, smoothInputSpeed);
+
+            //l_Movement = new Vector3(currenInputVector.x, 0, currenInputVector.y);
+            l_Movement = l_Right * input.x;
+            //l_Movement = l_Forward * input.x;
+            l_Movement += l_Forward * input.y;
+
+            //l_Movement = l_Right * currenInputVector.x;
+            //l_Movement += l_Forward * currenInputVector.y;
+
+            float l_Speed = m_WalkSpeed;
+
+            if (jumped)
+            {
+                l_Speed /= 3f;
+            }
+
+            l_Movement.Normalize();
+
+            //if (input != Vector2.zero && !m_CameraController.GetIsAiming())
+            //{
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(l_Movement), m_LerpRotationPct);
+           
+            //}
+
+            l_Movement *= l_Speed * Time.deltaTime;
+
+            Jump();
+        }
+        else
+        {
+            l_Movement = -m_bounceDirection * 10f * Time.deltaTime;
+            m_bounceTimer -= Time.deltaTime;
+                if (m_bounceTimer < 0)
+                {
+                    m_bouncing = false;
+                    m_bounceTimer = 1.0f;
+                }        
+        }
+        
 
         //Gravity needs refactoring
         if (m_VerticalSpeed < 0f)
@@ -222,8 +244,14 @@ public class CharacterControllerScript : MonoBehaviour
             //m_Rigidbody.AddExplosionForce(-10, other.GetComponent<Collision>().GetContact(0).point, 5);
             m_CharacterController.enabled = true;
             jumped = true;
+
+            m_bounceDirection = other.transform.position - transform.position;
+
+            m_bounceDirection.Normalize();
+            m_bouncing = true;
         }
     }
+
 
     //public void MushroomBounce()
     //{
