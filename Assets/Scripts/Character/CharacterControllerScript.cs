@@ -38,7 +38,8 @@ public class CharacterControllerScript : MonoBehaviour
 
     Vector3 m_StartPosition;
     Quaternion m_StartRotation;
-    private float m_Timer;
+    float m_Timer;
+    bool jumped;
 
     private void Awake()
     {
@@ -60,7 +61,6 @@ public class CharacterControllerScript : MonoBehaviour
         //Movement function
         Movement();
 
-
         m_ShoulderCameraPosition.forward = m_Camera.transform.forward;
 
         // aim
@@ -71,7 +71,6 @@ public class CharacterControllerScript : MonoBehaviour
 
         if (m_AimAction.triggered)
         {
-            m_CameraController.m_AimYaw = m_ShoulderCameraPosition.eulerAngles.y;
             if (m_ShoulderCameraPosition.eulerAngles.x < 360 + m_CameraController.m_MinAimPitchDistance && m_ShoulderCameraPosition.eulerAngles.x > 180)
                 m_CameraController.m_AimPitch = m_CameraController.m_MinAimPitchDistance;
             else if (m_ShoulderCameraPosition.eulerAngles.x >= 360 + m_CameraController.m_MinAimPitchDistance)
@@ -90,35 +89,7 @@ public class CharacterControllerScript : MonoBehaviour
             m_Camera.transform.forward = l_Forward;
             m_Bow.eulerAngles = transform.eulerAngles;
         }
-
-        //m_AimAction.performed += Aim;
-        //m_AimAction.canceled += Aim;
     }
-
-    //void Aim(CallbackContext ctx)
-    //{
-    //    if (m_CameraController.GetIsAiming())
-    //    {
-    //        m_CameraController.SetIsAiming(false);
-
-    //        Vector3 l_Forward = transform.forward;
-    //        l_Forward.y = 0.0f;
-    //        m_Camera.transform.forward = l_Forward;
-    //        m_Bow.eulerAngles = transform.eulerAngles;
-    //    }
-    //    else
-    //    {
-    //        m_CameraController.m_AimYaw = m_ShoulderCameraPosition.eulerAngles.y;
-    //        if (m_ShoulderCameraPosition.eulerAngles.x < 360 + m_CameraController.m_MinAimPitchDistance && m_ShoulderCameraPosition.eulerAngles.x > 180)
-    //            m_CameraController.m_AimPitch = m_CameraController.m_MinAimPitchDistance;
-    //        else if (m_ShoulderCameraPosition.eulerAngles.x >= 360 + m_CameraController.m_MinAimPitchDistance)
-    //            m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x - 360;
-    //        else
-    //            m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x;
-
-    //        m_CameraController.SetIsAiming(true);
-    //    }
-    //}
 
     private void RotWithCam()
     {
@@ -159,6 +130,11 @@ public class CharacterControllerScript : MonoBehaviour
 
         float l_Speed = m_WalkSpeed;
 
+        if (jumped)
+        {
+            l_Speed /= 3f;
+        }
+
         l_Movement.Normalize();
 
         //if (input != Vector2.zero && !m_CameraController.GetIsAiming())
@@ -167,13 +143,20 @@ public class CharacterControllerScript : MonoBehaviour
         RotWithCam();
         //}
 
-
         l_Movement *= l_Speed * Time.deltaTime;
 
         Jump();
 
         //Gravity needs refactoring
-        m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
+        if(m_VerticalSpeed < 0f)
+        {
+            m_VerticalSpeed += Physics.gravity.y * Time.deltaTime * 1.5f;
+        }
+        else
+        {
+            m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
+        }
+        
         l_Movement.y = m_VerticalSpeed * Time.deltaTime;
 
         CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
@@ -183,6 +166,7 @@ public class CharacterControllerScript : MonoBehaviour
             m_OnGround = true;
             m_VerticalSpeed = 0.0f;
             m_Timer = 0f;
+            jumped = false;
         }
         else
         {
@@ -194,15 +178,20 @@ public class CharacterControllerScript : MonoBehaviour
         {
             m_VerticalSpeed = 0.0f;
         }
+
+        if(m_Timer > 1f)
+        {
+            jumped = true;
+        }
     }
 
     private void Jump()
     {
-        //Jump needs refactoring
         if (m_jumpAction.triggered && (m_OnGround || m_Timer < 0.3f))
         {
             m_VerticalSpeed = m_JumpSpeed;
             m_OnGround = false;
+            jumped = true;
         }
     }
 
@@ -214,5 +203,14 @@ public class CharacterControllerScript : MonoBehaviour
     public float GetVerticalSpeed()
     {
         return m_VerticalSpeed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Mushroom"))
+        {
+            SetVerticalSpeed(10f);
+            jumped = true;
+        }
     }
 }
