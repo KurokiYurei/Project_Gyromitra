@@ -80,12 +80,10 @@ public class WeaponController : MonoBehaviour
         m_SpeedCircle = 5f;
         m_maxSpeedCircle = 100f;
         m_minSpeedCircle = 50f;
-
     }
 
     private void Update()
     {
-
         if (m_shootArrow.triggered)
         {
             m_fire = true;

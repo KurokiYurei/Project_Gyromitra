@@ -205,11 +205,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5903353976143995575}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08636114, y: 0.08567752, z: 0.10692379}
-  m_Center: {x: 0.0025444552, y: -0.00034231693, z: 0.09931551}
+  m_Size: {x: 0.09438054, y: 0.091985196, z: 0.13797155}
+  m_Center: {x: 0.00073652714, y: 0.001094386, z: 0.08101423}
 --- !u!114 &6714034046378512252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +224,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 8272729674931008831}
   m_mushroomSpawnable: MushroomSpawnable
-  m_mushroomPrefab: {fileID: 5287026607983033059, guid: c40e9777c38294949a0dd391e6a14c7e, type: 3}
 --- !u!54 &8272729674931008831
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -240,4 +239,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1

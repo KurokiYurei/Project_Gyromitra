@@ -17,7 +17,6 @@ public class Arrow : MonoBehaviour
     private bool m_Hit;
 
     public string m_mushroomSpawnable;
-    public Mushroom m_mushroomPrefab;
 
     private void Awake()
     {
@@ -49,18 +48,12 @@ public class Arrow : MonoBehaviour
         if (m_Hit) return;
         m_Hit = true;
 
+        print(other.tag);
+
         if (other.CompareTag(m_enemyTag))
         {
             // fer mal al enemic
-        }
 
-        if (other.CompareTag(m_mushroomSpawnable))
-        {
-            //Spawn del bolet
-            //print("Bolet");
-            //print(m_mushroomPrefab);
-            m_mushroomPrefab.SpawnMushroom(gameObject);
-            //Instantiate(m_mushroom, gameObject.transform.position, Quaternion.identity);
         }
 
         // si es vol que es quedi la fletxa encrustrada en l'objecte
@@ -68,5 +61,31 @@ public class Arrow : MonoBehaviour
         //m_rigidBody.angularVelocity = Vector3.zero;
         //m_rigidBody.isKinematic = true;
         //transform.SetParent(other.transform);    
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal, Color.red, 5f);
+        print(collision.transform.tag);
+
+        if (collision.transform.CompareTag(m_mushroomSpawnable) && collision.contacts[0].normal.y >= 0f)
+        {    
+            if(collision.contacts[0].normal.y < 0.3f) //WALL MUSHROOM
+            {
+                GameObject l_mushroom = CharacterControllerScript.GetPool(true).GetNextElement();
+                l_mushroom.transform.position = collision.contacts[0].point;
+                l_mushroom.transform.forward = collision.contacts[0].normal;
+                l_mushroom.transform.SetParent(null);
+                l_mushroom.SetActive(true);
+            }
+            else //NORMAL MUSHROOM
+            {
+                GameObject l_mushroom = CharacterControllerScript.GetPool(false).GetNextElement();
+                l_mushroom.transform.position = collision.contacts[0].point;
+                l_mushroom.transform.SetParent(null);
+                l_mushroom.SetActive(true);
+            }       
+        }
+        gameObject.SetActive(false);
     }
 }

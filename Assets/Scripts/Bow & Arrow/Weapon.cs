@@ -42,8 +42,8 @@ public class Weapon : MonoBehaviour
         m_currentArrow.transform.localPosition = Vector3.zero;
         */
 
-        m_currentArrow = Instantiate(m_arrowPrefab);
-        m_currentArrow.transform.position = m_arrowSpawnPoint.transform.position;
+        m_currentArrow = Instantiate(m_arrowPrefab, m_arrowSpawnPoint.transform.position, m_arrowSpawnPoint.transform.rotation);
+        //m_currentArrow.transform.position = m_arrowSpawnPoint.transform.position;
 
         Rigidbody rb = m_currentArrow.GetComponent<Rigidbody>();
         rb.velocity = m_arrowSpawnPoint.transform.forward * m_Power;
