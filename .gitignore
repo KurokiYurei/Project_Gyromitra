@@ -132,10 +132,12 @@ $RECYCLE.BIN/
 # Log-files
 fmod.log
 fmod_editor.log
+fafa.log
 
 # FMOD 1.10.x (Legacy)
 /Assets/FMODAssets/*
 /Assets/FMODStudioCache.meta
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,unity,git
 ProjectSettings/Packages/com.unity.probuilder/Settings.json
+# End of https://www.toptal.com/developers/gitignore/api/windows,unity,git
+

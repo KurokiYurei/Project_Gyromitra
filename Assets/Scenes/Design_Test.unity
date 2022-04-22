@@ -16329,6 +16329,7 @@ MonoBehaviour:
   m_reloadTime: 0.2
   m_arrowPrefab: {fileID: 6714034046378512252, guid: 96cf4d3737f43f446a25ba5472f6ec17, type: 3}
   m_arrowSpawnPoint: {fileID: 574532946}
+  m_crosshair: {fileID: 248096038}
 --- !u!43 &423611130
 Mesh:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ public class Weapon : MonoBehaviour
 
     private float m_Power;
 
+    public GameObject m_crosshair;
+
     public void SetEnemyTag(string enemyTag)
     {
         m_enemyTag = enemyTag;
@@ -46,6 +48,12 @@ public class Weapon : MonoBehaviour
         //m_currentArrow.transform.position = m_arrowSpawnPoint.transform.position;
 
         Rigidbody rb = m_currentArrow.GetComponent<Rigidbody>();
+
+        //Vector3 l_forward;
+
+        //l_forward = m_crosshair.transform.position - m_arrowSpawnPoint.transform.position;//transform center window
+        //m_arrowSpawnPoint.transform.forward = l_forward;
+        //rb.velocity = m_arrowSpawnPoint.transform.forward * m_Power;
         rb.velocity = m_arrowSpawnPoint.transform.forward * m_Power;
 
         m_currentArrow.SetEnemyTag(m_enemyTag);
