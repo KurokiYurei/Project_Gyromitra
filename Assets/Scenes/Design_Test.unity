@@ -16277,7 +16277,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1481718373}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420271468
 GameObject:
@@ -16310,9 +16310,8 @@ Transform:
   - {fileID: 1434048899}
   - {fileID: 640111379}
   - {fileID: 1636425143}
-  - {fileID: 574532947}
   m_Father: {fileID: 1481718373}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &420271470
 MonoBehaviour:
@@ -33124,11 +33123,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574532946}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.086, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.75800323, y: 0.29300022, z: 0.40399933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 420271469}
+  m_Father: {fileID: 1481718373}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &609082559
@@ -38098,7 +38097,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117986
+  m_Name: pb_Mesh19426
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -55586,7 +55585,7 @@ RectTransform:
   m_Children:
   - {fileID: 519039248}
   m_Father: {fileID: 1481718373}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -56019,7 +56018,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1481718373}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1399790586
 GameObject:
@@ -56500,6 +56499,7 @@ MonoBehaviour:
   m_LerpRotationPct: 0.025
   m_ShoulderCameraPosition: {fileID: 1385126867}
   m_Bow: {fileID: 420271469}
+  m_ArrowSpawnPoint: {fileID: 0}
   m_bounceDuration: 0.5
   m_mushroomJumpSpeed: 15.4
 --- !u!54 &1481718371
@@ -56550,6 +56550,7 @@ Transform:
   - {fileID: 1104129903}
   - {fileID: 1615594723}
   - {fileID: 58865708}
+  - {fileID: 574532947}
   - {fileID: 420271469}
   - {fileID: 1385126867}
   - {fileID: 404980228}
@@ -61209,7 +61210,7 @@ RectTransform:
   - {fileID: 248096039}
   - {fileID: 877989206}
   m_Father: {fileID: 1481718373}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

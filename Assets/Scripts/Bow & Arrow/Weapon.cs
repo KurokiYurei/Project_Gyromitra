@@ -43,18 +43,22 @@ public class Weapon : MonoBehaviour
         m_currentArrow = Instantiate(m_arrowPrefab, m_arrowSpawnPoint.transform);
         m_currentArrow.transform.localPosition = Vector3.zero;
         */
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+        RaycastHit hit;
+        Vector3 targetPoint;
+        if (Physics.Raycast(ray, out hit))
+            targetPoint = hit.point;
+        else
+            targetPoint = ray.GetPoint(1000);
 
         m_currentArrow = Instantiate(m_arrowPrefab, m_arrowSpawnPoint.transform.position, m_arrowSpawnPoint.transform.rotation);
         //m_currentArrow.transform.position = m_arrowSpawnPoint.transform.position;
 
         Rigidbody rb = m_currentArrow.GetComponent<Rigidbody>();
-
-        //Vector3 l_forward;
-
-        //l_forward = m_crosshair.transform.position - m_arrowSpawnPoint.transform.position;//transform center window
+       
         //m_arrowSpawnPoint.transform.forward = l_forward;
         //rb.velocity = m_arrowSpawnPoint.transform.forward * m_Power;
-        rb.velocity = m_arrowSpawnPoint.transform.forward * m_Power;
+        rb.velocity = (targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power;
 
         m_currentArrow.SetEnemyTag(m_enemyTag);
         m_isReloading = false;
