@@ -15,6 +15,8 @@ public class CharacterControllerScript : MonoBehaviour
     public float m_JumpSpeed = 7.7f;
     float m_VerticalSpeed = 0.0f;
 
+    public float m_fallGravityMultiplier = 2f;
+
     public float smoothInputSpeed = 0.1f;
 
     private float m_onAirTimer;
@@ -161,7 +163,7 @@ public class CharacterControllerScript : MonoBehaviour
         //Gravity needs refactoring
         if (m_VerticalSpeed < 0f)
         {
-            m_VerticalSpeed += Physics.gravity.y * Time.deltaTime * 1.5f;
+            m_VerticalSpeed += Physics.gravity.y * Time.deltaTime * m_fallGravityMultiplier;
         }
         else
         {

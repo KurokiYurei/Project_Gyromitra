@@ -65,12 +65,13 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal, Color.red, 5f);
+       
         print(collision.transform.tag);
 
-        if (collision.transform.CompareTag(m_mushroomSpawnable) && collision.contacts[0].normal.y >= 0f)
-        {    
-            if(collision.contacts[0].normal.y < 0.3f) //WALL MUSHROOM
+        if (collision.transform.CompareTag(m_mushroomSpawnable) && collision.contacts[0].normal.y >= -0.01f)
+        {
+            Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal, Color.red, 5f);
+            if (collision.contacts[0].normal.y < 0.3f) //WALL MUSHROOM
             {
                 GameObject l_mushroom = CharacterControllerScript.GetPool(true).GetNextElement();
                 l_mushroom.transform.position = collision.contacts[0].point;
