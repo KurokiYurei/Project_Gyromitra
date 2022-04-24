@@ -54,6 +54,13 @@ public class Arrow : MonoBehaviour
         {
             // fer mal al enemic
 
+            IDamagable l_damageComponent = other.transform.GetComponent<IDamagable>();
+
+            if(l_damageComponent != null)
+            {
+                l_damageComponent.Damage();
+            }
+
         }
 
         // si es vol que es quedi la fletxa encrustrada en l'objecte
