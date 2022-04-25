@@ -151,13 +151,13 @@ public class CharacterControllerScript : MonoBehaviour
         {
             l_Movement = -m_bounceDirection * 10f * Time.deltaTime;
             m_bounceTimer -= Time.deltaTime;
-                if (m_bounceTimer < 0)
-                {
-                    m_bouncing = false;
-                    m_bounceTimer = m_bounceDuration;
-                }        
+            if (m_bounceTimer < 0)
+            {
+                m_bouncing = false;
+                m_bounceTimer = m_bounceDuration;
+            }
         }
-        
+
         //Gravity needs refactoring
         if (m_VerticalSpeed < 0f)
         {

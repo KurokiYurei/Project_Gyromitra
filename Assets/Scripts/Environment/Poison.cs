@@ -28,12 +28,12 @@ public class Poison : MonoBehaviour
 
     private void Update()
     {
-        if(m_playerIsIn)
+        if (m_playerIsIn)
         {
 
             m_CurrentTickPerSecond -= Time.deltaTime;
 
-            if(m_CurrentTickPerSecond <= 0)
+            if (m_CurrentTickPerSecond <= 0)
             {
                 m_player.Damage();
                 ResetTimerVenom();
@@ -45,7 +45,7 @@ public class Poison : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == m_playerTag)
+        if (other.tag == m_playerTag)
         {
             m_playerIsIn = true;
             m_player = other.transform.GetComponent<IDamagable>();
