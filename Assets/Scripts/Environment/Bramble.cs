@@ -13,6 +13,12 @@ public class Bramble : MonoBehaviour
 
     private IDamagable m_player;
 
+    [SerializeField]
+    private float m_pushPower;
+
+    [SerializeField]
+    private float m_pushDuration;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,29 +38,38 @@ public class Bramble : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision other)
+    {
+        print("Patatatatatat");
+        if (other.collider.CompareTag(m_playerTag))
+        {
+            print("Entro");
+            m_player = other.collider.GetComponent<IDamagable>();
+            other.gameObject.GetComponent<CharacterControllerScript>().SetBounceParameters(other.contacts[0].normal, m_pushPower, m_pushDuration);
+            m_playerRecievedDamage = true;
+
+        }
+    }
+
+    //private void OnTriggerEnter(Collider other)
     //{
-    //    if (other.collider.tag == m_playerTag)
+    //    print("Entro");
+    //    if (other.tag == m_playerTag)
     //    {
-    //        print("Entro");
-    //        m_player = other.collider.GetComponent<IDamagable>();
-    //        m_playerRecievedDamage = true;
+
+    //        m_player = other.GetComponent<IDamagable>();
+    //        m_player.Damage(m_damage);
+    //        other.GetComponent<CharacterControllerScript>().
+    //        //other.GetComponent<CharacterControllerScript>().SetBounceParameters();
+    //        //m_playerRecievedDamage = true;
 
     //    }
     //}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        print("Entro");
-        if (other.tag == m_playerTag)
-        {
-
-            m_player = other.GetComponent<IDamagable>();
-            m_player.Damage(m_damage);
-            //m_playerRecievedDamage = true;
-
-        }
-    }
+    //private void OnControllerColliderHit(ControllerColliderHit hit)
+    //{
+    //    print("Fa controller colider");
+    //}
 
     //private void OnCollisionExit(Collision other)
     //{
