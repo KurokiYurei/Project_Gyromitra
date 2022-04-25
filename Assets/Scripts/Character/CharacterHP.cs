@@ -10,7 +10,15 @@ public class CharacterHP : MonoBehaviour, IDamagable
     private float m_maxHealth;
     private float m_minHealth;
 
+    private float m_startTimeToRegen;
+
+    [SerializeField]
     private float m_timerToRegen;
+
+    [SerializeField]
+    private float m_tickPerSecondHealth;
+
+    private float m_healthPerSecond;
 
     [SerializeField]
     private UI_Manager m_ui;
@@ -20,7 +28,11 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_minHealth = 0f;
         m_maxHealth = 100f;
 
-        m_timerToRegen = 2f;
+        m_timerToRegen = 10f;
+        m_startTimeToRegen = 10f;
+        m_healthPerSecond = 10f;
+        m_tickPerSecondHealth = 1f;
+
         m_health = m_maxHealth;
     }
 
@@ -33,10 +45,14 @@ public class CharacterHP : MonoBehaviour, IDamagable
 
         if (m_timerToRegen <= 0f && m_health <= 100f)
         {
-            Regen();
+            m_tickPerSecondHealth -= Time.deltaTime;
 
-            checkHP();
-
+            if (m_tickPerSecondHealth <= 0f)
+            {
+                Regen();
+                checkHP();
+                m_tickPerSecondHealth = 1f;
+            }
         }
     }
 
@@ -46,18 +62,24 @@ public class CharacterHP : MonoBehaviour, IDamagable
         {
             m_health = 100f;
         }
+
+        if (m_health < 0f)
+        {
+            m_health = 0f;
+            // morir
+        }
     }
 
-    public void Damage()
+    public void Damage(float damage)
     {
-        m_timerToRegen = 2f;
-        m_health -= 20f;
+        m_timerToRegen = m_startTimeToRegen;
+        m_health -= damage;
 
     }
 
     public void Regen()
     {
-        m_health += 1f;
+        m_health += m_healthPerSecond;
     }
 
 }

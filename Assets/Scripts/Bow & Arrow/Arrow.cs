@@ -10,6 +10,9 @@ public class Arrow : MonoBehaviour
     private float m_torque = 5f;
 
     [SerializeField]
+    private float m_damage = 15f;
+
+    [SerializeField]
     private Rigidbody m_rigidBody;
 
     private string m_enemyTag;
@@ -58,7 +61,7 @@ public class Arrow : MonoBehaviour
 
             if(l_damageComponent != null)
             {
-                l_damageComponent.Damage();
+                l_damageComponent.Damage(m_damage);
             }
 
         }

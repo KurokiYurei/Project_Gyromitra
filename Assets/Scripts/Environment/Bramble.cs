@@ -7,6 +7,8 @@ public class Bramble : MonoBehaviour
     [SerializeField]
     private string m_playerTag;
 
+    private float m_damage;
+
     private bool m_playerRecievedDamage;
 
     private IDamagable m_player;
@@ -15,6 +17,9 @@ public class Bramble : MonoBehaviour
     void Start()
     {
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
+
+        m_damage = 25f;
+
     }
 
     // Update is called once per frame
@@ -22,7 +27,7 @@ public class Bramble : MonoBehaviour
     {
         if (!m_playerRecievedDamage && m_player != null)
         {
-            m_player.Damage();
+            m_player.Damage(m_damage);
         }
     }
 

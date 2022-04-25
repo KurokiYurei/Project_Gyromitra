@@ -9,9 +9,9 @@ public class Enemy1HP : MonoBehaviour, IDamagable
     [SerializeField]
     private float m_maxHealth;
 
-    public void Damage()
+    public void Damage(float l_damage)
     {
-        m_health--;
+        m_health -= l_damage;
 
         if(m_health <= 0)
         {

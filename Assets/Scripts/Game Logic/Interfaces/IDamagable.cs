@@ -6,5 +6,5 @@ public interface IDamagable
 {
     float m_health { get; set; }
 
-    void Damage();
+    void Damage(float damage);
 }
