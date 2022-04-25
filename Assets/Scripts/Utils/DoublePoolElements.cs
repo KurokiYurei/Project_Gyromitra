@@ -9,7 +9,7 @@ public class DoublePoolElements
     private int m_CurrentElementId1;
     private int m_CurrentElementId2;
     private int m_MaxAmount;
-    private int m_CurrentAmount;
+    public int m_CurrentAmount;
 
     public DoublePoolElements(int count, Transform parent, GameObject prefab1, GameObject prefab2)
     {

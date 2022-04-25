@@ -6,8 +6,7 @@ public class Mushroom : MonoBehaviour
 {
     private string m_mushroomTag;
     public float m_timeToDestroy = 5.0f;
-    public int m_maxMushrooms = 5;
-    //public float m_currentTime;
+    public float m_currentTime;
 
     void Start()
     {
@@ -18,23 +17,24 @@ public class Mushroom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (m_currentTime >= m_timeToDestroy)
-        //{
-        //    print("Destroy mushroom");
-        //    DestroyMushroom();
-        //}
-        DestroyMushroom();
-
-        //m_currentTime += Time.deltaTime;
+        if (m_currentTime >= m_timeToDestroy)
+        {
+            print("Destroy mushroom");
+            DestroyMushroom();
+        }
+        m_currentTime += Time.deltaTime;
     }
 
     public void DestroyMushroom()
     {
         //print("Destroy mushroom");
-        Destroy(this.gameObject, m_timeToDestroy);
+        //Destroy(this.gameObject, m_timeToDestroy);
 
-        //gameObject.SetActive(false);
-        //m_currentTime = 0.0f;
+        gameObject.SetActive(false);
+        CharacterControllerScript.GetPool().m_ActiveElementsList.Remove(gameObject);
+        CharacterControllerScript.GetPool().m_CurrentAmount -= 1;
+
+        m_currentTime = 0.0f;
     }
     public void SetMushroomTag(string mushroomTag)
     {
