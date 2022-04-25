@@ -39,9 +39,10 @@ public class Bramble : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print("Entro");
         if (other.tag == m_playerTag)
         {
-            print("Entro");
+
             m_player = other.GetComponent<IDamagable>();
             m_playerRecievedDamage = true;
 
