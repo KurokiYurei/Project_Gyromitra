@@ -640,7 +640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3143f4f8524c7e24aa490bd0a716af7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CurrentTickPerSecond: 0
+  m_currentm_durationVenom: 0
+  m_currentVenomDamageTimer: 0
   m_playerIsIn: 0
   m_playerTag: 
 --- !u!65 &673929475
@@ -1140,7 +1141,7 @@ BoxCollider:
   m_GameObject: {fileID: 899697529}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1225,6 +1226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4c52fb0f6d9a34aabcac4cf15104a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_timerToRegen: 0
+  m_tickPerSecondHealth: 0
   m_ui: {fileID: 87109322}
 --- !u!1 &1027384922
 GameObject:
@@ -1955,8 +1958,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9999999, y: 1, z: 1.8419987}
-  m_Center: {x: 0, y: 0, z: 0.04291755}
+  m_Size: {x: 1.1524547, y: 1, z: 3.3782873}
+  m_Center: {x: 0.007281002, y: 0, z: 0.07875657}
 --- !u!114 &1456629261
 MonoBehaviour:
   m_ObjectHideFlags: 0

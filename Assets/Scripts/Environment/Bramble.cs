@@ -27,7 +27,8 @@ public class Bramble : MonoBehaviour
     {
         if (!m_playerRecievedDamage && m_player != null)
         {
-            m_player.Damage(m_damage);
+            //m_player.Damage(m_damage);
+
         }
     }
 
@@ -49,7 +50,8 @@ public class Bramble : MonoBehaviour
         {
 
             m_player = other.GetComponent<IDamagable>();
-            m_playerRecievedDamage = true;
+            m_player.Damage(m_damage);
+            //m_playerRecievedDamage = true;
 
         }
     }
