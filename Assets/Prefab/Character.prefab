@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 3437689874125184638}
   - component: {fileID: 3437689874125184635}
   - component: {fileID: 3437689874125184634}
+  - component: {fileID: 1016401760}
   m_Layer: 6
   m_Name: Character
   m_TagString: Player
@@ -274,15 +275,17 @@ MonoBehaviour:
   m_Camera: {fileID: 0}
   m_WalkSpeed: 10
   m_JumpSpeed: 7.7
+  m_jumpHorizontalSpeedDivider: 2
   m_fallGravityMultiplier: 3
   smoothInputSpeed: 0.01
-  m_mushroomPrefab: {fileID: 3339725421873900907, guid: c40e9777c38294949a0dd391e6a14c7e, type: 3}
-  m_mushroomWallPrefab: {fileID: 7242151149131114434, guid: 3577215026a1c9f459ea34d7add8a5b9, type: 3}
-  m_maxMushrooms: 5
   m_LerpRotationPct: 0.025
   m_ShoulderCameraPosition: {fileID: 3437689874238291919}
   m_Bow: {fileID: 3437689875186168177}
-  m_bounceDuration: 0.5
+  m_mushroomPrefab: {fileID: 3339725421873900907, guid: c40e9777c38294949a0dd391e6a14c7e, type: 3}
+  m_mushroomWallPrefab: {fileID: 7242151149131114434, guid: 3577215026a1c9f459ea34d7add8a5b9, type: 3}
+  m_maxMushrooms: 5
+  m_mushroomBounceDuration: 0.5
+  m_mushroomBouncePower: 10
   m_mushroomJumpSpeed: 15.4
 --- !u!114 &3437689874125184635
 MonoBehaviour:
@@ -349,6 +352,19 @@ MonoBehaviour:
   m_DefaultActionMap: Character
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1016401760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3437689874125184637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4c52fb0f6d9a34aabcac4cf15104a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ui: {fileID: 3437689874619258868}
 --- !u!1 &3437689874206851046
 GameObject:
   m_ObjectHideFlags: 0

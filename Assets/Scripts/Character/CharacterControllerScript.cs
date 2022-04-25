@@ -22,10 +22,10 @@ public class CharacterControllerScript : MonoBehaviour
     private float m_onAirTimer;
     private bool m_jumped;
 
-    static DoublePoolElements m_mushroomPool;
-    public GameObject m_mushroomPrefab;
-    public GameObject m_mushroomWallPrefab;
-    public int m_maxMushrooms;
+    private float m_bouncePower;
+    private float m_bounceTimer;
+    private bool m_bouncing;
+    private Vector3 m_bounceDirection;
 
     [Range(0.0f, 1.0f)]
     public float m_LerpRotationPct = 0.9f;
@@ -34,6 +34,7 @@ public class CharacterControllerScript : MonoBehaviour
     private PlayerInput m_playerInput;
     private InputAction m_moveAction;
     private InputAction m_jumpAction;
+    private InputAction m_AimAction;
 
     private Vector2 currenInputVector;
     private Vector2 smoothInputVelocity;
@@ -43,7 +44,6 @@ public class CharacterControllerScript : MonoBehaviour
     Rigidbody m_Rigidbody;
 
     [Header("Camera")]
-    private InputAction m_AimAction;
     public Transform m_ShoulderCameraPosition;
     public Transform m_Bow;
 
@@ -51,10 +51,12 @@ public class CharacterControllerScript : MonoBehaviour
     Quaternion m_StartRotation;
 
     [Header("On Mushrooms")]
-    public float m_bounceDuration;
-    private float m_bounceTimer;
-    private bool m_bouncing;
-    private Vector3 m_bounceDirection;
+    public GameObject m_mushroomPrefab;
+    public GameObject m_mushroomWallPrefab;
+    static DoublePoolElements m_mushroomPool;
+    public int m_maxMushrooms;
+    public float m_mushroomBounceDuration;
+    public float m_mushroomBouncePower;
     public float m_mushroomJumpSpeed = 10f;
     private bool m_jumpedOnMushroom;
 
@@ -149,12 +151,11 @@ public class CharacterControllerScript : MonoBehaviour
         }
         else
         {
-            l_Movement = -m_bounceDirection * 10f * Time.deltaTime;
+            l_Movement = -m_bounceDirection * m_bouncePower * Time.deltaTime;
             m_bounceTimer -= Time.deltaTime;
             if (m_bounceTimer < 0)
             {
                 m_bouncing = false;
-                m_bounceTimer = m_bounceDuration;
             }
         }
 
@@ -225,10 +226,7 @@ public class CharacterControllerScript : MonoBehaviour
             if (hit.normal.y < 0.5f)
             {
                 Debug.Log("A REBOTAR");
-                m_bounceDirection = hit.transform.position - transform.position;
-                m_bounceDirection.Normalize();
-                m_bounceTimer = m_bounceDuration;
-                m_bouncing = true;
+                SetBounceParameters(hit.transform.position - transform.position, m_mushroomBouncePower, m_mushroomBounceDuration);
             }
             else
             {
@@ -238,6 +236,15 @@ public class CharacterControllerScript : MonoBehaviour
                 m_jumped = true;
             }
         }
+    }
+
+    public void SetBounceParameters(Vector3 dir, float power, float duration)
+    {
+        m_bounceDirection = dir;
+        m_bounceDirection.Normalize();
+        m_bouncePower = power;
+        m_bounceTimer = duration;
+        m_bouncing = true;
     }
 
     public static DoublePoolElements GetPool()
