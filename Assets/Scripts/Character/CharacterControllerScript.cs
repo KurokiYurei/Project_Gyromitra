@@ -13,8 +13,8 @@ public class CharacterControllerScript : MonoBehaviour
     public float m_WalkSpeed = 1.5f;
     bool m_OnGround;
     public float m_JumpSpeed = 7.7f;
+    public float m_jumpHorizontalSpeedDivider = 2f;
     float m_VerticalSpeed = 0.0f;
-
     public float m_fallGravityMultiplier = 2f;
 
     public float smoothInputSpeed = 0.1f;
@@ -22,8 +22,7 @@ public class CharacterControllerScript : MonoBehaviour
     private float m_onAirTimer;
     private bool m_jumped;
 
-    static PoolElements m_mushroomPool;
-    static PoolElements m_mushroomWallPool;
+    static DoublePoolElements m_mushroomPool;
     public GameObject m_mushroomPrefab;
     public GameObject m_mushroomWallPrefab;
     public int m_maxMushrooms;
@@ -69,8 +68,7 @@ public class CharacterControllerScript : MonoBehaviour
         m_jumpAction = m_playerInput.actions["Jump"];
         m_AimAction = m_playerInput.actions["Aim"];
 
-        m_mushroomPool = new PoolElements(m_maxMushrooms, transform, m_mushroomPrefab);
-        m_mushroomWallPool = new PoolElements(m_maxMushrooms, transform, m_mushroomWallPrefab);
+        m_mushroomPool = new DoublePoolElements(5, transform, m_mushroomPrefab, m_mushroomWallPrefab);
     }
     void Start()
     {
@@ -141,7 +139,7 @@ public class CharacterControllerScript : MonoBehaviour
 
             if (m_jumped)
             {
-                l_Speed /= 3f;
+                l_Speed /= m_jumpHorizontalSpeedDivider;
             }
 
             l_Movement.Normalize();
@@ -242,16 +240,9 @@ public class CharacterControllerScript : MonoBehaviour
         }
     }
 
-    public static PoolElements GetPool(bool wall)
+    public static DoublePoolElements GetPool()
     {
-        if (wall)
-        {
-            return m_mushroomWallPool;
-        }
-        else
-        {
-            return m_mushroomPool;
-        }
+        return m_mushroomPool;
     }
 
     //private void OnTriggerEnter(Collider other)

@@ -80,7 +80,7 @@ public class Arrow : MonoBehaviour
             Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal, Color.red, 5f);
             if (collision.contacts[0].normal.y < 0.3f) //WALL MUSHROOM
             {
-                GameObject l_mushroom = CharacterControllerScript.GetPool(true).GetNextElement();
+                GameObject l_mushroom = CharacterControllerScript.GetPool().GetNextElement(false);
                 l_mushroom.transform.position = collision.contacts[0].point;
                 l_mushroom.transform.forward = collision.contacts[0].normal;
                 l_mushroom.transform.SetParent(null);
@@ -88,7 +88,7 @@ public class Arrow : MonoBehaviour
             }
             else //NORMAL MUSHROOM
             {
-                GameObject l_mushroom = CharacterControllerScript.GetPool(false).GetNextElement();
+                GameObject l_mushroom = CharacterControllerScript.GetPool().GetNextElement(true);
                 l_mushroom.transform.position = collision.contacts[0].point;
                 l_mushroom.transform.SetParent(null);
                 l_mushroom.SetActive(true);
