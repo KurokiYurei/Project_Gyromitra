@@ -76,7 +76,7 @@ public class Arrow : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
        
-        print(collision.transform.tag);
+        // print(collision.transform.tag);
 
         if (collision.transform.CompareTag(m_mushroomSpawnable) && collision.contacts[0].normal.y >= -0.01f)
         {

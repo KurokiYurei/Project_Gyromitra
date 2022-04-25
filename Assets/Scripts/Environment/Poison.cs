@@ -6,7 +6,7 @@ public class Poison : MonoBehaviour
 {
 
     [SerializeField]
-    private float m_currentm_durationVenom;
+    private float m_currentDurationVenom;
     private float m_durationVenom;
 
     [SerializeField]
@@ -26,7 +26,7 @@ public class Poison : MonoBehaviour
     private void Start()
     {
         m_durationVenom = 3f;
-        m_currentm_durationVenom = m_durationVenom;
+        m_currentDurationVenom = m_durationVenom;
 
         m_venomDamageTimer = 1f;
         m_currentVenomDamageTimer = m_venomDamageTimer;
@@ -42,23 +42,35 @@ public class Poison : MonoBehaviour
         
         if (m_playerIsIn)
         {
-            m_currentm_durationVenom = m_durationVenom;
+            m_currentDurationVenom = m_durationVenom;
 
         } else
         {
-            m_currentm_durationVenom -= Time.deltaTime;
+            m_currentDurationVenom -= Time.deltaTime;
         }
 
-        if(m_currentm_durationVenom >= 0f)
+        if (m_currentDurationVenom >= 0f && m_player != null)
         {
+            // venom is active
 
-            m_currentm_durationVenom -= Time.deltaTime;
+            if (m_currentVenomDamageTimer >= 0f)
+            {
+                // timer
+                m_currentVenomDamageTimer -= Time.deltaTime;
+
+            } else
+            {
+                // do dmg
+                m_currentVenomDamageTimer = m_venomDamageTimer;
+                m_player.Damage(m_damage);
+            }
 
 
         } else
         {
+            // venom run out of time
             m_player = null;
-            m_currentVenomDamageTimer = m_venomDamageTimer;
+            m_currentDurationVenom = m_durationVenom;
         }
 
 
