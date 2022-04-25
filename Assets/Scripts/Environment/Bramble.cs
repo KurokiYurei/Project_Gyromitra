@@ -31,25 +31,28 @@ public class Bramble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!m_playerRecievedDamage && m_player != null)
-        {
-            //m_player.Damage(m_damage);
 
-        }
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        print("Patatatatatat");
-        if (other.collider.CompareTag(m_playerTag))
-        {
-            print("Entro");
-            m_player = other.collider.GetComponent<IDamagable>();
-            other.gameObject.GetComponent<CharacterControllerScript>().SetBounceParameters(other.contacts[0].normal, m_pushPower, m_pushDuration);
-            m_playerRecievedDamage = true;
+    //private void OnCollisionEnter(Collision collision)
+    //{
 
-        }
-    }
+    //    foreach (ContactPoint contact in collision.contacts)
+    //    {
+    //        Debug.DrawRay(contact.point, contact.normal, Color.white);
+    //    }
+
+
+    //    print("Patatatatatat");
+    //    if (collision.collider.CompareTag(m_playerTag))
+    //    {
+    //        print("Entro");
+    //        m_player = collision.collider.GetComponent<IDamagable>();
+    //        collision.gameObject.GetComponent<CharacterControllerScript>().SetBounceParameters(collision.contacts[0].normal, m_pushPower, m_pushDuration);
+    //        m_playerRecievedDamage = true;
+
+    //    }
+    //}
 
     //private void OnTriggerEnter(Collider other)
     //{
@@ -80,13 +83,13 @@ public class Bramble : MonoBehaviour
     //    }
     //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == m_playerTag)
-        {
-            print("Surto");
-            m_playerRecievedDamage = false;
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.tag == m_playerTag)
+    //    {
+    //        print("Surto");
+    //        m_playerRecievedDamage = false;
+    //    }
+    //}
 
 }

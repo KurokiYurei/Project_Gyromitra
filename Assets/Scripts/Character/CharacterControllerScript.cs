@@ -60,6 +60,17 @@ public class CharacterControllerScript : MonoBehaviour
     public float m_mushroomJumpSpeed = 10f;
     private bool m_jumpedOnMushroom;
 
+    [Header("Bramble")]
+    [SerializeField]
+    private float m_brambleDamage;
+    private IDamagable m_player;
+
+    [SerializeField]
+    private float m_bramblePushPower;
+
+    [SerializeField]
+    private float m_bramblePushDuration;
+
     private void Awake()
     {
         m_CharacterController = GetComponent<CharacterController>();
@@ -69,6 +80,8 @@ public class CharacterControllerScript : MonoBehaviour
         m_moveAction = m_playerInput.actions["Movement"];
         m_jumpAction = m_playerInput.actions["Jump"];
         m_AimAction = m_playerInput.actions["Aim"];
+
+        m_player = GetComponent<IDamagable>();
 
         m_mushroomPool = new DoublePoolElements(5, transform, m_mushroomPrefab, m_mushroomWallPrefab);
     }
@@ -235,6 +248,12 @@ public class CharacterControllerScript : MonoBehaviour
                 SetVerticalSpeed(m_mushroomJumpSpeed);
                 m_jumped = true;
             }
+        }
+
+        if (hit.collider.tag == "Bramble")
+        {
+            m_player.Damage(m_brambleDamage);
+            SetBounceParameters(hit.transform.position - transform.position, m_bramblePushPower, m_bramblePushDuration);
         }
     }
 
