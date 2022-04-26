@@ -51,4 +51,23 @@ public static class UtilsGyromitra
     {
         return (max - current) / (max - min);
     }
+
+    public static GameObject FindInstanceWithinRadius(GameObject self, string tag, float radius)
+    {
+        //GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
+
+        GameObject otherGameObject = GameObject.FindGameObjectWithTag(tag);//targets[0];
+
+        float distance = (otherGameObject.transform.position - self.transform.position).magnitude;
+
+        if (distance <= radius)
+        {
+            return otherGameObject;
+        }
+        else
+        {
+            return null;
+        }
+
+    }
 }
