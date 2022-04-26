@@ -5,6 +5,11 @@ using UnityEngine;
 public class Bramble : MonoBehaviour
 {
     [SerializeField]
+    private float m_pushPower;
+
+    [SerializeField]
+    private float m_pushDuration;
+
     private string m_playerTag;
 
     private float m_damage;
@@ -13,13 +18,6 @@ public class Bramble : MonoBehaviour
 
     private IDamagable m_player;
 
-    [SerializeField]
-    private float m_pushPower;
-
-    [SerializeField]
-    private float m_pushDuration;
-
-    // Start is called before the first frame update
     void Start()
     {
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
