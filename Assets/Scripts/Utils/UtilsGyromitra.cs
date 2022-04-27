@@ -52,6 +52,13 @@ public static class UtilsGyromitra
         return (max - current) / (max - min);
     }
 
+    /// <summary>
+    /// Find and instance of an object wihtin a specific radius
+    /// </summary>
+    /// <param name="self"></param>
+    /// <param name="tag"></param>
+    /// <param name="radius"></param>
+    /// <returns></returns>
     public static GameObject FindInstanceWithinRadius(GameObject self, string tag, float radius)
     {
         //GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
@@ -70,4 +77,10 @@ public static class UtilsGyromitra
         }
 
     }
+
+    public static int RandomNumber(int number1, int number2)
+    {
+        return Random.Range(number1, number2);
+    }
+
 }

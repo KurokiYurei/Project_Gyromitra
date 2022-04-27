@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Sniper_Behaviour : MonoBehaviour
 {
@@ -19,6 +20,19 @@ public class Sniper_Behaviour : MonoBehaviour
     [SerializeField]
     private float m_sniperDamage;
 
+    [SerializeField]
+    private NavMeshAgent m_navMeshAgent;
+
+    [SerializeField]
+    private float m_radiusNearTarget;
+
+    [SerializeField]
+    private int m_minRad = 10;
+    [SerializeField]
+    private int m_maxRad = 100;
+    
+    private Vector3 m_targetPos;
+
     private string m_playerTag;
     private float m_timer;
 
@@ -26,11 +40,22 @@ public class Sniper_Behaviour : MonoBehaviour
     void Start()
     {
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
+        m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad)); 
+        m_navMeshAgent.SetDestination(m_targetPos);
+        m_radiusNearTarget = 2f;
     }
 
     void Update()
     {
-        ShootSniper();
+        // ShootSniper();
+
+        if (Vector3.Distance(transform.position, m_targetPos) <= m_radiusNearTarget)
+        {
+            m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad));
+            print(m_targetPos);
+            m_navMeshAgent.SetDestination(m_targetPos);
+        }
+
     }
 
     private void ShootSniper()
@@ -66,7 +91,20 @@ public class Sniper_Behaviour : MonoBehaviour
             }
         }
 
+    }
 
+    public Vector3 RandomNavmeshLocation(float l_radius)
+    {
+        Vector3 l_randomDirection = Random.insideUnitSphere * l_radius;
+        l_randomDirection += transform.position;
+        NavMeshHit l_hit;
+        Vector3 l_finalPosition = Vector3.zero;
 
+        if (NavMesh.SamplePosition(l_randomDirection, out l_hit, l_radius, 1))
+        {
+            l_finalPosition = l_hit.position;
+        }
+
+        return l_finalPosition;
     }
 }
