@@ -35,6 +35,9 @@ public class Sniper_Behaviour : MonoBehaviour
     [SerializeField]
     private NavMeshAgent m_navMeshAgent;
 
+    public List<Transform> m_patrolWaypoints;
+    int m_currentWaypointId = 0;
+
     [SerializeField]
     private float m_radiusNearTarget;
 
@@ -54,10 +57,12 @@ public class Sniper_Behaviour : MonoBehaviour
     void Start()
     {
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
-        m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad));
-        m_navMeshAgent.SetDestination(m_targetPos);
+        //m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad));
+        //m_navMeshAgent.SetDestination(m_targetPos);
         m_radiusNearTarget = 2f;
         m_ray.material.color = Color.blue;
+
+        MoveToNextPatrolPosition();
     }
 
     void Update()
@@ -77,12 +82,15 @@ public class Sniper_Behaviour : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(transform.position, m_targetPos) <= m_radiusNearTarget)
-        {
-            m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad));
-            print(m_targetPos);
-            m_navMeshAgent.SetDestination(m_targetPos);
-        }
+        if (!m_navMeshAgent.hasPath && m_navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
+            MoveToNextPatrolPosition();
+
+        //if (Vector3.Distance(transform.position, m_targetPos) <= m_radiusNearTarget)
+        //{
+        //    m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad));
+        //    print(m_targetPos);
+        //    m_navMeshAgent.SetDestination(m_targetPos);
+        //}
     }
     //Movement method
 
@@ -101,8 +109,17 @@ public class Sniper_Behaviour : MonoBehaviour
         return l_finalPosition;
     }
 
-    //Shooting methods
+    void MoveToNextPatrolPosition()
+    {
+        m_navMeshAgent.destination = m_patrolWaypoints[m_currentWaypointId].position;
+        m_navMeshAgent.isStopped = false;
+        ++m_currentWaypointId;
+        if (m_currentWaypointId >= m_patrolWaypoints.Count)
+            m_currentWaypointId = 0;
+    }
 
+
+    //Shooting methods
     private void LockOnPlayer()
     {
         GameObject l_player = UtilsGyromitra.FindInstanceWithinRadius(this.gameObject, m_playerTag, m_locationRadius);
