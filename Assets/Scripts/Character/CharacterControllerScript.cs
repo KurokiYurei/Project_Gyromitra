@@ -14,7 +14,7 @@ public class CharacterControllerScript : MonoBehaviour
     bool m_OnGround;
     public float m_JumpSpeed = 7.7f;
     public float m_jumpHorizontalSpeedDivider = 2f;
-    float m_VerticalSpeed = 0.0f;
+    public float m_VerticalSpeed = 0.0f;
     public float m_fallGravityMultiplier = 2f;
 
     public float smoothInputSpeed = 0.1f;
@@ -70,6 +70,9 @@ public class CharacterControllerScript : MonoBehaviour
 
     [SerializeField]
     private float m_bramblePushDuration;
+
+    [SerializeField]
+    private float m_fallDamage = 10.0f;
 
     private void Awake()
     {
@@ -185,14 +188,18 @@ public class CharacterControllerScript : MonoBehaviour
 
         l_Movement.y = m_VerticalSpeed * Time.deltaTime;
 
+
+
         CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
 
         if ((l_CollisionFlags & CollisionFlags.Below) != 0 && !m_jumpedOnMushroom)
         {
+            FallDamage();
             m_OnGround = true;
             m_VerticalSpeed = 0.0f;
             m_onAirTimer = 0f;
             m_jumped = false;
+
         }
         else
         {
@@ -270,7 +277,15 @@ public class CharacterControllerScript : MonoBehaviour
     {
         return m_mushroomPool;
     }
-
+    private void FallDamage()
+    {
+        if (m_VerticalSpeed <= -15)
+        {
+            //yield return new WaitForSeconds(3);
+            print("damage");
+            m_player.Damage(m_fallDamage);
+        }
+    }
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.CompareTag("Mushroom"))
