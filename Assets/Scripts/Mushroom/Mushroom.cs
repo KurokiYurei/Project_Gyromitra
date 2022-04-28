@@ -45,4 +45,12 @@ public class Mushroom : MonoBehaviour
     {
         return m_mushroomTag;
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "Enemy")
+    //    {
+    //        print("Enemy collision");
+    //    }
+    //}
 }

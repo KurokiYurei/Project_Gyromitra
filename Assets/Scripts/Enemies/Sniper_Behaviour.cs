@@ -46,6 +46,8 @@ public class Sniper_Behaviour : MonoBehaviour
     [SerializeField]
     private int m_maxRad = 100;
 
+
+
     private Vector3 m_targetPos;
     Vector3 m_finalPlayerPos;
 
@@ -53,14 +55,24 @@ public class Sniper_Behaviour : MonoBehaviour
     private float m_timer;
     private bool m_alreadyLocked;
     private bool m_canLock;
+    NavMeshAgent m_NavMeshAgent;
+    private string m_mushroomTag;
+    private Vector3 m_bounceDirection;
+    private float m_bouncePower;
+    private float m_bounceTimer;
+    private bool m_bouncing;
+
 
     void Start()
     {
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
+        m_mushroomTag = UtilsGyromitra.SearchForTag("Mushroom");
         //m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad));
         //m_navMeshAgent.SetDestination(m_targetPos);
         m_radiusNearTarget = 2f;
         m_ray.material.color = Color.blue;
+
+        m_NavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
 
         MoveToNextPatrolPosition();
     }
@@ -75,7 +87,7 @@ public class Sniper_Behaviour : MonoBehaviour
         {
             m_ray.enabled = false;
             m_timer -= Time.deltaTime;
-            if(m_timer <= 0)
+            if (m_timer <= 0)
             {
                 m_canLock = true;
                 m_timer = 0f;
@@ -130,7 +142,7 @@ public class Sniper_Behaviour : MonoBehaviour
 
             transform.LookAt(l_player.transform);
             transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
-            
+
             Vector3 l_playerPos = l_player.transform.position;
 
             m_firePoint.forward = (l_playerPos - m_firePoint.position).normalized;
@@ -139,7 +151,7 @@ public class Sniper_Behaviour : MonoBehaviour
             {
                 m_ray.material.color = Color.red;
                 m_alreadyLocked = true;
-            }          
+            }
 
             Ray l_Ray = new Ray(m_firePoint.position, l_playerPos - m_firePoint.position);
             if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, 10000f, m_shootLayerMask.value))
@@ -171,4 +183,52 @@ public class Sniper_Behaviour : MonoBehaviour
         Rigidbody rb = l_projectile.GetComponent<Rigidbody>();
         rb.velocity = dir.normalized * m_projectileSpeed;
     }
+
+
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.tag == m_mushroomTag)
+    //    {
+    //        print("enemy mushroom collision");
+    //        //m_navMeshAgent.isStopped = true;
+    //        m_navMeshAgent.enabled = false;
+    //        //SetBounceParameters
+    //        //gameObject.transform.forward *= -1;
+    //        gameObject.GetComponent<Rigidbody>().AddRelativeForce((gameObject.transform.position - collision.contacts[0].normal) * 3000);
+
+
+
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.collider.tag == m_mushroomTag)
+    //    {
+    //        m_navMeshAgent.isStopped = false;
+    //    }
+
+    //}
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag(m_mushroomTag))
+    //    {
+    //        //print("enemy mushroom collision");
+
+    //        //m_navMeshAgent.enabled = false;
+    //        m_navMeshAgent.isStopped = true;
+    //    }
+    //}
+
+    //public void SetBounceParameters(Vector3 dir, float power, float duration)
+    //{
+    //    m_bounceDirection = dir;
+    //    m_bounceDirection.Normalize();
+    //    m_bouncePower = power;
+    //    m_bounceTimer = duration;
+    //    m_bouncing = true;
+    //}
 }
