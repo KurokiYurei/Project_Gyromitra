@@ -10,25 +10,14 @@ public class Explosive_Bullet : MonoBehaviour
     [SerializeField]
     private GameObject m_explosionCollider;
 
-    [SerializeField]
-    private Rigidbody m_rigidBody;
-
-    [SerializeField]
-    private float m_explosionRadius;
-
-    [SerializeField]
-    private float m_explosionForce;
-
-    [SerializeField]
-    private float m_locationRadius;
-
     private string m_playerTag;
 
     private bool m_hit;
 
+    [SerializeField]
+    private float m_timeToExplode;
 
-
-
+    private float m_timer;
 
     void Start()
     {
@@ -38,41 +27,38 @@ public class Explosive_Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.rotation = Quaternion.LookRotation(m_rigidBody.velocity);
-    }
-
-    private void LocatePlayerPositon()
-    {
-        GameObject l_player = UtilsGyromitra.FindInstanceWithinRadius(this.gameObject, m_playerTag, m_locationRadius);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //print("Entro al collider");
-        //m_rigidBody.AddExplosionForce(m_explosionForce, transform.position, m_explosionRadius);
-
-
+        if(m_timer >= m_timeToExplode)
+        {
+            Explosion(transform.position);
+            gameObject.SetActive(false);
+        }
+        m_timer += Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         print("Entro al collider");
 
-        if (collision.collider.CompareTag(m_playerTag))
-        {
-            //GameObject l_player = UtilsGyromitra.FindInstanceWithinRadius(this.gameObject, m_playerTag, m_locationRadius);
+        //if (collision.collider.CompareTag(m_playerTag))
+        //{
+        //    Explosion(collision.contacts[0].point);
+        //}
+        //else
+        //{
 
-            //if (l_player != null)
-            //{
+        //}
 
-            //}
+        Explosion(collision.contacts[0].point);
 
-            GameObject l_explosion = Instantiate(m_explosionCollider, transform);
+        gameObject.SetActive(false);
+    }
 
-
-            l_explosion.transform.position = collision.contacts[0].point;
-            l_explosion.transform.SetParent(null);
-            l_explosion.SetActive(true);
-        }
+    private void Explosion(Vector3 pos)
+    {
+        GameObject l_explosion = Instantiate(m_explosionCollider, pos, transform.rotation, null);
+        l_explosion.SetActive(false);
+        l_explosion.transform.position = pos;
+        l_explosion.SetActive(true);
+        l_explosion.GetComponent<Animation>().Play("Explosion");
     }
 }
