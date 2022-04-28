@@ -46,7 +46,14 @@ public class Sniper_Behaviour : MonoBehaviour
     [SerializeField]
     private int m_maxRad = 100;
 
+    [SerializeField]
+    private float m_vulnerabilityTime;
 
+    [SerializeField]
+    private Material m_headMaterial;
+
+    private float m_vulnerabilityTimer;
+    public bool m_vulnerable;
 
     private Vector3 m_targetPos;
     Vector3 m_finalPlayerPos;
@@ -72,6 +79,8 @@ public class Sniper_Behaviour : MonoBehaviour
         m_radiusNearTarget = 2f;
         m_ray.material.color = Color.blue;
 
+        m_vulnerabilityTimer = m_vulnerabilityTime;
+
         m_NavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
 
         MoveToNextPatrolPosition();
@@ -96,6 +105,21 @@ public class Sniper_Behaviour : MonoBehaviour
 
         if (!m_navMeshAgent.hasPath && m_navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
             MoveToNextPatrolPosition();
+
+        if (m_vulnerable)
+        {           
+            if(m_vulnerabilityTimer <= 0f)
+            {
+                m_vulnerable = false;
+                m_vulnerabilityTimer = m_vulnerabilityTime; 
+            }
+            m_vulnerabilityTimer -= Time.deltaTime;
+            m_headMaterial.color = Color.red;
+        }
+        else
+        {
+            m_headMaterial.color = Color.blue;
+        }
 
         //if (Vector3.Distance(transform.position, m_targetPos) <= m_radiusNearTarget)
         //{
@@ -191,14 +215,11 @@ public class Sniper_Behaviour : MonoBehaviour
     //    if (collision.collider.tag == m_mushroomTag)
     //    {
     //        print("enemy mushroom collision");
-    //        //m_navMeshAgent.isStopped = true;
     //        m_navMeshAgent.enabled = false;
     //        //SetBounceParameters
     //        //gameObject.transform.forward *= -1;
-    //        gameObject.GetComponent<Rigidbody>().AddRelativeForce((gameObject.transform.position - collision.contacts[0].normal) * 3000);
-
-
-
+    //        //gameObject.GetComponent<Rigidbody>().AddRelativeForce((gameObject.transform.position - collision.contacts[0].normal) * 3000);
+    //        print("vulnerable");
     //    }
     //}
 
