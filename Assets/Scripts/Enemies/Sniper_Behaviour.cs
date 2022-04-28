@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Sniper_Behaviour : MonoBehaviour
 {
     [SerializeField]
-    private float m_fireRadius;
+    private float m_locationRadius;
 
     [SerializeField]
     private float m_cooldownTime;
@@ -30,7 +30,7 @@ public class Sniper_Behaviour : MonoBehaviour
     private int m_minRad = 10;
     [SerializeField]
     private int m_maxRad = 100;
-    
+
     private Vector3 m_targetPos;
 
     private string m_playerTag;
@@ -40,7 +40,7 @@ public class Sniper_Behaviour : MonoBehaviour
     void Start()
     {
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
-        m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad)); 
+        m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad));
         m_navMeshAgent.SetDestination(m_targetPos);
         m_radiusNearTarget = 2f;
     }
@@ -57,10 +57,28 @@ public class Sniper_Behaviour : MonoBehaviour
         }
 
     }
+    //Movement method
+
+    public Vector3 RandomNavmeshLocation(float l_radius)
+    {
+        Vector3 l_randomDirection = Random.insideUnitSphere * l_radius;
+        l_randomDirection += transform.position;
+        NavMeshHit l_hit;
+        Vector3 l_finalPosition = Vector3.zero;
+
+        if (NavMesh.SamplePosition(l_randomDirection, out l_hit, l_radius, 1))
+        {
+            l_finalPosition = l_hit.position;
+        }
+
+        return l_finalPosition;
+    }
+
+    //Shooting methods
 
     private void ShootSniper()
     {
-        GameObject l_player = UtilsGyromitra.FindInstanceWithinRadius(this.gameObject, m_playerTag, m_fireRadius);
+        GameObject l_player = UtilsGyromitra.FindInstanceWithinRadius(this.gameObject, m_playerTag, m_locationRadius);
 
         if (l_player != null)
         {
@@ -76,7 +94,7 @@ public class Sniper_Behaviour : MonoBehaviour
                 Ray l_ray = new Ray(m_firePoint.position, l_direction);
                 RaycastHit l_raycastHit;
 
-                if (Physics.Raycast(l_ray, out l_raycastHit, m_fireRadius, m_shootLayerMask))
+                if (Physics.Raycast(l_ray, out l_raycastHit, m_locationRadius, m_shootLayerMask))
                 {
                     l_player.GetComponent<CharacterHP>().Damage(m_sniperDamage);
 
@@ -93,18 +111,13 @@ public class Sniper_Behaviour : MonoBehaviour
 
     }
 
-    public Vector3 RandomNavmeshLocation(float l_radius)
+    private void ShootBazooka()
     {
-        Vector3 l_randomDirection = Random.insideUnitSphere * l_radius;
-        l_randomDirection += transform.position;
-        NavMeshHit l_hit;
-        Vector3 l_finalPosition = Vector3.zero;
+        GameObject l_player = UtilsGyromitra.FindInstanceWithinRadius(this.gameObject, m_playerTag, m_locationRadius);
 
-        if (NavMesh.SamplePosition(l_randomDirection, out l_hit, l_radius, 1))
+        if (l_player != null)
         {
-            l_finalPosition = l_hit.position;
-        }
 
-        return l_finalPosition;
+        }
     }
 }

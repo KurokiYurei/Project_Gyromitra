@@ -7,8 +7,6 @@ public class Arrow : MonoBehaviour
     // damage that the arrow does if we implement an Health Script
     // private float m_damage;
 
-    private float m_torque = 5f;
-
     [SerializeField]
     private float m_damage = 15f;
 
@@ -59,7 +57,7 @@ public class Arrow : MonoBehaviour
 
             IDamagable l_damageComponent = other.transform.GetComponent<IDamagable>();
 
-            if(l_damageComponent != null)
+            if (l_damageComponent != null)
             {
                 l_damageComponent.Damage(m_damage);
             }
@@ -75,7 +73,7 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-       
+
         // print(collision.transform.tag);
 
         if (collision.transform.CompareTag(m_mushroomSpawnable) && collision.contacts[0].normal.y >= -0.01f)
@@ -97,7 +95,7 @@ public class Arrow : MonoBehaviour
                 l_mushroom.transform.position = collision.contacts[0].point;
                 l_mushroom.transform.SetParent(null);
                 l_mushroom.SetActive(true);
-            }       
+            }
         }
         gameObject.SetActive(false);
     }
