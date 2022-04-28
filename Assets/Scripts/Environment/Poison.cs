@@ -13,6 +13,7 @@ public class Poison : MonoBehaviour
     private float m_currentVenomDamageTimer;
     private float m_venomDamageTimer;
 
+    [SerializeField]
     private float m_damage;
 
     [SerializeField]
