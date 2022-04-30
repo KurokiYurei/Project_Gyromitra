@@ -64,7 +64,6 @@ public class WeaponController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         m_shootArrow = playerInput.actions["Shoot"];
-        m_weapon.SetEnemyTag(UtilsGyromitra.SearchForTag(m_enemyTag));
         m_weapon.Reload();
         m_fire = false;
 

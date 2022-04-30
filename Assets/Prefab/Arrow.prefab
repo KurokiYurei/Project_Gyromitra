@@ -222,7 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87dbbb6000f115549a3b4407dafe1ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_damage: 15
   m_rigidBody: {fileID: 8272729674931008831}
+  m_enemyTag: Enemy
   m_mushroomSpawnable: MushroomSpawnable
 --- !u!54 &8272729674931008831
 Rigidbody:

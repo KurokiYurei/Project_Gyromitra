@@ -27,6 +27,12 @@ public class CharacterControllerScript : MonoBehaviour
     private bool m_bouncing;
     private Vector3 m_bounceDirection;
 
+    static PoolElements m_arrowPool;
+    public GameObject m_arrow;
+
+    [SerializeField]
+    private float m_fallDamage = 10.0f;
+
     [Range(0.0f, 1.0f)]
     public float m_LerpRotationPct = 0.9f;
 
@@ -71,9 +77,6 @@ public class CharacterControllerScript : MonoBehaviour
     [SerializeField]
     private float m_bramblePushDuration;
 
-    [SerializeField]
-    private float m_fallDamage = 10.0f;
-
     private void Awake()
     {
         m_CharacterController = GetComponent<CharacterController>();
@@ -87,6 +90,7 @@ public class CharacterControllerScript : MonoBehaviour
         m_player = GetComponent<IDamagable>();
 
         m_mushroomPool = new DoublePoolElements(5, transform, m_mushroomPrefab, m_mushroomWallPrefab);
+        m_arrowPool = new PoolElements(5, null, m_arrow);
     }
     void Start()
     {
@@ -273,7 +277,11 @@ public class CharacterControllerScript : MonoBehaviour
         m_bouncing = true;
     }
 
-    public static DoublePoolElements GetPool()
+    public static PoolElements GetArrowPool()
+    {
+        return m_arrowPool;
+    }
+    public static DoublePoolElements GetMushroomPool()
     {
         return m_mushroomPool;
     }

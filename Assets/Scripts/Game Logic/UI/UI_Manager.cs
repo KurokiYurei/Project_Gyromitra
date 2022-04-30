@@ -86,8 +86,6 @@ public class UI_Manager : MonoBehaviour
         {
             m_CircleRenderer.enabled = false;
         }
-
-
     }
 
     /// <summary>
@@ -138,14 +136,11 @@ public class UI_Manager : MonoBehaviour
 
             m_CircleRenderer.SetPosition(currentStep, l_currentPos);
             m_CircleRenderer.startWidth = 1f;
-
         }
-
     }
 
     public void SetHealth(float health)
     {
         m_HealthBar.value = health;
     }
-
 }

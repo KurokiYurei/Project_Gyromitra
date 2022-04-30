@@ -144,14 +144,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 606602608}
-    - target: {fileID: 3437689873872324701, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689873982475122, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 3437689874125184633, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -204,46 +196,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 606602608}
-    - target: {fileID: 3437689874125184638, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_brambleDamage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689874125184638, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_bramblePushPower
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689874125184638, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_bramblePushDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689874238291918, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689874527641854, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689874619258879, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689875026107447, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689875186168176, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689875200140831, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3437689875571132750, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 3437689875761259076, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -891,7 +843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2893145fe964b5c4fb70466dad93cf3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LookAt: {fileID: 0}
   m_currentRotation: {x: 0, y: 0, z: 0}
   m_AimPitch: 0
   m_AimYaw: 0
@@ -910,7 +861,6 @@ MonoBehaviour:
   m_ShoulderCameraPosition: {fileID: 0}
   m_NormalCameraPosition: {fileID: 0}
   m_isAiming: 0
-  m_Speed: 0
   m_UI: {fileID: 0}
   m_cameraOffset: {x: 0, y: 0, z: 0}
 --- !u!54 &746527691
@@ -1467,11 +1417,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058406679}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1134963530 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3437689875026107440, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
-  m_PrefabInstance: {fileID: 264737512}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1145169615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,18 +2086,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1909322844693362499, guid: 130ad0ba016e0fa4bb519b318ab70ec3, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 3575
-      objectReference: {fileID: 0}
     - target: {fileID: 1909322844693362501, guid: 130ad0ba016e0fa4bb519b318ab70ec3, type: 3}
       propertyPath: m_UI
       value: 
       objectReference: {fileID: 87109321}
-    - target: {fileID: 1909322844693362501, guid: 130ad0ba016e0fa4bb519b318ab70ec3, type: 3}
-      propertyPath: m_LookAt
-      value: 
-      objectReference: {fileID: 1134963530}
     - target: {fileID: 1909322844693362501, guid: 130ad0ba016e0fa4bb519b318ab70ec3, type: 3}
       propertyPath: m_NormalCameraPosition
       value: 

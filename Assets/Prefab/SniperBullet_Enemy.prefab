@@ -439,9 +439,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  m_radiusNearTarget: 0
-  m_minRad: 10
-  m_maxRad: 100
   m_vulnerabilityTime: 5
   m_headMaterial: {fileID: 2100000, guid: 02e5bcd8f47722e4d938b5d3fb0caabf, type: 2}
   m_vulnerable: 0

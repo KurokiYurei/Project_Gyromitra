@@ -10,8 +10,6 @@ public class CameraController : MonoBehaviour
     private InputAction moveCamera;
 
     [Header("Camera")]
-    public Transform m_LookAt;
-
     public Vector3 m_currentRotation;
 
     float m_Pitch = 0.0f;
@@ -44,8 +42,6 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private bool m_isAiming;
     [SerializeField]
-    private float m_Speed;
-    [SerializeField]
     private GameObject m_UI;
 
     public Vector3 m_cameraOffset;
@@ -67,7 +63,6 @@ public class CameraController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         moveCamera = playerInput.actions["Look"];
         m_isAiming = false;
-        m_Speed = 10f;
     }
 
     void LateUpdate()

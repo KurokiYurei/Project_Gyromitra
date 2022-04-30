@@ -13,6 +13,7 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private Rigidbody m_rigidBody;
 
+    [SerializeField]
     private string m_enemyTag;
 
     private bool m_Hit;
@@ -21,28 +22,13 @@ public class Arrow : MonoBehaviour
 
     private void Awake()
     {
-        //m_mushroomSpawnable = m_mushroomPrefab.GetTag();
+
     }
 
     private void Update()
     {
         transform.rotation = Quaternion.LookRotation(m_rigidBody.velocity);
-        //m_mushroom.GetComponent<Mushroom>();
     }
-
-    public void SetEnemyTag(string enemyTag)
-    {
-        m_enemyTag = enemyTag;
-    }
-
-    /*
-    public void Fly(Vector3 force)
-    {
-        m_rigidBody.isKinematic = false;
-        m_rigidBody.AddForce(force, ForceMode.Impulse);
-        m_rigidBody.AddTorque(m_torque * transform.right);
-        transform.SetParent(null);
-    }*/
 
     private void OnTriggerEnter(Collider other)
     {
@@ -73,15 +59,12 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        // print(collision.transform.tag);
-
         if (collision.transform.CompareTag(m_mushroomSpawnable) && collision.contacts[0].normal.y >= -0.01f)
         {
             Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal, Color.red, 5f);
             if (collision.contacts[0].normal.y < 0.3f) //WALL MUSHROOM
             {
-                GameObject l_mushroom = CharacterControllerScript.GetPool().GetNextElement(false);
+                GameObject l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(false);
                 l_mushroom.GetComponent<Mushroom>().m_currentTime = 0f;
                 l_mushroom.transform.position = collision.contacts[0].point;
                 l_mushroom.transform.forward = collision.contacts[0].normal;
@@ -90,7 +73,7 @@ public class Arrow : MonoBehaviour
             }
             else //NORMAL MUSHROOM
             {
-                GameObject l_mushroom = CharacterControllerScript.GetPool().GetNextElement(true);
+                GameObject l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(true);
                 l_mushroom.GetComponent<Mushroom>().m_currentTime = 0f;
                 l_mushroom.transform.position = collision.contacts[0].point;
                 l_mushroom.transform.SetParent(null);

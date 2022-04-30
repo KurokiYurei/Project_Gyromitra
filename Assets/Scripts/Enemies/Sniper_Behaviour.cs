@@ -39,14 +39,6 @@ public class Sniper_Behaviour : MonoBehaviour
     int m_currentWaypointId = 0;
 
     [SerializeField]
-    private float m_radiusNearTarget;
-
-    [SerializeField]
-    private int m_minRad = 10;
-    [SerializeField]
-    private int m_maxRad = 100;
-
-    [SerializeField]
     private float m_vulnerabilityTime;
 
     [SerializeField]
@@ -54,6 +46,8 @@ public class Sniper_Behaviour : MonoBehaviour
 
     private float m_vulnerabilityTimer;
     public bool m_vulnerable;
+
+    static PoolElements m_projectilePool;
 
     private Vector3 m_targetPos;
     Vector3 m_finalPlayerPos;
@@ -76,12 +70,13 @@ public class Sniper_Behaviour : MonoBehaviour
         m_mushroomTag = UtilsGyromitra.SearchForTag("Mushroom");
         //m_targetPos = RandomNavmeshLocation(UtilsGyromitra.RandomNumber(m_minRad, m_maxRad));
         //m_navMeshAgent.SetDestination(m_targetPos);
-        m_radiusNearTarget = 2f;
         m_ray.material.color = Color.blue;
 
         m_vulnerabilityTimer = m_vulnerabilityTime;
 
         m_NavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+
+        m_projectilePool = new PoolElements(3, transform, m_projectile);
 
         MoveToNextPatrolPosition();
     }
@@ -203,9 +198,14 @@ public class Sniper_Behaviour : MonoBehaviour
 
     private void Shoot(Vector3 dir)
     {
-        GameObject l_projectile = Instantiate(m_projectile, m_firePoint.position, m_firePoint.rotation);
+        GameObject l_projectile = m_projectilePool.GetNextElement();
+
+        l_projectile.transform.position = m_firePoint.position;
+        l_projectile.transform.rotation = m_firePoint.rotation;
         Rigidbody rb = l_projectile.GetComponent<Rigidbody>();
         rb.velocity = dir.normalized * m_projectileSpeed;
+        l_projectile.transform.SetParent(null);
+        l_projectile.SetActive(true);
     }
 
 

@@ -139,7 +139,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 3575
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2893145fe964b5c4fb70466dad93cf3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LookAt: {fileID: 0}
   m_currentRotation: {x: 0, y: 0, z: 0}
   m_AimPitch: 0
   m_AimYaw: 0
@@ -182,7 +181,6 @@ MonoBehaviour:
   m_ShoulderCameraPosition: {fileID: 0}
   m_NormalCameraPosition: {fileID: 0}
   m_isAiming: 0
-  m_Speed: 0
   m_UI: {fileID: 0}
   m_cameraOffset: {x: 10, y: 0, z: 10}
 --- !u!114 &1909322844693362500

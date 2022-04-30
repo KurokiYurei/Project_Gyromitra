@@ -31,8 +31,8 @@ public class Mushroom : MonoBehaviour
         //Destroy(this.gameObject, m_timeToDestroy);
 
         gameObject.SetActive(false);
-        CharacterControllerScript.GetPool().m_ActiveElementsList.Remove(gameObject);
-        CharacterControllerScript.GetPool().m_CurrentAmount -= 1;
+        CharacterControllerScript.GetMushroomPool().m_ActiveElementsList.Remove(gameObject);
+        CharacterControllerScript.GetMushroomPool().m_CurrentAmount -= 1;
 
         m_currentTime = 0.0f;
     }
