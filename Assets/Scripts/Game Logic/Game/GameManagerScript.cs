@@ -5,34 +5,18 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject m_player;
-
-    private Vector3 m_startPosPlayer;
-
-    private Quaternion m_startRotationPlayer;
-
-
-    private void Start()
+    List<IRestartGameElement> m_RestartGameElements;
+    private void Awake()
     {
-        m_startPosPlayer = m_player.transform.position;
-        m_startRotationPlayer = m_player.transform.rotation;
+        m_RestartGameElements = new List<IRestartGameElement>();
     }
-
-    private void Update()
+    public void AddRestartGameElement(IRestartGameElement RestartGameElement)
     {
-        if(m_player.transform.GetComponent<CharacterHP>().m_health <= 0f)
-        {
-            RestartGame();
-        }
+        m_RestartGameElements.Add(RestartGameElement);
     }
-
-    private void RestartGame()
+    public void RestartGame()
     {
-        m_player.transform.GetComponent<CharacterController>().enabled = false;
-        m_player.transform.position = m_startPosPlayer;
-        m_player.transform.rotation = m_startRotationPlayer;
-        m_player.transform.GetComponent<CharacterHP>().m_health = 100f;
-        m_player.transform.GetComponent<CharacterController>().enabled = true;
+        foreach (IRestartGameElement l_RestartGameElement in m_RestartGameElements)
+            l_RestartGameElement.RestartGame();
     }
 }

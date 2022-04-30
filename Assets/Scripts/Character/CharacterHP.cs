@@ -50,23 +50,8 @@ public class CharacterHP : MonoBehaviour, IDamagable
             if (m_tickPerSecondHealth <= 0f)
             {
                 Regen();
-                checkHP();
                 m_tickPerSecondHealth = 1f;
             }
-        }
-    }
-
-    private void checkHP()
-    {
-        if (m_health > 100f)
-        {
-            m_health = 100f;
-        }
-
-        if (m_health < 0f)
-        {
-            m_health = 0f;
-            // morir
         }
     }
 
@@ -74,12 +59,26 @@ public class CharacterHP : MonoBehaviour, IDamagable
     {
         m_timerToRegen = m_startTimeToRegen;
         m_health -= damage;
-
+        if (m_health <= m_minHealth)
+        {
+            gameObject.GetComponent<CharacterControllerScript>().m_gameManager.RestartGame();
+        }
     }
 
     public void Regen()
     {
-        m_health += m_healthPerSecond;
+        if(m_health >= m_maxHealth)
+        {
+            m_health = m_maxHealth;
+        }
+        else
+        {
+            m_health += m_healthPerSecond;
+        }
     }
 
+    public void ResetHP()
+    {
+        m_health = m_maxHealth;
+    }
 }

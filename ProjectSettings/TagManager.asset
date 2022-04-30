@@ -8,6 +8,7 @@ TagManager:
   - MushroomSpawnable
   - Mushroom
   - Bramble
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
-public class CharacterControllerScript : MonoBehaviour
+public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 {
     public Camera m_Camera;
 
@@ -30,6 +30,10 @@ public class CharacterControllerScript : MonoBehaviour
     static PoolElements m_arrowPool;
     public GameObject m_arrow;
 
+    private CharacterHP m_player;
+
+    public GameManagerScript m_gameManager;
+
     [SerializeField]
     private float m_fallDamage = 10.0f;
 
@@ -53,9 +57,6 @@ public class CharacterControllerScript : MonoBehaviour
     public Transform m_ShoulderCameraPosition;
     public Transform m_Bow;
 
-    Vector3 m_StartPosition;
-    Quaternion m_StartRotation;
-
     [Header("On Mushrooms")]
     public GameObject m_mushroomPrefab;
     public GameObject m_mushroomWallPrefab;
@@ -69,13 +70,21 @@ public class CharacterControllerScript : MonoBehaviour
     [Header("Bramble")]
     [SerializeField]
     private float m_brambleDamage;
-    private IDamagable m_player;
 
     [SerializeField]
     private float m_bramblePushPower;
 
     [SerializeField]
     private float m_bramblePushDuration;
+
+    [Header("Checkpoints")]
+    [SerializeField]
+    private Vector3 m_startPos;
+    [SerializeField]
+    private Quaternion m_startRot;
+    [SerializeField]
+    private CheckPoint m_currentCheckPoint;
+
 
     private void Awake()
     {
@@ -87,15 +96,17 @@ public class CharacterControllerScript : MonoBehaviour
         m_jumpAction = m_playerInput.actions["Jump"];
         m_AimAction = m_playerInput.actions["Aim"];
 
-        m_player = GetComponent<IDamagable>();
+        m_player = GetComponent<CharacterHP>();
 
         m_mushroomPool = new DoublePoolElements(5, transform, m_mushroomPrefab, m_mushroomWallPrefab);
         m_arrowPool = new PoolElements(5, null, m_arrow);
+
+        m_gameManager.AddRestartGameElement(this);
     }
     void Start()
     {
-        //m_StartPosition = transform.position;
-        //m_StartRotation = transform.rotation;
+        m_startPos = transform.position;
+        m_startRot = transform.rotation;
     }
 
     void Update()
@@ -232,6 +243,23 @@ public class CharacterControllerScript : MonoBehaviour
         }
     }
 
+    public void RestartGame()
+    {
+        m_CharacterController.enabled = false;
+        if(m_currentCheckPoint != null)
+        {
+            transform.position = m_currentCheckPoint.m_startPosition.position;
+            transform.rotation = m_currentCheckPoint.m_startPosition.rotation;
+        }
+        else
+        {
+            transform.position = m_startPos;
+            transform.rotation = m_startRot;
+        }
+        m_player.ResetHP();
+        m_CharacterController.enabled = true;
+    }
+
     public void SetVerticalSpeed(float newSpeed)
     {
         m_VerticalSpeed = newSpeed;
@@ -267,6 +295,13 @@ public class CharacterControllerScript : MonoBehaviour
             SetBounceParameters(hit.transform.position - transform.position, m_bramblePushPower, m_bramblePushDuration);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("CheckPoint"))
+        {
+            m_currentCheckPoint = other.GetComponent<CheckPoint>();
+        }
+    }
 
     public void SetBounceParameters(Vector3 dir, float power, float duration)
     {
@@ -294,26 +329,4 @@ public class CharacterControllerScript : MonoBehaviour
             m_player.Damage(m_fallDamage);
         }
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Mushroom"))
-    //    {
-    //        //SetVerticalSpeed(10f);
-    //        m_CharacterController.enabled = false;
-    //        //m_Rigidbody.AddRelativeForce(transform.position * -10, ForceMode.Impulse);
-    //        //_Rigidbody.AddForce(this.transform.InverseTransformDirection(this.transform.forward) * 1000, ForceMode.Impulse);
-    //        //m_Rigidbody.AddRelativeForce(this.transform.InverseTransformDirection(this.transform.forward) * 100, ForceMode.Impulse);
-    //        //m_Rigidbody.velocity = gameObject.transform.forward * -1000;
-    //        //m_Rigidbody.AddExplosionForce(-10, other.GetComponent<Collision>().GetContact(0).point, 5);
-    //        m_CharacterController.enabled = true;
-    //        jumped = true;
-
-    //        m_bounceDirection = other.transform.position - transform.position;
-
-    //        m_bounceDirection.Normalize();
-    //        m_bouncing = true;
-
-    //        Debug.DrawRay(other.ClosestPoint(transform.position), transform.position, Color.red, 2f);
-    //    }
-    //}
 }
