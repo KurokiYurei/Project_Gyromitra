@@ -9,6 +9,7 @@ TagManager:
   - Mushroom
   - Bramble
   - CheckPoint
+  - PlatformWaypoint
   layers:
   - Default
   - TransparentFX
