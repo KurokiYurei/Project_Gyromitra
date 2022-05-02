@@ -101,12 +101,13 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         m_mushroomPool = new DoublePoolElements(5, transform, m_mushroomPrefab, m_mushroomWallPrefab);
         m_arrowPool = new PoolElements(5, null, m_arrow);
 
-        m_gameManager.AddRestartGameElement(this);
+
     }
     void Start()
     {
         m_startPos = transform.position;
         m_startRot = transform.rotation;
+        m_gameManager.AddRestartGameElement(this);
     }
 
     void Update()
