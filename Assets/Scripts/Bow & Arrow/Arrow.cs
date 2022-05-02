@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    // damage that the arrow does if we implement an Health Script
-    // private float m_damage;
 
     [SerializeField]
     private float m_damage = 15f;
@@ -18,11 +16,11 @@ public class Arrow : MonoBehaviour
 
     private bool m_Hit;
 
-    public string m_mushroomSpawnable;
+    private string m_mushroomSpawnable;
 
-    private void Awake()
+    private void Start()
     {
-
+        m_mushroomSpawnable = UtilsGyromitra.SearchForTag("MushroomSpawnable");
     }
 
     private void Update()
@@ -34,8 +32,6 @@ public class Arrow : MonoBehaviour
     {
         if (m_Hit) return;
         m_Hit = true;
-
-        print(other.tag);
 
         if (other.CompareTag(m_enemyTag))
         {
@@ -49,12 +45,7 @@ public class Arrow : MonoBehaviour
             }
 
         }
-
-        // si es vol que es quedi la fletxa encrustrada en l'objecte
-        //m_rigidBody.velocity = Vector3.zero;
-        //m_rigidBody.angularVelocity = Vector3.zero;
-        //m_rigidBody.isKinematic = true;
-        //transform.SetParent(other.transform);    
+  
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -65,7 +56,7 @@ public class Arrow : MonoBehaviour
             if (collision.contacts[0].normal.y < 0.3f) //WALL MUSHROOM
             {
                 GameObject l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(false);
-                l_mushroom.GetComponent<Mushroom>().m_currentTime = 0f;
+                l_mushroom.GetComponent<Mushroom>().SetCurrentTime(0f);
                 l_mushroom.transform.position = collision.contacts[0].point;
                 l_mushroom.transform.forward = collision.contacts[0].normal;
                 l_mushroom.transform.SetParent(null);
@@ -74,7 +65,7 @@ public class Arrow : MonoBehaviour
             else //NORMAL MUSHROOM
             {
                 GameObject l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(true);
-                l_mushroom.GetComponent<Mushroom>().m_currentTime = 0f;
+                l_mushroom.GetComponent<Mushroom>().SetCurrentTime(0f);
                 l_mushroom.transform.position = collision.contacts[0].point;
                 l_mushroom.transform.SetParent(null);
                 l_mushroom.SetActive(true);

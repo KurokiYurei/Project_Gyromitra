@@ -5,14 +5,12 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-    [Header("Inputs")]
+    // inputs
+
     private PlayerInput playerInput;
     private InputAction moveCamera;
 
     [Header("Camera")]
-    public Vector3 m_currentRotation;
-
-    float m_Pitch = 0.0f;
     public float m_AimPitch = 0.0f;
     public float m_AimYaw = 0.0f;
 
@@ -27,6 +25,10 @@ public class CameraController : MonoBehaviour
 
     public float m_MinAimPitchDistance = -30f;
     public float m_MaxAimPitchDistance = 30f;
+
+    private Vector3 m_currentRotation;
+
+    private float m_Pitch = 0.0f;
 
     public LayerMask m_CollisionLayerMask;
 
@@ -43,8 +45,6 @@ public class CameraController : MonoBehaviour
     private bool m_isAiming;
     [SerializeField]
     private GameObject m_UI;
-
-    public Vector3 m_cameraOffset;
 
     public void SetIsAiming(bool l_isAiming)
     {
@@ -79,19 +79,20 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    void NormalCamera()
+    /// <summary>
+    /// Normal function of the camera if not aiming
+    /// </summary>
+    void NormalCamera() 
     {
         m_UI.GetComponent<UI_Manager>().ShowHud(false);
 
         transform.position = m_NormalCameraPosition.position;
 
-        Vector2 input = moveCamera.ReadValue<Vector2>(); //* m_CameraSensivity;
+        Vector2 input = moveCamera.ReadValue<Vector2>();
 
         float l_MouseDeltaX = input.x;
         float l_MouseDeltaY = input.y;
-
-
-        //float l_Yaw += l_MouseDeltaX;
+        
         m_AimYaw += l_MouseDeltaX;
         m_Pitch -= l_MouseDeltaY;
         m_Pitch = Mathf.Clamp(m_Pitch, m_MinPitchDistance, m_MaxPitchDistance);
@@ -99,43 +100,18 @@ public class CameraController : MonoBehaviour
         m_currentRotation = Vector3.Lerp(m_currentRotation, new Vector3(m_Pitch, m_AimYaw), 8 * Time.deltaTime);
         m_NormalCameraPosition.eulerAngles = m_currentRotation;
         transform.forward = m_NormalCameraPosition.forward;
-
-        //Vector3 l_Direction = m_LookAt.position - transform.position;
-        //float l_Distance = l_Direction.magnitude;
-        //l_Distance = Mathf.Clamp(l_Distance, m_MinDistance, m_MaxDistance);
-        //l_Direction.y = 0.0f;
-        //l_Direction.Normalize();
-
-        //float l_Yaw = Mathf.Atan2(l_Direction.x, l_Direction.z);
-
-        //float l_MouseDeltaX = input.x;
-        //float l_MouseDeltaY = input.y;
-
-        //l_Yaw += l_MouseDeltaX * (m_YawRotationalSpeed * Mathf.Deg2Rad) * Time.deltaTime;
-        //m_Pitch += l_MouseDeltaY * (m_PitchRotationalSped * Mathf.Deg2Rad) * Time.deltaTime;
-        //m_Pitch = Mathf.Clamp(m_Pitch, m_MinPitchDistance * Mathf.Deg2Rad, m_MaxPitchDistance * Mathf.Deg2Rad);
-
-        //l_Direction = new Vector3(Mathf.Sin(l_Yaw) * Mathf.Cos(m_Pitch), Mathf.Sin(m_Pitch), Mathf.Cos(l_Yaw) * Mathf.Cos(m_Pitch));
-        //Vector3 l_DesiredPosition = m_LookAt.position - l_Direction * l_Distance;
-
-        //Ray l_Ray = new Ray(m_LookAt.position, -l_Direction);
-        //if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, l_Distance, m_CollisionLayerMask.value))
-        //{
-        //    l_DesiredPosition = l_RaycastHit.point;
-        //    l_DesiredPosition += l_Direction;
-        //}
-        //transform.position = l_DesiredPosition;
-        //transform.LookAt(m_LookAt.position);
     }
 
+    /// <summary>
+    /// Normal function of the camera when aiming
+    /// </summary>
     void AimCamera()
     {
         m_UI.GetComponent<UI_Manager>().ShowHud(true);
 
-        //transform.position = Vector3.Lerp(transform.position, m_ShoulderCameraPosition.position, Time.deltaTime * m_Speed);
         transform.position = m_ShoulderCameraPosition.position;
 
-        Vector2 input = moveCamera.ReadValue<Vector2>();// * m_CameraSensivity;
+        Vector2 input = moveCamera.ReadValue<Vector2>();
 
         float l_MouseDeltaX = input.x;
         float l_MouseDeltaY = input.y;

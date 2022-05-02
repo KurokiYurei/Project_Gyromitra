@@ -11,6 +11,13 @@ public class DoublePoolElements
     private int m_MaxAmount;
     public int m_CurrentAmount;
 
+    /// <summary>
+    /// Create the pool for two types of elements in one list
+    /// </summary>
+    /// <param name="count"></param>
+    /// <param name="parent"></param>
+    /// <param name="prefab1"></param>
+    /// <param name="prefab2"></param>
     public DoublePoolElements(int count, Transform parent, GameObject prefab1, GameObject prefab2)
     {
         m_ElementsList = new List<GameObject>();
@@ -30,6 +37,11 @@ public class DoublePoolElements
         }
     }
 
+    /// <summary>
+    /// get the next element of a pool
+    /// </summary>
+    /// <param name="firstElement"></param>
+    /// <returns></returns>
     public GameObject GetNextElement(bool firstElement)
     {
         if (m_CurrentAmount < m_MaxAmount)
@@ -78,4 +90,6 @@ public class DoublePoolElements
     }
 
     //S'HAURA DE AFEGIR CODI PER RESETEJAR LA POOL QUAN SIGUI NECESARI, AIXO JA PER LA ALPHA I GUESS
+    // zi :)
+    // ho sento pau del futur
 }

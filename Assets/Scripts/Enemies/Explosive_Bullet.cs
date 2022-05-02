@@ -4,27 +4,14 @@ using UnityEngine;
 
 public class Explosive_Bullet : MonoBehaviour
 {
-    //[SerializeField]
-    //private float m_damage = 15f;
-
     [SerializeField]
     private GameObject m_explosionCollider;
-
-    private string m_playerTag;
-
-    private bool m_hit;
 
     [SerializeField]
     private float m_timeToExplode;
 
     private float m_timer;
 
-    void Start()
-    {
-        m_playerTag = UtilsGyromitra.SearchForTag("Player");
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(m_timer >= m_timeToExplode)
@@ -37,17 +24,6 @@ public class Explosive_Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        print("Entro al collider");
-
-        //if (collision.collider.CompareTag(m_playerTag))
-        //{
-        //    Explosion(collision.contacts[0].point);
-        //}
-        //else
-        //{
-
-        //}
-
         Explosion(collision.contacts[0].point);
 
         gameObject.SetActive(false);

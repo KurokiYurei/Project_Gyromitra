@@ -7,6 +7,12 @@ public class PoolElements
     public List<GameObject> m_ElementsList;
     private int m_CurrentElementId;
 
+    /// <summary>
+    /// create the list of elements
+    /// </summary>
+    /// <param name="count"></param>
+    /// <param name="parent"></param>
+    /// <param name="prefab"></param>
     public PoolElements(int count, Transform parent, GameObject prefab)
     {
         m_ElementsList = new List<GameObject>();
@@ -20,6 +26,10 @@ public class PoolElements
         }
     }
 
+    /// <summary>
+    /// get the next element of the list
+    /// </summary>
+    /// <returns></returns>
     public GameObject GetNextElement()
     {
         GameObject l_Element = m_ElementsList[m_CurrentElementId];

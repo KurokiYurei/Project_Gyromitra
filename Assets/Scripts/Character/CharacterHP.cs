@@ -28,15 +28,14 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_minHealth = 0f;
         m_maxHealth = 100f;
 
-        m_timerToRegen = 10f;
-        m_startTimeToRegen = 10f;
+        m_timerToRegen = 2f;
+        m_startTimeToRegen = 2f;
         m_healthPerSecond = 10f;
         m_tickPerSecondHealth = 1f;
 
         m_health = m_maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         m_ui.SetHealth(m_health);
@@ -55,6 +54,10 @@ public class CharacterHP : MonoBehaviour, IDamagable
         }
     }
 
+    /// <summary>
+    /// Deal damage to the player
+    /// </summary>
+    /// <param name="damage"></param>
     public void Damage(float damage)
     {
         m_timerToRegen = m_startTimeToRegen;
@@ -65,6 +68,9 @@ public class CharacterHP : MonoBehaviour, IDamagable
         }
     }
 
+    /// <summary>
+    /// regen function
+    /// </summary>
     public void Regen()
     {
         if(m_health >= m_maxHealth)
@@ -77,6 +83,9 @@ public class CharacterHP : MonoBehaviour, IDamagable
         }
     }
 
+    /// <summary>
+    /// reset hp of the player
+    /// </summary>
     public void ResetHP()
     {
         m_health = m_maxHealth;

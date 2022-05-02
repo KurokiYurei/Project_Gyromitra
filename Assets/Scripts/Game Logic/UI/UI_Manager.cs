@@ -25,14 +25,9 @@ public class UI_Manager : MonoBehaviour
 
     private float m_alphaCircle;
 
-    public Color m_color;
+    private Color m_color;
 
-    public Gradient m_gradient;
-
-    public void SetAlphaCirlce(float alpha)
-    {
-        m_alphaCircle = alpha;
-    }
+    private Gradient m_gradient;
 
     private void Update()
     {
@@ -54,6 +49,16 @@ public class UI_Manager : MonoBehaviour
             ChangeColorCrosshair(Color.white);
         }
     }
+
+    /// <summary>
+    /// set the alpha of the circle
+    /// </summary>
+    /// <param name="alpha"></param>
+    public void SetAlphaCirlce(float alpha)
+    {
+        m_alphaCircle = alpha;
+    }
+
 
     /// <summary>
     /// change the color of the crosshair if an enemy is in sight
@@ -78,7 +83,7 @@ public class UI_Manager : MonoBehaviour
     /// <param name="show"></param>
     public void ShowHud(bool show)
     {
-        // m_Crosshair.SetActive(show);
+
         if (show)
         {
             m_CircleRenderer.enabled = true;
@@ -86,6 +91,7 @@ public class UI_Manager : MonoBehaviour
         {
             m_CircleRenderer.enabled = false;
         }
+        
     }
 
     /// <summary>
@@ -139,8 +145,13 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// set the health of the ui to a value
+    /// </summary>
+    /// <param name="health"></param>
     public void SetHealth(float health)
     {
         m_HealthBar.value = health;
     }
 }
+    

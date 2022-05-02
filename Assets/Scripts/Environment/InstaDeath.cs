@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class InstaDeath : MonoBehaviour
 {
-
-    private CharacterHP m_player;
-
     private void OnTriggerEnter(Collider other)
     {
-        m_player = other.transform.GetComponent<CharacterHP>();
-        m_player.Damage(100f);
+        other.transform.GetComponent<CharacterHP>().Damage(100f);
     }
 }

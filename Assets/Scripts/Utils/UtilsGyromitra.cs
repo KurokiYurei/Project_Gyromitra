@@ -61,9 +61,7 @@ public static class UtilsGyromitra
     /// <returns></returns>
     public static GameObject FindInstanceWithinRadius(GameObject self, string tag, float radius)
     {
-        //GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
-
-        GameObject otherGameObject = GameObject.FindGameObjectWithTag(tag);//targets[0];
+        GameObject otherGameObject = GameObject.FindGameObjectWithTag(tag);
 
         float distance = (otherGameObject.transform.position - self.transform.position).magnitude;
 
@@ -78,6 +76,12 @@ public static class UtilsGyromitra
 
     }
 
+    /// <summary>
+    /// get a random number between two
+    /// </summary>
+    /// <param name="number1"></param>
+    /// <param name="number2"></param>
+    /// <returns></returns>
     public static int RandomNumber(int number1, int number2)
     {
         return Random.Range(number1, number2);

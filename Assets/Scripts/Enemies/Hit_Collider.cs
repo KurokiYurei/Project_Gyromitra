@@ -10,6 +10,7 @@ public class Hit_Collider : MonoBehaviour
         BODY = 0,
         HEAD
     }
+
     public THitColliderType m_ColliderType;
 
     [SerializeField]
@@ -23,16 +24,9 @@ public class Hit_Collider : MonoBehaviour
 
     public bool m_vulnerable;
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    /// <summary>
+    /// Checks where the enemy got hit and if its vulnerable
+    /// </summary>
     public void Hit()
     {
         int l_HitAmount = m_HeadHitAmount;
@@ -48,11 +42,9 @@ public class Hit_Collider : MonoBehaviour
         if (collision.transform.tag == "Mushroom")
         {
             gameObject.GetComponentInParent<NavMeshAgent>().enabled = false;
+            
             m_enemy.m_vulnerable = true;
-            //SetBounceParameters
-            //gameObject.transform.forward *= -1;
-            //gameObject.GetComponent<Rigidbody>().AddRelativeForce((gameObject.transform.position - collision.contacts[0].normal) * 3000);
-            print("vulnerable");
+
             collision.transform.GetComponent<Mushroom>().DestroyMushroom();
         }
     }

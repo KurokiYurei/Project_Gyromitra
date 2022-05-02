@@ -9,12 +9,11 @@ public class Explosion : MonoBehaviour
 
     private string m_playerTag;
 
-    Animation m_animation;
+    private Animation m_animation;
 
-    float m_timer;
-    bool m_destroy;
+    private float m_timer;
+    private bool m_destroy;
 
-    // Start is called before the first frame update
     void Start()
     {
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
@@ -22,7 +21,6 @@ public class Explosion : MonoBehaviour
         m_animation = gameObject.GetComponent<Animation>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (m_animation.IsPlaying("Explosion"))

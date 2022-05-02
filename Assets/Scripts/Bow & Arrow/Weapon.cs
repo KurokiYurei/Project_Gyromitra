@@ -15,15 +15,23 @@ public class Weapon : MonoBehaviour
 
     private float m_Power;
 
-    public GameObject m_crosshair;
+    [SerializeField]
+    private GameObject m_crosshair;
 
-    public void Reload()
+    /// <summary>
+    /// The method that controlls the reload of the arrow
+    /// </summary>
+    public void StartReloading()
     {
         if (m_isReloading) return;
         m_isReloading = true;
         StartCoroutine(ReloadAfterTime());
     }
 
+    /// <summary>
+    /// Coroutine of the reload method and spawn the arrow with a direction
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator ReloadAfterTime()
     {
         yield return new WaitForSeconds(m_reloadTime);
@@ -50,15 +58,14 @@ public class Weapon : MonoBehaviour
         m_isReloading = false;
     }
 
+    /// <summary>
+    /// method that fires the arrow
+    /// </summary>
+    /// <param name="firepower"></param>
     public void FireArrow(float firepower)
     {
         if (m_isReloading) return;
         m_Power = firepower;
-        Reload();
-    }
-
-    public bool IsReady()
-    {
-        return !m_isReloading;
+        StartReloading();
     }
 }

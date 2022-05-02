@@ -22,14 +22,10 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField]
     private float m_firePowerSpeed;
-    
-    [SerializeField]
+  
     private float m_fireMultiplyer;
 
     private float m_firePower;
-
-    [SerializeField]
-    private float m_rotateSpeed;
 
     private bool m_fire;
 
@@ -40,7 +36,6 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private float m_minRadius;
 
-    [SerializeField]
     private float m_currentRadius;
 
     [SerializeField]
@@ -51,6 +46,7 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField]
     private float m_SpeedCircle;
+    
     private float m_maxSpeedCircle;
     private float m_minSpeedCircle;
 
@@ -64,7 +60,6 @@ public class WeaponController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         m_shootArrow = playerInput.actions["Shoot"];
-        m_weapon.Reload();
         m_fire = false;
 
         m_maxFirePower = 50f;
