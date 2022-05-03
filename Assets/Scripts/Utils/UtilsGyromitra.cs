@@ -18,7 +18,6 @@ public static class UtilsGyromitra
 
         for (int i = 0; i < UnityEditorInternal.InternalEditorUtility.tags.Length; i++)
         {
-
             if (UnityEditorInternal.InternalEditorUtility.tags[i].Contains(nameOfTheTag))
             {
                 result = UnityEditorInternal.InternalEditorUtility.tags[i];
@@ -63,9 +62,7 @@ public static class UtilsGyromitra
     {
         GameObject otherGameObject = GameObject.FindGameObjectWithTag(tag);
 
-        float distance = (otherGameObject.transform.position - self.transform.position).magnitude;
-
-        if (distance <= radius)
+        if (DistanceToTarget(self, otherGameObject) <= radius)
         {
             return otherGameObject;
         }
@@ -73,7 +70,6 @@ public static class UtilsGyromitra
         {
             return null;
         }
-
     }
 
     /// <summary>
@@ -85,6 +81,17 @@ public static class UtilsGyromitra
     public static int RandomNumber(int number1, int number2)
     {
         return Random.Range(number1, number2);
+    }
+
+    /// <summary>
+    /// Find the distance of two objects
+    /// </summary>
+    /// <param name="l_object1"></param>
+    /// <param name="l_object2"></param>
+    /// <returns></returns>
+    public static float DistanceToTarget(GameObject l_object1, GameObject l_object2)
+    {
+        return (l_object2.transform.position - l_object1.transform.position).magnitude;
     }
 
 }
