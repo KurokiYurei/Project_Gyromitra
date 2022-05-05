@@ -15,6 +15,9 @@ public class EnemyBehaviour : FiniteStateMachine
     
     private GameObject m_player;
 
+    private EnemyMovement m_enemyMovement;
+    private EnemyShoot m_enemyShoot;
+
     [Header("Attributes of the FSM")]
     [SerializeField]
     private float m_playerInRange;
@@ -22,10 +25,13 @@ public class EnemyBehaviour : FiniteStateMachine
     [SerializeField]
     private float m_playerOutOfRange;
 
+    [SerializeField]
     private bool m_mushroomImpact;
 
-    private EnemyMovement m_enemyMovement;
-    private EnemyShoot m_enemyShoot;
+    [SerializeField]
+    private float m_stuntTime;
+
+    private static float m_stuntTimeReset;
 
     public void SetMushroomHit(bool value)
     {
@@ -43,18 +49,11 @@ public class EnemyBehaviour : FiniteStateMachine
         m_enemyShoot = GetComponent<EnemyShoot>();
 
         m_enemyMovement.enabled = false;
-    }
+        m_enemyShoot.enabled = false;
 
-    public override void Exit()
-    {
-        m_enemyMovement.enabled = false;
-        base.Exit();
-    }
+        m_playerInRange = 20f;
+        m_playerOutOfRange = 10f;
 
-    public override void ReEnter()
-    {
-        m_currentState = State.INITIAL;
-        base.ReEnter();
     }
 
     private void Update()
@@ -69,7 +68,7 @@ public class EnemyBehaviour : FiniteStateMachine
 
             case State.WANDER:
 
-                // stun mushroom 
+                // stun mushroom
 
                 if (m_mushroomImpact)
                 {
@@ -81,8 +80,9 @@ public class EnemyBehaviour : FiniteStateMachine
 
                 m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, UtilsGyromitra.SearchForTag("Player"), m_playerInRange);
 
-                if (UtilsGyromitra.DistanceToTarget(this.gameObject,m_player) <= m_playerInRange)
+                if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) <= m_playerInRange)
                 {
+
                     ChangeState(State.ATTACK);
                     break;
                 }
@@ -91,7 +91,7 @@ public class EnemyBehaviour : FiniteStateMachine
 
             case State.ATTACK:
 
-                // stun mushroom 
+                // stun mushroom
 
                 if (m_mushroomImpact)
                 {
@@ -103,7 +103,7 @@ public class EnemyBehaviour : FiniteStateMachine
 
                 m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, UtilsGyromitra.SearchForTag("Player"), m_playerInRange);
 
-                if (UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) >= m_playerOutOfRange)
+                if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) >= m_playerOutOfRange)
                 {
                     ChangeState(State.WANDER);
                     break;
@@ -112,23 +112,27 @@ public class EnemyBehaviour : FiniteStateMachine
 
             case State.STUN:
 
+                m_stuntTime -= Time.deltaTime;
 
-                m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, UtilsGyromitra.SearchForTag("Player"), m_playerInRange);
-
-                // find player if in range
-
-                if (UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) <= m_playerInRange)
+                if (m_stuntTime <= 0f)
                 {
-                    ChangeState(State.ATTACK);
-                    break;
-                }
+                    m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, UtilsGyromitra.SearchForTag("Player"), m_playerInRange);
 
-                // find player if out of range
+                    // find player if in range
 
-                if (UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) >= m_playerOutOfRange)
-                {
-                    ChangeState(State.WANDER);
-                    break;
+                    if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) <= m_playerInRange)
+                    {
+                        ChangeState(State.ATTACK);
+                        break;
+                    }
+
+                    // find player if out of range
+
+                    if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) >= m_playerOutOfRange)
+                    {
+                        ChangeState(State.WANDER);
+                        break;
+                    }
                 }
 
                 break;
@@ -145,22 +149,25 @@ public class EnemyBehaviour : FiniteStateMachine
                 break;
 
             case State.ATTACK:
-                m_enemyShoot.enabled = false;                
+                m_enemyShoot.enabled = false;
+                m_enemyShoot.setPlayer(null);
                 break;
 
             case State.STUN:
+                m_stuntTime = m_stuntTimeReset;
                 break;
 
         }
 
         // enter logic
-        switch (m_currentState)
+        switch (l_newState)
         {
-
             case State.WANDER:
+                m_enemyMovement.enabled = true;
                 break;  
 
             case State.ATTACK:
+                m_enemyShoot.enabled = true;
                 m_enemyShoot.setPlayer(m_player);
                 break;
                     
