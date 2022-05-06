@@ -364,10 +364,19 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         return m_arrowPool;
     }
+
+    /// <summary>
+    /// return the mushrooms pool
+    /// </summary>
+    /// <returns></returns>
     public static DoublePoolElements GetMushroomPool()
     {
         return m_mushroomPool;
     }
+
+    /// <summary>
+    /// deal damage to the player when it falls to the groud
+    /// </summary>
     private void FallDamage()
     {
         if (m_VerticalSpeed <= -15)

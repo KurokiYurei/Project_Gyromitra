@@ -128,6 +128,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3437689874125184637, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
   m_PrefabInstance: {fileID: 264737512}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &21540393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3437689874125184634, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
+  m_PrefabInstance: {fileID: 264737512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21540390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &87109321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3437689874619258879, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
@@ -203,6 +214,22 @@ PrefabInstance:
     - target: {fileID: 3437689874125184638, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
       propertyPath: m_mushroomJumpSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437689874619258868, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 21540393}
+    - target: {fileID: 3437689874619258868, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
+      propertyPath: m_gameManager
+      value: 
+      objectReference: {fileID: 710289602}
+    - target: {fileID: 3437689874619258868, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
+      propertyPath: m_pauseGame.m_Id
+      value: 47fb38f6-9a56-4100-acbb-d02b6691089d
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437689874619258868, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
+      propertyPath: m_pauseGame.m_Name
+      value: Pause Game
       objectReference: {fileID: 0}
     - target: {fileID: 3437689875761259076, guid: 30a3187233eae694f8b9ede95865f222, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3209,10 +3236,6 @@ PrefabInstance:
     - target: {fileID: 8371592696614187828, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_Name
       value: MovingPlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 8371592696614187828, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
-      propertyPath: m_TagString
-      value: MobilePlatform
       objectReference: {fileID: 0}
     - target: {fileID: 8371592696614187829, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_waypoints.Array.data[0]
