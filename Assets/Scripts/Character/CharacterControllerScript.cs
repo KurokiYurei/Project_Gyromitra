@@ -29,9 +29,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private float m_fallGravityMultiplier = 2f;
 
-    [SerializeField]
-    private float smoothInputSpeed = 0.1f;
-
     private float m_onAirTimer;
     
     private bool m_jumped;
@@ -55,10 +52,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     [SerializeField]
     private float m_fallDamage = 10.0f;
-
-    [Range(0.0f, 1.0f)]
-    [SerializeField]
-    private float m_LerpRotationPct = 0.9f;
 
     [Header("Inputs")]
     private PlayerInput m_playerInput;

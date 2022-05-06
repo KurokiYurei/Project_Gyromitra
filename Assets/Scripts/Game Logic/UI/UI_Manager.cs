@@ -22,8 +22,6 @@ public class UI_Manager : MonoBehaviour
 
     private RaycastHit m_rayCastHit;
 
-    private float m_rayLength = 100f;
-
     private float m_alphaCircle;
 
     private Color m_color;

@@ -9,10 +9,10 @@ public class Bramble : MonoBehaviour
 
     [SerializeField]
     private float m_pushDuration;
-
+    
     private string m_playerTag;
 
-    private float m_damage;
+    // private float m_damage;
 
     private bool m_playerRecievedDamage;
 
@@ -22,7 +22,7 @@ public class Bramble : MonoBehaviour
     {
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
 
-        m_damage = 25f;
+        // m_damage = 25f;
 
     }
 
