@@ -35,16 +35,26 @@ public class UI_Manager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.gameObject.tag == "Enemy")
+
+
+            if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag(UtilsGyromitra.SearchForTag("Enemy"))))
             {
                 ChangeColorCrosshair(Color.red);
-            }
-            else
+            } else
             {
-                ChangeColorCrosshair(Color.white);
+                if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MushroomSpawnable")))
+                {
+                    ChangeColorCrosshair(Color.green);
+                }
+                else
+                {
+                    ChangeColorCrosshair(Color.white);
+                }
             }
+
         } else
         {
+
             ChangeColorCrosshair(Color.white);
         }
     }
