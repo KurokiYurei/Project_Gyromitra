@@ -9,6 +9,7 @@ public class GameManagerScript : MonoBehaviour
     private void Awake()
     {
         m_RestartGameElements = new List<IRestartGameElement>();
+        DontDestroyOnLoad(gameObject);
     }
     public void AddRestartGameElement(IRestartGameElement RestartGameElement)
     {

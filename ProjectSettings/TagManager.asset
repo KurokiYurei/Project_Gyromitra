@@ -10,6 +10,7 @@ TagManager:
   - Bramble
   - CheckPoint
   - PlatformWaypoint
+  - MobilePlatform
   layers:
   - Default
   - TransparentFX
