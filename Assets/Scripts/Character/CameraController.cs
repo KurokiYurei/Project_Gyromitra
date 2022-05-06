@@ -58,8 +58,6 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-
         playerInput = GetComponent<PlayerInput>();
         moveCamera = playerInput.actions["Look"];
         m_isAiming = false;

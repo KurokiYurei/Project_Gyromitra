@@ -107,6 +107,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     private void Awake()
     {
+        Cursor.visible = false;
         m_CharacterController = GetComponent<CharacterController>();
         m_CameraController = m_Camera.GetComponent<CameraController>();
         m_playerInput = GetComponent<PlayerInput>();
