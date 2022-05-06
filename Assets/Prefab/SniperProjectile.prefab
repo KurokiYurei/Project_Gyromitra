@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 25
+  m_rigidBody: {fileID: 8272729674931008831}
 --- !u!96 &-7901478201335023806
 TrailRenderer:
   serializedVersion: 2

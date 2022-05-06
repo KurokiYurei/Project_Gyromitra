@@ -28,28 +28,8 @@ public class UI_Manager : MonoBehaviour
 
     private Gradient m_gradient;
 
-    [SerializeField]
-    private GameManagerScript m_gameManager;
-
-    [SerializeField]
-    private PlayerInput playerInput;
-
-    [SerializeField]
-    private InputAction m_pauseGame;
-
-    private void Awake()
-    {
-        m_pauseGame = playerInput.actions["Pause"];
-    }
-
     private void Update()
     {
-
-        if(m_pauseGame.triggered)
-        {
-            m_gameManager.PauseGame();
-        }
-
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
 
