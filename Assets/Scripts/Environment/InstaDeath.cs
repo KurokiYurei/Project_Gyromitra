@@ -6,6 +6,8 @@ public class InstaDeath : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.GetComponent<CharacterHP>().Damage(100f);
+        IDamagable m_component = other.transform.GetComponent<IDamagable>();
+        if(m_component != null ) m_component.Damage(100f);
+
     }
 }
