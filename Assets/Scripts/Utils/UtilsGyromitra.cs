@@ -14,14 +14,16 @@ public static class UtilsGyromitra
     /// </returns>
     public static string SearchForTag(string nameOfTheTag)
     {
-        string result = "";
+        string result;
 
-        for (int i = 0; i < UnityEditorInternal.InternalEditorUtility.tags.Length; i++)
+        try
         {
-            if (UnityEditorInternal.InternalEditorUtility.tags[i].Contains(nameOfTheTag))
-            {
-                result = UnityEditorInternal.InternalEditorUtility.tags[i];
-            }
+            GameObject.FindGameObjectsWithTag(nameOfTheTag);
+            result = nameOfTheTag;
+        }
+        catch
+        {
+            result = "";
         }
 
         return result;
