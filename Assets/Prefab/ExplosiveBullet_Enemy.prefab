@@ -422,10 +422,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_locationRadius: 25
   m_projectile: {fileID: 2912590137364781247, guid: 8b8c4d3c5e619734f80d7cb893f1977e, type: 3}
-  m_projectileSpeed: 30
-  m_cooldownTime: 2.5
-  m_lockTime: 5
-  m_warningTime: 4.5
+  m_projectileSpeed: 40
+  m_cooldownTime: 1.5
+  m_lockTime: 2
+  m_warningTime: 1
   m_firePoint: {fileID: 8695287159169874137}
   m_ray: {fileID: 8695287159169874134}
   m_shootLayerMask:
@@ -439,9 +439,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  m_radiusNearTarget: 0
-  m_minRad: 10
-  m_maxRad: 100
   m_vulnerabilityTime: 5
   m_headMaterial: {fileID: 2100000, guid: 02e5bcd8f47722e4d938b5d3fb0caabf, type: 2}
   m_vulnerable: 0
