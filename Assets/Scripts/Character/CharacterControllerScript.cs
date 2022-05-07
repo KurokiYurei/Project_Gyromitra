@@ -8,7 +8,10 @@ using static UnityEngine.InputSystem.InputAction;
 public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 {
     [SerializeField]
-    private Camera m_Camera;
+    private NewCameraController m_camController;
+
+    [SerializeField]
+    private Transform m_FollowRot;
 
     [Header("Stats")]
 
@@ -60,7 +63,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private InputAction m_AimAction;
 
     private CharacterController m_CharacterController;
-    private CameraController m_CameraController;
+    //private CameraController m_CameraController;
 
     [Header("Camera")]
     [SerializeField]
@@ -109,7 +112,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         Cursor.visible = false;
         m_CharacterController = GetComponent<CharacterController>();
-        m_CameraController = m_Camera.GetComponent<CameraController>();
         m_playerInput = GetComponent<PlayerInput>();
         m_moveAction = m_playerInput.actions["Movement"];
         m_jumpAction = m_playerInput.actions["Jump"];
@@ -132,37 +134,26 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         //Movement function
         Movement();
 
-        RotWithCam();
+        //RotWithCam();
 
         //Aim
         if (m_AimAction.triggered)
         {
-            if (m_ShoulderCameraPosition.eulerAngles.x < 360 + m_CameraController.m_MinAimPitchDistance && m_ShoulderCameraPosition.eulerAngles.x > 180)
-                m_CameraController.m_AimPitch = m_CameraController.m_MinAimPitchDistance;
-            else if (m_ShoulderCameraPosition.eulerAngles.x >= 360 + m_CameraController.m_MinAimPitchDistance)
-                m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x - 360;
-            else
-                m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x;
+            //if (m_ShoulderCameraPosition.eulerAngles.x < 360 + m_CameraController.m_MinAimPitchDistance && m_ShoulderCameraPosition.eulerAngles.x > 180)
+            //    m_CameraController.m_AimPitch = m_CameraController.m_MinAimPitchDistance;
+            //else if (m_ShoulderCameraPosition.eulerAngles.x >= 360 + m_CameraController.m_MinAimPitchDistance)
+            //    m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x - 360;
+            //else
+            //    m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x;
 
-            m_CameraController.SetIsAiming(true);
+            //m_CameraController.SetIsAiming(true);
+            m_camController.SetIsAiming(true);
         }
         if (m_AimAction.WasReleasedThisFrame())
         {
-            m_CameraController.SetIsAiming(false);
+            //m_CameraController.SetIsAiming(false);
+            m_camController.SetIsAiming(false);
         }
-    }
-
-    /// <summary>
-    /// Rotate the camera with the mouse movement
-    /// </summary>
-    private void RotWithCam()
-    {
-        Vector3 l_Forward = m_Camera.transform.forward;
-        l_Forward.y = 0.0f;
-        transform.forward = l_Forward;
-
-        Vector3 l_bowRot = m_Camera.transform.eulerAngles;
-        m_Bow.eulerAngles = l_bowRot;
     }
 
     /// <summary>
@@ -172,8 +163,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         Vector2 input = m_moveAction.ReadValue<Vector2>();
 
-        Vector3 l_Forward = m_Camera.transform.forward;
-        Vector3 l_Right = m_Camera.transform.right;
+        Vector3 l_Forward = m_FollowRot.transform.forward;
+        Vector3 l_Right = m_FollowRot.transform.right;
         l_Forward.y = 0.0f;
         l_Right.y = 0.0f;
 

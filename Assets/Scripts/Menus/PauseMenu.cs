@@ -19,7 +19,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private InputAction m_pauseGame;
 
-    // Start is called before the first frame update
+    public bool GetPaused()
+    {
+        return m_paused;
+    }
+
     void Start()
     {
         m_pauseGame = playerInput.actions["Pause"];

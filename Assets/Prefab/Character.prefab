@@ -277,10 +277,9 @@ MonoBehaviour:
   m_jumpHorizontalSpeedDivider: 2
   m_VerticalSpeed: 0
   m_fallGravityMultiplier: 3
-  smoothInputSpeed: 0.01
   m_arrow: {fileID: 5903353976143995575, guid: 96cf4d3737f43f446a25ba5472f6ec17, type: 3}
+  m_gameManager: {fileID: 0}
   m_fallDamage: 10
-  m_LerpRotationPct: 0.025
   m_ShoulderCameraPosition: {fileID: 3437689874238291919}
   m_Bow: {fileID: 3437689875186168177}
   m_mushroomPrefab: {fileID: 3339725421873900907, guid: c40e9777c38294949a0dd391e6a14c7e, type: 3}
@@ -288,10 +287,13 @@ MonoBehaviour:
   m_maxMushrooms: 5
   m_mushroomBounceDuration: 0.5
   m_mushroomBouncePower: 10
-  m_mushroomJumpSpeed: 15.4
+  m_mushroomJumpSpeed: 10
   m_brambleDamage: 25
   m_bramblePushPower: 20
   m_bramblePushDuration: 0.5
+  m_startPos: {x: 0, y: 0, z: 0}
+  m_startRot: {x: 0, y: 0, z: 0, w: 0}
+  m_currentCheckPoint: {fileID: 0}
 --- !u!114 &3437689874125184635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,11 +311,8 @@ MonoBehaviour:
   m_maxFirePower: 50
   m_minFirePower: 30
   m_firePowerSpeed: 30
-  m_fireMultiplyer: 0
-  m_rotateSpeed: 5
   m_UI: {fileID: 3437689874619258868}
   m_minRadius: 0
-  m_currentRadius: 0
   m_maxRadius: 0
   m_Steps: 0
   m_SpeedCircle: 0
@@ -941,36 +940,6 @@ MonoBehaviour:
   m_arrowSpawnPoint: {fileID: 3437689875571132751}
   m_CircleRenderer: {fileID: 3437689875238653203}
   m_HealthBar: {fileID: 3437689875937388873}
-  m_color: {r: 0, g: 0, b: 0, a: 0}
-  m_gradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
 --- !u!1 &3437689874971935034
 GameObject:
   m_ObjectHideFlags: 0
