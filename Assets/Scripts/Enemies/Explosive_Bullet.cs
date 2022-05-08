@@ -17,7 +17,6 @@ public class Explosive_Bullet : MonoBehaviour
         if(m_timer >= m_timeToExplode)
         {
             Explosion(transform.position);
-            gameObject.SetActive(false);
         }
         m_timer += Time.deltaTime;
     }
@@ -25,12 +24,12 @@ public class Explosive_Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Explosion(collision.contacts[0].point);
-
-        gameObject.SetActive(false);
     }
 
     private void Explosion(Vector3 pos)
     {
+        m_timer = 0f;
+        gameObject.SetActive(false);
         GameObject l_explosion = Instantiate(m_explosionCollider, pos, transform.rotation, null);
         l_explosion.SetActive(false);
         l_explosion.transform.position = pos;
