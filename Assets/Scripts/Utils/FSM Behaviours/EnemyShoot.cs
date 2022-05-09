@@ -45,8 +45,6 @@ public class EnemyShoot : MonoBehaviour
         m_ray.material.color = Color.blue;
 
         m_projectilePool = new PoolElements(3, transform, m_projectile);
-
-        m_rayLenghtOffset = 4.75f;
     }
 
     // Update is called once per frame
