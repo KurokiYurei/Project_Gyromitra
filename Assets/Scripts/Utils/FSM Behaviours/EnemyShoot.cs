@@ -39,9 +39,6 @@ public class EnemyShoot : MonoBehaviour
 
     static PoolElements m_projectilePool;
 
-    [SerializeField]
-    private float m_rayLenghtOffset;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -93,7 +90,6 @@ public class EnemyShoot : MonoBehaviour
             Ray l_Ray = new Ray(m_firePoint.position, l_playerPos - m_firePoint.position);
             if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, (l_playerPos - m_firePoint.position).magnitude, m_shootLayerMask.value))
             {
-                float l_distance = l_RaycastHit.distance + m_rayLenghtOffset;
                 m_ray.SetPosition(0, m_firePoint.position);
                 m_ray.SetPosition(1,l_playerPos);
             }
