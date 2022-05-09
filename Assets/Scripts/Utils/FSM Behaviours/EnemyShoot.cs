@@ -39,12 +39,17 @@ public class EnemyShoot : MonoBehaviour
 
     static PoolElements m_projectilePool;
 
+    [SerializeField]
+    private float m_rayLenghtOffset;
+
     // Start is called before the first frame update
     void Start()
     {
         m_ray.material.color = Color.blue;
 
         m_projectilePool = new PoolElements(3, transform, m_projectile);
+
+        m_rayLenghtOffset = 4.75f;
     }
 
     // Update is called once per frame
@@ -87,9 +92,9 @@ public class EnemyShoot : MonoBehaviour
             }
 
             Ray l_Ray = new Ray(m_firePoint.position, l_playerPos - m_firePoint.position);
-            if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, 10000f, m_shootLayerMask.value))
+            if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, (l_playerPos - m_firePoint.position).magnitude, m_shootLayerMask.value))
             {
-                float l_distance = l_RaycastHit.distance;
+                float l_distance = l_RaycastHit.distance + m_rayLenghtOffset;
                 m_ray.SetPosition(1, new Vector3(0.0f, 0.0f, l_distance));
             }
 
