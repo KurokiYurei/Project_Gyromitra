@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3400,7 +3400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1241203369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3417,7 +3417,7 @@ MonoBehaviour:
   m_playerInRange: 100
   m_playerOutOfRange: 150
   m_mushroomImpact: 0
-  m_stuntTime: 0
+  m_stuntTimeReset: 0
 --- !u!114 &1241203370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3431,8 +3431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_locationRadius: 25
-  m_projectile: {fileID: 2912590137364781247, guid: 8b8c4d3c5e619734f80d7cb893f1977e, type: 3}
-  m_projectileSpeed: 50
+  m_projectile: {fileID: 5903353976143995575, guid: adeb25242b758104fba6d6aa7f875265, type: 3}
+  m_projectileSpeed: 40
   m_cooldownTime: 2.5
   m_lockTime: 5
   m_warningTime: 4.5
@@ -6164,12 +6164,12 @@ GameObject:
   - component: {fileID: 924868414980942565}
   - component: {fileID: 924868414980942564}
   m_Layer: 11
-  m_Name: Bullet_Enemy_FSM
+  m_Name: Sniper_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &924868414980942563
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6208,7 +6208,7 @@ MonoBehaviour:
   m_playerInRange: 100
   m_playerOutOfRange: 150
   m_mushroomImpact: 0
-  m_stuntTime: 0
+  m_stuntTimeReset: 3
 --- !u!114 &924868414980942565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6223,7 +6223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_locationRadius: 25
   m_projectile: {fileID: 5903353976143995575, guid: 6a7f3d7f3977eb549ac20411bf39c8cd, type: 3}
-  m_projectileSpeed: 50
+  m_projectileSpeed: 60
   m_cooldownTime: 2.5
   m_lockTime: 5
   m_warningTime: 4.5
@@ -6231,7 +6231,7 @@ MonoBehaviour:
   m_ray: {fileID: 924868413948677477}
   m_shootLayerMask:
     serializedVersion: 2
-    m_Bits: 887
+    m_Bits: 833
   m_rayLenghtOffset: 4.5
 --- !u!114 &924868414980942566
 MonoBehaviour:
@@ -7047,7 +7047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ColliderType: 0
-  m_enemy: {fileID: 0}
+  m_enemy: {fileID: 924868414980942564}
   m_BodyHitAmount: 1
   m_HeadHitAmount: 5
   m_vulnerable: 0
@@ -7111,7 +7111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ColliderType: 1
-  m_enemy: {fileID: 0}
+  m_enemy: {fileID: 924868414980942564}
   m_BodyHitAmount: 1
   m_HeadHitAmount: 5
   m_vulnerable: 0

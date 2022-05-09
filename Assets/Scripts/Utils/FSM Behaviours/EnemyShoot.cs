@@ -73,7 +73,6 @@ public class EnemyShoot : MonoBehaviour
 
     private void LockOnPlayer()
     {
-
         if (m_player != null)
         {
             m_ray.enabled = true;
@@ -120,9 +119,9 @@ public class EnemyShoot : MonoBehaviour
         GameObject l_projectile = m_projectilePool.GetNextElement();
 
         l_projectile.transform.position = m_firePoint.position;
-        l_projectile.transform.rotation = m_firePoint.rotation;
         Rigidbody rb = l_projectile.GetComponent<Rigidbody>();
         rb.velocity = dir.normalized * m_projectileSpeed;
+        l_projectile.transform.rotation = Quaternion.LookRotation(rb.velocity);
         l_projectile.transform.SetParent(null);
         l_projectile.SetActive(true);
     }

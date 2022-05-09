@@ -25,13 +25,12 @@ public class EnemyBehaviour : FiniteStateMachine
     [SerializeField]
     private float m_playerOutOfRange;
 
-    [SerializeField]
-    private bool m_mushroomImpact;
+    public bool m_mushroomImpact;
 
-    [SerializeField]
     private float m_stuntTime;
 
-    private static float m_stuntTimeReset;
+    [SerializeField]
+    private float m_stuntTimeReset;
 
     public void SetMushroomHit(bool value)
     {

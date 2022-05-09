@@ -30,20 +30,15 @@ public class Explosive_Bullet : MonoBehaviour
         if (Physics.Raycast(l_ray, out RaycastHit l_hit, m_distanceHit))
         {
             print(l_hit.transform.tag);
-            Explosion(transform.position);
+            Explosion(l_hit.point);
         }
 
         if (m_timer >= m_timeToExplode)
         {
-            Explosion(transform.position);
+            Explosion(l_hit.point);
         }
         m_timer += Time.deltaTime;
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    Explosion(collision.contacts[0].point);
-    //}
 
     private void Explosion(Vector3 pos)
     {

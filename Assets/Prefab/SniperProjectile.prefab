@@ -243,6 +243,7 @@ MonoBehaviour:
   m_damage: 25
   m_rigidBody: {fileID: 8272729674931008831}
   m_rayPoint: {fileID: 8875680627669792292}
+  m_distanceHit: 1
 --- !u!96 &-7901478201335023806
 TrailRenderer:
   serializedVersion: 2
