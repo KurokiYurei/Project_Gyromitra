@@ -94,7 +94,8 @@ public class EnemyShoot : MonoBehaviour
             if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, (l_playerPos - m_firePoint.position).magnitude, m_shootLayerMask.value))
             {
                 float l_distance = l_RaycastHit.distance + m_rayLenghtOffset;
-                m_ray.SetPosition(1, new Vector3(0.0f, 0.0f, l_distance));
+                m_ray.SetPosition(0, m_firePoint.position);
+                m_ray.SetPosition(1,l_playerPos);
             }
 
             if (m_timer >= m_lockTime)
