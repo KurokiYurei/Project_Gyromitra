@@ -10,21 +10,40 @@ public class Explosive_Bullet : MonoBehaviour
     [SerializeField]
     private float m_timeToExplode;
 
+    [SerializeField]
+    private Transform m_rayPoint;
+
+    [SerializeField]
+    private float m_distanceHit;
+
+    [SerializeField]
+    private Rigidbody m_rigidBody;
+
     private float m_timer;
 
     void Update()
     {
-        if(m_timer >= m_timeToExplode)
+        transform.rotation = Quaternion.LookRotation(m_rigidBody.velocity);
+
+        Ray l_ray = new Ray(m_rayPoint.position, m_rayPoint.forward);
+
+        if (Physics.Raycast(l_ray, out RaycastHit l_hit, m_distanceHit))
+        {
+            print(l_hit.transform.tag);
+            Explosion(transform.position);
+        }
+
+        if (m_timer >= m_timeToExplode)
         {
             Explosion(transform.position);
         }
         m_timer += Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Explosion(collision.contacts[0].point);
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Explosion(collision.contacts[0].point);
+    //}
 
     private void Explosion(Vector3 pos)
     {

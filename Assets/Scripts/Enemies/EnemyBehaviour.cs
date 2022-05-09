@@ -52,7 +52,7 @@ public class EnemyBehaviour : FiniteStateMachine
         m_enemyShoot.enabled = false;
 
         m_playerInRange = 20f;
-        m_playerOutOfRange = 10f;
+        m_playerOutOfRange = 30f;
 
     }
 
