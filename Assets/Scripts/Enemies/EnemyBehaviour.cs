@@ -29,8 +29,35 @@ public class EnemyBehaviour : FiniteStateMachine
 
     private float m_stuntTime;
 
+    private float m_antiPlayerSpam;
+
+    private float m_antiPlayerSpamReset;
+
     [SerializeField]
     private float m_stuntTimeReset;
+
+    [SerializeField]
+    private LineRenderer m_lineRenderer;
+
+    [Header("Material")]
+    [SerializeField]
+    private Material m_headMaterialVulnerable;
+
+    [SerializeField]
+    private Material m_headMaterialNormal;
+
+    [SerializeField]
+    private MeshRenderer m_headEnemy;
+
+    [Header("Animation")]
+    [SerializeField]
+    private Animation m_animator;
+
+    [SerializeField]
+    private AnimationClip m_fall;
+
+    [SerializeField]
+    private AnimationClip m_getUp;
 
     public void SetMushroomHit(bool value)
     {
@@ -52,6 +79,9 @@ public class EnemyBehaviour : FiniteStateMachine
 
         m_playerInRange = 20f;
         m_playerOutOfRange = 30f;
+        m_stuntTime = m_stuntTimeReset;
+
+        m_antiPlayerSpam = m_antiPlayerSpamReset;   
 
     }
 
@@ -67,9 +97,11 @@ public class EnemyBehaviour : FiniteStateMachine
 
             case State.WANDER:
 
+                m_antiPlayerSpam -= Time.deltaTime;
+
                 // stun mushroom
 
-                if (m_mushroomImpact)
+                if (m_mushroomImpact && m_antiPlayerSpam <= 0f)
                 {
                     ChangeState(State.STUN);
                     break;
@@ -79,7 +111,7 @@ public class EnemyBehaviour : FiniteStateMachine
 
                 m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, UtilsGyromitra.SearchForTag("Player"), m_playerInRange);
 
-                if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) <= m_playerInRange)
+                if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) <= m_playerInRange )
                 {
 
                     ChangeState(State.ATTACK);
@@ -90,9 +122,11 @@ public class EnemyBehaviour : FiniteStateMachine
 
             case State.ATTACK:
 
+                m_antiPlayerSpam -= Time.deltaTime;
+
                 // stun mushroom
 
-                if (m_mushroomImpact)
+                if (m_mushroomImpact && m_antiPlayerSpam <= 0f)
                 {
                     ChangeState(State.STUN);
                     break;
@@ -149,11 +183,15 @@ public class EnemyBehaviour : FiniteStateMachine
 
             case State.ATTACK:
                 m_enemyShoot.enabled = false;
+                m_lineRenderer.enabled = false;
                 m_enemyShoot.setPlayer(null);
                 break;
 
-            case State.STUN:
+            case State.STUN:    
+                SetMushroomHit(false);
                 m_stuntTime = m_stuntTimeReset;
+                m_headEnemy.material = m_headMaterialNormal;
+                m_animator.Play(m_getUp.name);
                 break;
 
         }
@@ -167,16 +205,18 @@ public class EnemyBehaviour : FiniteStateMachine
 
             case State.ATTACK:
                 m_enemyShoot.enabled = true;
+                m_lineRenderer.enabled = true;
                 m_enemyShoot.setPlayer(m_player);
                 break;
                     
             case State.STUN:
+                m_headEnemy.material = m_headMaterialVulnerable;
+                m_animator.Play(m_fall.name);
+                m_antiPlayerSpam = m_antiPlayerSpamReset;
                 break;
 
         }
-
         m_currentState = l_newState;
-
     }
 
 }

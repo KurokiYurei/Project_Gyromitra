@@ -23,8 +23,6 @@ public class Hit_Collider : MonoBehaviour
     [SerializeField]
     private int m_HeadHitAmount;
 
-    public bool m_vulnerable;
-
     /// <summary>
     /// Checks where the enemy got hit and if its vulnerable
     /// </summary>
@@ -41,12 +39,11 @@ public class Hit_Collider : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Mushroom")
+        if (collision.transform.tag == "Mushroom" && !m_enemy.m_mushroomImpact)
         {
             gameObject.GetComponentInParent<NavMeshAgent>().enabled = false;
             
             m_enemy.m_mushroomImpact = true;
-            //m_enemy.SetMushroomHit(true);
 
             collision.transform.GetComponent<Mushroom>().DestroyMushroom();
         }
