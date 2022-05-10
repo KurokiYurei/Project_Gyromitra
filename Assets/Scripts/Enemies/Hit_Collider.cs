@@ -15,7 +15,6 @@ public class Hit_Collider : MonoBehaviour
 
     [SerializeField]
     private EnemyBehaviour m_enemy;
-    //private Sniper_Behaviour m_enemy;
 
     [SerializeField]
     private int m_BodyHitAmount;
@@ -31,20 +30,19 @@ public class Hit_Collider : MonoBehaviour
         int l_HitAmount = m_HeadHitAmount;
         if (m_ColliderType == THitColliderType.BODY)
             l_HitAmount = m_BodyHitAmount;
-        if (m_enemy.m_mushroomImpact)
-        // if (m_enemy.GetMushroomHit())
+        if (m_enemy.GetMushroomHit())
             l_HitAmount *= 2;
         m_enemy.GetComponent<Enemy1HP>().Damage(l_HitAmount);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Mushroom" && !m_enemy.m_mushroomImpact)
+        if (collision.transform.tag == "Mushroom")
         {
-            gameObject.GetComponentInParent<NavMeshAgent>().enabled = false;
-            
-            m_enemy.m_mushroomImpact = true;
-
+            if(!m_enemy.m_mushroomImpact && m_enemy.m_antiPlayerSpam <= 0f)
+            {
+                m_enemy.m_mushroomImpact = true;
+            }
             collision.transform.GetComponent<Mushroom>().DestroyMushroom();
         }
     }

@@ -5,8 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-
-    NavMeshAgent m_navMeshAgent;
+    public NavMeshAgent m_navMeshAgent;
 
     public List<Transform> m_patrolWaypoints;
     int m_currentWaypointId = 0;

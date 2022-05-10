@@ -27,10 +27,14 @@ public class EnemyBehaviour : FiniteStateMachine
 
     public bool m_mushroomImpact;
 
-    private float m_stuntTime;
+    [SerializeField]
+    private float m_mushroomBounceForce;
 
-    private float m_antiPlayerSpam;
+    public float m_stuntTime;
 
+    public float m_antiPlayerSpam;
+
+    [SerializeField]
     private float m_antiPlayerSpamReset;
 
     [SerializeField]
@@ -80,23 +84,17 @@ public class EnemyBehaviour : FiniteStateMachine
         m_playerInRange = 20f;
         m_playerOutOfRange = 30f;
         m_stuntTime = m_stuntTimeReset;
-
-        m_antiPlayerSpam = m_antiPlayerSpamReset;   
-
     }
 
     private void Update()
     {
-        
         switch(m_currentState)
         {
-
             case State.INITIAL:
                 ChangeState(State.WANDER);
                 break;
 
             case State.WANDER:
-
                 m_antiPlayerSpam -= Time.deltaTime;
 
                 // stun mushroom
@@ -111,17 +109,14 @@ public class EnemyBehaviour : FiniteStateMachine
 
                 m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, UtilsGyromitra.SearchForTag("Player"), m_playerInRange);
 
-                if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) <= m_playerInRange )
+                if (m_player != null)
                 {
-
                     ChangeState(State.ATTACK);
                     break;
-                }
-                
+                }              
                 break;
 
             case State.ATTACK:
-
                 m_antiPlayerSpam -= Time.deltaTime;
 
                 // stun mushroom
@@ -134,9 +129,7 @@ public class EnemyBehaviour : FiniteStateMachine
 
                 // find player if out of range
 
-                m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, UtilsGyromitra.SearchForTag("Player"), m_playerInRange);
-
-                if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) >= m_playerOutOfRange)
+                if (UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) >= m_playerOutOfRange)
                 {
                     ChangeState(State.WANDER);
                     break;
@@ -144,7 +137,6 @@ public class EnemyBehaviour : FiniteStateMachine
                 break;
 
             case State.STUN:
-
                 m_stuntTime -= Time.deltaTime;
 
                 if (m_stuntTime <= 0f)
@@ -153,21 +145,17 @@ public class EnemyBehaviour : FiniteStateMachine
 
                     // find player if in range
 
-                    if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) <= m_playerInRange)
+                    if (m_player != null)
                     {
                         ChangeState(State.ATTACK);
                         break;
                     }
-
-                    // find player if out of range
-
-                    if (m_player != null && UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) >= m_playerOutOfRange)
+                    else // find player if out of range
                     {
                         ChangeState(State.WANDER);
                         break;
                     }
                 }
-
                 break;
         }
     }
@@ -187,13 +175,13 @@ public class EnemyBehaviour : FiniteStateMachine
                 m_enemyShoot.setPlayer(null);
                 break;
 
-            case State.STUN:    
-                SetMushroomHit(false);
+            case State.STUN:
+                m_enemyMovement.m_navMeshAgent.enabled = true;
+                m_mushroomImpact = false;
                 m_stuntTime = m_stuntTimeReset;
                 m_headEnemy.material = m_headMaterialNormal;
                 m_animator.Play(m_getUp.name);
                 break;
-
         }
 
         // enter logic
@@ -210,13 +198,13 @@ public class EnemyBehaviour : FiniteStateMachine
                 break;
                     
             case State.STUN:
+                m_enemyMovement.m_navMeshAgent.enabled = false;      
                 m_headEnemy.material = m_headMaterialVulnerable;
                 m_animator.Play(m_fall.name);
                 m_antiPlayerSpam = m_antiPlayerSpamReset;
+                gameObject.GetComponent<Rigidbody>().velocity = Vector3.up * m_mushroomBounceForce;
                 break;
-
         }
         m_currentState = l_newState;
     }
-
 }

@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-
-    [SerializeField]
-    private float m_damage = 15f;
-
     [SerializeField]
     private Rigidbody m_rigidBody;
 
     private string m_enemyTag;
-
-    private bool m_Hit;
 
     private string m_mushroomSpawnableTag;
 
@@ -29,26 +23,6 @@ public class Arrow : MonoBehaviour
     private void Update()
     {
         transform.rotation = Quaternion.LookRotation(m_rigidBody.velocity);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (m_Hit) return;
-        m_Hit = true;
-
-        if (other.CompareTag(m_enemyTag))
-        {
-            // fer mal al enemic
-
-            IDamagable l_damageComponent = other.transform.GetComponent<IDamagable>();
-
-            if (l_damageComponent != null)
-            {
-                l_damageComponent.Damage(m_damage);
-            }
-
-        }
-  
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -99,7 +73,7 @@ public class Arrow : MonoBehaviour
 
         if (collision.transform.CompareTag(m_enemyTag))
         {
-            collision.gameObject.GetComponent<Hit_Collider>().Hit();
+            collision.collider.GetComponent<Hit_Collider>().Hit();
         }
 
         gameObject.SetActive(false);
