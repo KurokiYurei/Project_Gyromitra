@@ -21,6 +21,7 @@ public class MovingPlatform : MonoBehaviour
 
     void Update()
     {
+        /*
         if (!m_moving)
         {
             if (m_timer <= 0f)
@@ -32,7 +33,7 @@ public class MovingPlatform : MonoBehaviour
         else
         {
             MoveToWaypoint();
-        }
+        }*/
     }
 
     void GetNextWaypoint()
@@ -55,6 +56,30 @@ public class MovingPlatform : MonoBehaviour
             m_timer = m_waitingTime;
             m_moving = false;
             m_waypoints[m_currentWaypoint].transform.tag = "Untagged";
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print(other.tag);
+
+        if (other.CompareTag(UtilsGyromitra.SearchForTag("Player")))
+        {
+            other.transform.GetComponent<CharacterController>().enabled = false;
+            other.transform.SetParent(gameObject.transform);
+            other.transform.GetComponent<CharacterController>().enabled = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        print(other.tag);
+
+        if (other.CompareTag(UtilsGyromitra.SearchForTag("Player")))
+        {
+            other.transform.GetComponent<CharacterController>().enabled = false;
+            other.transform.parent = null;
+            other.transform.GetComponent<CharacterController>().enabled = true;
         }
     }
 }

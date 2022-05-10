@@ -18,6 +18,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private float m_WalkSpeed = 1.5f;
 
+    [SerializeField]
     private bool m_OnGround;
 
     [SerializeField]
@@ -300,13 +301,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             Debug.DrawRay(hit.point, hit.normal, Color.red, 2f);
             if (hit.normal.y < 0.5f)
             {
-                Debug.Log("A REBOTAR");
                 SetBounceParameters(hit.transform.position - transform.position, m_mushroomBouncePower, m_mushroomBounceDuration);
             }
             else
             {
                 m_jumpedOnMushroom = true;
-                Debug.Log("A SALTAR");
                 SetVerticalSpeed(m_mushroomJumpSpeed);
                 m_jumped = true;
             }
@@ -318,12 +317,14 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             SetBounceParameters(hit.transform.position - transform.position, m_bramblePushPower, m_bramblePushDuration);
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("CheckPoint"))
+        if (other.CompareTag(UtilsGyromitra.SearchForTag("CheckPoint")))
         {
             m_currentCheckPoint = other.GetComponent<CheckPoint>();
         }
+
     }
 
     /// <summary>
