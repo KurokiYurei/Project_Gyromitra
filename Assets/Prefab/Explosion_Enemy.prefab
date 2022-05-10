@@ -112,7 +112,6 @@ MonoBehaviour:
   m_enemy: {fileID: 5489288227509429804}
   m_BodyHitAmount: 1
   m_HeadHitAmount: 5
-  m_vulnerable: 0
 --- !u!1 &5489288227509429802
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +126,7 @@ GameObject:
   - component: {fileID: 5489288227509429806}
   - component: {fileID: 5489288227509429805}
   - component: {fileID: 5489288227509429804}
+  - component: {fileID: 924868414980942567}
   m_Layer: 11
   m_Name: Explosion_Enemy
   m_TagString: Enemy
@@ -228,7 +228,6 @@ MonoBehaviour:
   m_shootLayerMask:
     serializedVersion: 2
     m_Bits: 833
-  m_rayLenghtOffset: 4.5
 --- !u!114 &5489288227509429804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +245,30 @@ MonoBehaviour:
   m_playerOutOfRange: 150
   m_mushroomImpact: 0
   m_stuntTimeReset: 3
+  m_lineRenderer: {fileID: 5489288228507206061}
+  m_headMaterialVulnerable: {fileID: 2100000, guid: c6b5edc6a68fc3a4694706f01df9c7ec, type: 2}
+  m_headMaterialNormal: {fileID: 2100000, guid: 02e5bcd8f47722e4d938b5d3fb0caabf, type: 2}
+  m_headEnemy: {fileID: 4534311596856173280}
+  m_animator: {fileID: 924868414980942567}
+  m_fall: {fileID: 7400000, guid: 2740e5ea6358d6042a1df79bc89711ab, type: 2}
+  m_getUp: {fileID: 7400000, guid: a24ae74715a5c9f439b5a01dabcfa18b, type: 2}
+--- !u!111 &924868414980942567
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489288227509429802}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 2740e5ea6358d6042a1df79bc89711ab, type: 2}
+  - {fileID: 7400000, guid: a24ae74715a5c9f439b5a01dabcfa18b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5489288227911899811
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +382,6 @@ MonoBehaviour:
   m_enemy: {fileID: 5489288227509429804}
   m_BodyHitAmount: 1
   m_HeadHitAmount: 5
-  m_vulnerable: 0
 --- !u!54 &4534311598081927068
 Rigidbody:
   m_ObjectHideFlags: 0
