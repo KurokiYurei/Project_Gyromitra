@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 3548441118721107516}
   - component: {fileID: 5287026607983033059}
   - component: {fileID: 5748486234059571125}
+  - component: {fileID: 7640804693410876413}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Mushroom
@@ -371,6 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0ee37921d329749b4e3ec4ef6d7d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_animation: {fileID: 7640804693410876413}
+  m_spawnClip: {fileID: 7400000, guid: 21fd6bb67501b6a4fa4f6627dd38c53d, type: 2}
 --- !u!135 &5748486234059571125
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -384,6 +387,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3626855
   m_Center: {x: 0.0073984265, y: 0.7, z: 0}
+--- !u!111 &7640804693410876413
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339725421873900907}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 21fd6bb67501b6a4fa4f6627dd38c53d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &4380325016653027813
 GameObject:
   m_ObjectHideFlags: 0

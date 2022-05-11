@@ -66,7 +66,10 @@ public class Arrow : MonoBehaviour
                 }
 
                 l_mushroom.SetActive(true);
+
             }
+
+            l_mushroom.GetComponent<Mushroom>().PlaySpawnAnimation();
         }
 
         if (collision.transform.CompareTag(m_enemyTag))
