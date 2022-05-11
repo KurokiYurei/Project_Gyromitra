@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (m_paused == true)
         {
+            Cursor.lockState = CursorLockMode.Locked;
             m_blur.SetActive(false);
             m_pauseMenu.SetActive(false);
             Time.timeScale = 1.0f;
@@ -49,6 +50,7 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
+            Cursor.lockState = CursorLockMode.Confined;
             m_blur.SetActive(true);
             m_pauseMenu.SetActive(true);
             Time.timeScale = 0.0f;

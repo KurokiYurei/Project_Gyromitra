@@ -18,6 +18,11 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private GameObject m_crosshair;
 
+    [SerializeField]
+    private LayerMask m_layerMask;
+
+    private bool m_hasGravity;
+
     /// <summary>
     /// The method that controlls the reload of the arrow
     /// </summary>
@@ -39,7 +44,7 @@ public class Weapon : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
         Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, m_layerMask))
             targetPoint = hit.point;
         else
             targetPoint = ray.GetPoint(1000);
@@ -50,6 +55,14 @@ public class Weapon : MonoBehaviour
         l_arrow.transform.rotation = m_arrowSpawnPoint.transform.rotation;
 
         Rigidbody l_rb = l_arrow.GetComponent<Rigidbody>();
+        if (m_hasGravity)
+        {
+            l_rb.useGravity = true;
+        }
+        else
+        {
+            l_rb.useGravity = false;
+        }
         l_rb.velocity = (targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power;
 
         l_arrow.transform.SetParent(null);
@@ -62,10 +75,11 @@ public class Weapon : MonoBehaviour
     /// method that fires the arrow
     /// </summary>
     /// <param name="firepower"></param>
-    public void FireArrow(float firepower)
+    public void FireArrow(float firepower, bool gravity)
     {
         if (m_isReloading) return;
         m_Power = firepower;
+        m_hasGravity = gravity;
         StartReloading();
     }
 }

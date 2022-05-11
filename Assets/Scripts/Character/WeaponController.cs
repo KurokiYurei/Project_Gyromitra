@@ -22,10 +22,8 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField]
     private float m_firePowerSpeed;
-  
-    private float m_fireMultiplyer;
 
-    private float m_firePower;
+    public float m_firePower;
 
     private bool m_fire;
 
@@ -62,11 +60,6 @@ public class WeaponController : MonoBehaviour
         m_shootArrow = playerInput.actions["Shoot"];
         m_fire = false;
 
-        m_maxFirePower = 50f;
-        m_minFirePower = 30f;
-
-        m_fireMultiplyer = 2f;
-
         m_minRadius = 3f;
         m_currentRadius = 50f;
         m_maxRadius = 50f;
@@ -78,8 +71,10 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
+        m_firePowerSpeed = m_maxFirePower - m_minFirePower;
         if (m_shootArrow.triggered)
         {
+            m_firePower = m_minFirePower;
             m_fire = true;
         }
 
@@ -87,9 +82,9 @@ public class WeaponController : MonoBehaviour
         {
             if (m_firePower < m_maxFirePower)
             {
-                m_firePower += Time.deltaTime * m_firePowerSpeed * m_fireMultiplyer;
+                m_firePower += Time.deltaTime * m_firePowerSpeed;
             }
-
+            
             m_SpeedCircle += Time.deltaTime * 40f;
             m_currentRadius -= Time.deltaTime * m_SpeedCircle;
         }
@@ -101,12 +96,14 @@ public class WeaponController : MonoBehaviour
 
         if (m_shootArrow.WasReleasedThisFrame())
         {
-            if (m_firePower < m_minFirePower)
+            if(m_firePower >= (m_minFirePower + ((m_maxFirePower - m_minFirePower) / 2)))
             {
-                m_firePower = m_minFirePower;
+                m_weapon.FireArrow(m_firePower, false);
             }
-            m_weapon.FireArrow(m_firePower);
-            m_firePower = 0f;
+            else
+            {
+                m_weapon.FireArrow(m_firePower, true);
+            }
             m_fire = false;
         }
 

@@ -64,13 +64,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private InputAction m_AimAction;
 
     private CharacterController m_CharacterController;
-    //private CameraController m_CameraController;
-
-    [Header("Camera")]
-    [SerializeField]
-    private Transform m_ShoulderCameraPosition;
-    [SerializeField]
-    private Transform m_Bow;
 
     [Header("On Mushrooms")]
     [SerializeField]
@@ -79,8 +72,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private GameObject m_mushroomWallPrefab;
     static DoublePoolElements m_mushroomPool;
 
-    [SerializeField]
-    private int m_maxMushrooms;
     [SerializeField]
     private float m_mushroomBounceDuration;
     [SerializeField]
@@ -108,10 +99,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private CheckPoint m_currentCheckPoint;
 
-
     private void Awake()
     {
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         m_CharacterController = GetComponent<CharacterController>();
         m_playerInput = GetComponent<PlayerInput>();
         m_moveAction = m_playerInput.actions["Movement"];
@@ -135,24 +125,13 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         //Movement function
         Movement();
 
-        //RotWithCam();
-
         //Aim
         if (m_AimAction.triggered)
         {
-            //if (m_ShoulderCameraPosition.eulerAngles.x < 360 + m_CameraController.m_MinAimPitchDistance && m_ShoulderCameraPosition.eulerAngles.x > 180)
-            //    m_CameraController.m_AimPitch = m_CameraController.m_MinAimPitchDistance;
-            //else if (m_ShoulderCameraPosition.eulerAngles.x >= 360 + m_CameraController.m_MinAimPitchDistance)
-            //    m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x - 360;
-            //else
-            //    m_CameraController.m_AimPitch = m_ShoulderCameraPosition.eulerAngles.x;
-
-            //m_CameraController.SetIsAiming(true);
             m_camController.SetIsAiming(true);
         }
         if (m_AimAction.WasReleasedThisFrame())
         {
-            //m_CameraController.SetIsAiming(false);
             m_camController.SetIsAiming(false);
         }
     }

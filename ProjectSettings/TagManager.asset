@@ -18,13 +18,13 @@ TagManager:
   - 
   - Water
   - UI
-  - Ignore Camera
+  - Player
   - Arrows
   - Terrain
   - AlwaysOnTop
   - EnemyProjectiles
   - Enemies
-  - 
+  - IgnoreCamera
   - 
   - 
   - 

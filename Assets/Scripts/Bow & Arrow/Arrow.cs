@@ -39,8 +39,6 @@ public class Arrow : MonoBehaviour
                 l_mushroom.transform.position = collision.contacts[0].point;
                 l_mushroom.transform.forward = collision.contacts[0].normal;
 
-                print(collision.transform.CompareTag(m_mobilePlatformTag));
-
                 if (collision.transform.CompareTag(m_mobilePlatformTag))
                 {
                     l_mushroom.transform.SetParent(collision.transform);

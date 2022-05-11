@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2730524310489248060}
   - component: {fileID: 2730524310489248061}
   - component: {fileID: 2730524310489248062}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MovingPlatform
   m_TagString: MobilePlatform
   m_Icon: {fileID: 0}
@@ -106,9 +106,9 @@ GameObject:
   - component: {fileID: 3375569620332555979}
   - component: {fileID: 7890892972376290787}
   - component: {fileID: 1515392024163936953}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MovingPlatform
-  m_TagString: Untagged
+  m_TagString: MobilePlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,5 +160,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.51, y: 3.220458, z: 3.8}
-  m_Center: {x: -0.01848936, y: 1.1520679, z: 0}
+  m_Size: {x: 5.51, y: 2.9921994, z: 3.8}
+  m_Center: {x: -0.01848936, y: 1.0379386, z: 0}

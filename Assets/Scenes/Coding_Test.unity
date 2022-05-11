@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2111,7 +2111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091822888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.61, y: 0, z: 1.47}
+  m_LocalPosition: {x: -8.34, y: 0, z: 21.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 546629943}
@@ -2224,9 +2224,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 7755780748896025750, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
-      propertyPath: m_Center.y
-      value: 0
+    - target: {fileID: 7755780748896025749, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
+      propertyPath: m_maxFirePower
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755780748896025749, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
+      propertyPath: m_minFirePower
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755780748896025749, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
+      propertyPath: m_firePowerSpeed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7755780748896025751, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
       propertyPath: m_RootOrder
@@ -2348,7 +2356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3375569620332555979, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.66
+      value: -4.6
       objectReference: {fileID: 0}
     - target: {fileID: 3375569620332555979, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2356,7 +2364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3375569620332555979, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.18
+      value: 17.9
       objectReference: {fileID: 0}
     - target: {fileID: 3375569620332555979, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2389,14 +2397,6 @@ PrefabInstance:
     - target: {fileID: 3896734592020378836, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_Name
       value: MovingPlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 3896734592020378836, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
-      propertyPath: m_TagString
-      value: MobilePlatform
-      objectReference: {fileID: 0}
-    - target: {fileID: 7890892972376290787, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7890892972376290787, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_waypoints.Array.data[0]
@@ -2601,6 +2601,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1945585985}
+    - target: {fileID: 7677366960543163384, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 7671
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
 --- !u!1001 &8393565720067227985

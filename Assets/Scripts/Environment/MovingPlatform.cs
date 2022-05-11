@@ -12,16 +12,15 @@ public class MovingPlatform : MonoBehaviour
     private float m_waitingTime;
     private float m_timer;
     private bool m_moving;
-
+    private bool m_colliding;
     void Start()
     {
         m_currentWaypoint = -1;
         m_timer = m_waitingTime;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        /*
         if (!m_moving)
         {
             if (m_timer <= 0f)
@@ -33,7 +32,7 @@ public class MovingPlatform : MonoBehaviour
         else
         {
             MoveToWaypoint();
-        }*/
+        }
     }
 
     void GetNextWaypoint()
@@ -61,10 +60,9 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.tag);
-
-        if (other.CompareTag(UtilsGyromitra.SearchForTag("Player")))
+        if (other.CompareTag(UtilsGyromitra.SearchForTag("Player")) && !m_colliding)
         {
+            m_colliding = true;
             other.transform.GetComponent<CharacterController>().enabled = false;
             other.transform.SetParent(gameObject.transform);
             other.transform.GetComponent<CharacterController>().enabled = true;
@@ -73,10 +71,9 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        print(other.tag);
-
         if (other.CompareTag(UtilsGyromitra.SearchForTag("Player")))
         {
+            m_colliding = false;
             other.transform.GetComponent<CharacterController>().enabled = false;
             other.transform.parent = null;
             other.transform.GetComponent<CharacterController>().enabled = true;
