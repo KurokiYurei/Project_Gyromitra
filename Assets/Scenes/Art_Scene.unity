@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -586,6 +586,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461db65b6e194fc4fb24f067c7072dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &469824862
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.673159
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7316942
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_Name
+      value: Gogole_bazooka_lowpoly
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
 --- !u!1 &545603139
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,6 +849,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa0f0c35733b42145b8560fc28f25f3b, type: 3}
+--- !u!1001 &753398137
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.39
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1168032
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
+      propertyPath: m_Name
+      value: Gogole_sniper_lowpoly
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f4d193bfa05ba984badf372c18946a1a, type: 3}
 --- !u!1001 &843167817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1093,7 +1207,7 @@ Transform:
   m_LocalScale: {x: 1000, y: 1000, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1005028367
 GameObject:
@@ -1527,7 +1641,7 @@ Transform:
   - {fileID: 1279014213}
   - {fileID: 1438751359}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1401916951
 PrefabInstance:
@@ -1683,7 +1797,7 @@ PrefabInstance:
       objectReference: {fileID: 139688022}
     - target: {fileID: 7677366959158538350, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6435655
+      value: -1.9625655
       objectReference: {fileID: 0}
     - target: {fileID: 7677366959158538350, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1699,7 +1813,7 @@ PrefabInstance:
       objectReference: {fileID: 139688022}
     - target: {fileID: 7677366960543163387, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6435655
+      value: -1.9625655
       objectReference: {fileID: 0}
     - target: {fileID: 7677366960543163387, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
       propertyPath: m_LocalPosition.y
