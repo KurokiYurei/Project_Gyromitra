@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2730524310489248060}
   - component: {fileID: 2730524310489248061}
   - component: {fileID: 2730524310489248062}
-  m_Layer: 12
+  m_Layer: 2
   m_Name: MovingPlatform
   m_TagString: MobilePlatform
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 3375569620332555979}
   - component: {fileID: 7890892972376290787}
   - component: {fileID: 1515392024163936953}
-  m_Layer: 12
+  m_Layer: 2
   m_Name: MovingPlatform
   m_TagString: MobilePlatform
   m_Icon: {fileID: 0}
