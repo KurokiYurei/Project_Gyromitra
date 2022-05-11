@@ -2224,29 +2224,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 7755780748896025749, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
-      propertyPath: m_maxFirePower
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755780748896025749, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
-      propertyPath: m_minFirePower
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755780748896025749, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
-      propertyPath: m_firePowerSpeed
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 7755780748896025751, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7755780748896025751, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.245862
+      value: -1.974
       objectReference: {fileID: 0}
     - target: {fileID: 7755780748896025751, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.06
+      value: 0.798
       objectReference: {fileID: 0}
     - target: {fileID: 7755780748896025751, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2597,6 +2585,14 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1945585985}
+    - target: {fileID: 7677366959158538350, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.047137976
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677366959158538350, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.26199996
+      objectReference: {fileID: 0}
     - target: {fileID: 7677366959158538351, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
       propertyPath: m_Follow
       value: 
@@ -2604,6 +2600,14 @@ PrefabInstance:
     - target: {fileID: 7677366960543163384, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 7671
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677366960543163387, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.047137976
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677366960543163387, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.26199996
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb349618c063bb4499ab58de246c546, type: 3}
