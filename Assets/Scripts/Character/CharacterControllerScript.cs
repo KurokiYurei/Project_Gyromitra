@@ -33,6 +33,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private float m_fallGravityMultiplier = 2f;
 
+    [SerializeField]
+    private float m_timeForBulletTime;
+
     private float m_onAirTimer;
     
     private bool m_jumped;
@@ -64,6 +67,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private InputAction m_AimAction;
 
     private CharacterController m_CharacterController;
+
+    [SerializeField]
+    private PauseMenu m_pauseMenu;
 
     [Header("On Mushrooms")]
     [SerializeField]
@@ -99,6 +105,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private CheckPoint m_currentCheckPoint;
 
+    public delegate void OnBulletTimeDelegate(bool active);
+    public OnBulletTimeDelegate OnBulletTime;
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -126,14 +135,20 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         Movement();
 
         //Aim
-        if (m_AimAction.triggered)
+        if (!m_pauseMenu.GetPaused())
         {
-            m_camController.SetIsAiming(true);
-        }
-        if (m_AimAction.WasReleasedThisFrame())
-        {
-            m_camController.SetIsAiming(false);
-        }
+            if (m_AimAction.triggered)
+            {
+                m_camController.SetIsAiming(true);
+                if (m_onAirTimer > m_timeForBulletTime)
+                    OnBulletTime?.Invoke(true);
+            }
+            if (m_AimAction.WasReleasedThisFrame())
+            {
+                m_camController.SetIsAiming(false);
+                OnBulletTime?.Invoke(false);
+            }
+        }     
     }
 
     /// <summary>

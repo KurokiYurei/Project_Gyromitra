@@ -39,7 +39,7 @@ public class Weapon : MonoBehaviour
     /// <returns></returns>
     private IEnumerator ReloadAfterTime()
     {
-        yield return new WaitForSeconds(m_reloadTime);
+        yield return new WaitForSecondsRealtime(m_reloadTime);
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
@@ -63,7 +63,11 @@ public class Weapon : MonoBehaviour
         {
             l_rb.useGravity = false;
         }
-        l_rb.velocity = (targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power;
+
+        if(Time.timeScale >= 0)
+            l_rb.velocity = ((targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power) / Time.timeScale;
+        else
+            l_rb.velocity = (targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power;
 
         l_arrow.transform.SetParent(null);
         l_arrow.SetActive(true);

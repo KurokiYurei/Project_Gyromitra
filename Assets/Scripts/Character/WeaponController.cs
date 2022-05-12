@@ -80,18 +80,40 @@ public class WeaponController : MonoBehaviour
 
         if (m_fire)
         {
-            if (m_firePower < m_maxFirePower)
+            if (Time.timeScale > 0f)
             {
-                m_firePower += Time.deltaTime * m_firePowerSpeed;
+                if (m_firePower < m_maxFirePower)
+                {
+                    m_firePower += (Time.deltaTime * m_firePowerSpeed) / Time.timeScale;
+                }
+
+                m_SpeedCircle += (Time.deltaTime * 40f) / Time.timeScale;
+                m_currentRadius -= (Time.deltaTime * m_SpeedCircle) / Time.timeScale;
             }
-            
-            m_SpeedCircle += Time.deltaTime * 40f;
-            m_currentRadius -= Time.deltaTime * m_SpeedCircle;
+            else
+            {
+                if (m_firePower < m_maxFirePower)
+                {
+                    m_firePower += Time.deltaTime * m_firePowerSpeed;
+                }
+
+                m_SpeedCircle += Time.deltaTime * 40f;
+                m_currentRadius -= Time.deltaTime * m_SpeedCircle;
+            }
+
         }
         else
         {
-            m_SpeedCircle -= Time.deltaTime * 50f;
-            m_currentRadius += Time.deltaTime * m_SpeedCircle;
+            if (Time.timeScale > 0f)
+            {
+                m_SpeedCircle -= (Time.deltaTime * 50f) / Time.timeScale;
+                m_currentRadius += (Time.deltaTime * m_SpeedCircle) / Time.timeScale;
+            }
+            else
+            {
+                m_SpeedCircle -= Time.deltaTime * 50f;
+                m_currentRadius += Time.deltaTime * m_SpeedCircle;
+            }
         }
 
         if (m_shootArrow.WasReleasedThisFrame())

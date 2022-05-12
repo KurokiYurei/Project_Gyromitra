@@ -114,16 +114,8 @@ MonoBehaviour:
   m_normalCamera: {fileID: 0}
   m_aimCamera: {fileID: 0}
   m_player: {fileID: 7755780748896025751}
-  m_AimPitch: 0
-  m_AimYaw: 0
-  m_MinDistance: 2
-  m_MaxDistance: 5
-  m_YawRotationalSpeed: 360
-  m_PitchRotationalSped: 180
-  m_MinPitchDistance: 85
-  m_MaxPitchDistance: 85
-  m_MinAimPitchDistance: -30
-  m_MaxAimPitchDistance: 30
+  m_MaxPitchDistance: 320
+  m_MinPitchDistance: 60
 --- !u!114 &2088056525804381024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,6 +874,7 @@ GameObject:
   - component: {fileID: 7755780748896025750}
   - component: {fileID: 7755780748896025744}
   - component: {fileID: 7755780748896025749}
+  - component: {fileID: 968741341091409012}
   - component: {fileID: 7755780748896025748}
   - component: {fileID: 4906445045020224910}
   m_Layer: 6
@@ -952,9 +945,11 @@ MonoBehaviour:
   m_jumpHorizontalSpeedDivider: 2
   m_VerticalSpeed: 0
   m_fallGravityMultiplier: 3
+  m_timeForBulletTime: 0.2
   m_arrow: {fileID: 5903353976143995575, guid: 96cf4d3737f43f446a25ba5472f6ec17, type: 3}
   m_gameManager: {fileID: 0}
   m_fallDamage: 10
+  m_pauseMenu: {fileID: 0}
   m_mushroomPrefab: {fileID: 3339725421873900907, guid: c40e9777c38294949a0dd391e6a14c7e, type: 3}
   m_mushroomWallPrefab: {fileID: 7242151149131114434, guid: 3577215026a1c9f459ea34d7add8a5b9, type: 3}
   m_mushroomBounceDuration: 0.5
@@ -999,6 +994,20 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &968741341091409012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755780748896025747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d91037a01104e549af146fb9ab36178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_slowAmount: 0.2
+  m_slowLength: 2
 --- !u!114 &7755780748896025748
 MonoBehaviour:
   m_ObjectHideFlags: 0

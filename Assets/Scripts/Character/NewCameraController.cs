@@ -21,22 +21,8 @@ public class NewCameraController : MonoBehaviour
     private Transform m_player;
 
     [Header("Camera")]
-    public float m_AimPitch = 0.0f;
-    public float m_AimYaw = 0.0f;
-
-    public float m_MinDistance = 2.0f;
-    public float m_MaxDistance = 5.0f;
-
-    public float m_YawRotationalSpeed = 360.0f;
-    public float m_PitchRotationalSped = 180.0f;
-
-    public float m_MinPitchDistance = 85.0f;
-    public float m_MaxPitchDistance = 85.0f;
-
-    public float m_MinAimPitchDistance = -30f;
-    public float m_MaxAimPitchDistance = 30f;
-
-    private float m_Pitch = 0.0f;
+    public float m_MaxPitchDistance = 320f;
+    public float m_MinPitchDistance = 60f;
 
     public void SetIsAiming(bool l_isAiming)
     {
@@ -67,21 +53,26 @@ public class NewCameraController : MonoBehaviour
             float l_MouseDeltaX = input.x;
             float l_MouseDeltaY = input.y;
 
-            m_AimYaw += l_MouseDeltaX;
-            m_Pitch -= l_MouseDeltaY;
-            m_Pitch = Mathf.Clamp(m_Pitch, m_MinPitchDistance, m_MaxPitchDistance);
-
-            //transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(m_Pitch, m_AimYaw), 8 * Time.deltaTime);
             transform.rotation *= Quaternion.AngleAxis(l_MouseDeltaX, Vector3.up);
             transform.rotation *= Quaternion.AngleAxis(-l_MouseDeltaY, Vector3.right);
 
             var angles = transform.localEulerAngles;
             angles.z = 0;
 
+            var angle = transform.localEulerAngles.x;
+
+            if (angle > 180 && angle < m_MaxPitchDistance)
+            {
+                angles.x = m_MaxPitchDistance;
+            }
+            else if (angle < 180 && angle > m_MinPitchDistance)
+            {
+                angles.x = m_MinPitchDistance;
+            }
+
             transform.localEulerAngles = angles;
 
             m_player.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-
 
             Vector3 l_Forward = transform.forward;
             l_Forward.y = 0.0f;
