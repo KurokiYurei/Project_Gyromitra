@@ -30,9 +30,9 @@ public class EnemyBehaviour : FiniteStateMachine
     [SerializeField]
     private float m_mushroomBounceForce;
 
-    public float m_stuntTime;
+    private float m_stuntTime;
 
-    public float m_antiPlayerSpam;
+    private float m_antiPlayerSpam;
 
     [SerializeField]
     private float m_antiPlayerSpamReset;
@@ -71,6 +71,11 @@ public class EnemyBehaviour : FiniteStateMachine
     public bool GetMushroomHit()
     {
         return m_mushroomImpact;
+    }
+
+    public float GetAntiSpamTime()
+    {
+        return m_antiPlayerSpam;
     }
 
     private void Start()
