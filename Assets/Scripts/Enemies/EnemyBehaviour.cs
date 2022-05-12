@@ -86,8 +86,6 @@ public class EnemyBehaviour : FiniteStateMachine
         m_enemyMovement.enabled = false;
         m_enemyShoot.enabled = false;
 
-        m_playerInRange = 20f;
-        m_playerOutOfRange = 30f;
         m_stuntTime = m_stuntTimeReset;
     }
 
