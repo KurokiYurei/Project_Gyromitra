@@ -78,9 +78,9 @@ MonoBehaviour:
   m_locationRadius: 25
   m_projectile: {fileID: 5903353976143995575, guid: adeb25242b758104fba6d6aa7f875265, type: 3}
   m_projectileSpeed: 40
-  m_cooldownTime: 2.5
-  m_lockTime: 5
-  m_warningTime: 4.5
+  m_cooldownTime: 1
+  m_lockTime: 3
+  m_warningTime: 2
   m_firePoint: {fileID: 1759600660752675045}
   m_ray: {fileID: 1759600660752675050}
   m_shootLayerMask:
@@ -99,12 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentState: 0
-  m_playerInRange: 100
-  m_playerOutOfRange: 150
+  m_playerInRange: 10
+  m_playerOutOfRange: 15
   m_mushroomImpact: 0
   m_mushroomBounceForce: 10
-  m_stuntTime: 0
-  m_antiPlayerSpam: 0
   m_antiPlayerSpamReset: 3
   m_stuntTimeReset: 4
   m_lineRenderer: {fileID: 1759600660752675050}
@@ -126,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7b37fb298d98f2429c74b7684bf30cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHealth: 10
+  m_maxHealth: 20
 --- !u!114 &6072688435238980307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +151,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

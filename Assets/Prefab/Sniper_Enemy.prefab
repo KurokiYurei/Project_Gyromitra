@@ -78,9 +78,9 @@ MonoBehaviour:
   m_locationRadius: 25
   m_projectile: {fileID: 5903353976143995575, guid: 6a7f3d7f3977eb549ac20411bf39c8cd, type: 3}
   m_projectileSpeed: 60
-  m_cooldownTime: 2.5
-  m_lockTime: 5
-  m_warningTime: 4.5
+  m_cooldownTime: 1
+  m_lockTime: 2
+  m_warningTime: 1
   m_firePoint: {fileID: 2287103619411788054}
   m_ray: {fileID: 2287103619411788057}
   m_shootLayerMask:
@@ -99,14 +99,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentState: 0
-  m_playerInRange: 150
-  m_playerOutOfRange: 200
+  m_playerInRange: 25
+  m_playerOutOfRange: 35
   m_mushroomImpact: 0
   m_mushroomBounceForce: 10
-  m_stuntTime: 0
-  m_antiPlayerSpam: 0
-  m_antiPlayerSpamReset: 3
-  m_stuntTimeReset: 4
+  m_antiPlayerSpamReset: 2
+  m_stuntTimeReset: 3
   m_lineRenderer: {fileID: 2287103619411788057}
   m_headMaterialVulnerable: {fileID: 2100000, guid: c6b5edc6a68fc3a4694706f01df9c7ec, type: 2}
   m_headMaterialNormal: {fileID: 2100000, guid: 02e5bcd8f47722e4d938b5d3fb0caabf, type: 2}
