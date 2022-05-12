@@ -41,7 +41,7 @@ public class Arrow : MonoBehaviour
 
                 if (collision.transform.CompareTag(m_mobilePlatformTag))
                 {
-                    l_mushroom.transform.SetParent(collision.transform);
+                    l_mushroom.transform.SetParent(collision.transform.parent);
                 }
                 else
                 {
@@ -58,7 +58,7 @@ public class Arrow : MonoBehaviour
 
                 if (collision.transform.CompareTag(UtilsGyromitra.SearchForTag(m_mobilePlatformTag)))
                 {
-                    l_mushroom.transform.SetParent(collision.transform);
+                    l_mushroom.transform.SetParent(collision.transform.parent);
                 }
                 else
                 {
