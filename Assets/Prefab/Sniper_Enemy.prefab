@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentState: 0
-  m_playerInRange: 100
-  m_playerOutOfRange: 150
+  m_playerInRange: 150
+  m_playerOutOfRange: 200
   m_mushroomImpact: 0
   m_mushroomBounceForce: 10
   m_stuntTime: 0
