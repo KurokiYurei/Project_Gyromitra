@@ -110,7 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0780c223717d5cf43a9b3f9baeb19b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerTag: 
   m_pushPower: 20
   m_pushDuration: 0.5
 --- !u!54 &7180531174607526598
@@ -128,7 +127,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!1 &7180531175166556083
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0780c223717d5cf43a9b3f9baeb19b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerTag: 
   m_pushPower: 0
   m_pushDuration: 0
 --- !u!65 &7180531175166556085
