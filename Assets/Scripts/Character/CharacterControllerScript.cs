@@ -242,7 +242,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     /// </summary>
     private void Jump()
     {
-        if (m_jumpAction.triggered && (m_OnGround || m_onAirTimer < 0.3f))
+        if (m_jumpAction.triggered && (m_OnGround || m_onAirTimer < 0.3f) && !m_jumped)
         {
             m_VerticalSpeed = m_JumpSpeed;
             m_OnGround = false;
