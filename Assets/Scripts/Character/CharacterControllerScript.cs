@@ -41,8 +41,12 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private bool m_jumped;
 
     private float m_bouncePower;
-    
+
+    private float m_initialBouncePower;
+
     private float m_bounceTimer;
+
+    private float m_bounceDuration;
     
     private bool m_bouncing;
     
@@ -188,8 +192,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         else
         {
             l_Movement = -m_bounceDirection * m_bouncePower * Time.deltaTime;
-            m_bounceTimer -= Time.deltaTime;
-            if (m_bounceTimer < 0)
+            m_bouncePower = Mathf.MoveTowards(m_bouncePower, 0, (m_initialBouncePower / m_bounceDuration) * Time.deltaTime);
+            m_bounceTimer += Time.deltaTime;
+            if (m_bounceTimer >= m_bounceDuration)
             {
                 m_bouncing = false;
             }
@@ -332,7 +337,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         m_bounceDirection = dir;
         m_bounceDirection.Normalize();
         m_bouncePower = power;
-        m_bounceTimer = duration;
+        m_initialBouncePower = power;
+        m_bounceTimer = 0;
+        m_bounceDuration = duration;
         m_bouncing = true;
     }
 
