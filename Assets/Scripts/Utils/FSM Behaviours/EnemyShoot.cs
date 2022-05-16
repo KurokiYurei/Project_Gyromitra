@@ -42,6 +42,8 @@ public class EnemyShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_ray = gameObject.transform.Find("Firepoint").transform.GetComponent<LineRenderer>();
+
         m_ray.material.color = Color.blue;
 
         m_projectilePool = new PoolElements(3, transform, m_projectile);
