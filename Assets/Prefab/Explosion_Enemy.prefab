@@ -82,7 +82,7 @@ MonoBehaviour:
   m_lockTime: 3
   m_warningTime: 2
   m_firePoint: {fileID: 1759600660752675045}
-  m_ray: {fileID: 1759600660752675050}
+  m_ray: {fileID: 0}
   m_shootLayerMask:
     serializedVersion: 2
     m_Bits: 833
@@ -513,8 +513,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7716886
-  m_Center: {x: 0.034651756, y: 0.005527377, z: 0.026784737}
+  m_Radius: 1
+  m_Center: {x: 0.034651756, y: 0.14947987, z: -0.11091013}
 --- !u!114 &7686406146690159513
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -40,15 +40,18 @@ public class UI_Manager : MonoBehaviour
             if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag(UtilsGyromitra.SearchForTag("Enemy"))))
             {
                 ChangeColorCrosshair(Color.red);
+                m_color = Color.red;
             } else
             {
                 if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MushroomSpawnable")) || hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MobilePlatform")))
                 {
                     ChangeColorCrosshair(Color.green);
+                    m_color = Color.green;
                 }
                 else
                 {
                     ChangeColorCrosshair(Color.white);
+                    m_color = Color.white;
                 }
             }
 
@@ -56,6 +59,7 @@ public class UI_Manager : MonoBehaviour
         {
 
             ChangeColorCrosshair(Color.white);
+            m_color = Color.white;
         }
     }
 
@@ -127,7 +131,9 @@ public class UI_Manager : MonoBehaviour
 
             Vector3 l_currentPos = new Vector3(x, y, 0);
 
-            m_color = new Color(1f, 1f, 1f, m_alphaCircle);
+            // m_color = new Color(1f, 1f, 1f, m_alphaCircle);
+
+            m_color.a = m_alphaCircle;
 
             m_gradient = new Gradient();
 
