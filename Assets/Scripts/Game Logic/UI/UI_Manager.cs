@@ -42,7 +42,7 @@ public class UI_Manager : MonoBehaviour
                 ChangeColorCrosshair(Color.red);
             } else
             {
-                if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MushroomSpawnable")))
+                if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MushroomSpawnable")) || hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MobilePlatform")))
                 {
                     ChangeColorCrosshair(Color.green);
                 }

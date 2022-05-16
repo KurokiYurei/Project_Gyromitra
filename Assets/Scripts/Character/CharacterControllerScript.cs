@@ -336,10 +336,19 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         m_bounceDirection = dir;
         m_bounceDirection.Normalize();
-        m_bouncePower = power;
-        m_initialBouncePower = power;
         m_bounceTimer = 0;
-        m_bounceDuration = duration;
+        if (m_OnGround)
+        {
+            m_bouncePower = power * 2;
+            m_initialBouncePower = power * 2;
+            m_bounceDuration = duration;
+        }
+        else
+        {
+            m_bouncePower = power;
+            m_initialBouncePower = power;
+            m_bounceDuration = duration * 2;
+        }
         m_bouncing = true;
     }
 
