@@ -54,6 +54,8 @@ public class Weapon : MonoBehaviour
         l_arrow.transform.position = m_arrowSpawnPoint.transform.position;
         l_arrow.transform.rotation = m_arrowSpawnPoint.transform.rotation;
 
+        l_arrow.transform.GetComponent<TrailRenderer>().Clear();
+
         Rigidbody l_rb = l_arrow.GetComponent<Rigidbody>();
         if (m_hasGravity)
         {
