@@ -13,6 +13,12 @@ public class Arrow : MonoBehaviour
 
     private string m_mobilePlatformTag;
 
+    [SerializeField]
+    private Transform m_rayPoint;
+
+    [SerializeField]
+    private float m_distanceHit;
+
     private void Start()
     {
         m_mushroomSpawnableTag = UtilsGyromitra.SearchForTag("MushroomSpawnable");
@@ -23,6 +29,18 @@ public class Arrow : MonoBehaviour
     private void Update()
     {
         transform.rotation = Quaternion.LookRotation(m_rigidBody.velocity);
+
+        Ray l_ray = new Ray(m_rayPoint.position, m_rayPoint.forward);
+
+        if (Physics.Raycast(l_ray, out RaycastHit l_hit, m_distanceHit))
+        {
+            print(l_hit.transform.tag);
+            if (l_hit.collider.CompareTag(UtilsGyromitra.SearchForTag(m_enemyTag)))
+            {
+                l_hit.collider.GetComponent<Hit_Collider>().Hit();
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -71,12 +89,11 @@ public class Arrow : MonoBehaviour
 
             l_mushroom.GetComponent<Mushroom>().PlaySpawnAnimation();
         }
-
-        if (collision.transform.CompareTag(m_enemyTag))
-        {
-            collision.collider.GetComponent<Hit_Collider>().Hit();
-        }
-
+        //if (collision.transform.CompareTag(m_enemyTag))
+        //{
+        //    //collision.collider.GetComponent<Hit_Collider>().Hit();
+        //    gameObject.SetActive(false);
+        //}
         gameObject.SetActive(false);
     }
 }

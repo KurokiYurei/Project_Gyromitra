@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4b91d20ef9bcf4aaefb97e35aff0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_navMeshAgent: {fileID: 0}
+  m_navMeshAgent: {fileID: 2287103618211767967}
   m_patrolWaypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -190,8 +190,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5987053, y: 1.4413098, z: 1.2406609}
-  m_Center: {x: -0.0058021545, y: 1.1455504, z: -0.12033045}
+  m_Size: {x: 1.5987053, y: 1.3221986, z: 1.1215127}
+  m_Center: {x: -0.0058021545, y: 1.1506398, z: -0.17990458}
 --- !u!111 &8963033428620001455
 Animation:
   m_ObjectHideFlags: 0
@@ -513,8 +513,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0.034651756, y: 0.005527377, z: 0.026784737}
+  m_Radius: 1.0951163
+  m_Center: {x: 0, y: 0.15033662, z: -0.48629487}
 --- !u!114 &7889653777117012586
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1029,11 +1029,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1058406679}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &1108632745 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 2287103618211767967, guid: abefe8a712fb6824e8ea80488178321d, type: 3}
-  m_PrefabInstance: {fileID: 1590861601}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1145169615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,14 +1651,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2287103618211767962, guid: abefe8a712fb6824e8ea80488178321d, type: 3}
-      propertyPath: m_navMeshAgent
-      value: 
-      objectReference: {fileID: 1108632745}
-    - target: {fileID: 2287103618211767962, guid: abefe8a712fb6824e8ea80488178321d, type: 3}
-      propertyPath: m_patrolWaypoints.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2287103618211767962, guid: abefe8a712fb6824e8ea80488178321d, type: 3}
       propertyPath: m_patrolWaypoints.Array.data[0]
       value: 
       objectReference: {fileID: 546629943}
@@ -1734,10 +1721,6 @@ PrefabInstance:
     - target: {fileID: 2287103618211767966, guid: abefe8a712fb6824e8ea80488178321d, type: 3}
       propertyPath: m_Name
       value: Sniper_Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2287103618211767966, guid: abefe8a712fb6824e8ea80488178321d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abefe8a712fb6824e8ea80488178321d, type: 3}
@@ -2306,6 +2289,10 @@ PrefabInstance:
       propertyPath: m_normalCamera
       value: 
       objectReference: {fileID: 951995465}
+    - target: {fileID: 7755780747803186078, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7755780748300648618, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2313,6 +2300,10 @@ PrefabInstance:
     - target: {fileID: 7755780748300648618, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755780748525513632, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7755780748896025744, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
       propertyPath: m_pauseMenu
@@ -2370,10 +2361,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7755780749006743964, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755780749116893875, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7755780749116893876, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1909322843440720966}
+    - target: {fileID: 7755780749442266385, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755780749568999952, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32f550f0bbcf464419ec71c2b8218da1, type: 3}
 --- !u!1001 &2089251412968580651
