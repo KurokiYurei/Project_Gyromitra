@@ -11,6 +11,9 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private GameObject m_arrowSpawnPoint;
 
+    [SerializeField]
+    private Camera m_camera;
+
     private bool m_isReloading;
 
     private float m_Power;
@@ -41,7 +44,7 @@ public class Weapon : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(m_reloadTime);
 
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+        Ray ray = m_camera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out hit, m_layerMask))

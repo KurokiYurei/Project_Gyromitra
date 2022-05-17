@@ -34,7 +34,6 @@ public class Arrow : MonoBehaviour
 
         if (Physics.Raycast(l_ray, out RaycastHit l_hit, m_distanceHit))
         {
-            print(l_hit.transform.tag);
             if (l_hit.collider.CompareTag(UtilsGyromitra.SearchForTag(m_enemyTag)))
             {
                 l_hit.collider.GetComponent<Hit_Collider>().Hit();

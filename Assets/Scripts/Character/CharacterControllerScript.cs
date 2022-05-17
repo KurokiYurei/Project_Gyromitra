@@ -378,7 +378,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         if (m_VerticalSpeed <= -15)
         {
             //yield return new WaitForSeconds(3);
-            print("damage");
             m_player.Damage(m_fallDamage);
         }
     }
