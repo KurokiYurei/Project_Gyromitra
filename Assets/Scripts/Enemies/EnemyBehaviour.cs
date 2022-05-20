@@ -110,7 +110,7 @@ public class EnemyBehaviour : FiniteStateMachine
 
                 // find player if in range
 
-                m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, UtilsGyromitra.SearchForTag("Player"), m_playerInRange);
+                m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, "Player" /*UtilsGyromitra.SearchForTag("Player")*/, m_playerInRange);
 
                 if (m_player != null)
                 {
@@ -144,7 +144,7 @@ public class EnemyBehaviour : FiniteStateMachine
 
                 if (m_stuntTime <= 0f)
                 {
-                    m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, UtilsGyromitra.SearchForTag("Player"), m_playerInRange);
+                    m_player = UtilsGyromitra.FindInstanceWithinRadius(gameObject, "Player" /*UtilsGyromitra.SearchForTag("Player")*/, m_playerInRange);
 
                     // find player if in range
 
@@ -175,7 +175,6 @@ public class EnemyBehaviour : FiniteStateMachine
             case State.ATTACK:
                 m_enemyShoot.enabled = false;
                 m_lineRenderer.enabled = false;
-                m_enemyShoot.setPlayer(null);
                 break;
 
             case State.STUN:
@@ -196,7 +195,7 @@ public class EnemyBehaviour : FiniteStateMachine
 
             case State.ATTACK:
                 m_enemyShoot.enabled = true;
-                m_lineRenderer.enabled = true;
+                //m_lineRenderer.enabled = true;
                 m_enemyShoot.setPlayer(m_player);
                 break;
                     

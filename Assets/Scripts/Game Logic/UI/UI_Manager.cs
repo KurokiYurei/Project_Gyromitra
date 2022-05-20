@@ -13,6 +13,9 @@ public class UI_Manager : MonoBehaviour
     private Transform m_arrowSpawnPoint;
 
     [SerializeField]
+    private Camera m_camera;
+
+    [SerializeField]
     private LineRenderer m_CircleRenderer;
 
     [SerializeField]
@@ -30,7 +33,7 @@ public class UI_Manager : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+        Ray ray = m_camera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
@@ -40,15 +43,18 @@ public class UI_Manager : MonoBehaviour
             if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag(UtilsGyromitra.SearchForTag("Enemy"))))
             {
                 ChangeColorCrosshair(Color.red);
+                m_color = Color.red;
             } else
             {
-                if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MushroomSpawnable")))
+                if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MushroomSpawnable")) || hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MobilePlatform")))
                 {
                     ChangeColorCrosshair(Color.green);
+                    m_color = Color.green;
                 }
                 else
                 {
                     ChangeColorCrosshair(Color.white);
+                    m_color = Color.white;
                 }
             }
 
@@ -56,6 +62,7 @@ public class UI_Manager : MonoBehaviour
         {
 
             ChangeColorCrosshair(Color.white);
+            m_color = Color.white;
         }
     }
 
@@ -127,7 +134,9 @@ public class UI_Manager : MonoBehaviour
 
             Vector3 l_currentPos = new Vector3(x, y, 0);
 
-            m_color = new Color(1f, 1f, 1f, m_alphaCircle);
+            // m_color = new Color(1f, 1f, 1f, m_alphaCircle);
+
+            m_color.a = m_alphaCircle;
 
             m_gradient = new Gradient();
 

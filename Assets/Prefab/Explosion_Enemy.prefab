@@ -82,7 +82,7 @@ MonoBehaviour:
   m_lockTime: 3
   m_warningTime: 2
   m_firePoint: {fileID: 1759600660752675045}
-  m_ray: {fileID: 1759600660752675050}
+  m_ray: {fileID: 0}
   m_shootLayerMask:
     serializedVersion: 2
     m_Bits: 833
@@ -190,8 +190,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5987053, y: 1.0331683, z: 1.2406609}
-  m_Center: {x: -0.0058021545, y: 1.349621, z: -0.12033042}
+  m_Size: {x: 1.5987053, y: 1.3279976, z: 1.158056}
+  m_Center: {x: -0.0058021545, y: 1.1610336, z: -0.07902801}
 --- !u!111 &6382532066809584544
 Animation:
   m_ObjectHideFlags: 0
@@ -513,8 +513,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7716886
-  m_Center: {x: 0.034651756, y: 0.005527377, z: 0.026784737}
+  m_Radius: 1.0925663
+  m_Center: {x: 0, y: 0.117558, z: -0.284276}
 --- !u!114 &7686406146690159513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +582,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 25a9fb42d361f46ad89221f6d301e96e, type: 2}
     - target: {fileID: 919132149155446097, guid: 023a76b56301b6043a75f9a17c11857c, type: 3}
       propertyPath: m_Name
       value: Gogole_bazooka_lowpoly
