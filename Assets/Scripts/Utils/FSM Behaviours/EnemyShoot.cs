@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    private float m_timer;
+    [SerializeField]
+    private float m_cadenceShoot;
     private bool m_alreadyLocked;
     private bool m_canLock;
 
@@ -56,11 +57,11 @@ public class EnemyShoot : MonoBehaviour
         }
         else
         {
-            m_timer -= Time.deltaTime;
-            if (m_timer <= 0)
+            m_cadenceShoot -= Time.deltaTime;
+            if (m_cadenceShoot <= 0)
             {
                 m_canLock = true;
-                m_timer = 0f;
+                m_cadenceShoot = 0f;
             }
         }
     }
@@ -79,7 +80,7 @@ public class EnemyShoot : MonoBehaviour
 
         m_firePoint.forward = (l_playerPos - m_firePoint.position).normalized;
 
-        if (m_timer >= m_warningTime && !m_alreadyLocked)
+        if (m_cadenceShoot >= m_warningTime && !m_alreadyLocked)
         {
             m_ray.material.color = Color.red;
             m_alreadyLocked = true;
@@ -95,18 +96,18 @@ public class EnemyShoot : MonoBehaviour
         m_ray.SetPosition(0, m_firePoint.position);
         m_ray.SetPosition(1, l_playerPos);
 
-        if (m_timer >= m_lockTime)
+        if (m_cadenceShoot >= m_lockTime)
         {
             Vector3 l_finalDirection = l_playerPos - m_firePoint.position;
             Shoot(l_finalDirection);
-            m_timer = m_cooldownTime;
+            m_cadenceShoot = m_cooldownTime;
             m_ray.material.color = Color.blue;
             m_ray.enabled = false;
             m_alreadyLocked = false;
             m_canLock = false;
         }
 
-        m_timer += Time.deltaTime;
+        m_cadenceShoot += Time.deltaTime;
     }
 
     private void Shoot(Vector3 dir)
