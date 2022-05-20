@@ -21,8 +21,20 @@ public class NewCameraController : MonoBehaviour
     private Transform m_player;
 
     [Header("Camera")]
-    public float m_MaxPitchDistance = 320f;
-    public float m_MinPitchDistance = 60f;
+    [SerializeField]
+    private float m_MaxPitchDistance = 320f;
+    [SerializeField]
+    private float m_MinPitchDistance = 60f;
+
+    [Header("Sensibility")]
+    [SerializeField]
+    private float m_maxSensitivityX = 25f;
+    [SerializeField]
+    private float m_minSensitivityX = -25f;
+    [SerializeField]
+    private float m_maxSensitivityY = 25f;
+    [SerializeField]
+    private float m_minSensitivityY = -25f;
 
     public void SetIsAiming(bool l_isAiming)
     {
@@ -49,6 +61,23 @@ public class NewCameraController : MonoBehaviour
         if (!m_pauseMenu.GetPaused())
         {
             Vector2 input = moveCamera.ReadValue<Vector2>();
+
+            if(input.x > m_maxSensitivityX)
+            {
+                input.x = m_maxSensitivityX;
+            } else if (input.x < m_minSensitivityX)
+            {
+                input.x = m_minSensitivityX;
+            }
+
+            if (input.y > m_maxSensitivityY)
+            {
+                input.y = m_maxSensitivityY;
+            }
+            else if (input.y < m_minSensitivityY)
+            {
+                input.y = m_minSensitivityY;
+            }
 
             float l_MouseDeltaX = input.x;
             float l_MouseDeltaY = input.y;
