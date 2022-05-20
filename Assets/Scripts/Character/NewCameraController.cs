@@ -21,8 +21,10 @@ public class NewCameraController : MonoBehaviour
     private Transform m_player;
 
     [Header("Camera")]
-    public float m_MaxPitchDistance = 320f;
-    public float m_MinPitchDistance = 60f;
+    [SerializeField]
+    private float m_MaxPitchDistance = 320f;
+    [SerializeField]
+    private float m_MinPitchDistance = 60f;
 
     public void SetIsAiming(bool l_isAiming)
     {
