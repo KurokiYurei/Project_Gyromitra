@@ -28,13 +28,13 @@ public class NewCameraController : MonoBehaviour
 
     [Header("Sensibility")]
     [SerializeField]
-    private float m_maxSensitivityX = 25f;
+    private float m_maxSensitivityX = 5f;
     [SerializeField]
-    private float m_minSensitivityX = -25f;
+    private float m_minSensitivityX = -5f;
     [SerializeField]
-    private float m_maxSensitivityY = 25f;
+    private float m_maxSensitivityY = 4f;
     [SerializeField]
-    private float m_minSensitivityY = -25f;
+    private float m_minSensitivityY = -4f;
 
     public void SetIsAiming(bool l_isAiming)
     {
