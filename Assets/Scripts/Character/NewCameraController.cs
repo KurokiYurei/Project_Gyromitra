@@ -25,6 +25,12 @@ public class NewCameraController : MonoBehaviour
     private float m_MaxPitchDistance = 320f;
     [SerializeField]
     private float m_MinPitchDistance = 60f;
+    [SerializeField]
+    [Range(0.1f, 1f)]
+    private float m_mouseSensitivity;
+    [SerializeField]
+    [Range(0.1f, 1f)]
+    private float m_gamepadSensitivity;
 
     public void SetIsAiming(bool l_isAiming)
     {
@@ -51,6 +57,13 @@ public class NewCameraController : MonoBehaviour
         if (!m_pauseMenu.GetPaused())
         {
             Vector2 input = moveCamera.ReadValue<Vector2>();
+
+            string number = m_mouseSensitivity.ToString().Replace(",", ".");
+            string path = "scaleVector2(x="+number+", y="+number+")";
+            moveCamera.ApplyBindingOverride(0, new InputBinding {overrideProcessors = path });            
+            string number2 = m_gamepadSensitivity.ToString().Replace(",", ".");
+            string path2 = "scaleVector2(x="+number2+", y="+number2+")";
+            moveCamera.ApplyBindingOverride(1, new InputBinding {overrideProcessors = path2 });
 
             float l_MouseDeltaX = input.x;
             float l_MouseDeltaY = input.y;
