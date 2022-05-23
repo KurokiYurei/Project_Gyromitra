@@ -196,7 +196,6 @@ Transform:
   - {fileID: 8042013106317416718}
   - {fileID: 8100094711890040883}
   - {fileID: 35205795609537518}
-  - {fileID: 929333478244118936}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -211,8 +210,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09438054, y: 0.091985196, z: 0.13797155}
-  m_Center: {x: 0.00073652714, y: 0.001094386, z: 0.08101423}
+  m_Size: {x: 0.09438054, y: 0.091985196, z: 0.66811216}
+  m_Center: {x: 0.00073652714, y: 0.001094386, z: -0.18405575}
 --- !u!114 &6714034046378512252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,8 +225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 8272729674931008831}
-  m_rayPoint: {fileID: 929333478244118936}
-  m_distanceHit: 1.5
 --- !u!54 &8272729674931008831
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -342,36 +339,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!1 &6351939020252206391
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 929333478244118936}
-  m_Layer: 7
-  m_Name: Raypoint
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &929333478244118936
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6351939020252206391}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.098}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3372472912347773634}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &574114400729435141
 PrefabInstance:
   m_ObjectHideFlags: 0
