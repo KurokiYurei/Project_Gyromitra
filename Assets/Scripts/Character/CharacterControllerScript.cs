@@ -135,6 +135,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     void Update()
     {
+
+        Jump();
+    }
+    void FixedUpdate()
+    {
         //Movement function
         Movement();
 
@@ -186,8 +191,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
             l_Movement.Normalize();
             l_Movement *= l_Speed * Time.deltaTime;
-
-            Jump();
         }
         else
         {

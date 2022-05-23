@@ -2202,6 +2202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sniper_Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2287103618211767966, guid: abefe8a712fb6824e8ea80488178321d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abefe8a712fb6824e8ea80488178321d, type: 3}
 --- !u!1 &1609580055
@@ -2746,7 +2750,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 1
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 6
@@ -3395,7 +3399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3896734592020378836, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7890892972376290787, guid: 231da2c0e6c1c974182fc9a9c9c19db8, type: 3}
       propertyPath: m_Enabled
