@@ -11,6 +11,7 @@ TagManager:
   - CheckPoint
   - PlatformWaypoint
   - MobilePlatform
+  - ChangeOcclusion
   layers:
   - Default
   - TransparentFX

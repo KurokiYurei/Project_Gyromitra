@@ -112,6 +112,14 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     public delegate void OnBulletTimeDelegate(bool active);
     public OnBulletTimeDelegate OnBulletTime;
 
+    [Header("Occlusion Camera")]
+    [SerializeField]
+    private Camera m_occlusionCamera;
+    [SerializeField]
+    private float m_fovInArea;
+    [SerializeField]
+    private float m_fovOutArea;
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -125,6 +133,10 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
         m_mushroomPool = new DoublePoolElements(5, transform, m_mushroomPrefab, m_mushroomWallPrefab);
         m_arrowPool = new PoolElements(5, null, m_arrow);
+
+        m_fovInArea = 80f;
+        m_fovOutArea = 40f;
+
     }
     void Start()
     {
@@ -327,6 +339,19 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             m_currentCheckPoint = other.GetComponent<CheckPoint>();
         }
 
+        if (other.CompareTag(UtilsGyromitra.SearchForTag("ChangeOcclusion")))
+        {
+            m_occlusionCamera.fieldOfView = m_fovInArea;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag(UtilsGyromitra.SearchForTag("ChangeOcclusion")))
+        {
+            m_occlusionCamera.fieldOfView = m_fovOutArea;
+        }
     }
 
     /// <summary>
