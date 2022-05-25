@@ -10,10 +10,18 @@ public class ResolutionString
 {
     public int m_width;
     public int m_height;
+
+    public ResolutionString(int l_width, int l_height)
+    {
+        m_width = l_width;
+        m_height = l_height;
+    }
 }
 
 public class CanvasManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameManagerScript m_gameManager;
 
     [Header("Canvas")]
     [SerializeField]
@@ -42,6 +50,34 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]
     private bool m_fullScreen;
 
+    [Header("Settings")]
+    [SerializeField]
+    private float m_musicVolume;
+
+    [SerializeField]
+    private float m_sfxVolume;
+
+    [SerializeField]
+    private float m_sensitivity;
+
+    [SerializeField]
+    private Slider m_musicSlider;
+
+    [SerializeField]
+    private Slider m_sfxSlider;
+
+    [SerializeField]
+    private Slider m_sensitivitySlider;
+
+    [SerializeField]
+    private Text m_musicText;
+
+    [SerializeField]
+    private Text m_sfxText;
+
+    [SerializeField]
+    private Text m_sensitivityText;
+
     private void Awake()
     {
 
@@ -51,7 +87,7 @@ public class CanvasManager : MonoBehaviour
         ChangeCanvasToMainMenu();
 
         // resolution
-        m_fullScreen = true;
+        m_fullScreen = m_gameManager.m_settings.FullScreen;
 
         m_selectedResolution = 0;
 
@@ -60,6 +96,15 @@ public class CanvasManager : MonoBehaviour
         CreateResList();
 
         UpdateTextResolution();
+
+        // settings
+
+        m_musicVolume = m_gameManager.m_settings.MusicVolume;
+        m_sfxVolume = m_gameManager.m_settings.SfxVolume;
+        m_sensitivity = m_gameManager.m_settings.Sensitivity;
+
+        SetSettingsValues();
+
     }
 
     /// <summary>
@@ -109,10 +154,7 @@ public class CanvasManager : MonoBehaviour
 
         foreach (var res in l_resolutionList)
         {
-            ResolutionString l_tempResString = new ResolutionString();
-
-            l_tempResString.m_width = res.width;
-            l_tempResString.m_height = res.height;
+            ResolutionString l_tempResString = new ResolutionString(res.width, res.height);
 
             l_list.Add(l_tempResString);
 
@@ -171,6 +213,42 @@ public class CanvasManager : MonoBehaviour
     public void ChangeToggleFullScreen(bool l_newVal)
     {
         m_fullScreen = l_newVal;
+    }
+
+    /// <summary>
+    /// Set the starting values for the sliders in the setting
+    /// </summary>
+    private void SetSettingsValues()
+    {
+        m_musicSlider.value = m_musicVolume;
+        m_sfxSlider.value = m_sfxVolume;
+        m_sensitivitySlider.value = m_sensitivity;
+        UpdateTextSliders();
+    }
+
+    public void SetMusicVolume()
+    {
+        m_musicVolume = m_musicSlider.value;
+        UpdateTextSliders();
+    }
+
+    public void SetSFXVolume()
+    {
+        m_sfxVolume = m_sfxSlider.value;
+        UpdateTextSliders();
+    }
+
+    public void SetSensitivity()
+    {
+        m_sensitivity = m_sensitivitySlider.value;
+        UpdateTextSliders();
+    }
+
+    private void UpdateTextSliders()
+    {
+        m_musicText.text = m_musicSlider.value.ToString("0.0");
+        m_sfxText.text = m_sfxSlider.value.ToString("0.0");
+        m_sensitivityText.text = m_sensitivitySlider.value.ToString("0.0#");
     }
 
 }

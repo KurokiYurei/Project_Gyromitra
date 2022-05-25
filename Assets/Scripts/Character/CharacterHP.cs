@@ -64,7 +64,8 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_health -= damage;
         if (m_health <= m_minHealth)
         {
-            gameObject.GetComponent<CharacterControllerScript>().m_gameManager.RestartGame();
+            //gameObject.GetComponent<CharacterControllerScript>().m_gameManager.RestartGame();
+            GameManagerScript.m_instance.RestartGame();
         }
     }
 

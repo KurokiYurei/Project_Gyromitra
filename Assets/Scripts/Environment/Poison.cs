@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Poison : MonoBehaviour
 {
-
     [SerializeField]
     private float m_currentDurationVenom;
     private float m_durationVenom;
@@ -22,12 +21,12 @@ public class Poison : MonoBehaviour
     [SerializeField]
     private string m_playerTag;
 
-    private CharacterHP m_player;
+    private CharacterControllerScript m_player;
+    private CharacterHP m_playerHealth;
 
-    private void Start()
+    private void Awake()
     {
         m_durationVenom = 3f;
-        m_currentDurationVenom = m_durationVenom;
 
         m_venomDamageTimer = 1f;
         m_currentVenomDamageTimer = m_venomDamageTimer;
@@ -36,11 +35,22 @@ public class Poison : MonoBehaviour
 
         m_playerIsIn = false;
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
+
+        m_player = GameObject.FindGameObjectWithTag(m_playerTag).GetComponent<CharacterControllerScript>();
+        m_playerHealth = m_player.gameObject.GetComponent<CharacterHP>();
+    }
+
+    private void OnEnable()
+    {
+        m_player.OnStopPoison += StopPoison;
+    }
+    private void OnDisable()
+    {
+        m_player.OnStopPoison -= StopPoison;
     }
 
     private void Update()
     {
-        
         if (m_playerIsIn)
         {
             m_currentDurationVenom = m_durationVenom;
@@ -50,10 +60,9 @@ public class Poison : MonoBehaviour
             m_currentDurationVenom -= Time.deltaTime;
         }
 
-        if (m_currentDurationVenom >= 0f && m_player != null)
+        if (m_currentDurationVenom >= 0f)
         {
             // venom is active
-
             if (m_currentVenomDamageTimer >= 0f)
             {
                 // timer
@@ -63,18 +72,9 @@ public class Poison : MonoBehaviour
             {
                 // do dmg
                 m_currentVenomDamageTimer = m_venomDamageTimer;
-                m_player.Damage(m_damage);
+                m_playerHealth.Damage(m_damage);
             }
-
-
-        } else
-        {
-            // venom run out of time
-            m_player = null;
-            m_currentDurationVenom = m_durationVenom;
-        }
-
-
+        } 
     }
 
     private void OnTriggerEnter(Collider other)
@@ -82,7 +82,6 @@ public class Poison : MonoBehaviour
         if (other.tag == m_playerTag)
         {
             m_playerIsIn = true;
-            m_player = other.transform.GetComponent<CharacterHP>();
         }
     }
 
@@ -94,4 +93,10 @@ public class Poison : MonoBehaviour
         }
     }
 
+    private void StopPoison()
+    {
+        m_playerIsIn = false;
+        m_currentDurationVenom = 0f;
+        m_currentVenomDamageTimer = m_venomDamageTimer;
+    }
 }

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(EnemyMovement))]
 [RequireComponent(typeof(EnemyShoot))]
 
-public class EnemyBehaviour : FiniteStateMachine
+public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 {
     public enum State { INITIAL, WANDER, ATTACK, STUN };
 
@@ -42,6 +42,11 @@ public class EnemyBehaviour : FiniteStateMachine
 
     [SerializeField]
     private LineRenderer m_lineRenderer;
+
+    [SerializeField]
+    private Vector3 m_startPos;
+    [SerializeField]
+    private Quaternion m_startRot;
 
     [Header("Material")]
     [SerializeField]
@@ -87,6 +92,10 @@ public class EnemyBehaviour : FiniteStateMachine
         m_enemyShoot.enabled = false;
 
         m_stuntTime = m_stuntTimeReset;
+
+        m_startPos = transform.position;
+        m_startRot = transform.rotation;
+        GameManagerScript.m_instance.AddRestartGameElement(this);
     }
 
     private void Update()
@@ -208,5 +217,15 @@ public class EnemyBehaviour : FiniteStateMachine
                 break;
         }
         m_currentState = l_newState;
+    }
+
+    public void RestartGame()
+    {
+        ChangeState(State.INITIAL);
+        gameObject.GetComponent<Enemy1HP>().ResetHP();
+        m_enemyMovement.m_navMeshAgent.enabled = false;
+        transform.position = m_startPos;
+        transform.rotation = m_startRot;
+        m_enemyMovement.m_navMeshAgent.enabled = true;
     }
 }
