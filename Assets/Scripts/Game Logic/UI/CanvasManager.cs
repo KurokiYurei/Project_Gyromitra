@@ -10,10 +10,18 @@ public class ResolutionString
 {
     public int m_width;
     public int m_height;
+
+    public ResolutionString(int l_width, int l_height)
+    {
+        m_width = l_width;
+        m_height = l_height;
+    }
 }
 
 public class CanvasManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameManagerScript m_gameManager;
 
     [Header("Canvas")]
     [SerializeField]
@@ -79,7 +87,7 @@ public class CanvasManager : MonoBehaviour
         ChangeCanvasToMainMenu();
 
         // resolution
-        m_fullScreen = true;
+        m_fullScreen = m_gameManager.m_settings.FullScreen;
 
         m_selectedResolution = 0;
 
@@ -91,9 +99,9 @@ public class CanvasManager : MonoBehaviour
 
         // settings
 
-        m_musicVolume = 0.5f;
-        m_sfxVolume = 0.5f;
-        m_sensitivity = 0.1f;
+        m_musicVolume = m_gameManager.m_settings.MusicVolume;
+        m_sfxVolume = m_gameManager.m_settings.SfxVolume;
+        m_sensitivity = m_gameManager.m_settings.Sensitivity;
 
         SetSettingsValues();
 
@@ -146,10 +154,7 @@ public class CanvasManager : MonoBehaviour
 
         foreach (var res in l_resolutionList)
         {
-            ResolutionString l_tempResString = new ResolutionString();
-
-            l_tempResString.m_width = res.width;
-            l_tempResString.m_height = res.height;
+            ResolutionString l_tempResString = new ResolutionString(res.width, res.height);
 
             l_list.Add(l_tempResString);
 

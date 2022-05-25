@@ -2525,6 +2525,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &1286680384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
+  m_PrefabInstance: {fileID: 1703250757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461db65b6e194fc4fb24f067c7072dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1314056705
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,6 +3138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee285062bab377469f43d1eabf2b68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_gameManager: {fileID: 1286680384}
   m_mainMenu: {fileID: 546903774}
   m_settingsMenu: {fileID: 250233674}
   resolutionListString: []
