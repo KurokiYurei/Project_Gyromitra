@@ -27,6 +27,11 @@ public class GameManagerScript : MonoBehaviour
     {
         m_RestartGameElements.Add(RestartGameElement);
     }
+    public void DeleteRestartGameElement(IRestartGameElement RestartGameElement)
+    {
+        m_RestartGameElements.Remove(RestartGameElement);
+    }
+
     public void RestartGame()
     {
         foreach (IRestartGameElement l_RestartGameElement in m_RestartGameElements)
