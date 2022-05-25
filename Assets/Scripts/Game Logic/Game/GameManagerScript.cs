@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
 
-    public GameManagerScript m_instance;
+    public static GameManagerScript m_instance;
 
     List<IRestartGameElement> m_RestartGameElements;
 
