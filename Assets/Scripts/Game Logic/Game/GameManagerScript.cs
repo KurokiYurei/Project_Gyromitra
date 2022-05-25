@@ -5,12 +5,23 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
+
+    public GameManagerScript m_instance;
+
     List<IRestartGameElement> m_RestartGameElements;
 
     private void Awake()
     {
-        m_RestartGameElements = new List<IRestartGameElement>();
-        DontDestroyOnLoad(gameObject);
+
+        if(m_instance != null)
+        {
+            Destroy(gameObject);
+        } else
+        {
+            m_instance = this;
+            m_RestartGameElements = new List<IRestartGameElement>();
+            DontDestroyOnLoad(gameObject);
+        }
     }
     public void AddRestartGameElement(IRestartGameElement RestartGameElement)
     {
@@ -21,4 +32,11 @@ public class GameManagerScript : MonoBehaviour
         foreach (IRestartGameElement l_RestartGameElement in m_RestartGameElements)
             l_RestartGameElement.RestartGame();
     }
+}
+
+public class Settings : MonoBehaviour
+{
+
+
+
 }
