@@ -112,6 +112,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     public delegate void OnBulletTimeDelegate(bool active);
     public OnBulletTimeDelegate OnBulletTime;
 
+    public delegate void OnStopPoisonDelegate();
+    public OnStopPoisonDelegate OnStopPoison;
+
     [Header("Occlusion Camera")]
     [SerializeField]
     private Camera m_occlusionCamera;
@@ -147,13 +150,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     void Update()
     {
-
         Jump();
-    }
-    void FixedUpdate()
-    {
-        //Movement function
-        Movement();
 
         //Aim
         if (!m_pauseMenu.GetPaused())
@@ -169,7 +166,12 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
                 m_camController.SetIsAiming(false);
                 OnBulletTime?.Invoke(false);
             }
-        }     
+        }
+    }
+    void FixedUpdate()
+    {
+        //Movement function
+        Movement();
     }
 
     /// <summary>
@@ -275,6 +277,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     /// </summary>
     public void RestartGame()
     {
+        OnStopPoison?.Invoke();
+
         m_CharacterController.enabled = false;
         if (m_currentCheckPoint != null)
         {
