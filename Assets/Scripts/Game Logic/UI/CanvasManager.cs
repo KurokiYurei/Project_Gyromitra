@@ -105,6 +105,14 @@ public class CanvasManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (m_gameManager == null)
+        {
+            m_gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        }
+    }
+
     /// <summary>
     /// Change scene to main game
     /// </summary>

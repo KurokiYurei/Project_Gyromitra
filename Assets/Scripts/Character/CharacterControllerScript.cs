@@ -145,11 +145,17 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         m_startPos = transform.position;
         m_startRot = transform.rotation;
-        m_gameManager.AddRestartGameElement(this);
+
     }
 
     void Update()
     {
+        if (m_gameManager == null)
+        {
+            m_gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+            m_gameManager.AddRestartGameElement(this);
+        }
+
         Jump();
 
         //Aim
