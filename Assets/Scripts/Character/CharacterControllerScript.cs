@@ -316,7 +316,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         if (hit.collider.tag == "Mushroom")
         {
-            Debug.DrawRay(hit.point, hit.normal, Color.red, 2f);
             if (hit.normal.y < 0.5f)
             {
                 SetBounceParameters(hit.transform.position - transform.position, m_mushroomBouncePower, m_mushroomBounceDuration);

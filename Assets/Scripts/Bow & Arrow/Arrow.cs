@@ -29,9 +29,9 @@ public class Arrow : MonoBehaviour
     {
         GameObject l_mushroom = null;
 
-        if ((collision.transform.CompareTag(m_mushroomSpawnableTag) || collision.transform.CompareTag(m_mobilePlatformTag)) && collision.contacts[0].normal.y >= -0.01f)
+        if ((collision.transform.CompareTag(m_mushroomSpawnableTag) || collision.transform.CompareTag(m_mobilePlatformTag)) 
+            && collision.contacts[0].normal.y >= -0.01f && UtilsGyromitra.FindMushroomsWithinRadius(gameObject, "Mushroom", 1f) == null)
         {
-            Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal, Color.red, 5f);
             if (collision.contacts[0].normal.y < 0.3f) //WALL MUSHROOM
             {
                 l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(false);
@@ -66,7 +66,6 @@ public class Arrow : MonoBehaviour
                 }
 
                 l_mushroom.SetActive(true);
-
             }
 
             l_mushroom.GetComponent<Mushroom>().PlaySpawnAnimation();

@@ -16,9 +16,7 @@ public class Mushroom : MonoBehaviour
     {
         if (m_currentTime >= m_timeToDestroy)
         {
-        
-            DestroyMushroom();
-            
+            DestroyMushroom();        
         }
         m_currentTime += Time.deltaTime;
     }
@@ -46,5 +44,4 @@ public class Mushroom : MonoBehaviour
     {
         PlayMushroomAnimation(m_spawnClip);
     }
-
 }
