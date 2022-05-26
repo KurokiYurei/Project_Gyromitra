@@ -30,13 +30,11 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]
     private GameObject m_settingsMenu;
 
-    private List<GameObject> m_list;
-
     private GameObject m_currentCanvas;
 
     [Header("Resolutions")]
     [SerializeField]
-    private List<ResolutionString> resolutionListString;
+    private List<ResolutionString> resolutionList;
 
     [SerializeField]
     private int m_selectedResolution;
@@ -87,7 +85,7 @@ public class CanvasManager : MonoBehaviour
         ChangeCanvasToMainMenu();
 
         // resolution
-        m_fullScreen = m_gameManager.m_settings.FullScreen;
+        m_fullScreen = m_gameManager.Settings.FullScreen;
 
         m_selectedResolution = 0;
 
@@ -99,9 +97,9 @@ public class CanvasManager : MonoBehaviour
 
         // settings
 
-        m_musicVolume = m_gameManager.m_settings.MusicVolume;
-        m_sfxVolume = m_gameManager.m_settings.SfxVolume;
-        m_sensitivity = m_gameManager.m_settings.Sensitivity;
+        m_musicVolume = m_gameManager.Settings.MusicVolume;
+        m_sfxVolume = m_gameManager.Settings.SfxVolume;
+        m_sensitivity = m_gameManager.Settings.Sensitivity;
 
         SetSettingsValues();
 
@@ -165,7 +163,7 @@ public class CanvasManager : MonoBehaviour
             }
         }
 
-        resolutionListString = l_list;
+        resolutionList = l_list;
     }
 
     /// <summary>
@@ -185,7 +183,7 @@ public class CanvasManager : MonoBehaviour
     public void RightButtonResolution()
     {
         m_selectedResolution++;
-        if (m_selectedResolution > resolutionListString.Count - 1) m_selectedResolution = resolutionListString.Count - 1;
+        if (m_selectedResolution > resolutionList.Count - 1) m_selectedResolution = resolutionList.Count - 1;
 
         UpdateTextResolution();
     }
@@ -195,15 +193,27 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void UpdateTextResolution()
     {
-        m_textUiResolution.text = resolutionListString[m_selectedResolution].m_width.ToString() + " x " + resolutionListString[m_selectedResolution].m_height.ToString();
+        m_textUiResolution.text = resolutionList[m_selectedResolution].m_width.ToString() + " x " + resolutionList[m_selectedResolution].m_height.ToString();
     }
 
     /// <summary>
     /// applyes the graphic changes
     /// </summary>
-    public void ApplyGraphics()
+    public void ApplySettings()
     {
-        Screen.SetResolution(resolutionListString[m_selectedResolution].m_width, resolutionListString[m_selectedResolution].m_height, m_fullScreen);
+        // sounds
+        m_gameManager.Settings.MusicVolume = m_musicSlider.value;
+        m_gameManager.Settings.SfxVolume = m_sfxSlider.value;
+        m_gameManager.Settings.Sensitivity = m_sensitivitySlider.value;
+
+        // fullscreen 
+        m_gameManager.Settings.FullScreen = m_fullScreen;
+
+        // resolution
+        m_gameManager.Settings.Resoution = resolutionList[m_selectedResolution];
+
+        // apply the values
+        Screen.SetResolution(resolutionList[m_selectedResolution].m_width, resolutionList[m_selectedResolution].m_height, m_fullScreen);
     }
 
     /// <summary>

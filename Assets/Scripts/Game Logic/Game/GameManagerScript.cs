@@ -42,9 +42,11 @@ public class GameManagerScript : MonoBehaviour
     public static GameManagerScript m_instance;
 
     [SerializeField]
-    public Settings m_settings;
+    private Settings m_settings;
 
     List<IRestartGameElement> m_RestartGameElements;
+
+    public Settings Settings { get => m_settings; set => m_settings = value; }
 
     private void Awake()
     {
