@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2864,6 +2864,11 @@ MonoBehaviour:
   m_DefaultActionMap: Character
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &1956127760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3425638342040841470, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+  m_PrefabInstance: {fileID: 8393565720067227985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2091822888
 GameObject:
   m_ObjectHideFlags: 0
@@ -4028,6 +4033,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3425638342040841470, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425638342155317959, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425638342429518793, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425638343002843701, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425638343026583095, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425638343710598622, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425638343720645372, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8393565720191165636, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
       propertyPath: playerInput
       value: 
@@ -4119,6 +4152,14 @@ PrefabInstance:
     - target: {fileID: 8393565720191165640, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393565720352466545, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1956127760}
+    - target: {fileID: 8393565720352466545, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fa2240422da2534d815c922daa5629f, type: 3}
@@ -5199,6 +5240,9 @@ MonoBehaviour:
   m_startPos: {x: 0, y: 0, z: 0}
   m_startRot: {x: 0, y: 0, z: 0, w: 0}
   m_currentCheckPoint: {fileID: 0}
+  m_occlusionCamera: {fileID: 0}
+  m_fovInArea: 0
+  m_fovOutArea: 0
 --- !u!1 &8599717116028147383
 GameObject:
   m_ObjectHideFlags: 0
