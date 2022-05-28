@@ -97,10 +97,32 @@ public class PauseMenu : MonoBehaviour
 
     private void UpdateValuesSettings()
     {
+
         m_musicSlider.value = m_gameManager.Settings.MusicVolume;
         m_sfxSlider.value = m_gameManager.Settings.SfxVolume;
         m_sensitivitySlider.value = m_gameManager.Settings.Sensitivity;
         m_toggleFullScreen.isOn = m_gameManager.Settings.FullScreen;
+
+        // resolution
+        m_fullScreen = m_gameManager.Settings.FullScreen;
+
+        m_selectedResolution = 0;
+
+        m_toggleFullScreen.isOn = m_fullScreen;
+
+        CreateResList();
+
+        UpdateTextResolution();
+
+        // settings
+
+        m_musicVolume = m_gameManager.Settings.MusicVolume;
+        m_sfxVolume = m_gameManager.Settings.SfxVolume;
+        m_sensitivity = m_gameManager.Settings.Sensitivity;
+
+        SetSettingsValues();
+
+>>>>>>> Stashed changes
     }
 
     public void PauseGame()
@@ -142,7 +164,7 @@ public class PauseMenu : MonoBehaviour
 
             l_list.Add(l_tempResString);
 
-            if (Screen.width == l_tempResString.m_width && Screen.height == l_tempResString.m_height)
+            if (m_gameManager.Settings.Resoution.m_width == l_tempResString.m_width && m_gameManager.Settings.Resoution.m_height == l_tempResString.m_height)
             {
                 m_selectedResolution = l_list.Count - 1;
 
