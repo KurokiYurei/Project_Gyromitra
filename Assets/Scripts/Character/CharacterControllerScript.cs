@@ -278,6 +278,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         OnStopPoison?.Invoke();
 
         m_CharacterController.enabled = false;
+        m_VerticalSpeed = 0f;
         if (m_currentCheckPoint != null)
         {
             transform.position = m_currentCheckPoint.m_startPosition.position;
@@ -287,7 +288,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             transform.position = m_startPos;
             transform.rotation = m_startRot;
-        }
+        }      
         m_player.ResetHP();
         m_CharacterController.enabled = true;
     }
