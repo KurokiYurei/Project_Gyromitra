@@ -64,6 +64,9 @@ public static class UtilsGyromitra
     {
         GameObject otherGameObject = GameObject.FindGameObjectWithTag(tag);
 
+        if (otherGameObject == null)
+            return null;
+
         if (DistanceToTarget(self, otherGameObject) <= radius)
         {
             return otherGameObject;
@@ -72,6 +75,28 @@ public static class UtilsGyromitra
         {
             return null;
         }
+    }
+
+    public static GameObject FindMushroomsWithinRadius(GameObject self, string tag, float radius)
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(tag);
+        if (targets.Length == 0) return null;
+
+        float dist = 0;
+        GameObject closest = targets[0];
+        float minDistance = (closest.transform.position - self.transform.position).magnitude;
+
+        for (int i = 1; i < targets.Length; i++)
+        {
+            dist = (targets[i].transform.position - self.transform.position).magnitude;
+            if (dist < minDistance)
+            {
+                minDistance = dist;
+                closest = targets[i];
+            }
+        }
+        if (minDistance < radius) return closest;
+        else return null;
     }
 
     /// <summary>

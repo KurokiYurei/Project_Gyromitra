@@ -26,10 +26,10 @@ public class NewCameraController : MonoBehaviour
     [SerializeField]
     private float m_MinPitchDistance = 60f;
     [SerializeField]
-    [Range(0.1f, 1f)]
+    [Range(0.01f, 1f)]
     private float m_mouseSensitivity;
     [SerializeField]
-    [Range(0.1f, 1f)]
+    [Range(1f, 2f)]
     private float m_gamepadSensitivity;
 
     public void SetIsAiming(bool l_isAiming)

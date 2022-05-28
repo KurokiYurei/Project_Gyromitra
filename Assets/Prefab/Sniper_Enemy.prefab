@@ -107,6 +107,8 @@ MonoBehaviour:
   m_antiPlayerSpamReset: 1
   m_stuntTimeReset: 5
   m_lineRenderer: {fileID: 2287103619411788057}
+  m_startPos: {x: 0, y: 0, z: 0}
+  m_startRot: {x: 0, y: 0, z: 0, w: 0}
   m_headMaterialVulnerable: {fileID: 2100000, guid: c6b5edc6a68fc3a4694706f01df9c7ec, type: 2}
   m_headMaterialNormal: {fileID: 2100000, guid: 02e5bcd8f47722e4d938b5d3fb0caabf, type: 2}
   m_headEnemy: {fileID: 7889653777117012564}
@@ -191,8 +193,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5987053, y: 1.3221986, z: 1.1215127}
-  m_Center: {x: -0.0058021545, y: 1.1506398, z: -0.17990458}
+  m_Size: {x: 1.240057, y: 1.1799397, z: 1.0146769}
+  m_Center: {x: -0.005753517, y: 1.2217693, z: -0.16628748}
 --- !u!111 &8963033428620001455
 Animation:
   m_ObjectHideFlags: 0
