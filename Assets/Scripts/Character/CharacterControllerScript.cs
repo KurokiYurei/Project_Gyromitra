@@ -137,14 +137,13 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
         m_fovInArea = 80f;
         m_fovOutArea = 40f;
-
-        GameManagerScript.m_instance.AddRestartGameElement(this);
     }
     void Start()
     {
         m_startPos = transform.position;
         m_startRot = transform.rotation;
 
+        GameManagerScript.m_instance.AddRestartGameElement(this);
     }
 
     void Update()
