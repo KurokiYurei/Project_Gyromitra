@@ -202,7 +202,6 @@ public class CanvasManager : MonoBehaviour
         m_sfxSlider.value = m_gameManager.Settings.SfxVolume;
         m_sensitivitySlider.value = m_gameManager.Settings.Sensitivity;
         m_toggleFullScreen.isOn = m_gameManager.Settings.FullScreen;
-        curren
     }
 
     /// <summary>

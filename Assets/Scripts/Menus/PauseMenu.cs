@@ -122,7 +122,6 @@ public class PauseMenu : MonoBehaviour
 
         SetSettingsValues();
 
->>>>>>> Stashed changes
     }
 
     public void PauseGame()
