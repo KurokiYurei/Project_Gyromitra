@@ -97,6 +97,12 @@ public class PauseMenu : MonoBehaviour
 
     private void UpdateValuesSettings()
     {
+
+        m_musicSlider.value = m_gameManager.Settings.MusicVolume;
+        m_sfxSlider.value = m_gameManager.Settings.SfxVolume;
+        m_sensitivitySlider.value = m_gameManager.Settings.Sensitivity;
+        m_toggleFullScreen.isOn = m_gameManager.Settings.FullScreen;
+
         // resolution
         m_fullScreen = m_gameManager.Settings.FullScreen;
 
@@ -116,6 +122,7 @@ public class PauseMenu : MonoBehaviour
 
         SetSettingsValues();
 
+>>>>>>> Stashed changes
     }
 
     public void PauseGame()
@@ -165,7 +172,7 @@ public class PauseMenu : MonoBehaviour
         }
 
         resolutionList = l_list;
-    }   
+    }
 
     /// <summary>
     /// click left button res 
