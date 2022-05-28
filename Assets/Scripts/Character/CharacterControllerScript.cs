@@ -34,6 +34,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private float m_fallGravityMultiplier = 2f;
 
     [SerializeField]
+    private float m_speedToFallDamage = 20f;
+
+    [SerializeField]
     private float m_timeForBulletTime;
 
     private float m_onAirTimer;
@@ -58,11 +61,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private GameObject m_arrow;
 
     private CharacterHP m_player;
-
-    public GameManagerScript m_gameManager;
-
-    [SerializeField]
-    private float m_fallDamage = 10.0f;
 
     [Header("Inputs")]
     private PlayerInput m_playerInput;
@@ -140,6 +138,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         m_fovInArea = 80f;
         m_fovOutArea = 40f;
 
+        GameManagerScript.m_instance.AddRestartGameElement(this);
     }
     void Start()
     {
@@ -150,12 +149,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     void Update()
     {
-        if (m_gameManager == null)
-        {
-            m_gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
-            m_gameManager.AddRestartGameElement(this);
-        }
-
         Jump();
 
         //Aim
@@ -412,10 +405,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     /// </summary>
     private void FallDamage()
     {
-        if (m_VerticalSpeed <= -15)
+        if (m_VerticalSpeed <= -m_speedToFallDamage)
         {
             //yield return new WaitForSeconds(3);
-            m_player.Damage(m_fallDamage);
+            m_player.Damage(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 2));
+            print(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 2));
         }
     }
 }
