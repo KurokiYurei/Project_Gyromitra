@@ -147,6 +147,7 @@ public class CanvasManager : MonoBehaviour
         m_settingsMenu.SetActive(true);
         m_mainMenu.SetActive(false);
         m_currentCanvas = m_settingsMenu;
+        UpdateValuesSettings();
     }
 
     /// <summary>
@@ -172,6 +173,15 @@ public class CanvasManager : MonoBehaviour
         }
 
         resolutionList = l_list;
+    }
+
+    private void UpdateValuesSettings()
+    {
+        m_musicSlider.value = m_gameManager.Settings.MusicVolume;
+        m_sfxSlider.value = m_gameManager.Settings.SfxVolume;
+        m_sensitivitySlider.value = m_gameManager.Settings.Sensitivity;
+        m_toggleFullScreen.isOn = m_gameManager.Settings.FullScreen;
+        curren
     }
 
     /// <summary>
