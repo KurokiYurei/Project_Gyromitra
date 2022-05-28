@@ -25,6 +25,9 @@ public class CanvasManager : MonoBehaviour
 
     [Header("Canvas")]
     [SerializeField]
+    private GameObject m_startMenu;
+
+    [SerializeField]
     private GameObject m_mainMenu;
 
     [SerializeField]
@@ -80,9 +83,8 @@ public class CanvasManager : MonoBehaviour
     {
 
         // canvas
-        m_currentCanvas = m_mainMenu;
 
-        ChangeCanvasToMainMenu();
+        ChangeCanvasToStartMenu();
 
         // resolution
         m_fullScreen = m_gameManager.Settings.FullScreen;
@@ -111,6 +113,12 @@ public class CanvasManager : MonoBehaviour
         {
             m_gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         }
+
+        if (m_currentCanvas == m_startMenu && Input.anyKeyDown)
+        {
+            ChangeCanvasToMainMenu();
+        }
+
     }
 
     /// <summary>
@@ -130,12 +138,24 @@ public class CanvasManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Change the canvas to main menu
+    /// Change the canvas to Start Menu
+    /// </summary>
+    public void ChangeCanvasToStartMenu()
+    {
+        m_startMenu.SetActive(true);
+        m_mainMenu.SetActive(false);
+        m_settingsMenu.SetActive(false);
+        m_currentCanvas = m_startMenu;
+    }
+
+    /// <summary>
+    /// Change the canvas to Main Menu
     /// </summary>
     public void ChangeCanvasToMainMenu()
     {
         m_mainMenu.SetActive(true);
         m_settingsMenu.SetActive(false);
+        m_startMenu.SetActive(false);
         m_currentCanvas = m_mainMenu;
     }
 
@@ -146,6 +166,7 @@ public class CanvasManager : MonoBehaviour
     {
         m_settingsMenu.SetActive(true);
         m_mainMenu.SetActive(false);
+        m_startMenu.SetActive(false);
         m_currentCanvas = m_settingsMenu;
         UpdateValuesSettings();
     }
