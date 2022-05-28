@@ -407,8 +407,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         if (m_VerticalSpeed <= -m_speedToFallDamage)
         {
             //yield return new WaitForSeconds(3);
-            m_player.Damage(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 2));
-            print(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 2));
+            m_player.Damage(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 3));
+            print(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 3));
         }
     }
 }

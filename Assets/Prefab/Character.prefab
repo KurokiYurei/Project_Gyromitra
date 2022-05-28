@@ -116,6 +116,8 @@ MonoBehaviour:
   m_player: {fileID: 7755780748896025751}
   m_MaxPitchDistance: 320
   m_MinPitchDistance: 60
+  m_mouseSensitivity: 0
+  m_gamepadSensitivity: 0
 --- !u!114 &2088056525804381024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +369,7 @@ GameObject:
   - component: {fileID: 7755780747803186076}
   m_Layer: 7
   m_Name: Bow
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_reloadTime: 0.2
   m_arrowSpawnPoint: {fileID: 7755780748525513632}
+  m_camera: {fileID: 0}
   m_crosshair: {fileID: 7755780748050310100}
   m_layerMask:
     serializedVersion: 2
@@ -693,7 +696,7 @@ GameObject:
   - component: {fileID: 7755780748525513633}
   m_Layer: 7
   m_Name: ArrowSpawnPoint
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -945,10 +948,9 @@ MonoBehaviour:
   m_jumpHorizontalSpeedDivider: 2
   m_VerticalSpeed: 0
   m_fallGravityMultiplier: 3
+  m_speedToFallDamage: 20
   m_timeForBulletTime: 0.2
   m_arrow: {fileID: 5903353976143995575, guid: 96cf4d3737f43f446a25ba5472f6ec17, type: 3}
-  m_gameManager: {fileID: 0}
-  m_fallDamage: 10
   m_pauseMenu: {fileID: 0}
   m_mushroomPrefab: {fileID: 3339725421873900907, guid: c40e9777c38294949a0dd391e6a14c7e, type: 3}
   m_mushroomWallPrefab: {fileID: 7242151149131114434, guid: 3577215026a1c9f459ea34d7add8a5b9, type: 3}
@@ -961,6 +963,9 @@ MonoBehaviour:
   m_startPos: {x: 0, y: 0, z: 0}
   m_startRot: {x: 0, y: 0, z: 0, w: 0}
   m_currentCheckPoint: {fileID: 0}
+  m_occlusionCamera: {fileID: 0}
+  m_fovInArea: 0
+  m_fovOutArea: 0
 --- !u!114 &7755780748896025749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,7 +1071,7 @@ GameObject:
   - component: {fileID: 7755780749006743939}
   m_Layer: 6
   m_Name: Mesh
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1148,7 +1153,7 @@ GameObject:
   - component: {fileID: 7755780749116893878}
   m_Layer: 0
   m_Name: UI Personatge 2
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1249,7 +1254,7 @@ GameObject:
   - component: {fileID: 7755780749442266394}
   m_Layer: 0
   m_Name: UI Personatge
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1350,6 +1355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Crosshair: {fileID: 7755780748050310100}
   m_arrowSpawnPoint: {fileID: 7755780748525513633}
+  m_camera: {fileID: 0}
   m_CircleRenderer: {fileID: 7755780747784122365}
   m_HealthBar: {fileID: 7755780748158077863}
 --- !u!1 &7755780749568999952
@@ -1365,7 +1371,7 @@ GameObject:
   - component: {fileID: 7755780749568999959}
   m_Layer: 6
   m_Name: Cube
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
