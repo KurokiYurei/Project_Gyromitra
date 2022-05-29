@@ -118,7 +118,7 @@ public class WeaponController : MonoBehaviour
 
         if (m_shootArrow.WasReleasedThisFrame())
         {
-            if(m_firePower >= (m_minFirePower + ((m_maxFirePower - m_minFirePower) / 2)))
+            if(m_firePower >= m_maxFirePower)
             {
                 m_weapon.FireArrow(m_firePower, false);
             }
