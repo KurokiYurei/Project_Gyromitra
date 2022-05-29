@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class NewCameraController : MonoBehaviour
 {
+    [SerializeField]
+    private GameManagerScript m_gameManager;
+
     private PlayerInput playerInput;
     private InputAction moveCamera;
 
@@ -25,12 +28,6 @@ public class NewCameraController : MonoBehaviour
     private float m_MaxPitchDistance = 320f;
     [SerializeField]
     private float m_MinPitchDistance = 60f;
-    [SerializeField]
-    [Range(0.01f, 1f)]
-    private float m_mouseSensitivity;
-    [SerializeField]
-    [Range(1f, 2f)]
-    private float m_gamepadSensitivity;
 
     public void SetIsAiming(bool l_isAiming)
     {
@@ -54,15 +51,20 @@ public class NewCameraController : MonoBehaviour
 
     void Update()
     {
+        if (m_gameManager == null)
+        {
+            m_gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        }
+
         if (!m_pauseMenu.GetPaused())
         {
             Vector2 input = moveCamera.ReadValue<Vector2>();
 
-            string number = m_mouseSensitivity.ToString().Replace(",", ".");
-            string path = "scaleVector2(x="+number+", y="+number+")";
+            string l_mouseSensitivityValue = m_gameManager.Settings.SensitivityMouse.ToString().Replace(",", ".");
+            string path = "scaleVector2(x="+l_mouseSensitivityValue+", y="+l_mouseSensitivityValue+")";
             moveCamera.ApplyBindingOverride(0, new InputBinding {overrideProcessors = path });            
-            string number2 = m_gamepadSensitivity.ToString().Replace(",", ".");
-            string path2 = "scaleVector2(x="+number2+", y="+number2+")";
+            string l_controllerSensitivityValue = m_gameManager.Settings.SensitivityController.ToString().Replace(",", ".");
+            string path2 = "scaleVector2(x="+ l_controllerSensitivityValue + ", y="+ l_controllerSensitivityValue + ")";
             moveCamera.ApplyBindingOverride(1, new InputBinding {overrideProcessors = path2 });
 
             float l_MouseDeltaX = input.x;
