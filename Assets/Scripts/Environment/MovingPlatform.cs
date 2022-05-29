@@ -6,17 +6,35 @@ public class MovingPlatform : MonoBehaviour
 {
     public List<Transform> m_waypoints;
     private int m_currentWaypoint;
+    private float m_speed;
     [SerializeField]
-    private float m_speed = 0.1f;
+    private float m_timeToWaypoint = 0.1f;
     [SerializeField]
     private float m_waitingTime;
     private float m_timer;
     private bool m_moving;
     private bool m_colliding;
+    private bool m_ready;
+    private PlatformManager m_platfManager;
+
+    void Awake()
+    {
+        m_platfManager = transform.GetComponentInParent<PlatformManager>();
+    }
     void Start()
     {
         m_currentWaypoint = -1;
         m_timer = m_waitingTime;
+    }
+
+    private void OnEnable()
+    {
+        m_platfManager.OnMovePlatforms += Move; 
+    }
+
+    private void OnDisable()
+    {
+        m_platfManager.OnMovePlatforms -= Move;
     }
 
     void FixedUpdate()
@@ -25,7 +43,9 @@ public class MovingPlatform : MonoBehaviour
         {
             if (m_timer <= 0f)
             {
-                GetNextWaypoint();
+                if(!m_ready)
+                    m_platfManager.m_readyPlatforms++;
+                m_ready = true;               
             }
             m_timer -= Time.deltaTime;
         }
@@ -44,18 +64,18 @@ public class MovingPlatform : MonoBehaviour
         }
         m_waypoints[m_currentWaypoint].transform.tag = "PlatformWaypoint";
         m_moving = true;
+        m_speed = Vector3.Distance(transform.position, m_waypoints[m_currentWaypoint].position) / m_timeToWaypoint;
     }
 
     void MoveToWaypoint()
     {
-        GameObject l_wayp = UtilsGyromitra.FindInstanceWithinRadius(gameObject, "PlatformWaypoint", 1f);
-        transform.position = Vector3.MoveTowards(transform.position, m_waypoints[m_currentWaypoint].position, m_speed);
-        if (l_wayp != null)
+        if (Vector3.Distance(transform.position, m_waypoints[m_currentWaypoint].position) <= 1f)
         {
             m_timer = m_waitingTime;
             m_moving = false;
             m_waypoints[m_currentWaypoint].transform.tag = "Untagged";
         }
+        transform.position = Vector3.MoveTowards(transform.position, m_waypoints[m_currentWaypoint].position, m_speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -78,5 +98,10 @@ public class MovingPlatform : MonoBehaviour
             other.transform.parent = null;
             other.transform.GetComponent<CharacterController>().enabled = true;
         }
+    }
+    private void Move()
+    {
+        m_ready = false;
+        GetNextWaypoint();
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2730524310489248060}
   - component: {fileID: 2730524310489248061}
   - component: {fileID: 2730524310489248062}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: MovingPlatform
   m_TagString: MobilePlatform
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  m_speed: 0.1
+  m_timeToWaypoint: 0.1
   m_waitingTime: 2
 --- !u!65 &1515392024163936953
 BoxCollider:
