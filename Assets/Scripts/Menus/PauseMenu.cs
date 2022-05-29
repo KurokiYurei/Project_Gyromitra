@@ -48,7 +48,10 @@ public class PauseMenu : MonoBehaviour
     private float m_sfxVolume;
 
     [SerializeField]
-    private float m_sensitivity;
+    private float m_sensitivityMouse;
+
+    [SerializeField]
+    private float m_sensitivityController;
 
     [SerializeField]
     private Slider m_musicSlider;
@@ -57,7 +60,10 @@ public class PauseMenu : MonoBehaviour
     private Slider m_sfxSlider;
 
     [SerializeField]
-    private Slider m_sensitivitySlider;
+    private Slider m_sensitivityMouseSlider;
+
+    [SerializeField]
+    private Slider m_sensitivityControllerSlider;
 
     [SerializeField]
     private Text m_musicText;
@@ -66,7 +72,10 @@ public class PauseMenu : MonoBehaviour
     private Text m_sfxText;
 
     [SerializeField]
-    private Text m_sensitivityText;
+    private Text m_sensitivityMouseText;
+
+    [SerializeField]
+    private Text m_sensitivityControllerText;
 
     public bool GetPaused()
     {
@@ -95,12 +104,13 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    private void UpdateValuesSettings()
+    public void UpdateValuesSettings()
     {
 
         m_musicSlider.value = m_gameManager.Settings.MusicVolume;
         m_sfxSlider.value = m_gameManager.Settings.SfxVolume;
-        m_sensitivitySlider.value = m_gameManager.Settings.Sensitivity;
+        m_sensitivityMouseSlider.value = m_gameManager.Settings.SensitivityMouse;
+        m_sensitivityControllerSlider.value = m_gameManager.Settings.SensitivityController;
         m_toggleFullScreen.isOn = m_gameManager.Settings.FullScreen;
 
         // resolution
@@ -118,7 +128,8 @@ public class PauseMenu : MonoBehaviour
 
         m_musicVolume = m_gameManager.Settings.MusicVolume;
         m_sfxVolume = m_gameManager.Settings.SfxVolume;
-        m_sensitivity = m_gameManager.Settings.Sensitivity;
+        m_sensitivityMouse = m_gameManager.Settings.SensitivityMouse;
+        m_sensitivityController = m_gameManager.Settings.SensitivityController;
 
         SetSettingsValues();
 
@@ -211,7 +222,8 @@ public class PauseMenu : MonoBehaviour
         // sounds
         m_gameManager.Settings.MusicVolume = m_musicSlider.value;
         m_gameManager.Settings.SfxVolume = m_sfxSlider.value;
-        m_gameManager.Settings.Sensitivity = m_sensitivitySlider.value;
+        m_gameManager.Settings.SensitivityMouse = m_sensitivityMouseSlider.value;
+        m_gameManager.Settings.SensitivityController = m_sensitivityControllerSlider.value;
 
         // fullscreen 
         m_gameManager.Settings.FullScreen = m_fullScreen;
@@ -239,7 +251,8 @@ public class PauseMenu : MonoBehaviour
     {
         m_musicSlider.value = m_musicVolume;
         m_sfxSlider.value = m_sfxVolume;
-        m_sensitivitySlider.value = m_sensitivity;
+        m_sensitivityMouseSlider.value = m_sensitivityMouse;
+        m_sensitivityControllerSlider.value = m_sensitivityController;
         UpdateTextSliders();
     }
 
@@ -255,9 +268,15 @@ public class PauseMenu : MonoBehaviour
         UpdateTextSliders();
     }
 
-    public void SetSensitivity()
+    public void SetSensitivityMouse()
     {
-        m_sensitivity = m_sensitivitySlider.value;
+        m_sensitivityMouse = m_sensitivityMouseSlider.value;
+        UpdateTextSliders();
+    }
+
+    public void SetSensitivityController()
+    {
+        m_sensitivityController = m_sensitivityControllerSlider.value;
         UpdateTextSliders();
     }
 
@@ -265,7 +284,8 @@ public class PauseMenu : MonoBehaviour
     {
         m_musicText.text = m_musicSlider.value.ToString("0.0");
         m_sfxText.text = m_sfxSlider.value.ToString("0.0");
-        m_sensitivityText.text = m_sensitivitySlider.value.ToString("0.0#");
+        m_sensitivityMouseText.text = m_sensitivityMouseSlider.value.ToString("0.0#");
+        m_sensitivityControllerText.text = m_sensitivityControllerSlider.value.ToString("0.0#");
     }
 
 

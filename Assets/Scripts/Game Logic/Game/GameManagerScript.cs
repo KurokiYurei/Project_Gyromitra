@@ -19,13 +19,17 @@ public class Settings
     private float m_sfxVolume;
 
     [SerializeField]
-    private float m_sensitivity;
+    private float m_sensitivityMouse;
+
+    [SerializeField]
+    private float m_sensitivityController;
 
     public ResolutionString Resoution { get => resoution; set => resoution = value; }
     public bool FullScreen { get => m_fullScreen; set => m_fullScreen = value; }
     public float MusicVolume { get => m_musicVolume; set => m_musicVolume = value; }
     public float SfxVolume { get => m_sfxVolume; set => m_sfxVolume = value; }
-    public float Sensitivity { get => m_sensitivity; set => m_sensitivity = value; }
+    public float SensitivityMouse { get => m_sensitivityMouse; set => m_sensitivityMouse = value; }
+    public float SensitivityController { get => m_sensitivityController; set => m_sensitivityController = value; }
 
     public Settings()
     {
@@ -33,7 +37,8 @@ public class Settings
         FullScreen = true;
         MusicVolume = 0.5f;
         SfxVolume = 0.5f;
-        Sensitivity = 0.1f;
+        SensitivityMouse = 0.1f;
+        SensitivityController = 0.8f;
     }
 }
 
