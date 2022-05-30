@@ -31,7 +31,7 @@ public class Poison : MonoBehaviour
         m_venomDamageTimer = 1f;
         m_currentVenomDamageTimer = m_venomDamageTimer;
 
-        m_damage = 5f;
+        m_damage = 10f;
 
         m_playerIsIn = false;
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
