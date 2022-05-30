@@ -52,6 +52,9 @@
 		</relationship>
 	</object>
 	<object class="MixerInput" id="{da79e02c-3538-481e-9ff1-3edf99db0fa9}">
+		<relationship name="masters">
+			<destination>{b9b08a54-8e14-48b3-9907-f01654cebcf6}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{1e48599a-d96f-40f5-b25f-0a583502a50c}</destination>
 		</relationship>
@@ -102,6 +105,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{5bd1a072-fee7-44a8-ade1-edc430464c17}" />
 	<object class="EventMixerGroup" id="{7003c45a-0b5c-47cb-86b3-1e4210dfb4e9}">
+		<property name="color">
+			<value>Blue Light 1</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>

@@ -1092,10 +1092,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 3425638343720645372}
   m_HandleRect: {fileID: 3425638343002843701}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -20
+  m_MaxValue: -10
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: -15
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1416,7 +1416,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0,0
+  m_Text: -15,0
 --- !u!1 &3425638342623964160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,7 +1495,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0,0
+  m_Text: -15,0
 --- !u!1 &3425638342697739217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,10 +2172,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 3425638342155317959}
   m_HandleRect: {fileID: 3425638342429518793}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -20
+  m_MaxValue: -10
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: -15
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3941,8 +3941,8 @@ MonoBehaviour:
   m_textUiResolution: {fileID: 3425638341875400654}
   m_toggleFullScreen: {fileID: 3425638343695984539}
   m_fullScreen: 0
-  m_musicVolume: 0
-  m_sfxVolume: 0
+  m_musicVolume: -15
+  m_sfxVolume: -15
   m_sensitivityMouse: 0.01
   m_sensitivityController: 0.1
   m_musicSlider: {fileID: 3425638342385240083}

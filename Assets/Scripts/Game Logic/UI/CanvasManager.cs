@@ -252,7 +252,11 @@ public class CanvasManager : MonoBehaviour
     {
         // sounds
         m_gameManager.Settings.MusicVolume = m_musicSlider.value;
+        m_gameManager.VCAMusic.setVolume(m_musicSlider.value);
         m_gameManager.Settings.SfxVolume = m_sfxSlider.value;
+        m_gameManager.VCASFX.setVolume(m_sfxSlider.value);
+
+        // sensitivity
         m_gameManager.Settings.SensitivityMouse = m_sensitivityMouseSlider.value;
         m_gameManager.Settings.SensitivityController = m_sensitivityControllerSlider.value;
 

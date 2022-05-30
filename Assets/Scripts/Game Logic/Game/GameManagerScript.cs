@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -46,6 +47,9 @@ public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript m_instance;
 
+    public FMOD.Studio.VCA VCAMusic;
+    public FMOD.Studio.VCA VCASFX;
+
     [SerializeField]
     private Settings m_settings;
 
@@ -65,8 +69,11 @@ public class GameManagerScript : MonoBehaviour
             m_RestartGameElements = new List<IRestartGameElement>();
             m_settings = new Settings();
             DontDestroyOnLoad(gameObject);
+            VCAMusic = FMODUnity.RuntimeManager.GetVCA("vca:/Music");
+            VCASFX = FMODUnity.RuntimeManager.GetVCA("vca:/SFX");
         }
     }
+
     public void AddRestartGameElement(IRestartGameElement RestartGameElement)
     {
         m_RestartGameElements.Add(RestartGameElement);
