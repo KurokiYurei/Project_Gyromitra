@@ -57,6 +57,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     static PoolElements m_arrowPool;
 
+    public float m_brambleInvulnerabilityTimer;
+
     [SerializeField]
     private GameObject m_arrow;
 
@@ -107,12 +109,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private CheckPoint m_currentCheckPoint;
 
-    public delegate void OnBulletTimeDelegate(bool active);
-    public OnBulletTimeDelegate OnBulletTime;
-
-    public delegate void OnStopPoisonDelegate();
-    public OnStopPoisonDelegate OnStopPoison;
-
     [Header("Occlusion Camera")]
     [SerializeField]
     private Camera m_occlusionCamera;
@@ -120,6 +116,13 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private float m_fovInArea;
     [SerializeField]
     private float m_fovOutArea;
+
+    //Delegates
+    public delegate void OnBulletTimeDelegate(bool active);
+    public OnBulletTimeDelegate OnBulletTime;
+
+    public delegate void OnStopPoisonDelegate();
+    public OnStopPoisonDelegate OnStopPoison;
 
     private void Awake()
     {
@@ -150,6 +153,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         Jump();
 
+        if(m_brambleInvulnerabilityTimer > 0)
+        {
+            m_brambleInvulnerabilityTimer -= Time.deltaTime;
+        }
+     
         //Aim
         if (!m_pauseMenu.GetPaused())
         {
@@ -262,7 +270,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     /// </summary>
     private void Jump()
     {
-        if (m_jumpAction.triggered && (m_OnGround || m_onAirTimer < 0.3f) && !m_jumped)
+        if (m_jumpAction.triggered && (m_OnGround || m_onAirTimer < 0.3f) && !m_jumped && !m_bouncing)
         {
             m_VerticalSpeed = m_JumpSpeed;
             m_OnGround = false;
@@ -317,7 +325,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             if (hit.normal.y < 0.5f)
             {
-                SetBounceParameters(hit.transform.position - transform.position, m_mushroomBouncePower, m_mushroomBounceDuration);
+                SetBounceParameters(hit.transform.position - transform.position, m_mushroomBouncePower, m_mushroomBounceDuration, 0f);
             }
             else
             {
@@ -329,8 +337,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
         if (hit.collider.tag == "Bramble")
         {
-            m_player.Damage(m_brambleDamage);
-            SetBounceParameters(hit.transform.position - transform.position, m_bramblePushPower, m_bramblePushDuration);
+            if(m_brambleInvulnerabilityTimer <= 0f)
+            {
+                m_player.Damage(m_brambleDamage);
+            }
+            SetBounceParameters(hit.transform.position - transform.position, m_bramblePushPower, m_bramblePushDuration, 1f);
         }
     }
 
@@ -345,7 +356,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             m_occlusionCamera.fieldOfView = m_fovInArea;
         }
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -362,23 +372,24 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     /// <param name="dir"></param>
     /// <param name="power"></param>
     /// <param name="duration"></param>
-    public void SetBounceParameters(Vector3 dir, float power, float duration)
+    public void SetBounceParameters(Vector3 dir, float power, float duration, float invulnerability)
     {
         m_bounceDirection = dir;
         m_bounceDirection.Normalize();
         m_bounceTimer = 0;
         if (m_OnGround)
         {
-            m_bouncePower = power * 2;
             m_initialBouncePower = power * 2;
+            m_bouncePower = m_initialBouncePower;
             m_bounceDuration = duration;
         }
         else
         {
-            m_bouncePower = power;
-            m_initialBouncePower = power;
+            m_initialBouncePower = power * 1.5f;
+            m_bouncePower = m_initialBouncePower;
             m_bounceDuration = duration * 2;
         }
+        m_brambleInvulnerabilityTimer = invulnerability;
         m_bouncing = true;
     }
 

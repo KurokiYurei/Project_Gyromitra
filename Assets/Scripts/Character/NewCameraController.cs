@@ -49,7 +49,7 @@ public class NewCameraController : MonoBehaviour
         moveCamera = playerInput.actions["Look"];
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (m_gameManager == null)
         {

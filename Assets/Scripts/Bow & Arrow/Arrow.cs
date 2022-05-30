@@ -32,12 +32,12 @@ public class Arrow : MonoBehaviour
         if ((collision.transform.CompareTag(m_mushroomSpawnableTag) || collision.transform.CompareTag(m_mobilePlatformTag)) 
             && collision.contacts[0].normal.y >= -0.01f && UtilsGyromitra.FindMushroomsWithinRadius(gameObject, "Mushroom", 1f) == null)
         {
-            if (collision.contacts[0].normal.y < 0.3f) //WALL MUSHROOM
+            if (collision.contacts[0].normal.y < 0.35f) //WALL MUSHROOM
             {
                 l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(false);
                 l_mushroom.GetComponent<Mushroom>().SetCurrentTime(0f);
                 l_mushroom.transform.position = collision.contacts[0].point;
-                l_mushroom.transform.forward = collision.contacts[0].normal;
+                l_mushroom.transform.forward = new Vector3(collision.contacts[0].normal.x, 0, collision.contacts[0].normal.z);
 
                 if (collision.transform.CompareTag(m_mobilePlatformTag))
                 {
