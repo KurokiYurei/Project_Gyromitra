@@ -350,6 +350,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a1c6392ff5989240b8b3de58c1ea378, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f26f12cdceff894fbc82c916e33d7aa, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e22b3e8488b4094e977aaa97ed45337, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 89ba4866ee7be26469cdf973654ff856, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: bec0d8bd85026434ca6ef06cd0473dfb, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd88b827feee39d4c882e2f06ec811c7, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: 54b18c6d6509ea74bb62a0ff4af72780, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[8]
+      value: 
+      objectReference: {fileID: 2100000, guid: 95b439433deb6f8468f215e74f10b44a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[9]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b1d6cb8296ced4498b2d57ba59d6ede, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[10]
+      value: 
+      objectReference: {fileID: 2100000, guid: a10b5233212bc6646b55d3d8c7d472ce, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c1923e22f461ae545b762342d57c5470, type: 3}
+      propertyPath: m_Materials.Array.data[11]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d459d9cf428d804886d60a743427aaa, type: 2}
     - target: {fileID: 919132149155446097, guid: c1923e22f461ae545b762342d57c5470, type: 3}
       propertyPath: m_Name
       value: seiri_LowPoly_UVS
