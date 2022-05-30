@@ -57,7 +57,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     static PoolElements m_arrowPool;
 
-    public float m_brambleInvulnerabilityTimer;
+    private float m_brambleInvulnerabilityTimer;
 
     [SerializeField]
     private GameObject m_arrow;
