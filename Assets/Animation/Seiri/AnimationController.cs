@@ -37,6 +37,12 @@ public class AnimationController : MonoBehaviour
         m_Animator.SetFloat("PosY", _posY);
     }
 
+    public void AnimationAiming(bool _isAiming)
+    {
+        if (_isAiming) m_Animator.SetLayerWeight(1, 1);
+        else m_Animator.SetLayerWeight(1, 0);
+    }
+
 
 
 }
