@@ -186,7 +186,18 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             }
         }
 
-        m_animController.AnimationAimAngle(m_camController.transform.eulerAngles.x);
+        float l_rotation;
+        if (m_camController.transform.eulerAngles.x <= 180f)
+        {
+            l_rotation = m_camController.transform.eulerAngles.x;
+        }
+        else
+        {
+            l_rotation = m_camController.transform.eulerAngles.x - 360f;
+        }
+        print(l_rotation);
+
+        m_animController.AnimationAimAngle(l_rotation);
     }
     void FixedUpdate()
     {
