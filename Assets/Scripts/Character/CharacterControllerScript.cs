@@ -243,10 +243,10 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             }
         }
 
+        //Animation movement smoothed
         m_currentInputVector = Vector2.SmoothDamp(m_currentInputVector, input, ref m_smoothInputVelocity, m_smoothInputSpeed);
-
         m_animController.AnimationMovement(m_currentInputVector.x, m_currentInputVector.y);
-        //m_animController.AnimationMovement(input.x, input.y);
+        
         //Gravity
         
         if (m_VerticalSpeed < 0f)
