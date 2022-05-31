@@ -54,9 +54,12 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private InputAction m_shootArrow;
 
+    private AnimationController m_animController;
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+        m_animController = GetComponent<AnimationController>();
+
         m_shootArrow = playerInput.actions["Shoot"];
         m_fire = false;
 
@@ -80,6 +83,7 @@ public class WeaponController : MonoBehaviour
 
         if (m_fire)
         {
+            m_animController.AnimationAiming(true);
             if (Time.timeScale > 0f)
             {
                 if (m_firePower < m_maxFirePower)
@@ -104,6 +108,8 @@ public class WeaponController : MonoBehaviour
         }
         else
         {
+            m_animController.AnimationAiming(false);
+
             if (Time.timeScale > 0f)
             {
                 m_SpeedCircle -= (Time.deltaTime * 50f) / Time.timeScale;
@@ -120,10 +126,12 @@ public class WeaponController : MonoBehaviour
         {
             if(m_firePower >= m_maxFirePower)
             {
+                m_animController.AnimationShootLong();
                 m_weapon.FireArrow(m_firePower, false);
             }
             else
             {
+                m_animController.AnimationShootShort();
                 m_weapon.FireArrow(m_firePower, true);
             }
             m_fire = false;

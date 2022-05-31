@@ -29,23 +29,17 @@ public class NewCameraController : MonoBehaviour
     [SerializeField]
     private float m_MinPitchDistance = 60f;
 
-    [Header("Animation")]
-    [SerializeField]
-    private AnimationController m_animController;
-
     public void SetIsAiming(bool l_isAiming)
     {
         if (l_isAiming)
         {
             m_normalCamera.SetActive(false);
             m_aimCamera.SetActive(true);
-            m_animController.AnimationAiming(true);
         }
         else
         {
             m_aimCamera.SetActive(false);
             m_normalCamera.SetActive(true);
-            m_animController.AnimationAiming(false);
         }
     }
 

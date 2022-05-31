@@ -185,6 +185,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
                 OnBulletTime?.Invoke(false);
             }
         }
+
+        m_animController.AnimationAimAngle(m_camController.transform.eulerAngles.x);
     }
     void FixedUpdate()
     {
