@@ -6,6 +6,17 @@ public class AnimationController : MonoBehaviour
 {
     public Animator m_Animator;
 
+    [SerializeField]
+    private float m_WeightSmooth = 1.0f;
+
+    static float t = 0.0f;
+    static float s = 0.0f;
+
+    public void AnimationAirTimer(float _airTimer)
+    {
+        m_Animator.SetFloat("airTimer", _airTimer);
+    }
+
     public void AnimationGround(bool _isGrounded)
     {
         m_Animator.SetBool("Grounded", _isGrounded);
@@ -26,13 +37,17 @@ public class AnimationController : MonoBehaviour
     {
         if (_isAiming)
         {
-            m_Animator.SetLayerWeight(1, 1);
-            m_Animator.SetLayerWeight(2, 1);
+            s = 0;
+            t += m_WeightSmooth * Time.deltaTime;
+            m_Animator.SetLayerWeight(1, Mathf.Lerp(0f, 1f, t));
+            m_Animator.SetLayerWeight(2, Mathf.Lerp(0f, 1f, t));
         }
         else
         {
-            m_Animator.SetLayerWeight(1, 0);
-            m_Animator.SetLayerWeight(2, 0);
+            t = 0;
+            s += m_WeightSmooth * Time.deltaTime;
+            m_Animator.SetLayerWeight(1, Mathf.Lerp(1f, 0f, s));
+            m_Animator.SetLayerWeight(2, Mathf.Lerp(1f, 0f, s));
         }
     }
 

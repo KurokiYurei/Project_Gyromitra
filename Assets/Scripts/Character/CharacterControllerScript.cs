@@ -204,6 +204,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         m_animController.AnimationGround(m_OnGround);
         m_animController.AnimationJump(m_jumped);
+        m_animController.AnimationAirTimer(m_onAirTimer);
     }
     private void Movement()
     {
