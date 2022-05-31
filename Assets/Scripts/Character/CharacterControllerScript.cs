@@ -117,6 +117,16 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private float m_fovOutArea;
 
+    [Header("Animation")]
+    [SerializeField]
+    private AnimationController m_animController;
+    [SerializeField]
+    private Vector2 m_currentInputVector;
+    [SerializeField]
+    private Vector2 m_smoothInputVelocity;
+    [SerializeField]
+    private float m_smoothInputSpeed = 0.1f;
+
     //Delegates
     public delegate void OnBulletTimeDelegate(bool active);
     public OnBulletTimeDelegate OnBulletTime;
@@ -134,6 +144,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         m_AimAction = m_playerInput.actions["Aim"];
 
         m_player = GetComponent<CharacterHP>();
+
+        m_animController = GetComponent<AnimationController>();
 
         m_mushroomPool = new DoublePoolElements(5, transform, m_mushroomPrefab, m_mushroomWallPrefab);
         m_arrowPool = new PoolElements(5, null, m_arrow);
@@ -178,11 +190,19 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         //Movement function
         Movement();
+        AnimationUpdates();
     }
 
     /// <summary>
     /// movement 
     /// </summary>
+    /// 
+
+    private void AnimationUpdates()
+    {
+        m_animController.AnimationGround(m_OnGround);
+        m_animController.AnimationJump(m_jumped);
+    }
     private void Movement()
     {
         Vector2 input = m_moveAction.ReadValue<Vector2>();
@@ -223,6 +243,10 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             }
         }
 
+        m_currentInputVector = Vector2.SmoothDamp(m_currentInputVector, input, ref m_smoothInputVelocity, m_smoothInputSpeed);
+
+        m_animController.AnimationMovement(m_currentInputVector.x, m_currentInputVector.y);
+        //m_animController.AnimationMovement(input.x, input.y);
         //Gravity
         
         if (m_VerticalSpeed < 0f)
