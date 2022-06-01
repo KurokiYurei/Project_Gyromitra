@@ -23,8 +23,15 @@ public class CharacterHP : MonoBehaviour, IDamagable
     [SerializeField]
     private UI_Manager m_ui;
 
+    [Header("Health Shader")]
     [SerializeField]
     private Material m_quiverShader;
+    [SerializeField]
+    private float m_healthColorLimit;
+    [SerializeField]
+    private Color m_fullHealthColor;
+    [SerializeField]
+    private Color m_damagedHealthColor;
 
     void Start()
     {
@@ -37,6 +44,10 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_tickPerSecondHealth = 1f;
 
         m_health = m_maxHealth;
+
+        m_healthColorLimit = 90;
+        m_fullHealthColor = new Color(9, 191, 0, 255);
+        m_damagedHealthColor = new Color(0, 99, 191, 255);
     }
 
     void Update()
@@ -44,6 +55,9 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_ui.SetHealth(m_health);
 
         m_quiverShader.SetFloat("_Fill", m_health/100f);
+
+        if (m_health >= m_healthColorLimit) m_quiverShader.SetColor("_EmissionColor", m_fullHealthColor);
+        else m_quiverShader.SetColor("_EmissionColor", m_damagedHealthColor);
 
         m_timerToRegen -= Time.deltaTime;
 

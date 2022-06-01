@@ -848,8 +848,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1314.9998779296875,
-            "y": -651.0,
+            "x": -1306.9998779296875,
+            "y": -1007.0,
             "width": 208.0,
             "height": 278.0
         }
@@ -931,10 +931,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1733.9998779296875,
-            "y": -650.0,
+            "x": -2121.999755859375,
+            "y": -713.0,
             "width": 208.0,
-            "height": 316.0
+            "height": 315.9999694824219
         }
     },
     "m_Slots": [
@@ -994,7 +994,7 @@
     },
     "m_Name": "Emission Color",
     "m_DefaultReferenceName": "Color_44bfd447a447448a8518b1452b6ce29d",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_EmissionColor",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -1446,7 +1446,7 @@
     },
     "m_Name": "Emission Map",
     "m_DefaultReferenceName": "Texture2D_75ccb1fd149f4c808abed4b27e7ab480",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_Emission",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -2720,9 +2720,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1459.9998779296875,
-            "y": -643.0,
-            "width": 120.0,
+            "x": -1847.9998779296875,
+            "y": -706.0,
+            "width": 119.99999237060547,
             "height": 149.0
         }
     },
