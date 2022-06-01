@@ -148,7 +148,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         m_animController = GetComponent<AnimationController>();
 
         m_mushroomPool = new DoublePoolElements(5, transform, m_mushroomPrefab, m_mushroomWallPrefab);
-        m_arrowPool = new PoolElements(5, null, m_arrow);
+        m_arrowPool = new PoolElements(5, transform, m_arrow);
 
         m_fovInArea = 80f;
         m_fovOutArea = 40f;
@@ -325,7 +325,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     /// </summary>
     private void Jump()
     {
-        if (m_jumpAction.triggered && (m_OnGround/* || m_onAirTimer < 0.2f*/) && !m_jumped && !m_bouncing)
+        if (m_jumpAction.triggered && (m_OnGround || m_onAirTimer < 0.1f) && !m_jumped && !m_bouncing)
         {
             m_VerticalSpeed = m_JumpSpeed;
             m_OnGround = false;
