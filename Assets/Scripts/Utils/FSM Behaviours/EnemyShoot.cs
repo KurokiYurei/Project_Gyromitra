@@ -40,6 +40,8 @@ public class EnemyShoot : MonoBehaviour
 
     static PoolElements m_projectilePool;
 
+    private Animator m_animator;
+
     void Start()
     {
         m_ray = gameObject.transform.Find("Firepoint").transform.GetComponent<LineRenderer>();
@@ -47,6 +49,8 @@ public class EnemyShoot : MonoBehaviour
         m_ray.material.color = Color.blue;
 
         m_projectilePool = new PoolElements(3, transform, m_projectile);
+
+
     }
 
     void Update()
@@ -73,7 +77,12 @@ public class EnemyShoot : MonoBehaviour
             m_ray.enabled = true;
         }
 
-        transform.LookAt(m_player.transform);
+        bool isRight;
+        Quaternion lookDirection = Quaternion.LookRotation(m_player.transform.position - transform.position);
+
+        isRight = GetRotateDirection(transform.rotation, lookDirection);
+        
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, 10f * Time.deltaTime);
         transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
 
         Vector3 l_playerPos = m_player.transform.position;
@@ -109,7 +118,6 @@ public class EnemyShoot : MonoBehaviour
 
         m_cadenceShoot += Time.deltaTime;
     }
-
     private void Shoot(Vector3 dir)
     {
         GameObject l_projectile = m_projectilePool.GetNextElement();
@@ -125,5 +133,24 @@ public class EnemyShoot : MonoBehaviour
     public void setPlayer(GameObject l_player)
     {
         m_player = l_player;
+    }
+    bool GetRotateDirection(Quaternion from, Quaternion to)
+    {
+        float fromY = from.eulerAngles.y;
+        float toY = to.eulerAngles.y;
+        float clockWise = 0f;
+        float counterClockWise = 0f;
+
+        if (fromY <= toY)
+        {
+            clockWise = toY - fromY;
+            counterClockWise = fromY + (360 - toY);
+        }
+        else
+        {
+            clockWise = (360 - fromY) + toY;
+            counterClockWise = fromY - toY;
+        }
+        return (clockWise <= counterClockWise);
     }
 }
