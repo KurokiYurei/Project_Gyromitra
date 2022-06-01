@@ -238,7 +238,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 34fe20902bf4ef84c8e6b17c0b378072, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a4ce90a127ac7cd4fb8ead40561e7210, type: 2}
+      objectReference: {fileID: 2100000, guid: edf04e0954ac54547bf86fb78e3cda30, type: 2}
     - target: {fileID: 919132149155446097, guid: 34fe20902bf4ef84c8e6b17c0b378072, type: 3}
       propertyPath: m_Name
       value: mushroom1_LowPoly_UVS
@@ -372,7 +372,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 74bc773d3cf2b7543a10e1d1a5e1e8a9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 933dd7b4fb8bf334293647c2b5e510c8, type: 2}
+      objectReference: {fileID: 2100000, guid: 81400f0aceec4064182ae34b7c601f19, type: 2}
     - target: {fileID: 919132149155446097, guid: 74bc773d3cf2b7543a10e1d1a5e1e8a9, type: 3}
       propertyPath: m_Name
       value: mushroom2_LowPoly_UVS
