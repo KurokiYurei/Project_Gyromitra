@@ -14,6 +14,9 @@ public class ArrowTime : MonoBehaviour
 
     private float m_timer;
 
+    [SerializeField]
+    private PauseMenu m_pauseMenu;
+
     private void Awake()
     {
         m_player = gameObject.GetComponent<CharacterControllerScript>();
@@ -32,15 +35,18 @@ public class ArrowTime : MonoBehaviour
 
     private void Update()
     {
-        if(m_timer > 0)
+        if (!m_pauseMenu.GetPaused())
         {
-            m_timer -= Time.unscaledDeltaTime;
-        }
+            if (m_timer > 0)
+            {
+                m_timer -= Time.unscaledDeltaTime;
+            }
 
-        if(m_timer <= 0)
-        {
-            SlowDown(false);
-        } 
+            if (m_timer <= 0)
+            {
+                SlowDown(false);
+            }
+        }
     }
 
     public void SlowDown(bool active)

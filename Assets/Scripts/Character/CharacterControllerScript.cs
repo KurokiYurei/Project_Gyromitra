@@ -195,8 +195,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             l_rotation = m_camController.transform.eulerAngles.x - 360f;
         }
-        print(l_rotation);
-
         m_animController.AnimationAimAngle(l_rotation);
     }
     void FixedUpdate()
@@ -260,9 +258,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         //Animation movement smoothed
         m_currentInputVector = Vector2.SmoothDamp(m_currentInputVector, input, ref m_smoothInputVelocity, m_smoothInputSpeed);
         m_animController.AnimationMovement(m_currentInputVector.x, m_currentInputVector.y);
-        
+
+        l_Movement = AdjustVelocityToSlope(l_Movement);
+
         //Gravity
-        
+
         if (m_VerticalSpeed < 0f)
         {
             m_VerticalSpeed += Physics.gravity.y * Time.deltaTime * m_fallGravityMultiplier;
@@ -273,7 +273,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             m_jumpedOnMushroom = false;
         }
 
-        l_Movement.y = m_VerticalSpeed * Time.deltaTime;
+        l_Movement.y += m_VerticalSpeed * Time.deltaTime;
 
         CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
 
@@ -284,7 +284,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             m_VerticalSpeed = 0.0f;
             m_onAirTimer = 0f;
             m_jumped = false;
-
         }
         else
         {
@@ -303,12 +302,30 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         }
     }
 
+    private Vector3 AdjustVelocityToSlope(Vector3 velocity)
+    {
+        var l_ray = new Ray(transform.position, Vector3.down);
+
+        if(Physics.Raycast(l_ray, out RaycastHit hit, 1.5f))
+        {
+            var l_slopeRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+            var l_adjustedVelocity = l_slopeRotation * velocity;
+
+            if(l_adjustedVelocity.y < 0)
+            {
+                return l_adjustedVelocity;
+            }
+            Debug.DrawLine(transform.position, hit.point);
+        }
+        return velocity;
+    }
+
     /// <summary>
     /// jump
     /// </summary>
     private void Jump()
     {
-        if (m_jumpAction.triggered && (m_OnGround || m_onAirTimer < 0.3f) && !m_jumped && !m_bouncing)
+        if (m_jumpAction.triggered && (m_OnGround/* || m_onAirTimer < 0.2f*/) && !m_jumped && !m_bouncing)
         {
             m_VerticalSpeed = m_JumpSpeed;
             m_OnGround = false;

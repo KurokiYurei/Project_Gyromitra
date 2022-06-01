@@ -13,9 +13,6 @@ public class PauseMenu : MonoBehaviour
 
     [Header("Menus")]
     [SerializeField]
-    private GameObject m_blur;
-
-    [SerializeField]
     private GameObject m_pauseMenu;
 
     [SerializeField]
@@ -140,18 +137,18 @@ public class PauseMenu : MonoBehaviour
         if (m_paused == true)
         {
             Cursor.lockState = CursorLockMode.Locked;
-            m_blur.SetActive(false);
             m_pauseMenu.SetActive(false);
             Time.timeScale = 1.0f;
+            playerInput.actions["Shoot"].Enable();
             Cursor.visible = false;
             m_paused = false;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Confined;
-            m_blur.SetActive(true);
             m_pauseMenu.SetActive(true);
             Time.timeScale = 0.0f;
+            playerInput.actions["Shoot"].Disable();
             Cursor.visible = true;
             m_paused = true;
         }
@@ -287,7 +284,4 @@ public class PauseMenu : MonoBehaviour
         m_sensitivityMouseText.text = m_sensitivityMouseSlider.value.ToString("0.0#");
         m_sensitivityControllerText.text = m_sensitivityControllerSlider.value.ToString("0.0#");
     }
-
-
-
 }
