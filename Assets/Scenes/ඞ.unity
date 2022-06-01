@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -991,7 +991,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/OOF
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: event:/OOF
+  Event: 
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -2719,7 +2726,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1865916382}
   - component: {fileID: 1865916381}
-  - component: {fileID: 1865916380}
   - component: {fileID: 1865916383}
   - component: {fileID: 7677366959768728315}
   - component: {fileID: 1865916384}
@@ -2730,14 +2736,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1865916380
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865916379}
-  m_Enabled: 0
 --- !u!20 &1865916381
 Camera:
   m_ObjectHideFlags: 0
@@ -5352,7 +5350,6 @@ MonoBehaviour:
   m_fallGravityMultiplier: 3
   m_speedToFallDamage: 20
   m_timeForBulletTime: 0.2
-  m_brambleInvulnerabilityTimer: 0
   m_arrow: {fileID: 5903353976143995575, guid: 96cf4d3737f43f446a25ba5472f6ec17, type: 3}
   m_pauseMenu: {fileID: 157492629}
   m_mushroomPrefab: {fileID: 3339725421873900907, guid: c40e9777c38294949a0dd391e6a14c7e, type: 3}
@@ -5369,6 +5366,10 @@ MonoBehaviour:
   m_occlusionCamera: {fileID: 0}
   m_fovInArea: 0
   m_fovOutArea: 0
+  m_animController: {fileID: 0}
+  m_currentInputVector: {x: 0, y: 0}
+  m_smoothInputVelocity: {x: 0, y: 0}
+  m_smoothInputSpeed: 0.1
 --- !u!1 &8599717116028147383
 GameObject:
   m_ObjectHideFlags: 0
