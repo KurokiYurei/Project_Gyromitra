@@ -37,15 +37,13 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_tickPerSecondHealth = 1f;
 
         m_health = m_maxHealth;
-
     }
 
     void Update()
     {
         m_ui.SetHealth(m_health);
 
-        //m_quiverShader.SetFloat("Fill", 0.5f);
-        Shader.SetGlobalFloat("_Fill", 0.5f);
+        m_quiverShader.SetFloat("_Fill", m_health/100f);
 
         m_timerToRegen -= Time.deltaTime;
 

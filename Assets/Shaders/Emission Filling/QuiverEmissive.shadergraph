@@ -2651,14 +2651,14 @@
     },
     "m_Name": "Fill",
     "m_DefaultReferenceName": "Vector1_e0491d6f2d9d400bb2dcf7e012a2992b",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_Fill",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": 0.5,
-    "m_FloatType": 0,
+    "m_FloatType": 1,
     "m_RangeValues": {
         "x": 0.0,
         "y": 1.0
