@@ -51,9 +51,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 265946a463fb6a14198f3c3765ff380d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 775964eb1b1c54a47856d521e3f8fd0c, type: 2}
     - target: {fileID: 919132149155446097, guid: 265946a463fb6a14198f3c3765ff380d, type: 3}
       propertyPath: m_Name
-      value: Checkpoint
+      value: Checkpoint Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 265946a463fb6a14198f3c3765ff380d, type: 3}
