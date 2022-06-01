@@ -54,7 +54,12 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private InputAction m_shootArrow;
 
+    [Header("Animation")]
     private AnimationController m_animController;
+
+    [Header("VFX")]
+    [SerializeField]
+    private GameObject m_arrowVFX;
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -84,6 +89,7 @@ public class WeaponController : MonoBehaviour
         if (m_fire)
         {
             m_animController.AnimationAiming(true);
+            m_arrowVFX.SetActive(true);
             if (Time.timeScale > 0f)
             {
                 if (m_firePower < m_maxFirePower)
@@ -109,6 +115,7 @@ public class WeaponController : MonoBehaviour
         else
         {
             m_animController.AnimationAiming(false);
+            m_arrowVFX.SetActive(false);
 
             if (Time.timeScale > 0f)
             {
