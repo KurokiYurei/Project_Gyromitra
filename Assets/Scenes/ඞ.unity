@@ -993,11 +993,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: event:/OOF
+      Data1: 1385953985
+      Data2: 1215031860
+      Data3: -1838886488
+      Data4: 1708464036
+    Path: event:/oof
   Event: 
   PlayEvent: 0
   StopEvent: 0
