@@ -23,6 +23,9 @@ public class CharacterHP : MonoBehaviour, IDamagable
     [SerializeField]
     private UI_Manager m_ui;
 
+    [SerializeField]
+    private Material m_quiverShader;
+
     void Start()
     {
         m_minHealth = 0f;
@@ -34,11 +37,15 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_tickPerSecondHealth = 1f;
 
         m_health = m_maxHealth;
+
     }
 
     void Update()
     {
         m_ui.SetHealth(m_health);
+
+        //m_quiverShader.SetFloat("Fill", 0.5f);
+        Shader.SetGlobalFloat("_Fill", 0.5f);
 
         m_timerToRegen -= Time.deltaTime;
 
