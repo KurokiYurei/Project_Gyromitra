@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7815586014092792545}
   - component: {fileID: 8892536637953445640}
   - component: {fileID: 4586701480166356221}
+  - component: {fileID: 1550684543484897753}
   m_Layer: 0
   m_Name: Set_Wood_Rama
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1550684543484897753
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114010145600050572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6110614201849919444, guid: ce2794acda025f34bb2a0c385bdc78cf, type: 3}
 --- !u!1 &5123621255734899424
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +107,7 @@ GameObject:
   - component: {fileID: 3221040629134166290}
   - component: {fileID: 2151420610214472685}
   - component: {fileID: 8401365681600756902}
+  - component: {fileID: 49569947937533376}
   m_Layer: 0
   m_Name: Set_Wood_Tronc
   m_TagString: Untagged
@@ -162,6 +178,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &49569947937533376
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123621255734899424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2007965540691749649, guid: ce2794acda025f34bb2a0c385bdc78cf, type: 3}
 --- !u!1 &6240825211862845104
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +236,7 @@ GameObject:
   - component: {fileID: 3978562618427254084}
   - component: {fileID: 2593455084669556729}
   - component: {fileID: 8414240410956784878}
+  - component: {fileID: 2328280948382528945}
   m_Layer: 0
   m_Name: Set_Wood_Branqueta
   m_TagString: Untagged
@@ -276,3 +307,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2328280948382528945
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8981292337676871864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2681744403235909774, guid: ce2794acda025f34bb2a0c385bdc78cf, type: 3}

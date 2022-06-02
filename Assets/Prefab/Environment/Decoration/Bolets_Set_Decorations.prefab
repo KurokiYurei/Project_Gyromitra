@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3436127878242529229}
   - component: {fileID: 2761529747772169458}
   - component: {fileID: 6953050715011815621}
+  - component: {fileID: 1040534120965780014}
   m_Layer: 0
   m_Name: "Bolet_Rovell\xF3_Big"
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1040534120965780014
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2492436033130539861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5371874042005226294, guid: 43d09bd241618dc4a82f6fb73b724708, type: 3}
 --- !u!1 &2705981964182705089
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +107,7 @@ GameObject:
   - component: {fileID: 5579793959736005803}
   - component: {fileID: 7534549081614381801}
   - component: {fileID: 8763841396806575522}
+  - component: {fileID: 3982835693185770422}
   m_Layer: 0
   m_Name: Bolet_Amanita_Big
   m_TagString: Untagged
@@ -162,6 +178,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3982835693185770422
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705981964182705089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7046911484651132408, guid: 43d09bd241618dc4a82f6fb73b724708, type: 3}
 --- !u!1 &6444677233457391062
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +203,7 @@ GameObject:
   - component: {fileID: 936766738283749010}
   - component: {fileID: 2894024697462029366}
   - component: {fileID: 6945659417632829484}
+  - component: {fileID: 1183150586494943014}
   m_Layer: 0
   m_Name: Bolet_Amanita_Medium
   m_TagString: Untagged
@@ -243,6 +274,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1183150586494943014
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444677233457391062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2212463243409541457, guid: 43d09bd241618dc4a82f6fb73b724708, type: 3}
 --- !u!1 &6576708114156815618
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +299,7 @@ GameObject:
   - component: {fileID: 682833355395469326}
   - component: {fileID: 2609055557782107950}
   - component: {fileID: 8496125541386831724}
+  - component: {fileID: 7736922346794609123}
   m_Layer: 0
   m_Name: "Bolet_Rovell\xF3_Medium"
   m_TagString: Untagged
@@ -324,6 +370,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7736922346794609123
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576708114156815618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6315253315544580055, guid: 43d09bd241618dc4a82f6fb73b724708, type: 3}
 --- !u!1 &6702363941527846875
 GameObject:
   m_ObjectHideFlags: 0
