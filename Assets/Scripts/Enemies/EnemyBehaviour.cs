@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 
 
 [RequireComponent(typeof(EnemyMovement))]
@@ -65,6 +66,16 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
     [SerializeField]
     private Animator m_animator;
 
+    [Header("VFX")]
+    [SerializeField]
+    private VisualEffect m_arm1VFX;
+    [SerializeField]
+    private VisualEffect m_arm2VFX;
+    [SerializeField]
+    private VisualEffect m_headVFX;    
+    [SerializeField]
+    private Material m_golemMaterial;
+
     public void SetMushroomHit(bool value)
     {
         m_mushroomImpact = value;
@@ -93,6 +104,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
         m_startPos = transform.position;
         m_startRot = transform.rotation;
+
+        m_golemMaterial.SetColor("_EmissionColor", new Color(56, 0, 116, 100)*0.01f);
+
         GameManagerScript.m_instance.AddRestartGameElement(this);
     }
 
@@ -212,6 +226,8 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 m_mushroomImpact = false;
                 m_stuntTime = m_stuntTimeReset;
                 m_headEnemy.material = m_headMaterialNormal;
+
+                m_golemMaterial.SetColor("_EmissionColor", new Color(56, 0, 116, 100)* 0.01f);
                 break;
         }
 
@@ -237,6 +253,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 m_headEnemy.material = m_headMaterialVulnerable;
                 m_animator.SetBool("Stun", true);
                 m_antiPlayerSpam = m_antiPlayerSpamReset;
+
+                m_golemMaterial.SetColor("_EmissionColor", new Color(222, 58, 0, 100)* 0.01f);
+                
                 break;
 
             case State.DEATH:
