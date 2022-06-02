@@ -5,14 +5,20 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 99f1ccbf027c6804bb9c68f79556b6cb
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/CopyPruebas_Backup_Design_Testp 1.unity
     guid: be7c6828bb7192d4890395bd6a2138b8
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/\u0D9E.unity"
     guid: c0b0e182989ef114480cba7b3151af79
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 02ab39aebdcd9404fb96d4e2700e8be5
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 9b48c97a1d1b00244a66972186b276e3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 369aaaa8bbd44d649b6ad35c6bd66cfb, type: 2}
