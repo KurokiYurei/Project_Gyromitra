@@ -114,7 +114,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40988cc44a540884eb6c31c7900adf1a, type: 3}
   m_PrefabInstance: {fileID: 3480422346148038647}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &5341960989974693220
+--- !u!64 &7625810937261812353
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,6 +125,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2141002060337102596, guid: 40988cc44a540884eb6c31c7900adf1a, type: 3}

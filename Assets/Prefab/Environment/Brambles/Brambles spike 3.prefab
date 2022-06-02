@@ -106,8 +106,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f4d07db3b69421a419351510d058e619, type: 3}
   m_PrefabInstance: {fileID: 6156277064418064232}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2125148430374611846
-MeshCollider:
+--- !u!65 &2013197299719045923
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -116,7 +116,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4786528788562450291, guid: f4d07db3b69421a419351510d058e619, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.53165036, y: 0.59144986, z: 1.5308411}
+  m_Center: {x: 0.06582865, y: -0.05625761, z: 0.7649524}

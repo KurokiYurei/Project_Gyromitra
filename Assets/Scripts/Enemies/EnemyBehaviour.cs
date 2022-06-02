@@ -9,7 +9,7 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 {
-    public enum State { INITIAL, WANDER, ATTACK, STUN };
+    public enum State { INITIAL, WANDER, ATTACK, STUN, DEATH };
 
     public State m_currentState = State.INITIAL;
     
@@ -48,6 +48,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
     [SerializeField]
     private Quaternion m_startRot;
 
+    [SerializeField]
+    private Enemy1HP m_hp;
+
     [Header("Material")]
     [SerializeField]
     private Material m_headMaterialVulnerable;
@@ -60,13 +63,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
     [Header("Animation")]
     [SerializeField]
-    private Animation m_animator;
-
-    [SerializeField]
-    private AnimationClip m_fall;
-
-    [SerializeField]
-    private AnimationClip m_getUp;
+    private Animator m_animator;
 
     public void SetMushroomHit(bool value)
     {
@@ -87,6 +84,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
     {
         m_enemyMovement = GetComponent<EnemyMovement>();
         m_enemyShoot = GetComponent<EnemyShoot>();
+        m_hp = GetComponent<Enemy1HP>();
 
         m_enemyMovement.enabled = false;
         m_enemyShoot.enabled = false;
@@ -107,6 +105,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 break;
 
             case State.WANDER:
+
+                if (m_hp.m_health <= 0f) ChangeState(State.DEATH);
+
                 m_antiPlayerSpam -= Time.deltaTime;
 
                 // stun mushroom
@@ -129,6 +130,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 break;
 
             case State.ATTACK:
+
+                if (m_hp.m_health <= 0f) ChangeState(State.DEATH);
+
                 m_antiPlayerSpam -= Time.deltaTime;
 
                 // stun mushroom
@@ -149,6 +153,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 break;
 
             case State.STUN:
+
+                if (m_hp.m_health <= 0f) ChangeState(State.DEATH);
+
                 m_stuntTime -= Time.deltaTime;
 
                 if (m_stuntTime <= 0f)
@@ -169,6 +176,15 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                     }
                 }
                 break;
+
+            case State.DEATH:
+
+                if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Destroy"))
+                {
+                    Destroy(this.gameObject);
+                }
+
+                break;
         }
     }
 
@@ -184,14 +200,15 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
             case State.ATTACK:
                 m_enemyShoot.enabled = false;
                 m_lineRenderer.enabled = false;
+                m_animator.SetBool("Aiming", false);
                 break;
 
             case State.STUN:
                 m_enemyMovement.m_navMeshAgent.enabled = true;
+                m_animator.SetBool("Stun", false);
                 m_mushroomImpact = false;
                 m_stuntTime = m_stuntTimeReset;
                 m_headEnemy.material = m_headMaterialNormal;
-                m_animator.Play(m_getUp.name);
                 break;
         }
 
@@ -200,20 +217,24 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
         {
             case State.WANDER:
                 m_enemyMovement.enabled = true;
+                m_animator.SetTrigger("Walk");
                 break;  
 
             case State.ATTACK:
                 m_enemyShoot.enabled = true;
-                //m_lineRenderer.enabled = true;
+                m_animator.SetBool("Aiming", true);
                 m_enemyShoot.setPlayer(m_player);
                 break;
                     
             case State.STUN:
                 m_enemyMovement.m_navMeshAgent.enabled = false;      
                 m_headEnemy.material = m_headMaterialVulnerable;
-                m_animator.Play(m_fall.name);
+                m_animator.SetBool("Stun", true);
                 m_antiPlayerSpam = m_antiPlayerSpamReset;
-                gameObject.GetComponent<Rigidbody>().velocity = Vector3.up * m_mushroomBounceForce;
+                break;
+
+            case State.DEATH:
+                m_animator.SetTrigger("Death");
                 break;
         }
         m_currentState = l_newState;

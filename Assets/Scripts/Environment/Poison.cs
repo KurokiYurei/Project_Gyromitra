@@ -21,7 +21,10 @@ public class Poison : MonoBehaviour
     [SerializeField]
     private string m_playerTag;
 
+    [SerializeField]
     private CharacterControllerScript m_player;
+
+    [SerializeField]
     private CharacterHP m_playerHealth;
 
     private void Awake()
@@ -34,10 +37,12 @@ public class Poison : MonoBehaviour
         m_damage = 10f;
 
         m_playerIsIn = false;
+
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
 
-        m_player = GameObject.FindGameObjectWithTag(m_playerTag).GetComponent<CharacterControllerScript>();
-        m_playerHealth = m_player.gameObject.GetComponent<CharacterHP>();
+        //m_player = GameObject.FindGameObjectWithTag(m_playerTag).GetComponent<CharacterControllerScript>();
+
+        //m_playerHealth = m_player.gameObject.GetComponent<CharacterHP>();
     }
 
     private void OnEnable()
@@ -51,6 +56,7 @@ public class Poison : MonoBehaviour
 
     private void Update()
     {
+
         if (m_playerIsIn)
         {
             m_currentDurationVenom = m_durationVenom;

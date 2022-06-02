@@ -20,7 +20,6 @@ public class Enemy1HP : MonoBehaviour, IDamagable
         if (m_health <= 0)
         {
             GameManagerScript.m_instance.DeleteRestartGameElement(gameObject.GetComponent<EnemyBehaviour>());
-            Destroy(this.gameObject);
         }
     }
     public void ResetHP()

@@ -204,17 +204,17 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         AnimationUpdates();
     }
 
-    /// <summary>
-    /// movement 
-    /// </summary>
-    /// 
-
     private void AnimationUpdates()
     {
         m_animController.AnimationGround(m_OnGround);
         m_animController.AnimationJump(m_jumped);
         m_animController.AnimationAirTimer(m_onAirTimer);
     }
+
+    /// <summary>
+    /// movement 
+    /// </summary>
+    /// 
     private void Movement()
     {
         Vector2 input = m_moveAction.ReadValue<Vector2>();
@@ -475,7 +475,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             //yield return new WaitForSeconds(3);
             m_player.Damage(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 3));
-            print(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 3));
         }
     }
 }

@@ -29,7 +29,6 @@ public class Explosive_Bullet : MonoBehaviour
 
         if (Physics.Raycast(l_ray, out RaycastHit l_hit, m_distanceHit))
         {
-            print(l_hit.transform.tag);
             Explosion(l_hit.point);
         }
 

@@ -48,7 +48,7 @@ public class EnemyShoot : MonoBehaviour
 
         m_ray.material.color = Color.blue;
 
-        m_projectilePool = new PoolElements(3, transform, m_projectile);
+        m_projectilePool = new PoolElements(1, transform, m_projectile);
 
 
     }
@@ -128,6 +128,7 @@ public class EnemyShoot : MonoBehaviour
         l_projectile.transform.rotation = Quaternion.LookRotation(rb.velocity);
         l_projectile.transform.SetParent(null);
         l_projectile.SetActive(true);
+        m_animator.SetTrigger("Shoot");
     }
 
     public void setPlayer(GameObject l_player)
