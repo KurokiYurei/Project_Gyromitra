@@ -40,7 +40,7 @@ public class EnemyShoot : MonoBehaviour
 
     static PoolElements m_projectilePool;
 
-    private Animator m_animator;
+    public Animator m_animator;
 
     void Start()
     {
@@ -65,6 +65,7 @@ public class EnemyShoot : MonoBehaviour
             if (m_cadenceShoot <= 0)
             {
                 m_canLock = true;
+                m_animator.SetBool("Shoot", false);
                 m_cadenceShoot = 0f;
             }
         }
@@ -81,7 +82,7 @@ public class EnemyShoot : MonoBehaviour
         Quaternion lookDirection = Quaternion.LookRotation(m_player.transform.position - transform.position);
 
         isRight = GetRotateDirection(transform.rotation, lookDirection);
-        
+
         transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, 10f * Time.deltaTime);
         transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
 
@@ -108,6 +109,7 @@ public class EnemyShoot : MonoBehaviour
         if (m_cadenceShoot >= m_lockTime)
         {
             Vector3 l_finalDirection = l_playerPos - m_firePoint.position;
+            print(l_finalDirection);
             Shoot(l_finalDirection);
             m_cadenceShoot = m_cooldownTime;
             m_ray.material.color = Color.blue;
@@ -128,7 +130,7 @@ public class EnemyShoot : MonoBehaviour
         l_projectile.transform.rotation = Quaternion.LookRotation(rb.velocity);
         l_projectile.transform.SetParent(null);
         l_projectile.SetActive(true);
-        m_animator.SetTrigger("Shoot");
+        m_animator.SetBool("Shoot", true);
     }
 
     public void setPlayer(GameObject l_player)
