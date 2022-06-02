@@ -8,4 +8,54 @@ AvatarMask:
   m_PrefabAsset: {fileID: 0}
   m_Name: BazookaAim
   m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-  m_Elements: []
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: GolemBazooka_CAT
+    m_Weight: 1
+  - m_Path: Hip
+    m_Weight: 1
+  - m_Path: Hip/L_UpperLeg
+    m_Weight: 0
+  - m_Path: Hip/L_UpperLeg/L_LowerLeg
+    m_Weight: 0
+  - m_Path: Hip/L_UpperLeg/L_LowerLeg/L_LegAnkle
+    m_Weight: 0
+  - m_Path: Hip/L_UpperLeg/L_LowerLeg/L_LegAnkle/L_Feet
+    m_Weight: 0
+  - m_Path: Hip/R_UpperLeg
+    m_Weight: 0
+  - m_Path: Hip/R_UpperLeg/R_LowerLeg
+    m_Weight: 0
+  - m_Path: Hip/R_UpperLeg/R_LowerLeg/R_LegAnkle
+    m_Weight: 0
+  - m_Path: Hip/R_UpperLeg/R_LowerLeg/R_LegAnkle/R_Feet
+    m_Weight: 0
+  - m_Path: Hip/Spine1
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder/GolemBazooka_CATLArmCollarbone
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder/GolemBazooka_CATLArmCollarbone/L_UpperArm
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder/GolemBazooka_CATLArmCollarbone/L_UpperArm/L_LowerArm
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder/GolemBazooka_CATRArmCollarbone
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder/GolemBazooka_CATRArmCollarbone/R_UpperArm
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder/GolemBazooka_CATRArmCollarbone/R_UpperArm/R_Lower_Arm
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder/GolemBazooka_CATSpine1
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder/GolemBazooka_CATSpine1/GolemBazooka_CATSpine2
+    m_Weight: 1
+  - m_Path: Hip/Spine1/pine2/Spine3/Shoulder/GolemBazooka_CATSpine1/GolemBazooka_CATSpine2/Head
+    m_Weight: 1
+  - m_Path: Retopology_bazooka_21_001_UW
+    m_Weight: 1

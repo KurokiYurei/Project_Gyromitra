@@ -87,6 +87,7 @@ MonoBehaviour:
   m_shootLayerMask:
     serializedVersion: 2
     m_Bits: 833
+  m_animator: {fileID: 0}
 --- !u!114 &1759600659721459563
 MonoBehaviour:
   m_ObjectHideFlags: 0
