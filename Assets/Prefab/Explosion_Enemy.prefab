@@ -115,6 +115,10 @@ MonoBehaviour:
   m_headMaterialNormal: {fileID: 2100000, guid: 02e5bcd8f47722e4d938b5d3fb0caabf, type: 2}
   m_headEnemy: {fileID: 7686406146690159527}
   m_animator: {fileID: 6382532066809584544}
+  m_arm1VFX: {fileID: 0}
+  m_arm2VFX: {fileID: 0}
+  m_headVFX: {fileID: 0}
+  m_golemMaterial: {fileID: 0}
 --- !u!114 &7686406147162152231
 MonoBehaviour:
   m_ObjectHideFlags: 0

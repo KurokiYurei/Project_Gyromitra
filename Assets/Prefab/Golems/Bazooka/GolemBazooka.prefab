@@ -316,6 +316,7 @@ MonoBehaviour:
   m_shootLayerMask:
     serializedVersion: 2
     m_Bits: 833
+  m_animator: {fileID: 0}
 --- !u!114 &1858563983731142243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +344,10 @@ MonoBehaviour:
   m_headMaterialNormal: {fileID: 2100000, guid: 02e5bcd8f47722e4d938b5d3fb0caabf, type: 2}
   m_headEnemy: {fileID: 7686406146690159527, guid: de95317c81ede104b948605442c0bfea, type: 3}
   m_animator: {fileID: 1858563983731142245}
+  m_arm1VFX: {fileID: 1858563985411773977}
+  m_arm2VFX: {fileID: 1858563983547877022}
+  m_headVFX: {fileID: 1858563984523506905}
+  m_golemMaterial: {fileID: 2100000, guid: 97efbb4a06889044d86d2345d474dee6, type: 2}
 --- !u!114 &1858563983731142242
 MonoBehaviour:
   m_ObjectHideFlags: 0
