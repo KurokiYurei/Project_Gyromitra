@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdcc0f689104ca458df8b1bfe63b416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_explosionCollider: {fileID: 3339725421873900907, guid: 8365bdcd83fb73c469373dc1cb5f9cce, type: 3}
+  m_explosionCollider: {fileID: 7584798134262268846, guid: a58f9b9c819dfc14e98d8c58a63d602a, type: 3}
   m_timeToExplode: 1.5
   m_rayPoint: {fileID: 470522468036049630}
   m_distanceHit: 1

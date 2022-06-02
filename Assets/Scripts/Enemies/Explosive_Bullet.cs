@@ -47,6 +47,6 @@ public class Explosive_Bullet : MonoBehaviour
         l_explosion.SetActive(false);
         l_explosion.transform.position = pos;
         l_explosion.SetActive(true);
-        l_explosion.GetComponent<Animation>().Play("Explosion");
+        //l_explosion.GetComponent<Animation>().Play("Explosion");
     }
 }
