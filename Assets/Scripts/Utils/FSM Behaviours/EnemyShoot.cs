@@ -86,6 +86,8 @@ public class EnemyShoot : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, 10f * Time.deltaTime);
         transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
 
+        m_animator.SetBool("TurnR", isRight);
+
         Vector3 l_playerPos = m_player.transform.position;
 
         m_firePoint.forward = (l_playerPos - m_firePoint.position).normalized;

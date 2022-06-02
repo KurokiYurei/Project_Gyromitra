@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7584798134262268881}
   - component: {fileID: 7584798134262268880}
   - component: {fileID: 7584798134262268847}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ExplosionBazooka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
