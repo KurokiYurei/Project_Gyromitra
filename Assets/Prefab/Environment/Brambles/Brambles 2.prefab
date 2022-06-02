@@ -90,10 +90,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brambles_2_HP
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c70334e63585fbf469559c5e0121323d, type: 3}
+      propertyPath: m_TagString
+      value: Bramble
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c70334e63585fbf469559c5e0121323d, type: 3}
+--- !u!1 &1018390053903818923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c70334e63585fbf469559c5e0121323d, type: 3}
+  m_PrefabInstance: {fileID: 208121652674256378}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &390085796814273041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c70334e63585fbf469559c5e0121323d, type: 3}
   m_PrefabInstance: {fileID: 208121652674256378}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &6449646798927794630
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018390053903818923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6404028544277224858, guid: c70334e63585fbf469559c5e0121323d, type: 3}

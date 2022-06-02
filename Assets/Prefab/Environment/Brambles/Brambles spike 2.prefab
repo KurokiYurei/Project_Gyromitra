@@ -94,6 +94,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brambles_Spike_2_LP
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b19a70752af24494788a5ce596568c7c, type: 3}
+      propertyPath: m_TagString
+      value: Bramble
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19a70752af24494788a5ce596568c7c, type: 3}
 --- !u!4 &7064992993599621166 stripped
