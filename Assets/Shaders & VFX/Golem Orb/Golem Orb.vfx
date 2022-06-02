@@ -229,7 +229,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 10
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -4608,7 +4608,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 10
     m_Space: 2147483647
   m_Property:
     name: o
@@ -7891,7 +7891,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614892}
   - {fileID: 8926484042661614894}
   dataType: 0
-  capacity: 10000000
+  capacity: 100000
   stripCapacity: 16
   particlePerStripCount: 16
   m_Space: 0
