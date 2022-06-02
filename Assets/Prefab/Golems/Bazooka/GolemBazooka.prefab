@@ -306,7 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cadenceShoot: 0
   m_locationRadius: 25
-  m_projectile: {fileID: 5903353976143995575, guid: adeb25242b758104fba6d6aa7f875265, type: 3}
+  m_projectile: {fileID: 3190672902253047373, guid: a674971b686cd5b4c91a085f7ea678df, type: 3}
   m_projectileSpeed: 40
   m_cooldownTime: 1
   m_lockTime: 3

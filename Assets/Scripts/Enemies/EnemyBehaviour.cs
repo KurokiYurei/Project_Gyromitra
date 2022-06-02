@@ -200,6 +200,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
             case State.ATTACK:
                 m_enemyShoot.enabled = false;
                 m_lineRenderer.enabled = false;
+
+                m_animator.SetLayerWeight(1, 0);
+                
                 m_animator.SetBool("Aiming", false);
                 break;
 
@@ -222,6 +225,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
             case State.ATTACK:
                 m_enemyShoot.enabled = true;
+                
+                m_animator.SetLayerWeight(1, 1);
+
                 m_animator.SetBool("Aiming", true);
                 m_enemyShoot.setPlayer(m_player);
                 break;
