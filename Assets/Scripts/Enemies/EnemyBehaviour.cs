@@ -28,9 +28,6 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
     public bool m_mushroomImpact;
 
-    [SerializeField]
-    private float m_mushroomBounceForce;
-
     private float m_stuntTime;
 
     private float m_antiPlayerSpam;
@@ -51,16 +48,6 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
     [SerializeField]
     private Enemy1HP m_hp;
-
-    [Header("Material")]
-    [SerializeField]
-    private Material m_headMaterialVulnerable;
-
-    [SerializeField]
-    private Material m_headMaterialNormal;
-
-    [SerializeField]
-    private MeshRenderer m_headEnemy;
 
     [Header("Animation")]
     [SerializeField]
@@ -208,16 +195,16 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
         switch (m_currentState)
         {
             case State.WANDER:
+                m_enemyMovement.m_navMeshAgent.isStopped = true;
                 m_enemyMovement.enabled = false;
                 break;
 
             case State.ATTACK:
                 m_enemyShoot.enabled = false;
                 m_lineRenderer.enabled = false;
-
-                m_animator.SetLayerWeight(1, 0);
-                
+                m_animator.SetLayerWeight(1, 0);          
                 m_animator.SetBool("Aiming", false);
+                m_animator.SetBool("Shoot", false);
                 break;
 
             case State.STUN:
@@ -225,8 +212,6 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 m_animator.SetBool("Stun", false);
                 m_mushroomImpact = false;
                 m_stuntTime = m_stuntTimeReset;
-                m_headEnemy.material = m_headMaterialNormal;
-
                 m_golemMaterial.SetColor("_EmissionColor", new Color(56, 0, 116, 100)* 0.01f);
                 break;
         }
@@ -235,27 +220,23 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
         switch (l_newState)
         {
             case State.WANDER:
+                m_enemyMovement.m_navMeshAgent.isStopped = false;
                 m_enemyMovement.enabled = true;
                 m_animator.SetTrigger("Walk");
                 break;  
 
             case State.ATTACK:
-                m_enemyShoot.enabled = true;
-                
+                m_enemyShoot.enabled = true;         
                 m_animator.SetLayerWeight(1, 1);
-
                 m_animator.SetBool("Aiming", true);
                 m_enemyShoot.setPlayer(m_player);
                 break;
                     
             case State.STUN:
                 m_enemyMovement.m_navMeshAgent.enabled = false;      
-                m_headEnemy.material = m_headMaterialVulnerable;
                 m_animator.SetBool("Stun", true);
                 m_antiPlayerSpam = m_antiPlayerSpamReset;
-
-                m_golemMaterial.SetColor("_EmissionColor", new Color(222, 58, 0, 100)* 0.01f);
-                
+                m_golemMaterial.SetColor("_EmissionColor", new Color(222, 58, 0, 100)* 0.01f);       
                 break;
 
             case State.DEATH:

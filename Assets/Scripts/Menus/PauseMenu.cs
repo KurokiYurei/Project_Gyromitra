@@ -11,6 +11,9 @@ public class PauseMenu : MonoBehaviour
 
     private GameManagerScript m_gameManager;
 
+    [SerializeField]
+    private GameObject m_blur;
+
     [Header("Menus")]
     [SerializeField]
     private GameObject m_pauseMenu;
@@ -141,6 +144,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1.0f;
             playerInput.actions["Shoot"].Enable();
             Cursor.visible = false;
+            m_blur.SetActive(false);
             m_paused = false;
         }
         else
@@ -150,6 +154,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0.0f;
             playerInput.actions["Shoot"].Disable();
             Cursor.visible = true;
+            m_blur.SetActive(true);
             m_paused = true;
         }
     }

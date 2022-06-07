@@ -12,9 +12,6 @@ public class EnemyShoot : MonoBehaviour
     private GameObject m_player;
 
     [SerializeField]
-    private float m_locationRadius;
-
-    [SerializeField]
     private GameObject m_projectile;
 
     [SerializeField]
@@ -44,13 +41,11 @@ public class EnemyShoot : MonoBehaviour
 
     void Start()
     {
-        m_ray = gameObject.transform.Find("Firepoint").transform.GetComponent<LineRenderer>();
-
         m_ray.material.color = Color.blue;
 
+        m_ray.enabled = false;
+
         m_projectilePool = new PoolElements(1, transform, m_projectile);
-
-
     }
 
     void Update()
@@ -75,7 +70,14 @@ public class EnemyShoot : MonoBehaviour
     {
         if (!m_ray.enabled)
         {
-            m_ray.enabled = true;
+            if(m_animator.GetCurrentAnimatorStateInfo(0).IsName("Aiming") && m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+            {
+                m_ray.enabled = true;
+            }
+        }
+        else
+        {
+            m_cadenceShoot += Time.deltaTime;
         }
 
         bool isRight;
@@ -98,12 +100,12 @@ public class EnemyShoot : MonoBehaviour
             m_alreadyLocked = true;
         }
 
-        Ray l_Ray = new Ray(m_firePoint.position, l_playerPos - m_firePoint.position);
-        if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, (l_playerPos - m_firePoint.position).magnitude, m_shootLayerMask.value))
-        {
-            m_ray.SetPosition(0, m_firePoint.position);
-            m_ray.SetPosition(1, l_playerPos);
-        }
+        //Ray l_Ray = new Ray(m_firePoint.position, l_playerPos - m_firePoint.position);
+        //if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, (l_playerPos - m_firePoint.position).magnitude, m_shootLayerMask.value))
+        //{
+        //    m_ray.SetPosition(0, m_firePoint.position);
+        //    m_ray.SetPosition(1, l_playerPos);
+        //}
 
         m_ray.SetPosition(0, m_firePoint.position);
         m_ray.SetPosition(1, l_playerPos);
@@ -111,7 +113,6 @@ public class EnemyShoot : MonoBehaviour
         if (m_cadenceShoot >= m_lockTime)
         {
             Vector3 l_finalDirection = l_playerPos - m_firePoint.position;
-            print(l_finalDirection);
             Shoot(l_finalDirection);
             m_cadenceShoot = m_cooldownTime;
             m_ray.material.color = Color.blue;
@@ -119,8 +120,6 @@ public class EnemyShoot : MonoBehaviour
             m_alreadyLocked = false;
             m_canLock = false;
         }
-
-        m_cadenceShoot += Time.deltaTime;
     }
     private void Shoot(Vector3 dir)
     {
