@@ -27,6 +27,12 @@ public class WeaponController : MonoBehaviour
 
     private bool m_fire;
 
+    [SerializeField]
+    [Range(0.2f, 0.5f)]
+    private float m_reloadTime;
+
+    private float m_reloadTimer;
+
     [Header("Crosshair reticle")]
     [SerializeField]
     private UI_Manager m_UI;
@@ -80,7 +86,7 @@ public class WeaponController : MonoBehaviour
     private void Update()
     {
         m_firePowerSpeed = m_maxFirePower - m_minFirePower;
-        if (m_shootArrow.triggered)
+        if (m_shootArrow.triggered && m_reloadTimer < 0f)
         {
             m_firePower = m_minFirePower;
             m_fire = true;
@@ -110,7 +116,6 @@ public class WeaponController : MonoBehaviour
                 m_SpeedCircle += Time.deltaTime * 40f;
                 m_currentRadius -= Time.deltaTime * m_SpeedCircle;
             }
-
         }
         else
         {
@@ -129,7 +134,7 @@ public class WeaponController : MonoBehaviour
             }
         }
 
-        if (m_shootArrow.WasReleasedThisFrame())
+        if (m_shootArrow.WasReleasedThisFrame() && m_fire)
         {
             if(m_firePower >= m_maxFirePower)
             {
@@ -141,7 +146,20 @@ public class WeaponController : MonoBehaviour
                 m_animController.AnimationShootShort();
                 m_weapon.FireArrow(m_firePower, true);
             }
+            m_reloadTimer = m_reloadTime;
             m_fire = false;
+        }
+
+        if(m_reloadTimer >= 0)
+        {
+            if(Time.timeScale > 0f)
+            {
+                m_reloadTimer -= Time.deltaTime / Time.timeScale;
+            }
+            else
+            {
+                m_reloadTimer -= Time.deltaTime;
+            }
         }
 
         checkRadiusCircle();

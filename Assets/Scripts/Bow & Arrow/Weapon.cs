@@ -5,21 +5,12 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField]
-    [Range(0.2f, 0.5f)]
-    private float m_reloadTime;
-
-    [SerializeField]
     private GameObject m_arrowSpawnPoint;
 
     [SerializeField]
     private Camera m_camera;
 
-    private bool m_isReloading;
-
     private float m_Power;
-
-    [SerializeField]
-    private GameObject m_crosshair;
 
     [SerializeField]
     private LayerMask m_layerMask;
@@ -27,23 +18,10 @@ public class Weapon : MonoBehaviour
     private bool m_hasGravity;
 
     /// <summary>
-    /// The method that controlls the reload of the arrow
+    /// Spawn the arrow and give it a velocity and a direction
     /// </summary>
-    public void StartReloading()
+    private void Shoot()
     {
-        if (m_isReloading) return;
-        m_isReloading = true;
-        StartCoroutine(ReloadAfterTime());
-    }
-
-    /// <summary>
-    /// Coroutine of the reload method and spawn the arrow with a direction
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator ReloadAfterTime()
-    {
-        yield return new WaitForSecondsRealtime(m_reloadTime);
-
         Ray ray = m_camera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
         Vector3 targetPoint;
@@ -69,26 +47,23 @@ public class Weapon : MonoBehaviour
             l_rb.useGravity = false;
         }
 
-        if(Time.timeScale >= 0)
+        if (Time.timeScale >= 0)
             l_rb.velocity = ((targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power) / Time.timeScale;
         else
             l_rb.velocity = (targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power;
 
         l_arrow.transform.SetParent(null);
         l_arrow.SetActive(true);
-
-        m_isReloading = false;
     }
 
     /// <summary>
-    /// method that fires the arrow
+    /// method that calls the arrow shooting and sets a velocity and gravity
     /// </summary>
     /// <param name="firepower"></param>
     public void FireArrow(float firepower, bool gravity)
     {
-        if (m_isReloading) return;
         m_Power = firepower;
         m_hasGravity = gravity;
-        StartReloading();
+        Shoot();
     }
 }

@@ -299,7 +299,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         if (m_onAirTimer > 1f)
         {
             m_jumped = true;
-        }
+        }        
     }
 
     private Vector3 AdjustVelocityToSlope(Vector3 velocity)
@@ -315,7 +315,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             {
                 return l_adjustedVelocity;
             }
-            Debug.DrawLine(transform.position, hit.point);
         }
         return velocity;
     }
@@ -339,8 +338,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     public void RestartGame()
     {
         OnStopPoison?.Invoke();
-
         m_CharacterController.enabled = false;
+        transform.SetParent(null);
         m_VerticalSpeed = 0f;
         if (m_currentCheckPoint != null)
         {
@@ -390,13 +389,27 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             }
         }
 
-        if (hit.collider.tag == "Bramble")
+        if (hit.collider.tag == "Bramble" && m_brambleInvulnerabilityTimer <= 0f)
         {
-            if(m_brambleInvulnerabilityTimer <= 0f)
+            if (m_brambleInvulnerabilityTimer <= 0f)
             {
                 m_player.Damage(m_brambleDamage);
             }
-            SetBounceParameters(hit.transform.position - transform.position, m_bramblePushPower, m_bramblePushDuration, 1f);
+            if (hit.normal.y > 0.8)
+            {
+                var dir = transform.position - hit.collider.bounds.center;
+                dir.y = 0f;
+                SetBounceParameters(-dir, m_bramblePushPower, m_bramblePushDuration, 1f);
+            }
+            else
+            {
+                SetBounceParameters(-hit.normal, m_bramblePushPower, m_bramblePushDuration, 1f);
+            }   
+        }
+
+        if (hit.collider.tag == "Enemy")
+        {
+            SetBounceParameters(-hit.normal, m_bramblePushPower, m_bramblePushDuration, 0f);
         }
     }
 
