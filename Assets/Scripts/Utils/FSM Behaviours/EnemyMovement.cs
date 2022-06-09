@@ -10,6 +10,8 @@ public class EnemyMovement : MonoBehaviour
     public List<Transform> m_patrolWaypoints;
     int m_currentWaypointId = 0;
 
+    public Animator m_animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,17 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if (!m_navMeshAgent.hasPath && m_navMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
-            MoveToNextPatrolPosition();
+        {
+            m_animator.SetLayerWeight(1, 1);
+            Vector3 dir = m_patrolWaypoints[m_currentWaypointId].position - transform.position;
+            float direction = Vector3.Dot(dir, transform.forward);
+            RotateToWaypoint();
+            if (direction >= 1f)
+            {
+                MoveToNextPatrolPosition();
+                m_animator.SetLayerWeight(1, 0);
+            }
+        }
     }
 
     void MoveToNextPatrolPosition()
@@ -46,5 +58,33 @@ public class EnemyMovement : MonoBehaviour
         }
 
         return l_finalPosition;
+    }
+    public void RotateToWaypoint()
+    {
+        Quaternion lookDirection = Quaternion.LookRotation(m_patrolWaypoints[m_currentWaypointId].position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, Time.deltaTime / 2f);
+        transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
+        bool isRight = GetRotateDirection(transform.rotation, lookDirection);
+        m_animator.SetBool("TurnR", isRight);
+        print(isRight);
+    }
+    bool GetRotateDirection(Quaternion from, Quaternion to)
+    {
+        float fromY = from.eulerAngles.y;
+        float toY = to.eulerAngles.y;
+        float clockWise = 0f;
+        float counterClockWise = 0f;
+
+        if (fromY <= toY)
+        {
+            clockWise = toY - fromY;
+            counterClockWise = fromY + (360 - toY);
+        }
+        else
+        {
+            clockWise = (360 - fromY) + toY;
+            counterClockWise = fromY - toY;
+        }
+        return (clockWise <= counterClockWise);
     }
 }

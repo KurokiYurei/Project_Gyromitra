@@ -62,7 +62,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: TurnR
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -74,7 +74,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.8125
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -87,7 +87,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
+  - m_ConditionMode: 2
     m_ConditionEvent: TurnR
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -432,7 +432,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sniper_Walk
-  m_Speed: 3
+  m_Speed: 4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4940556686858010015}
@@ -569,7 +569,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Turn
     m_StateMachine: {fileID: 6411886530301477386}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: 08229da4b33fb2949b9d6ff84b42028b, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0

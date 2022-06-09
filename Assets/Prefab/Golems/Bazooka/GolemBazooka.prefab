@@ -1223,6 +1223,7 @@ MonoBehaviour:
   m_patrolWaypoints:
   - {fileID: 0}
   - {fileID: 0}
+  m_animator: {fileID: 2625165978283179703}
 --- !u!114 &2625165978283179711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,7 +1314,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
