@@ -91,6 +91,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     
     private bool m_jumpedOnMushroom;
 
+    private bool m_gravityMushroom;
+
     [Header("Bramble")]
     [SerializeField]
     private float m_brambleDamage;
@@ -269,7 +271,13 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         }
         else
         {
-            m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
+            if (m_gravityMushroom)
+            {
+                m_VerticalSpeed += Physics.gravity.y * Time.deltaTime * m_fallGravityMultiplier;
+            } else
+            {
+                m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
+            }
             m_jumpedOnMushroom = false;
         }
 
@@ -284,6 +292,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             m_VerticalSpeed = 0.0f;
             m_onAirTimer = 0f;
             m_jumped = false;
+            m_gravityMushroom = false;
         }
         else
         {
@@ -385,6 +394,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             {
                 m_jumpedOnMushroom = true;
                 SetVerticalSpeed(m_mushroomJumpSpeed);
+                m_gravityMushroom = true;
                 m_jumped = true;
             }
         }
