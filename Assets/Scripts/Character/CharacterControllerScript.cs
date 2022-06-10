@@ -14,6 +14,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private Transform m_FollowRot;
 
     [Header("Stats")]
+    [SerializeField]
+    private float m_lateralSpeedMultiplier = 0.8f;
+
+    [SerializeField]
+    private float m_backwardsSpeedMultiplier = 0.5f;
 
     [SerializeField]
     private float m_WalkSpeed = 1.5f;
@@ -136,6 +141,13 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     public delegate void OnStopPoisonDelegate();
     public OnStopPoisonDelegate OnStopPoison;
 
+    [Header("CameraShake")]
+    [SerializeField]
+    private float m_fallShakeIntensity;
+    [SerializeField]
+    private float m_fallShakeTime;
+
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -233,9 +245,24 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
         if (!m_bouncing)
         {
-            l_Movement = l_Right * input.x;
-            l_Movement += l_Forward * input.y;
-
+            if (!m_jumped)
+            {
+                l_Movement = l_Right * input.x * m_lateralSpeedMultiplier;
+            }
+            else
+            {
+                l_Movement = l_Right * input.x;
+            }
+           
+            if(input.y < 0 && !m_jumped)
+            {
+                l_Movement += l_Forward * input.y * m_backwardsSpeedMultiplier;
+            }
+            else
+            {
+                l_Movement += l_Forward * input.y;
+            }
+           
             float l_Speed = m_WalkSpeed;
 
             if (m_jumped)
@@ -243,8 +270,10 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
                 l_Speed /= m_jumpHorizontalSpeedDivider;
             }
 
-            l_Movement.Normalize();
+            //l_Movement.Normalize();
             l_Movement *= l_Speed * Time.deltaTime;
+
+            print(l_Movement);
         }
         else
         {
@@ -401,6 +430,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
         if (hit.collider.tag == "Bramble" && m_brambleInvulnerabilityTimer <= 0f)
         {
+            CameraShake.instance.DoShake(1f, 0.25f);
             if (m_brambleInvulnerabilityTimer <= 0f)
             {
                 m_player.Damage(m_brambleDamage);
@@ -496,7 +526,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         if (m_VerticalSpeed <= -m_speedToFallDamage)
         {
-            //yield return new WaitForSeconds(3);
+            CameraShake.instance.DoShake(m_fallShakeIntensity, m_fallShakeTime);
             m_player.Damage(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 3));
         }
     }
