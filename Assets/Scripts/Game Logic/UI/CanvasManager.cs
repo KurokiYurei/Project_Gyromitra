@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -94,6 +92,10 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]
     private Text m_sensitivityControllerText;
 
+    [Header("Buttons")]
+    [SerializeField]
+    private Image[] m_buttonsImage;
+
     private void Awake()
     {
 
@@ -137,6 +139,15 @@ public class CanvasManager : MonoBehaviour
 
     }
 
+    private void DisableButtonImages()
+    {
+        foreach(Image image in m_buttonsImage)
+        {
+            image.gameObject.SetActive(false);
+            print("ok");
+        }
+    }
+
     /// <summary>
     /// Change scene to main game
     /// </summary>
@@ -164,6 +175,7 @@ public class CanvasManager : MonoBehaviour
         m_currentCanvas = m_startMenu;
         m_mainTitle.enabled = true;
         m_settingsFrame.enabled = false;
+        DisableButtonImages();
     }
 
     /// <summary>
@@ -177,9 +189,7 @@ public class CanvasManager : MonoBehaviour
         m_currentCanvas = m_mainMenu;
         m_mainTitle.enabled = true;
         m_settingsFrame.enabled = false;
-
-
-
+        DisableButtonImages();
     }
 
     /// <summary>
@@ -194,6 +204,7 @@ public class CanvasManager : MonoBehaviour
         UpdateValuesSettings();
         m_mainTitle.enabled = false;
         m_settingsFrame.enabled = true;
+        DisableButtonImages();
     }
 
     /// <summary>
@@ -221,6 +232,9 @@ public class CanvasManager : MonoBehaviour
         resolutionList = l_list;
     }
 
+    /// <summary>
+    /// Updates the values saved in the game manager
+    /// </summary>
     private void UpdateValuesSettings()
     {
         m_musicSlider.value = m_gameManager.Settings.MusicVolume;
@@ -235,7 +249,6 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void LeftButtonResolution()
     {
-        print("left");
         m_selectedResolution--;
         if (m_selectedResolution < 0) m_selectedResolution = 0;
 
@@ -247,7 +260,6 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void RightButtonResolution()
     {
-        print("right");
         m_selectedResolution++;
         if (m_selectedResolution > resolutionList.Count - 1) m_selectedResolution = resolutionList.Count - 1;
 
