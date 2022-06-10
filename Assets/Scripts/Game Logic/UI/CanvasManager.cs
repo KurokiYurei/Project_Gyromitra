@@ -37,6 +37,12 @@ public class CanvasManager : MonoBehaviour
     private Image m_mainTitle;
 
     [SerializeField]
+    private Image m_mainBackground;
+
+    [SerializeField]
+    private Image m_settingsBackground;
+
+    [SerializeField]
     private Image m_settingsFrame;
 
     [Header("Resolutions")]
@@ -135,6 +141,7 @@ public class CanvasManager : MonoBehaviour
         if (m_currentCanvas == m_startMenu && Input.anyKeyDown)
         {
             ChangeCanvasToMainMenu();
+            print("ok");
         }
 
     }
@@ -169,12 +176,14 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void ChangeCanvasToStartMenu()
     {
+        m_currentCanvas = m_startMenu;
         m_startMenu.SetActive(true);
         m_mainMenu.SetActive(false);
         m_settingsMenu.SetActive(false);
-        m_currentCanvas = m_startMenu;
-        m_mainTitle.enabled = true;
-        m_settingsFrame.enabled = false;
+        m_mainTitle.gameObject.SetActive(true);
+        m_settingsFrame.gameObject.SetActive(false);
+        m_mainBackground.gameObject.SetActive(false);
+        m_settingsBackground.gameObject.SetActive(false);
         DisableButtonImages();
     }
 
@@ -183,12 +192,14 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void ChangeCanvasToMainMenu()
     {
+        m_currentCanvas = m_mainMenu;
         m_mainMenu.SetActive(true);
         m_settingsMenu.SetActive(false);
         m_startMenu.SetActive(false);
-        m_currentCanvas = m_mainMenu;
-        m_mainTitle.enabled = true;
-        m_settingsFrame.enabled = false;
+        m_mainTitle.gameObject.SetActive(true);
+        m_settingsFrame.gameObject.SetActive(false);
+        m_mainBackground.gameObject.SetActive(true);
+        m_settingsBackground.gameObject.SetActive(false);
         DisableButtonImages();
     }
 
@@ -197,13 +208,15 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void ChangeCanvasToSettingsMenu()
     {
+        m_currentCanvas = m_settingsMenu;
         m_settingsMenu.SetActive(true);
         m_mainMenu.SetActive(false);
         m_startMenu.SetActive(false);
-        m_currentCanvas = m_settingsMenu;
+        m_mainTitle.gameObject.SetActive(false);
+        m_settingsFrame.gameObject.SetActive(true);
+        m_mainBackground.gameObject.SetActive(false);
+        m_settingsBackground.gameObject.SetActive(true);
         UpdateValuesSettings();
-        m_mainTitle.enabled = false;
-        m_settingsFrame.enabled = true;
         DisableButtonImages();
     }
 
