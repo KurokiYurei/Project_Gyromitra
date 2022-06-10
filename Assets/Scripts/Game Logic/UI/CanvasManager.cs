@@ -35,6 +35,12 @@ public class CanvasManager : MonoBehaviour
 
     private GameObject m_currentCanvas;
 
+    [SerializeField]
+    private Image m_mainTitle;
+
+    [SerializeField]
+    private Image m_settingsFrame;
+
     [Header("Resolutions")]
     [SerializeField]
     private List<ResolutionString> resolutionList;
@@ -156,6 +162,8 @@ public class CanvasManager : MonoBehaviour
         m_mainMenu.SetActive(false);
         m_settingsMenu.SetActive(false);
         m_currentCanvas = m_startMenu;
+        m_mainTitle.enabled = true;
+        m_settingsFrame.enabled = false;
     }
 
     /// <summary>
@@ -167,6 +175,11 @@ public class CanvasManager : MonoBehaviour
         m_settingsMenu.SetActive(false);
         m_startMenu.SetActive(false);
         m_currentCanvas = m_mainMenu;
+        m_mainTitle.enabled = true;
+        m_settingsFrame.enabled = false;
+
+
+
     }
 
     /// <summary>
@@ -179,6 +192,8 @@ public class CanvasManager : MonoBehaviour
         m_startMenu.SetActive(false);
         m_currentCanvas = m_settingsMenu;
         UpdateValuesSettings();
+        m_mainTitle.enabled = false;
+        m_settingsFrame.enabled = true;
     }
 
     /// <summary>
@@ -220,6 +235,7 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void LeftButtonResolution()
     {
+        print("left");
         m_selectedResolution--;
         if (m_selectedResolution < 0) m_selectedResolution = 0;
 
@@ -231,6 +247,7 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void RightButtonResolution()
     {
+        print("right");
         m_selectedResolution++;
         if (m_selectedResolution > resolutionList.Count - 1) m_selectedResolution = resolutionList.Count - 1;
 
@@ -317,8 +334,8 @@ public class CanvasManager : MonoBehaviour
 
     private void UpdateTextSliders()
     {
-        m_musicText.text = m_musicSlider.value.ToString("0.0");
-        m_sfxText.text = m_sfxSlider.value.ToString("0.0");
+        m_musicText.text = m_musicSlider.value.ToString("0.0") + " db";
+        m_sfxText.text = m_sfxSlider.value.ToString("0.0") + " db";
         m_sensitivityMouseText.text = m_sensitivityMouseSlider.value.ToString("0.0#");
         m_sensitivityControllerText.text = m_sensitivityControllerSlider.value.ToString("0.0#");
     }
