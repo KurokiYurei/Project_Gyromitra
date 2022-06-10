@@ -1919,10 +1919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c51a368e38a6ba41aa206edd3b3f407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_reloadTime: 0.2
   m_arrowSpawnPoint: {fileID: 8640378254422609351}
   m_camera: {fileID: 0}
-  m_crosshair: {fileID: 8640378253016913215}
   m_layerMask:
     serializedVersion: 2
     m_Bits: 8182
@@ -4125,6 +4123,7 @@ MonoBehaviour:
   m_minFirePower: 70
   m_firePowerSpeed: 50
   m_firePower: 0
+  m_reloadTime: 0
   m_UI: {fileID: 8640378252773483385}
   m_minRadius: 0
   m_maxRadius: 0
@@ -4218,7 +4217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 8640378254261655954}
-  m_WeightSmooth: 7
+  m_WeightSmoothAim: 7
+  m_WeightSmoothHolster: 3
 --- !u!1 &8640378254311228787
 GameObject:
   m_ObjectHideFlags: 0
