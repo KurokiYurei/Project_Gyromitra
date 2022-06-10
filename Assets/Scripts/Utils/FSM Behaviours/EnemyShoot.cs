@@ -39,6 +39,19 @@ public class EnemyShoot : MonoBehaviour
 
     public Animator m_animator;
 
+    public void setPlayer(GameObject l_player)
+    {
+        m_player = l_player;
+    }
+    public bool GetIsLocked()
+    {
+        return m_alreadyLocked;
+    }
+    public void ResetShoot()
+    {
+        m_cadenceShoot = 0f;
+    }
+
     void Start()
     {
         m_ray.material.color = Color.blue;
@@ -132,11 +145,6 @@ public class EnemyShoot : MonoBehaviour
         l_projectile.transform.SetParent(null);
         l_projectile.SetActive(true);
         m_animator.SetBool("Shoot", true);
-    }
-
-    public void setPlayer(GameObject l_player)
-    {
-        m_player = l_player;
     }
     bool GetRotateDirection(Quaternion from, Quaternion to)
     {

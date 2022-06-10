@@ -146,7 +146,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
                 // find player if out of range
 
-                if (UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) >= m_playerOutOfRange)
+                if (UtilsGyromitra.DistanceToTarget(this.gameObject, m_player) >= m_playerOutOfRange && !m_enemyShoot.GetIsLocked())
                 {
                     ChangeState(State.WANDER);
                     break;
@@ -201,6 +201,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
             case State.ATTACK:
                 m_enemyShoot.enabled = false;
+                m_enemyShoot.ResetShoot();
                 m_lineRenderer.enabled = false;
                 m_animator.SetLayerWeight(1, 0);          
                 m_animator.SetBool("Aiming", false);
