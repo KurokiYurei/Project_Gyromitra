@@ -32,6 +32,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private float m_jumpHorizontalSpeedDivider = 0.75f;
 
+    private bool m_applyJumpHorizontalSpeedDivider;
+
     [SerializeField]
     private float m_VerticalSpeed = 0.0f;
 
@@ -265,7 +267,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
            
             float l_Speed = m_WalkSpeed;
 
-            if (m_jumped)
+            if (m_jumped && !m_applyJumpHorizontalSpeedDivider)
             {
                 l_Speed *= m_jumpHorizontalSpeedDivider;
             }
@@ -318,6 +320,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             FallDamage();
             m_OnGround = true;
+            m_applyJumpHorizontalSpeedDivider = false;
             m_VerticalSpeed = 0.0f;
             m_onAirTimer = 0f;
             m_jumped = false;
@@ -421,6 +424,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             }
             else
             {
+                m_applyJumpHorizontalSpeedDivider = true;
                 m_jumpedOnMushroom = true;
                 SetVerticalSpeed(m_mushroomJumpSpeed);
                 m_gravityMushroom = true;
