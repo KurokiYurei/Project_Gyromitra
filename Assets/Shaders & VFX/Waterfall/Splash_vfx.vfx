@@ -17,9 +17,9 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 416
+    x: 402
     y: -190
-    width: 951
+    width: 965
     height: 1906
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -1004,7 +1004,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 0.1
     m_Space: 2147483647
   m_Property:
     name: A
@@ -1038,7 +1038,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: B
@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -1693,7 +1693,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -1942,7 +1942,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -1972,7 +1972,7 @@ MonoBehaviour:
       inputSlot: {fileID: 8926484042661614622}
     - outputSlot: {fileID: 8926484042661614614}
       inputSlot: {fileID: 8926484042661614570}
-    position: {x: 416, y: 460}
+    position: {x: 402.40002, y: 400}
     expandedSlots:
     - {fileID: 8926484042661614614}
     expanded: 1
@@ -2367,7 +2367,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614630}
   m_OutputSlots: []
-  m_Disabled: 1
+  m_Disabled: 0
 --- !u!114 &8926484042661614630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2567,7 +2567,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.03424704447388649,"g":0.4905660152435303,"b":0.08258593082427979,"a":0.0}'
+      m_SerializableObject: '{"r":0.03588462248444557,"g":0.5943396091461182,"b":0.09365589171648026,"a":0.0}'
     m_Space: 2147483647
   m_Property:
     name: Color_
@@ -2802,7 +2802,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.77
+      m_SerializableObject: 0.66
     m_Space: 2147483647
   m_Property:
     name: Erosion_
