@@ -12,6 +12,7 @@ TagManager:
   - PlatformWaypoint
   - MobilePlatform
   - ChangeOcclusion
+  - Tutorial
   layers:
   - Default
   - TransparentFX
