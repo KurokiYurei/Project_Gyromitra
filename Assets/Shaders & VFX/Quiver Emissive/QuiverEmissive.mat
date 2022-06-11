@@ -106,7 +106,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Fill: 0.80350584
+    - _Fill: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -126,7 +126,7 @@ Material:
     - Color_44bfd447a447448a8518b1452b6ce29d: {r: 0, g: 395.9428, b: 766.9961, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 49.5, b: 95.5, a: 127.5}
+    - _EmissionColor: {r: 4.5, g: 95.5, b: 0, a: 127.5}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1448814618860938759

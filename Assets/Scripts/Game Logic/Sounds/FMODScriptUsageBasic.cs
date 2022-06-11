@@ -8,12 +8,12 @@ public class FMODScriptUsageBasic : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/3 - Click", GetComponent<Transform>().position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/1 - Pasar por encima", GetComponent<Transform>().position);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/10 - So de arc tensat", GetComponent<Transform>().position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Enemics/7 - Atac bazooka", GetComponent<Transform>().position);
         }
 
     }
