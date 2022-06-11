@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: QuiverEmissive
-  m_Shader: {fileID: -6465566751694194690, guid: 8c55e445163f76f4ba021e74800bc514, type: 3}
+  m_Name: H_MushroomDissolve
+  m_Shader: {fileID: -6465566751694194690, guid: 0dc5bd11a509e564297689779dd7990e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,16 +19,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_5506d2fe13df475c814d37605413d5f5:
-        m_Texture: {fileID: 2800000, guid: 00e1fc18ceab7144abec4ca85a7e05d0, type: 3}
+    - Texture2D_5a68a6661d6644f2a762fea7326abdea:
+        m_Texture: {fileID: 2800000, guid: 67f2dc52cee9ba748b8eeae0da7400db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Texture2D_75ccb1fd149f4c808abed4b27e7ab480:
-        m_Texture: {fileID: 2800000, guid: ef609f902f0e66d4f919c5503e0cdd64, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_f04b3a60230e4b31a6021cb4517dfd5a:
-        m_Texture: {fileID: 2800000, guid: 0d2882267eed1cc4384b3c6c2ea5f12b, type: 3}
+    - Texture2D_e2719586e93d471a9b37676af996d038:
+        m_Texture: {fileID: 2800000, guid: 9252279430c809f449b7d7bbab8d55fa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -49,10 +45,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Emission:
-        m_Texture: {fileID: 2800000, guid: ef609f902f0e66d4f919c5503e0cdd64, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -92,9 +84,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_1402d96d463f4e06884db0dfc8f38c05: -0.95
-    - Vector1_e0491d6f2d9d400bb2dcf7e012a2992b: 0.5
-    - Vector1_f6fcb9af727b44a19db686e9cab68847: 0.5
+    - Vector1_39f83113f86448bf958a78468a3bb1fd: 50
+    - Vector1_8610c585f5a64fbdb9d0d96f1a507ae6: 1
+    - Vector1_d3a6c2ec13ce4cf797aa21245f2b8621: 0.25
+    - Vector1_fa590fdc373545f18d0a7e5a418a137e: 0.01
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -106,7 +99,6 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Fill: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -123,13 +115,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_44bfd447a447448a8518b1452b6ce29d: {r: 0, g: 395.9428, b: 766.9961, a: 1}
+    - Color_0d677df9e95640f2b2f77a3178f2b6ed: {r: 11.89624, g: 0, b: 5.948118, a: 0}
+    - Color_e76aedb89f474f189b7a4bb2a5d93123: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 4.5, g: 95.5, b: 0, a: 127.5}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &1448814618860938759
+--- !u!114 &3668026387206733158
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
