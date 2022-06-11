@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0fbf33ac-9a37-4f1a-936f-26d2c9d03f4c}">
+		<property name="assetPath">
+			<value>Entorn/4 - So potent de vent.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>70.480000000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e498a2ba-14b1-499a-912e-86aa46699dd5}</destination>
+		</relationship>
+	</object>
+</objects>

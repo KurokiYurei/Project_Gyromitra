@@ -1,0 +1,27 @@
+{987bbe6f-a51f-484f-9d2f-66923ffa1495} bank:/Bank A
+{1604f44c-86fd-4b17-b9bd-778833723a2d} bank:/Master
+{8e19d498-f786-0755-3ff4-fd76c2813cb5} bank:/Master.strings
+{9c28ad60-68eb-49fe-a1e2-a2e30b9c0b4d} bus:/
+{ab4daf68-c318-4f14-b0a6-1143ac0b2f99} bus:/Reverb
+{19be1e33-a860-4e19-9f9f-c1162ea75e49} event:/Ambiental/6 - So de vent
+{8479c864-a7a1-4972-9ad0-742b36bdcb84} event:/Bolet/8 - Rebot horitzontal
+{b0d62855-a2ba-43bf-bd6f-af8cb2a4c3e8} event:/Bolet/9 - Rebot vertical
+{a292da2e-b897-4da8-8a00-1c2dd145b28d} event:/Enemics/7 - Atac bazooka
+{83b05b56-469e-45b2-a153-d519e725d895} event:/Entorn/4 - So potent de vent
+{76210d0e-cfbe-47a3-b4c0-e8162f82069e} event:/Entorn/5 - Bombolles
+{5b8bdc06-5ce5-4e2b-8d10-73a109600689} event:/Personatge/10 - So de arc tensat
+{719458f7-4d47-44c6-9358-3b922e6afb50} event:/Personatge/11 - Impacte fletxa roca
+{2e9944ef-aafe-47ef-9dc7-b5a26edc6180} event:/Personatge/12 - Passes terra
+{fa2286ca-66b4-4663-a2c7-20efdddb7af2} event:/Personatge/13 - Passes roca
+{e6329df7-e340-4bcd-a2b7-2f08e00cc879} event:/Personatge/14 - Enverinat
+{a52c00ea-c1bf-4b0a-ae77-e6f11a402c02} event:/Personatge/15 - Curació
+{0ac56f55-d292-49dd-8ffb-24611dae70ab} event:/Personatge/16 - Low health
+{d2cc1dee-bc75-49b0-aff5-bdbae1cfaec7} event:/Personatge/17 - Death sound
+{c80c82c0-06d2-485b-9ac0-874c7efec647} event:/Personatge/18.1 - Passes fulles
+{13d94c63-5a37-421b-8518-d3359a35e210} event:/Personatge/18.2 - Passes fulles
+{a3e17710-81eb-4d92-84d6-5a6e6bb24093} event:/Personatge/19 - Esbarzer impacte
+{f3408634-4f08-4626-9bdf-7a859254b967} event:/UI/1 - Pasar por encima
+{4d64af37-ed2d-4f9c-a59a-d12454d8da52} event:/UI/2 - Canviar menú
+{2582618d-1ab1-45f1-91e1-2ba0330a03e6} event:/UI/3 - Click
+{3aded44a-5795-4e0e-be99-7838a23ac8cc} vca:/Music
+{380c94ae-4bb0-405a-8d4e-f4c03fd8cec0} vca:/SFX

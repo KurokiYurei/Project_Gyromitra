@@ -5766,8 +5766,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920272877}
-  - component: {fileID: 920272876}
   - component: {fileID: 920272878}
+  - component: {fileID: 920272876}
   m_Layer: 0
   m_Name: FMOD Test
   m_TagString: Untagged
@@ -5790,11 +5790,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1385953985
-      Data2: 1215031860
-      Data3: -1838886488
-      Data4: 1708464036
-    Path: event:/oof
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -5803,8 +5803,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!4 &920272877
 Transform:
   m_ObjectHideFlags: 0
