@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10464,7 +10464,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.26994076, y: 0.0000007064082, z: -0.000000230968}
+  m_ConnectedAnchor: {x: -0.26994073, y: 0.0000007064082, z: -0.000000230968}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -12954,11 +12954,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2625165976612554443, guid: f5d738ec00c76a349ba911843c8b19c8, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2625165977535964171, guid: f5d738ec00c76a349ba911843c8b19c8, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2625165977774799347, guid: f5d738ec00c76a349ba911843c8b19c8, type: 3}
       propertyPath: m_Enabled
@@ -13030,11 +13030,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2625165978283179720, guid: f5d738ec00c76a349ba911843c8b19c8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2625165978502665806, guid: f5d738ec00c76a349ba911843c8b19c8, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5d738ec00c76a349ba911843c8b19c8, type: 3}
@@ -13604,19 +13604,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6651239351279189314, guid: 1da9fe625f73d2347ab9e010d0a518e0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9159884662005848440, guid: 1da9fe625f73d2347ab9e010d0a518e0, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9159884662214027483, guid: 1da9fe625f73d2347ab9e010d0a518e0, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9159884663008732534, guid: 1da9fe625f73d2347ab9e010d0a518e0, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1da9fe625f73d2347ab9e010d0a518e0, type: 3}
