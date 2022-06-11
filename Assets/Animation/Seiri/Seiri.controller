@@ -288,7 +288,7 @@ BlendTree:
     m_DirectBlendParameter: airTimer
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 516759e5bc5eec44ab1bb72b7a7fa79a, type: 3}
+    m_Motion: {fileID: 1827226128182048838, guid: 53dae94f47969444fa3ed61d7dae6d0e, type: 3}
     m_Threshold: 0.16666667
     m_Position: {x: 0, y: 0}
     m_TimeScale: 0.5
@@ -296,7 +296,7 @@ BlendTree:
     m_DirectBlendParameter: airTimer
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 58e7d6e52b814a34db09ee706fc9173c, type: 3}
+    m_Motion: {fileID: 1827226128182048838, guid: cf7d4c83029c3064d9a9891b9abf70ef, type: 3}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1.5
@@ -497,7 +497,7 @@ BlendTree:
     m_DirectBlendParameter: airTimer
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 01c79f97f4c771b43a7a4002009067df, type: 3}
+    m_Motion: {fileID: 1827226128182048838, guid: 52711d8765355c14488c6c5a474b4d53, type: 3}
     m_Threshold: 0.16666667
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -505,7 +505,7 @@ BlendTree:
     m_DirectBlendParameter: airTimer
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: ac313c3b44283ed45b7c78ca489906ed, type: 3}
+    m_Motion: {fileID: 1827226128182048838, guid: 99b47318375fa754697899bb45a7cf42, type: 3}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -598,9 +598,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0.03478739
-  m_ExitTime: 0.7548702
+  m_TransitionDuration: 0.100000024
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9445532
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1267,9 +1267,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.12463319
   m_TransitionOffset: 0
-  m_ExitTime: 0.875
+  m_ExitTime: 0.9376834
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1460,7 +1460,7 @@ BlendTree:
     m_DirectBlendParameter: airTimer
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 3e6b3101cb1d7314aa1441d6c9649931, type: 3}
+    m_Motion: {fileID: 1827226128182048838, guid: 601a94685fb5bfe45accc354bc24b3f7, type: 3}
     m_Threshold: 0.16666667
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1468,7 +1468,7 @@ BlendTree:
     m_DirectBlendParameter: airTimer
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: 9417944252d6c914bb26a90e7cdec5f2, type: 3}
+    m_Motion: {fileID: 1827226128182048838, guid: 0a3cd6f57784a46498ac8a1f4aee85bb, type: 3}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
