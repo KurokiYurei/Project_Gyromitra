@@ -29,6 +29,9 @@ public class CanvasManager : MonoBehaviour
     private GameObject m_mainMenu;
 
     [SerializeField]
+    private Button m_startGame;
+
+    [SerializeField]
     private GameObject m_settingsMenu;
 
     private GameObject m_currentCanvas;
@@ -136,12 +139,12 @@ public class CanvasManager : MonoBehaviour
         if (m_gameManager == null)
         {
             m_gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+            m_startGame.onClick.AddListener(delegate { m_gameManager.LoadGame(); });
         }
 
         if (m_currentCanvas == m_startMenu && Input.anyKeyDown)
         {
             ChangeCanvasToMainMenu();
-            print("ok");
         }
 
     }
@@ -151,16 +154,7 @@ public class CanvasManager : MonoBehaviour
         foreach(Image image in m_buttonsImage)
         {
             image.gameObject.SetActive(false);
-            print("ok");
         }
-    }
-
-    /// <summary>
-    /// Change scene to main game
-    /// </summary>
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     /// <summary>

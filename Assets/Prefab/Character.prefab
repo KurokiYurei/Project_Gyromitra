@@ -110,14 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4058145c2a3054d98ccce2738b0418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_gameManager: {fileID: 0}
   m_pauseMenu: {fileID: 0}
   m_normalCamera: {fileID: 0}
   m_aimCamera: {fileID: 0}
   m_player: {fileID: 7755780748896025751}
   m_MaxPitchDistance: 320
   m_MinPitchDistance: 60
-  m_mouseSensitivity: 0
-  m_gamepadSensitivity: 0
 --- !u!114 &2088056525804381024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,10 +400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c51a368e38a6ba41aa206edd3b3f407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_reloadTime: 0.2
   m_arrowSpawnPoint: {fileID: 7755780748525513632}
   m_camera: {fileID: 0}
-  m_crosshair: {fileID: 7755780748050310100}
   m_layerMask:
     serializedVersion: 2
     m_Bits: 8182
@@ -942,6 +939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camController: {fileID: 2088056525804381030}
   m_FollowRot: {fileID: 2088056525804381029}
+  m_lateralSpeedMultiplier: 0.8
+  m_backwardsSpeedMultiplier: 0.5
   m_WalkSpeed: 10
   m_OnGround: 0
   m_JumpSpeed: 7.7
@@ -966,6 +965,12 @@ MonoBehaviour:
   m_occlusionCamera: {fileID: 0}
   m_fovInArea: 0
   m_fovOutArea: 0
+  m_animController: {fileID: 0}
+  m_currentInputVector: {x: 0, y: 0}
+  m_smoothInputVelocity: {x: 0, y: 0}
+  m_smoothInputSpeed: 0.1
+  m_fallShakeIntensity: 0
+  m_fallShakeTime: 0
 --- !u!114 &7755780748896025749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,6 +989,7 @@ MonoBehaviour:
   m_minFirePower: 70
   m_firePowerSpeed: 50
   m_firePower: 0
+  m_reloadTime: 0
   m_UI: {fileID: 7755780749442266394}
   m_minRadius: 0
   m_maxRadius: 0
@@ -999,6 +1005,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  m_arrowVFX: {fileID: 0}
 --- !u!114 &968741341091409012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,6 +1020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_slowAmount: 0.2
   m_slowLength: 2
+  m_pauseMenu: {fileID: 0}
 --- !u!114 &7755780748896025748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1058,6 +1066,10 @@ MonoBehaviour:
   m_timerToRegen: 0
   m_tickPerSecondHealth: 0
   m_ui: {fileID: 7755780749442266394}
+  m_quiverShader: {fileID: 0}
+  m_healthColorLimit: 0
+  m_fullHealthColor: {r: 0, g: 0, b: 0, a: 0}
+  m_damagedHealthColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &7755780749006743964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1209,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &7755780749116893879
 MonoBehaviour:
@@ -1299,7 +1311,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: -2099531829
-  m_SortingOrder: 100
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &7755780749442266388
 MonoBehaviour:
