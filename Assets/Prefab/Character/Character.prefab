@@ -3983,12 +3983,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camController: {fileID: 8640378253077450397}
   m_FollowRot: {fileID: 8640378253077450399}
-  m_lateralSpeedMultiplier: 0.6
+  m_lateralSpeedMultiplier: 0.7
   m_backwardsSpeedMultiplier: 0.5
   m_WalkSpeed: 10
   m_OnGround: 0
-  m_JumpSpeed: 6
-  m_jumpHorizontalSpeedDivider: 2
+  m_JumpSpeed: 6.5
+  m_jumpHorizontalSpeedDivider: 0.75
   m_VerticalSpeed: 0
   m_fallGravityMultiplier: 3
   m_speedToFallDamage: 20

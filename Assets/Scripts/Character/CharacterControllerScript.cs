@@ -30,7 +30,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private float m_JumpSpeed = 7.7f;
 
     [SerializeField]
-    private float m_jumpHorizontalSpeedDivider = 2f;
+    private float m_jumpHorizontalSpeedDivider = 0.75f;
 
     [SerializeField]
     private float m_VerticalSpeed = 0.0f;
@@ -267,7 +267,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
             if (m_jumped)
             {
-                l_Speed /= m_jumpHorizontalSpeedDivider;
+                l_Speed *= m_jumpHorizontalSpeedDivider;
             }
 
             //l_Movement.Normalize();
@@ -484,6 +484,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         m_bounceDirection = dir;
         m_bounceDirection.Normalize();
+        m_bounceDirection.y = 0f;
         m_bounceTimer = 0;
         if (m_OnGround)
         {
