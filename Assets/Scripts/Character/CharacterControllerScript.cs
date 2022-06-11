@@ -274,8 +274,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
             //l_Movement.Normalize();
             l_Movement *= l_Speed * Time.deltaTime;
-
-            print(l_Movement);
         }
         else
         {

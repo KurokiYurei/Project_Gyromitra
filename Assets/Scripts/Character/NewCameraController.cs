@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class NewCameraController : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class NewCameraController : MonoBehaviour
     [SerializeField]
     private float m_MinPitchDistance = 60f;
 
+    public void SetNormalCameraDamping(float damp)
+    {
+        m_normalCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>().Damping.y = damp;
+    }
     public void SetIsAiming(bool l_isAiming)
     {
         if (l_isAiming)

@@ -66,7 +66,6 @@ public class EnemyMovement : MonoBehaviour
         transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
         bool isRight = GetRotateDirection(transform.rotation, lookDirection);
         m_animator.SetBool("TurnR", isRight);
-        print(isRight);
     }
     bool GetRotateDirection(Quaternion from, Quaternion to)
     {

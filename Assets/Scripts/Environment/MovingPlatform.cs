@@ -86,6 +86,7 @@ public class MovingPlatform : MonoBehaviour
             other.transform.GetComponent<CharacterController>().enabled = false;
             other.transform.SetParent(gameObject.transform);
             other.transform.GetComponent<CharacterController>().enabled = true;
+            other.transform.GetComponentInChildren<NewCameraController>().SetNormalCameraDamping(0f);
         }
     }
 
@@ -97,6 +98,7 @@ public class MovingPlatform : MonoBehaviour
             other.transform.GetComponent<CharacterController>().enabled = false;
             other.transform.parent = null;
             other.transform.GetComponent<CharacterController>().enabled = true;
+            other.transform.GetComponentInChildren<NewCameraController>().SetNormalCameraDamping(0.5f);
         }
     }
     private void Move()
