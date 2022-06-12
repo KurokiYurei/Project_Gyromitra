@@ -27,8 +27,8 @@ TagManager:
   - EnemyProjectiles
   - Enemies
   - IgnoreCamera
-  - 
-  - 
+  - LayerMask
+  - SeeThrough
   - 
   - 
   - 
