@@ -71,7 +71,15 @@ public class WeaponController : MonoBehaviour
     private GameObject m_arrowVFX;
 
     [Header("FMOD")]
-    EventInstance instanceEvent;
+    [SerializeField]
+    private Transform m_soundEmitter;
+
+    [SerializeField]
+    private EventInstance m_eventChargeBow;
+
+    [SerializeField]
+    private EventInstance m_eventReleaseBow;
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -87,6 +95,10 @@ public class WeaponController : MonoBehaviour
         m_SpeedCircle = 5f;
         m_maxSpeedCircle = 100f;
         m_minSpeedCircle = 50f;
+
+        m_eventChargeBow = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/10 - So de arc tensat");
+        m_eventReleaseBow = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/10.2 - Arrow release");
+
     }
 
     private void Update()
@@ -96,14 +108,16 @@ public class WeaponController : MonoBehaviour
         {
             m_firePower = m_minFirePower;
             m_fire = true;
+
+            // charge bow sound
+
+            playSound(m_eventChargeBow);
         }
 
         if (m_fire)
         {
             m_animController.AnimationAiming(true);
             m_arrowVFX.SetActive(true);
-
-            instanceEvent = new EventInstance();
 
             if (Time.timeScale > 0f)
             {
@@ -145,6 +159,11 @@ public class WeaponController : MonoBehaviour
 
         if (m_shootArrow.WasReleasedThisFrame() && m_fire)
         {
+            // release arrow
+
+            stopSound(m_eventChargeBow);
+            playSound(m_eventReleaseBow);
+
             if (m_firePower >= m_maxFirePower)
             {
                 m_animController.AnimationShootLong();
@@ -187,5 +206,16 @@ public class WeaponController : MonoBehaviour
         if (m_currentRadius >= m_maxRadius) m_currentRadius = m_maxRadius;
         if (m_SpeedCircle <= m_minSpeedCircle) m_SpeedCircle = m_minSpeedCircle;
         if (m_SpeedCircle >= m_maxSpeedCircle) m_SpeedCircle = m_maxSpeedCircle;
+    }
+
+    private void playSound(EventInstance l_event)
+    {
+        l_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(m_soundEmitter.transform));
+        l_event.start();
+    }
+
+    private void stopSound(EventInstance l_event)
+    {
+        l_event.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }

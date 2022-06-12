@@ -169,6 +169,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         m_fovInArea = 80f;
         m_fovOutArea = 40f;
     }
+
     void Start()
     {
         m_startPos = transform.position;
@@ -338,7 +339,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         if (m_onAirTimer > 1f)
         {
             m_jumped = true;
-        }        
+        }
     }
 
     private Vector3 AdjustVelocityToSlope(Vector3 velocity)
