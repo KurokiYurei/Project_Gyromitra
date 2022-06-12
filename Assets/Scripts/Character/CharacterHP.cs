@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,6 +33,18 @@ public class CharacterHP : MonoBehaviour, IDamagable
     private Color m_fullHealthColor;
     [SerializeField]
     private Color m_damagedHealthColor;
+
+    [Header("FMOD")]
+    [SerializeField]
+    private Transform m_soundEmitter;
+
+    [SerializeField]
+    private EventInstance m_eventDie;
+
+    private void Awake()
+    {
+        m_eventDie = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/17 - Death sound");
+    }
 
     void Start()
     {
@@ -83,9 +96,15 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_health -= damage;
         if (m_health <= m_minHealth)
         {
-            //gameObject.GetComponent<CharacterControllerScript>().m_gameManager.RestartGame();
-            GameManagerScript.m_instance.RestartGame();
+            StartCoroutine(waitToDie());
+            UtilsGyromitra.playSound(m_eventDie, m_soundEmitter);
         }
+    }
+
+    IEnumerator waitToDie()
+    {
+        yield return new WaitForSeconds(1);
+        GameManagerScript.m_instance.RestartGame();
     }
 
     /// <summary>
