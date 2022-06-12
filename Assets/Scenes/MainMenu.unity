@@ -1665,6 +1665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 913813574}
+  m_gameManager: {fileID: 1286680384}
 --- !u!1 &898047346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2759,6 +2760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 1843935818}
+  m_gameManager: {fileID: 1286680384}
 --- !u!1 &1191396736
 GameObject:
   m_ObjectHideFlags: 0
@@ -3441,6 +3443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 1543275038}
+  m_gameManager: {fileID: 1286680384}
 --- !u!1 &1439943781
 GameObject:
   m_ObjectHideFlags: 0
@@ -4082,6 +4085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 1870907225}
+  m_gameManager: {fileID: 1286680384}
 --- !u!1 &1623274376
 GameObject:
   m_ObjectHideFlags: 0
@@ -4230,6 +4234,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
+      propertyPath: m_soundEmitter
+      value: 
+      objectReference: {fileID: 2017802353}
     - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
       propertyPath: m_settings.m_fullScreen
       value: 1
@@ -4437,6 +4445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 2050165198}
+  m_gameManager: {fileID: 1286680384}
 --- !u!1 &1750321198
 GameObject:
   m_ObjectHideFlags: 0
@@ -5365,6 +5374,7 @@ GameObject:
   - component: {fileID: 2017802352}
   - component: {fileID: 2017802354}
   - component: {fileID: 2017802351}
+  - component: {fileID: 2017802355}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5476,6 +5486,36 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &2017802355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017802350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &2030246828
 GameObject:
   m_ObjectHideFlags: 0

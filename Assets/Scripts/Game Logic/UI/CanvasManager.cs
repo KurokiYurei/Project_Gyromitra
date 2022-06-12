@@ -151,7 +151,7 @@ public class CanvasManager : MonoBehaviour
 
     private void DisableButtonImages()
     {
-        foreach(Image image in m_buttonsImage)
+        foreach (Image image in m_buttonsImage)
         {
             image.gameObject.SetActive(false);
         }
@@ -179,6 +179,8 @@ public class CanvasManager : MonoBehaviour
         m_mainBackground.gameObject.SetActive(false);
         m_settingsBackground.gameObject.SetActive(false);
         DisableButtonImages();
+
+        m_gameManager.OnChangeMenuPlaySound();
     }
 
     /// <summary>
@@ -195,6 +197,8 @@ public class CanvasManager : MonoBehaviour
         m_mainBackground.gameObject.SetActive(true);
         m_settingsBackground.gameObject.SetActive(false);
         DisableButtonImages();
+
+        m_gameManager.OnChangeMenuPlaySound();
     }
 
     /// <summary>
@@ -212,6 +216,8 @@ public class CanvasManager : MonoBehaviour
         m_settingsBackground.gameObject.SetActive(true);
         UpdateValuesSettings();
         DisableButtonImages();
+
+        m_gameManager.OnChangeMenuPlaySound();
     }
 
     /// <summary>

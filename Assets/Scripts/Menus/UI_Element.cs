@@ -9,12 +9,21 @@ public class UI_Element : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private bool m_active;
 
+    [SerializeField]
+    private GameManagerScript m_gameManager;
+
     private void Update()
     {
+        if (m_gameManager == null)
+        {
+            m_gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        }
+
         if (m_active)
         {
             m_image.gameObject.SetActive(true);
-        } else
+        }
+        else
         {
             m_image.gameObject.SetActive(false);
         }
@@ -23,6 +32,7 @@ public class UI_Element : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         m_active = true;
+        m_gameManager.OnHoverPlaySound();
     }
 
     public void OnPointerExit(PointerEventData eventData)

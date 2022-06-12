@@ -34,6 +34,7 @@ public class Settings
     public float SensitivityMouse { get => m_sensitivityMouse; set => m_sensitivityMouse = value; }
     public float SensitivityController { get => m_sensitivityController; set => m_sensitivityController = value; }
 
+
     public Settings()
     {
         Resoution = new ResolutionString(1920, 1080);
@@ -59,14 +60,26 @@ public class GameManagerScript : MonoBehaviour
     [Header("FMOD")]
     public FMOD.Studio.VCA VCAMusic;
     public FMOD.Studio.VCA VCASFX;
-    
+
+    [SerializeField]
+    private Transform m_soundEmitter;
+
+    [SerializeField]
+    private EventInstance m_eventClick;
+
+    [SerializeField]
+    private EventInstance m_eventHover;
+
+    [SerializeField]
+    private EventInstance m_eventChangeMenu;
+
     [Header("Loading Screen")]
     [SerializeField]
     private GameObject m_logo;
 
     [SerializeField]
-    private GameObject m_background;    
-    
+    private GameObject m_background;
+
     [SerializeField]
     private GameObject m_loadingScreenGame;
 
@@ -91,7 +104,8 @@ public class GameManagerScript : MonoBehaviour
         if (m_instance != null)
         {
             Destroy(gameObject);
-        } else
+        }
+        else
         {
             m_instance = this;
             m_RestartGameElements = new List<IRestartGameElement>();
@@ -103,6 +117,10 @@ public class GameManagerScript : MonoBehaviour
 
             DontDestroyOnLoad(gameObject);
         }
+
+        m_eventClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/3 - Click");
+        m_eventHover = FMODUnity.RuntimeManager.CreateInstance("event:/UI/1 - Pasar por encima");
+        m_eventChangeMenu = FMODUnity.RuntimeManager.CreateInstance("event:/UI/2 - Canviar menú");
 
     }
 
@@ -149,14 +167,14 @@ public class GameManagerScript : MonoBehaviour
 
     public IEnumerator GetSceneLoadProgress()
     {
-        for(int i = 0; i< m_scenesLoading.Count; i++)
+        for (int i = 0; i < m_scenesLoading.Count; i++)
         {
-            while(!m_scenesLoading[i].isDone)
+            while (!m_scenesLoading[i].isDone)
             {
 
                 m_totalSceneProgress = 0;
 
-                foreach(AsyncOperation l_operation in m_scenesLoading)
+                foreach (AsyncOperation l_operation in m_scenesLoading)
                 {
                     m_totalSceneProgress += l_operation.progress;
                 }
@@ -173,6 +191,21 @@ public class GameManagerScript : MonoBehaviour
             m_loadingScreenGame.SetActive(false);
 
         }
-     }
+    }
+
+    public void OnClickPlaySound()
+    {
+        UtilsGyromitra.playSound(m_eventClick, m_soundEmitter);
+    }
+
+    public void OnHoverPlaySound()
+    {
+        UtilsGyromitra.playSound(m_eventHover, m_soundEmitter);
+    }
+
+    public void OnChangeMenuPlaySound()
+    {
+        UtilsGyromitra.playSound(m_eventChangeMenu, m_soundEmitter);
+    }
 }
 
