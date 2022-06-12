@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{360f25b0-f7d0-417e-9cb5-04fff9c4ce2d}">
+		<property name="assetPath">
+			<value>Personatge/12.2 - Passes terra.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>3.8403125</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e498a2ba-14b1-499a-912e-86aa46699dd5}</destination>
+		</relationship>
+	</object>
+</objects>
