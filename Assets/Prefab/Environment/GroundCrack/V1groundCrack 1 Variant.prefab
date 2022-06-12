@@ -59,13 +59,37 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 761160469541687907, guid: e03d43df9cc614943b746377bb0ae857, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 761160469541687907, guid: e03d43df9cc614943b746377bb0ae857, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e03d43df9cc614943b746377bb0ae857, type: 3}
       propertyPath: m_Name
-      value: V1groundCrack 1
+      value: V1groundCrack 1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1562938802115786027, guid: e03d43df9cc614943b746377bb0ae857, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4f9255830a16f874ab7b8b09ea09cb55, type: 2}
+    - target: {fileID: 3625522047068372281, guid: e03d43df9cc614943b746377bb0ae857, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625522047068372281, guid: e03d43df9cc614943b746377bb0ae857, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811913720168725678, guid: e03d43df9cc614943b746377bb0ae857, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811913720168725678, guid: e03d43df9cc614943b746377bb0ae857, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e03d43df9cc614943b746377bb0ae857, type: 3}
