@@ -108,6 +108,10 @@ public class WeaponController : MonoBehaviour
         {
             m_firePower = m_minFirePower;
             m_fire = true;
+
+            // charge bow sound
+
+            playSound(m_eventChargeBow);
         }
 
         if (m_fire)
