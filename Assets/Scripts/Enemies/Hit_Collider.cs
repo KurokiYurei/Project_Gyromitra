@@ -43,7 +43,14 @@ public class Hit_Collider : MonoBehaviour
             {
                 m_enemy.m_mushroomImpact = true;
             }
-            collision.transform.GetComponent<Mushroom>().DestroyMushroom();
+            StartCoroutine(Destroy(collision.transform.GetComponent<Mushroom>()));
         }
+    }
+
+    IEnumerator Destroy(Mushroom mushroom)
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        mushroom.DestroyMushroom();
     }
 }

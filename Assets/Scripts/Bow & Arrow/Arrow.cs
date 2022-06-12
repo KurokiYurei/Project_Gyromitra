@@ -36,6 +36,7 @@ public class Arrow : MonoBehaviour
             {
                 l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(false);
                 l_mushroom.GetComponent<Mushroom>().SetCurrentTime(0f);
+                l_mushroom.GetComponent<Mushroom>().transform.localScale = new Vector3(0, 0, 0);
                 l_mushroom.transform.position = collision.contacts[0].point;
                 l_mushroom.transform.forward = new Vector3(collision.contacts[0].normal.x, 0, collision.contacts[0].normal.z);
 
@@ -52,8 +53,9 @@ public class Arrow : MonoBehaviour
             }
             else //NORMAL MUSHROOM
             {
-                l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(true);
+                l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(true); 
                 l_mushroom.GetComponent<Mushroom>().SetCurrentTime(0f);
+                l_mushroom.GetComponent<Mushroom>().transform.localScale = new Vector3(0, 0, 0);
                 l_mushroom.transform.position = collision.contacts[0].point;
 
                 if (collision.transform.CompareTag(UtilsGyromitra.SearchForTag(m_mobilePlatformTag)))
@@ -67,8 +69,6 @@ public class Arrow : MonoBehaviour
 
                 l_mushroom.SetActive(true);
             }
-
-            l_mushroom.GetComponent<Mushroom>().PlaySpawnAnimation();
         }
 
         if (collision.transform.CompareTag(m_enemyTag))

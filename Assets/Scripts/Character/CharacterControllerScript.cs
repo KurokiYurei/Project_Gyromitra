@@ -180,6 +180,10 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     void Update()
     {
+        //print(m_mushroomPool.m_ActiveElementsList.Count);
+        print(m_mushroomPool.m_CurrentAmount);
+        m_mushroomPool.m_CurrentAmount = m_mushroomPool.m_ActiveElementsList.Count;
+
         Jump();
 
         if(m_brambleInvulnerabilityTimer > 0)
@@ -419,10 +423,12 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             if (hit.normal.y < 0.5f)
             {
+                hit.gameObject.GetComponent<Mushroom>().PlayHorizontalBounceAnim();
                 SetBounceParameters(hit.transform.position - transform.position, m_mushroomBouncePower, m_mushroomBounceDuration, 0f);
             }
             else
             {
+                hit.gameObject.GetComponent<Mushroom>().PlayVerticalBounceAnim();
                 m_applyJumpHorizontalSpeedDivider = true;
                 m_jumpedOnMushroom = true;
                 SetVerticalSpeed(m_mushroomJumpSpeed);

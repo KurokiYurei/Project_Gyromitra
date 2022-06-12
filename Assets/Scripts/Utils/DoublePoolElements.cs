@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DoublePoolElements
 {
-    public List<GameObject> m_ElementsList;
+    public List<GameObject> m_Element1List;
+    public List<GameObject> m_Element2List;
     public List<GameObject> m_ActiveElementsList;
     private int m_CurrentElementId1;
     private int m_CurrentElementId2;
@@ -20,20 +21,24 @@ public class DoublePoolElements
     /// <param name="prefab2"></param>
     public DoublePoolElements(int count, Transform parent, GameObject prefab1, GameObject prefab2)
     {
-        m_ElementsList = new List<GameObject>();
+        m_Element1List = new List<GameObject>();
+        m_Element2List = new List<GameObject>();
         m_ActiveElementsList = new List<GameObject>();
         m_CurrentElementId1 = 0;
-        m_CurrentElementId2 = 1;
+        m_CurrentElementId2 = 0;
         m_MaxAmount = count;
 
         for (int i = 0; i < count; i++)
         {
             GameObject l_Element1 = GameObject.Instantiate(prefab1, parent);
             l_Element1.SetActive(false);
-            m_ElementsList.Add(l_Element1);
+            m_Element1List.Add(l_Element1);
+        }
+        for (int i = 0; i < count; i++)
+        {
             GameObject l_Element2 = GameObject.Instantiate(prefab2, parent);
             l_Element2.SetActive(false);
-            m_ElementsList.Add(l_Element2);
+            m_Element2List.Add(l_Element2);
         }
     }
 
@@ -44,30 +49,29 @@ public class DoublePoolElements
     /// <returns></returns>
     public GameObject GetNextElement(bool firstElement)
     {
-        if (m_CurrentAmount < m_MaxAmount)
+        if(m_CurrentAmount >= m_MaxAmount)
         {
-            m_CurrentAmount++;
-        }
-        else
-        {
-            for (int i = 0; i < m_ActiveElementsList.Count; i++)
-            {
-                if (m_ActiveElementsList[i].activeSelf)
-                {
-                    m_ActiveElementsList[i].SetActive(false);
-                    m_ActiveElementsList.RemoveAt(i);
-                    break;
-                }
-            }
-        }
+            m_ActiveElementsList[0].SetActive(false);
+            m_ActiveElementsList.RemoveAt(0);
 
+            //for (int i = 0; i < m_ActiveElementsList.Count; i++)
+            //{
+            //    if (m_ActiveElementsList[i].activeSelf)
+            //    {
+            //        m_ActiveElementsList[i].SetActive(false);
+            //        m_ActiveElementsList.RemoveAt(0);
+            //        break;
+            //    }
+            //}
+        }
+            
         if (firstElement)
         {
-            GameObject l_Element = m_ElementsList[m_CurrentElementId1];
+            GameObject l_Element = m_Element1List[m_CurrentElementId1];
             m_ActiveElementsList.Add(l_Element);
-            m_CurrentElementId1 += 2;
+            m_CurrentElementId1 += 1;
 
-            if (m_CurrentElementId1 >= m_ElementsList.Count)
+            if (m_CurrentElementId1 >= m_Element1List.Count)
             {
                 m_CurrentElementId1 = 0;
             }
@@ -76,20 +80,16 @@ public class DoublePoolElements
         }
         else
         {
-            GameObject l_Element = m_ElementsList[m_CurrentElementId2];
+            GameObject l_Element = m_Element2List[m_CurrentElementId2];
             m_ActiveElementsList.Add(l_Element);
-            m_CurrentElementId2 += 2;
+            m_CurrentElementId2 += 1;
 
-            if (m_CurrentElementId2 >= m_ElementsList.Count)
+            if (m_CurrentElementId2 >= m_Element2List.Count)
             {
-                m_CurrentElementId2 = 1;
+                m_CurrentElementId2 = 0;
             }
 
             return l_Element;
         }
     }
-
-    //S'HAURA DE AFEGIR CODI PER RESETEJAR LA POOL QUAN SIGUI NECESARI, AIXO JA PER LA ALPHA I GUESS
-    // zi :)
-    // ho sento pau del futur
 }

@@ -8,24 +8,30 @@ public class Mushroom : MonoBehaviour
     private float m_currentTime;
 
     [SerializeField]
-    private Animation m_animation;
+    private Vector3 targetscale;
+
     [SerializeField]
-    private AnimationClip m_spawnClip;
+    private Animator m_animator;
 
     void Update()
     {
         if (m_currentTime >= m_timeToDestroy)
         {
-            DestroyMushroom();        
+            DestroyMushroom();
         }
         m_currentTime += Time.deltaTime;
+
+        if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Appearing"))
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, targetscale, m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        }
     }
 
     public void DestroyMushroom()
     {
         gameObject.SetActive(false);
-        CharacterControllerScript.GetMushroomPool().m_ActiveElementsList.Remove(gameObject);
-        CharacterControllerScript.GetMushroomPool().m_CurrentAmount -= 1;
+        CharacterControllerScript.GetMushroomPool().m_ActiveElementsList.RemoveAt(0);
+        //CharacterControllerScript.GetMushroomPool().m_CurrentAmount -= 1;
 
         m_currentTime = 0.0f;
     }
@@ -35,13 +41,13 @@ public class Mushroom : MonoBehaviour
         m_currentTime = value;
     }
 
-    public void PlayMushroomAnimation(AnimationClip l_clip)
+    public void PlayHorizontalBounceAnim()
     {
-        m_animation.Play(l_clip.name);        
+        m_animator.SetTrigger("HorizontalBounce");        
     }
 
-    public void PlaySpawnAnimation()
+    public void PlayVerticalBounceAnim()
     {
-        PlayMushroomAnimation(m_spawnClip);
+        m_animator.SetTrigger("VerticalBounce");
     }
 }
