@@ -1,3 +1,5 @@
+using FMOD;
+using FMODUnity;
 using FMOD.Studio;
 using System;
 using System.Collections;
@@ -119,8 +121,8 @@ public class GameManagerScript : MonoBehaviour
         }
 
         m_eventClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/3 - Click");
-        m_eventHover = FMODUnity.RuntimeManager.CreateInstance("event:/UI/1 - Pasar por encima");
-        m_eventChangeMenu = FMODUnity.RuntimeManager.CreateInstance("event:/UI/2 - Canviar menú");
+        m_eventHover = FMODUnity.RuntimeManager.CreateInstance("event:/UI/3 - Click");
+        m_eventChangeMenu = FMODUnity.RuntimeManager.CreateInstance("event:/UI/3 - Click");
 
     }
 
@@ -195,16 +197,19 @@ public class GameManagerScript : MonoBehaviour
 
     public void OnClickPlaySound()
     {
+        print("click");
         UtilsGyromitra.playSound(m_eventClick, m_soundEmitter);
     }
 
     public void OnHoverPlaySound()
     {
+        print("hover");
         UtilsGyromitra.playSound(m_eventHover, m_soundEmitter);
     }
 
     public void OnChangeMenuPlaySound()
     {
+        print("change menu");
         UtilsGyromitra.playSound(m_eventChangeMenu, m_soundEmitter);
     }
 }
