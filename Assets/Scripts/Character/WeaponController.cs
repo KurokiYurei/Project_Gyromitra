@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD;
+using FMODUnity;
+using FMOD.Studio;
 
 public class WeaponController : MonoBehaviour
 {
@@ -50,7 +53,7 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField]
     private float m_SpeedCircle;
-    
+
     private float m_maxSpeedCircle;
     private float m_minSpeedCircle;
 
@@ -66,6 +69,9 @@ public class WeaponController : MonoBehaviour
     [Header("VFX")]
     [SerializeField]
     private GameObject m_arrowVFX;
+
+    [Header("FMOD")]
+    EventInstance instanceEvent;
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -96,6 +102,8 @@ public class WeaponController : MonoBehaviour
         {
             m_animController.AnimationAiming(true);
             m_arrowVFX.SetActive(true);
+
+
             if (Time.timeScale > 0f)
             {
                 if (m_firePower < m_maxFirePower)
@@ -136,7 +144,7 @@ public class WeaponController : MonoBehaviour
 
         if (m_shootArrow.WasReleasedThisFrame() && m_fire)
         {
-            if(m_firePower >= m_maxFirePower)
+            if (m_firePower >= m_maxFirePower)
             {
                 m_animController.AnimationShootLong();
                 m_weapon.FireArrow(m_firePower, false);
@@ -150,9 +158,9 @@ public class WeaponController : MonoBehaviour
             m_fire = false;
         }
 
-        if(m_reloadTimer >= 0)
+        if (m_reloadTimer >= 0)
         {
-            if(Time.timeScale > 0f)
+            if (Time.timeScale > 0f)
             {
                 m_reloadTimer -= Time.deltaTime / Time.timeScale;
             }
