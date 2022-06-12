@@ -39,6 +39,8 @@ public class EnemyShoot : MonoBehaviour
 
     public Animator m_animator;
 
+    public bool is_aiming;
+
     public void setPlayer(GameObject l_player)
     {
         m_player = l_player;
@@ -81,11 +83,12 @@ public class EnemyShoot : MonoBehaviour
 
     private void LockOnPlayer()
     {
-        if (!m_ray.enabled)
+        if (!m_ray.enabled) 
         {
             if(m_animator.GetCurrentAnimatorStateInfo(0).IsName("Aiming") && m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
                 m_ray.enabled = true;
+                is_aiming = true;
             }
         }
         else
@@ -132,6 +135,7 @@ public class EnemyShoot : MonoBehaviour
             m_ray.enabled = false;
             m_alreadyLocked = false;
             m_canLock = false;
+            is_aiming = false;
         }
     }
     private void Shoot(Vector3 dir)

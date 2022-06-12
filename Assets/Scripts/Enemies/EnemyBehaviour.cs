@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.VFX;
+using FMOD.Studio;
 
 
 [RequireComponent(typeof(EnemyMovement))]
@@ -63,6 +64,15 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
     [SerializeField]
     private Material m_golemMaterial;
 
+    [Header("FMOD")]
+    [SerializeField]
+    private Transform m_soundEmitter;
+
+    [SerializeField]
+    private EventInstance m_enemyAimSound;
+
+    private bool m_played;
+
     public void SetMushroomHit(bool value)
     {
         m_mushroomImpact = value;
@@ -95,6 +105,11 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
         m_golemMaterial.SetColor("_EmissionColor", new Color(56, 0, 116, 100)*0.01f);
 
         GameManagerScript.m_instance.AddRestartGameElement(this);
+
+        m_enemyAimSound = FMODUnity.RuntimeManager.CreateInstance("event:/Enemics/7 - Atac bazooka");
+
+        m_played = false;
+
     }
 
     private void Update()
@@ -131,6 +146,20 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 break;
 
             case State.ATTACK:
+
+                if (m_enemyShoot.is_aiming)
+                {
+                    if (!m_played)
+                    {
+                        playSound(m_enemyAimSound);
+                    }
+
+                    m_played = true;
+
+                } else
+                {
+                    stopSound(m_enemyAimSound);
+                }
 
                 if (m_hp.m_health <= 0f) ChangeState(State.DEATH);
 
@@ -187,6 +216,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
                 break;
         }
+
+        print("Aiming : " + m_enemyShoot.is_aiming);
+        print("Played : " + m_played);
     }
 
     private void ChangeState(State l_newState)
@@ -231,6 +263,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 m_animator.SetLayerWeight(1, 1);
                 m_animator.SetBool("Aiming", true);
                 m_enemyShoot.setPlayer(m_player);
+                m_played = false;
                 break;
                     
             case State.STUN:
@@ -255,5 +288,16 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
         transform.position = m_startPos;
         transform.rotation = m_startRot;
         m_enemyMovement.m_navMeshAgent.enabled = true;
+    }
+
+    private void playSound(EventInstance l_event)
+    {
+        l_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(m_soundEmitter.transform));
+        l_event.start();
+    }
+
+    private void stopSound(EventInstance l_event)
+    {
+        l_event.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }
