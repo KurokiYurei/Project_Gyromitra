@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,13 @@ public class Poison : MonoBehaviour
     [SerializeField]
     private CharacterHP m_playerHealth;
 
+    [Header("FMOD")]
+    [SerializeField]
+    private Transform m_soundEmitter;
+
+    [SerializeField]
+    private EventInstance m_eventPoison;
+
     private void Awake()
     {
         m_durationVenom = 3f;
@@ -39,6 +47,8 @@ public class Poison : MonoBehaviour
         m_playerIsIn = false;
 
         m_playerTag = UtilsGyromitra.SearchForTag("Player");
+
+        m_eventPoison = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/14 - Enverinat");
 
         //m_player = GameObject.FindGameObjectWithTag(m_playerTag).GetComponent<CharacterControllerScript>();
 
@@ -78,6 +88,7 @@ public class Poison : MonoBehaviour
             {
                 // do dmg
                 m_currentVenomDamageTimer = m_venomDamageTimer;
+                UtilsGyromitra.playSound(m_eventPoison, m_soundEmitter);
                 m_playerHealth.Damage(m_damage);
             }
         } 
@@ -88,6 +99,7 @@ public class Poison : MonoBehaviour
         if (other.tag == m_playerTag)
         {
             m_playerIsIn = true;
+            m_soundEmitter = other.transform;
         }
     }
 
