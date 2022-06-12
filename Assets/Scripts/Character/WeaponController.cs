@@ -103,6 +103,7 @@ public class WeaponController : MonoBehaviour
             m_animController.AnimationAiming(true);
             m_arrowVFX.SetActive(true);
 
+            instanceEvent = new EventInstance();
 
             if (Time.timeScale > 0f)
             {
