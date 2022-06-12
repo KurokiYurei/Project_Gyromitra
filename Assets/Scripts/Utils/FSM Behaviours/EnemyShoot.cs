@@ -52,6 +52,8 @@ public class EnemyShoot : MonoBehaviour
     public void ResetShoot()
     {
         m_cadenceShoot = 0f;
+        m_alreadyLocked = false;
+        m_ray.material.color = Color.blue;
     }
 
     void Start()
