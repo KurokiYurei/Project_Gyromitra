@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{10f785dc-d6ee-4338-9f47-72c084d50a2c}">
+	<object class="AudioFile" id="{65ae4bcf-9a0d-41d4-9216-653d04b11d3f}">
 		<property name="assetPath">
-			<value>Personatge/15 - Curació.wav</value>
+			<value>Personatge/16 - Low health.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>96</value>
 		</property>
 		<property name="channelCount">
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>139.51473922902494</value>
+			<value>15.143895833333334</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{e498a2ba-14b1-499a-912e-86aa46699dd5}</destination>
