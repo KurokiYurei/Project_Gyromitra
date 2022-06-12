@@ -981,6 +981,7 @@ GameObject:
   - component: {fileID: 8928039843230248085}
   - component: {fileID: 254196345577599050}
   - component: {fileID: 368984347204711708}
+  - component: {fileID: 6543854067119870789}
   m_Layer: 0
   m_Name: Mushroom_Wall
   m_TagString: Mushroom
@@ -1020,6 +1021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetscale: {x: 1.5, y: 1.2, z: 1.5}
   m_animator: {fileID: 1967581422203047387}
+  m_soundEmitter: {fileID: 8928039843230248085}
 --- !u!135 &368984347204711708
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1033,6 +1035,36 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.37473163
   m_Center: {x: 0, y: 0.62, z: 0.63}
+--- !u!114 &6543854067119870789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7242151149131114434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &7498121813671934153
 GameObject:
   m_ObjectHideFlags: 0

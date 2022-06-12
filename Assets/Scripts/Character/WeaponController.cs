@@ -111,7 +111,7 @@ public class WeaponController : MonoBehaviour
 
             // charge bow sound
 
-            playSound(m_eventChargeBow);
+            UtilsGyromitra.playSound(m_eventChargeBow, m_soundEmitter);
         }
 
         if (m_fire)
@@ -161,8 +161,8 @@ public class WeaponController : MonoBehaviour
         {
             // release arrow
 
-            stopSound(m_eventChargeBow);
-            playSound(m_eventReleaseBow);
+            UtilsGyromitra.stopSound(m_eventChargeBow);
+            UtilsGyromitra.playSound(m_eventReleaseBow, m_soundEmitter);
 
             if (m_firePower >= m_maxFirePower)
             {
@@ -208,14 +208,14 @@ public class WeaponController : MonoBehaviour
         if (m_SpeedCircle >= m_maxSpeedCircle) m_SpeedCircle = m_maxSpeedCircle;
     }
 
-    private void playSound(EventInstance l_event)
-    {
-        l_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(m_soundEmitter.transform));
-        l_event.start();
-    }
+    //private void playSound(EventInstance l_event, Transform l_emitterTransform)
+    //{
+    //    l_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(l_emitterTransform));
+    //    l_event.start();
+    //}
 
-    private void stopSound(EventInstance l_event)
-    {
-        l_event.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    }
+    //private void stopSound(EventInstance l_event)
+    //{
+    //    l_event.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    //}
 }

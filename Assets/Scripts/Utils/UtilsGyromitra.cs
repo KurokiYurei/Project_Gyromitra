@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -119,6 +120,22 @@ public static class UtilsGyromitra
     public static float DistanceToTarget(GameObject l_object1, GameObject l_object2)
     {
         return (l_object2.transform.position - l_object1.transform.position).magnitude;
+    }
+
+    /// <summary>
+    /// Sound functions
+    /// </summary>
+    /// <param name="l_event"></param>
+    /// <param name="l_emitterTransform"></param>
+    public static void playSound(EventInstance l_event, Transform l_emitterTransform)
+    {
+        l_event.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(l_emitterTransform));
+        l_event.start();
+    }
+
+    public static void stopSound(EventInstance l_event)
+    {
+        l_event.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
 }

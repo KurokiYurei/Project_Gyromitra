@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class Mushroom : MonoBehaviour
 {
@@ -13,6 +15,21 @@ public class Mushroom : MonoBehaviour
     [SerializeField]
     private Animator m_animator;
 
+    [Header("FMOD")]
+    [SerializeField]
+    private Transform m_soundEmitter;
+
+    [SerializeField]
+    private EventInstance m_eventVerticalHit;
+
+    [SerializeField]
+    private EventInstance m_eventHorizontalHit;
+
+    private void Awake()
+    {
+        m_eventHorizontalHit = FMODUnity.RuntimeManager.CreateInstance("event:/Bolet/8 - Rebot horitzontal");
+        m_eventVerticalHit = FMODUnity.RuntimeManager.CreateInstance("event:/Bolet/9 - Rebot vertical");
+    }
     void Update()
     {
         if (m_currentTime >= m_timeToDestroy)
@@ -43,11 +60,13 @@ public class Mushroom : MonoBehaviour
 
     public void PlayHorizontalBounceAnim()
     {
-        m_animator.SetTrigger("HorizontalBounce");        
+        m_animator.SetTrigger("HorizontalBounce");
+        UtilsGyromitra.playSound(m_eventHorizontalHit, m_soundEmitter);
     }
 
     public void PlayVerticalBounceAnim()
     {
         m_animator.SetTrigger("VerticalBounce");
+        UtilsGyromitra.playSound(m_eventVerticalHit, m_soundEmitter);
     }
 }
