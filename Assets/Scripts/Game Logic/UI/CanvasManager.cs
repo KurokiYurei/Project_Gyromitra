@@ -40,6 +40,9 @@ public class CanvasManager : MonoBehaviour
     private Image m_mainTitle;
 
     [SerializeField]
+    private Image m_menuTitle;
+
+    [SerializeField]
     private Image m_mainBackground;
 
     [SerializeField]
@@ -175,6 +178,7 @@ public class CanvasManager : MonoBehaviour
         m_mainMenu.SetActive(false);
         m_settingsMenu.SetActive(false);
         m_mainTitle.gameObject.SetActive(true);
+        m_menuTitle.gameObject.SetActive(false);
         m_settingsFrame.gameObject.SetActive(false);
         m_mainBackground.gameObject.SetActive(false);
         m_settingsBackground.gameObject.SetActive(false);
@@ -192,7 +196,8 @@ public class CanvasManager : MonoBehaviour
         m_mainMenu.SetActive(true);
         m_settingsMenu.SetActive(false);
         m_startMenu.SetActive(false);
-        m_mainTitle.gameObject.SetActive(true);
+        m_mainTitle.gameObject.SetActive(false);
+        m_menuTitle.gameObject.SetActive(true);
         m_settingsFrame.gameObject.SetActive(false);
         m_mainBackground.gameObject.SetActive(true);
         m_settingsBackground.gameObject.SetActive(false);
@@ -211,6 +216,7 @@ public class CanvasManager : MonoBehaviour
         m_mainMenu.SetActive(false);
         m_startMenu.SetActive(false);
         m_mainTitle.gameObject.SetActive(false);
+        m_menuTitle.gameObject.SetActive(false);
         m_settingsFrame.gameObject.SetActive(true);
         m_mainBackground.gameObject.SetActive(false);
         m_settingsBackground.gameObject.SetActive(true);
