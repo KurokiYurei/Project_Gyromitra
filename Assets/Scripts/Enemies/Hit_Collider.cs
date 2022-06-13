@@ -39,7 +39,7 @@ public class Hit_Collider : MonoBehaviour
     {
         if (collision.transform.tag == "Mushroom")
         {
-            if(!m_enemy.m_mushroomImpact && m_enemy.GetAntiSpamTime() <= 0f && collision.GetContact(0).normal.y >= 0.1f)
+            if(!m_enemy.m_mushroomImpact && m_enemy.GetAntiSpamTime() <= 0f && collision.GetContact(0).normal.y >= 0.05f)
             {
                 m_enemy.m_mushroomImpact = true;
             }

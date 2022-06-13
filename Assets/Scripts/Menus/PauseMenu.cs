@@ -162,7 +162,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene((int)Scenes.Main_Menu);      
     }
 
     private void CreateResList()

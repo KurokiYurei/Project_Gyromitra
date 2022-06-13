@@ -397,6 +397,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         }      
         m_player.ResetHP();
         m_CharacterController.enabled = true;
+        transform.GetComponentInChildren<NewCameraController>().SetFollowAt(true);
+        gameObject.GetComponent<PlayerInput>().enabled = true;
     }
 
     /// <summary>

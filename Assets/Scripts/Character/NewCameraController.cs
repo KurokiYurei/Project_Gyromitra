@@ -34,6 +34,24 @@ public class NewCameraController : MonoBehaviour
     {
         m_normalCamera.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<Cinemachine3rdPersonFollow>().Damping.y = damp;
     }
+
+    public void SetFollowAt(bool follow)
+    {
+        if (follow)
+        {
+            playerInput.enabled = true;
+            m_normalCamera.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
+            m_aimCamera.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
+        }
+        else
+        {
+            playerInput.enabled = false;
+            m_normalCamera.GetComponent<CinemachineVirtualCamera>().Follow = null;
+            m_normalCamera.transform.forward = transform.forward;
+            m_aimCamera.GetComponent<CinemachineVirtualCamera>().Follow = null;
+            m_aimCamera.transform.forward = transform.forward;
+        }
+    }
     public void SetIsAiming(bool l_isAiming)
     {
         if (l_isAiming)

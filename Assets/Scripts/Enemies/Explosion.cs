@@ -18,6 +18,8 @@ public class Explosion : MonoBehaviour
 
     private float m_timer;
     private float m_counterTimer;
+
+    private bool m_alreadyDamaged;
     //private bool m_destroy;
 
     void Start()
@@ -31,23 +33,6 @@ public class Explosion : MonoBehaviour
 
     void Update()
     {
-        //if (m_animation.IsPlaying("Explosion"))
-        //{
-        //    m_destroy = true;
-        //}
-
-        //if (m_destroy)
-        //{
-        //    if(m_timer >= 0.3f)
-        //    {
-        //        Destroy(gameObject);
-        //    }
-        //    else
-        //    {
-        //        m_timer += Time.deltaTime;
-        //    }
-        //}
-
         if (m_timer >= m_explosionTime)
         {
             m_counterTimer -= Time.deltaTime;
@@ -62,14 +47,14 @@ public class Explosion : MonoBehaviour
             m_counterTimer = m_timer*3;
             m_vfx.SetFloat("Size", m_timer);
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(m_playerTag))
+        if (other.CompareTag(m_playerTag) && !m_alreadyDamaged)
         {
             other.GetComponent<CharacterHP>().Damage(m_damage);
+            m_alreadyDamaged = true;
         }
     }
 }

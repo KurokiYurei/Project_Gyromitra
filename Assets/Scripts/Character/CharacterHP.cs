@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterHP : MonoBehaviour, IDamagable
 {
@@ -118,6 +119,8 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_health -= damage;
         if (m_health <= m_minHealth)
         {
+            transform.GetComponentInChildren<NewCameraController>().SetFollowAt(false);
+            gameObject.GetComponent<PlayerInput>().enabled = false;
             StartCoroutine(waitToDie());
             UtilsGyromitra.playSound(m_eventDie, m_soundEmitter);
         }
@@ -125,7 +128,7 @@ public class CharacterHP : MonoBehaviour, IDamagable
 
     IEnumerator waitToDie()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         GameManagerScript.m_instance.RestartGame();
     }
 
