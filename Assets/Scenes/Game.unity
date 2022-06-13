@@ -1246,6 +1246,14 @@ PrefabInstance:
       propertyPath: m_loadingScreenMainMenu
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
+      propertyPath: m_settings.m_sensitivityMouse
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
+      propertyPath: m_settings.m_sensitivityController
+      value: 1.7
+      objectReference: {fileID: 0}
     - target: {fileID: 1812228763704686222, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
       propertyPath: m_RootOrder
       value: 0

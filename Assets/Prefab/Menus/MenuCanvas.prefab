@@ -2216,6 +2216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 525687660877806385}
+  m_gameManager: {fileID: 0}
 --- !u!1 &3425638343002843700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,6 +3363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 7146763654123945289}
+  m_gameManager: {fileID: 0}
 --- !u!1 &3425638343622819343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3889,8 +3891,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 6050915504046430119}
   m_HandleRect: {fileID: 2657124920877269532}
   m_Direction: 0
-  m_MinValue: 0.1
-  m_MaxValue: 1
+  m_MinValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
   m_Value: 0.1
   m_OnValueChanged:
@@ -4577,6 +4579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 433210909226148128}
+  m_gameManager: {fileID: 0}
 --- !u!1 &8393565720387905515
 GameObject:
   m_ObjectHideFlags: 0
@@ -4725,6 +4728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 2850927317763921195}
+  m_gameManager: {fileID: 0}
 --- !u!1 &8393565720404736938
 GameObject:
   m_ObjectHideFlags: 0
@@ -5293,6 +5297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_image: {fileID: 5479286735501576257}
+  m_gameManager: {fileID: 0}
 --- !u!1 &8393565721503156629
 GameObject:
   m_ObjectHideFlags: 0

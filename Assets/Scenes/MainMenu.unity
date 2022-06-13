@@ -2833,7 +2833,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1,0
+  m_Text: 1,7
 --- !u!222 &849009987
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6054,10 +6054,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 2030246829}
   m_HandleRect: {fileID: 506677476}
   m_Direction: 0
-  m_MinValue: 0.1
-  m_MaxValue: 1
+  m_MinValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 1.7
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6412,8 +6412,8 @@ MonoBehaviour:
   m_fullScreen: 0
   m_musicVolume: -10
   m_sfxVolume: -10
-  m_sensitivityMouse: 0.5
-  m_sensitivityController: 1
+  m_sensitivityMouse: 0.05
+  m_sensitivityController: 1.7
   m_musicSlider: {fileID: 980658087}
   m_sfxSlider: {fileID: 1282553085}
   m_sensitivityMouseSlider: {fileID: 2084566213}
@@ -6576,8 +6576,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
+      propertyPath: m_settings.m_sensitivityMouse
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
       propertyPath: m_settings.m_sensitivityController
-      value: 0.8
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 1812228763704686222, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
       propertyPath: m_RootOrder
@@ -7860,7 +7864,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0,5
+  m_Text: 0,05
 --- !u!222 &1986409021
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8376,7 +8380,7 @@ MonoBehaviour:
   m_MinValue: 0.01
   m_MaxValue: 0.5
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0.05
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

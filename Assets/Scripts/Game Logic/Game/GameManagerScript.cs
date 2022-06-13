@@ -43,8 +43,8 @@ public class Settings
         FullScreen = true;
         MusicVolume = 0.5f;
         SfxVolume = 0.5f;
-        SensitivityMouse = 0.1f;
-        SensitivityController = 0.8f;
+        SensitivityMouse = 0.05f;
+        SensitivityController = 1.7f;
     }
 }
 
