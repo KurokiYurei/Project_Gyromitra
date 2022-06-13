@@ -145,6 +145,11 @@ public class CanvasManager : MonoBehaviour
             m_startGame.onClick.AddListener(delegate { m_gameManager.LoadGame(); });
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            m_gameManager.OnClickPlaySound();
+        }
+
         if (m_currentCanvas == m_startMenu && Input.anyKeyDown)
         {
             ChangeCanvasToMainMenu();
@@ -173,6 +178,9 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void ChangeCanvasToStartMenu()
     {
+        m_gameManager.OnChangeMenuPlaySound();
+
+
         m_currentCanvas = m_startMenu;
         m_startMenu.SetActive(true);
         m_mainMenu.SetActive(false);
@@ -183,8 +191,6 @@ public class CanvasManager : MonoBehaviour
         m_mainBackground.gameObject.SetActive(false);
         m_settingsBackground.gameObject.SetActive(false);
         DisableButtonImages();
-
-        m_gameManager.OnChangeMenuPlaySound();
     }
 
     /// <summary>
@@ -192,6 +198,9 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void ChangeCanvasToMainMenu()
     {
+
+        m_gameManager.OnChangeMenuPlaySound();
+
         m_currentCanvas = m_mainMenu;
         m_mainMenu.SetActive(true);
         m_settingsMenu.SetActive(false);
@@ -202,8 +211,6 @@ public class CanvasManager : MonoBehaviour
         m_mainBackground.gameObject.SetActive(true);
         m_settingsBackground.gameObject.SetActive(false);
         DisableButtonImages();
-
-        m_gameManager.OnChangeMenuPlaySound();
     }
 
     /// <summary>
@@ -211,6 +218,9 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void ChangeCanvasToSettingsMenu()
     {
+
+        m_gameManager.OnChangeMenuPlaySound();
+
         m_currentCanvas = m_settingsMenu;
         m_settingsMenu.SetActive(true);
         m_mainMenu.SetActive(false);
@@ -222,8 +232,6 @@ public class CanvasManager : MonoBehaviour
         m_settingsBackground.gameObject.SetActive(true);
         UpdateValuesSettings();
         DisableButtonImages();
-
-        m_gameManager.OnChangeMenuPlaySound();
     }
 
     /// <summary>

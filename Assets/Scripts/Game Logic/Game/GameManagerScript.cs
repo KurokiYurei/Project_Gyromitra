@@ -121,8 +121,8 @@ public class GameManagerScript : MonoBehaviour
         }
 
         m_eventClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/3 - Click");
-        m_eventHover = FMODUnity.RuntimeManager.CreateInstance("event:/UI/3 - Click");
-        m_eventChangeMenu = FMODUnity.RuntimeManager.CreateInstance("event:/UI/3 - Click");
+        m_eventHover = FMODUnity.RuntimeManager.CreateInstance("event:/UI/1 - Pasar por encima");
+        m_eventChangeMenu = FMODUnity.RuntimeManager.CreateInstance("event:/UI/2 - Canviar menú");
 
     }
 
@@ -169,19 +169,19 @@ public class GameManagerScript : MonoBehaviour
 
     public IEnumerator GetSceneLoadProgress()
     {
+
         for (int i = 0; i < m_scenesLoading.Count; i++)
         {
+
             while (!m_scenesLoading[i].isDone)
             {
-
                 m_totalSceneProgress = 0;
 
                 foreach (AsyncOperation l_operation in m_scenesLoading)
                 {
                     m_totalSceneProgress += l_operation.progress;
-                }
 
-                m_totalSceneProgress = (m_totalSceneProgress / m_scenesLoading.Count) * 100;
+                }
 
                 yield return null;
             }
@@ -197,19 +197,16 @@ public class GameManagerScript : MonoBehaviour
 
     public void OnClickPlaySound()
     {
-        print("click");
         UtilsGyromitra.playSound(m_eventClick, m_soundEmitter);
     }
 
     public void OnHoverPlaySound()
     {
-        print("hover");
         UtilsGyromitra.playSound(m_eventHover, m_soundEmitter);
     }
 
     public void OnChangeMenuPlaySound()
     {
-        print("change menu");
         UtilsGyromitra.playSound(m_eventChangeMenu, m_soundEmitter);
     }
 }

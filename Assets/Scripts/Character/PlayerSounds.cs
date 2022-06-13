@@ -20,7 +20,6 @@ public class PlayerSounds : MonoBehaviour
     public void StepLeft()
     {
         UtilsGyromitra.stopSound(m_eventStep);
-        print("left");
         UtilsGyromitra.playSound(m_eventStep, m_soundEmitter);
 
     }    
@@ -28,7 +27,6 @@ public class PlayerSounds : MonoBehaviour
     public void StepRight()
     {
         UtilsGyromitra.stopSound(m_eventStep);
-        print("right");
         UtilsGyromitra.playSound(m_eventStep, m_soundEmitter);
     }
 }
