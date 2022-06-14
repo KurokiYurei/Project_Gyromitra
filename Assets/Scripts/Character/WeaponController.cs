@@ -128,6 +128,8 @@ public class WeaponController : MonoBehaviour
 
                 m_SpeedCircle += (Time.deltaTime * 40f) / Time.timeScale;
                 m_currentRadius -= (Time.deltaTime * m_SpeedCircle) / Time.timeScale;
+                if(m_arrowVFX.transform.localScale.x <= 3) 
+                    m_arrowVFX.transform.localScale += new Vector3(0.02f, 0.02f, 0.02f);
             }
             else
             {
@@ -144,6 +146,7 @@ public class WeaponController : MonoBehaviour
         {
             m_animController.AnimationAiming(false);
             m_arrowVFX.SetActive(false);
+            m_arrowVFX.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
             if (Time.timeScale > 0f)
             {
