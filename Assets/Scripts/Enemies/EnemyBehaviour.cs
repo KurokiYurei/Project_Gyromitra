@@ -211,12 +211,10 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 break;
 
             case State.DEATH:
-
                 //if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Destroy"))
                 //{
                     //Destroy(this.gameObject);
                 //}
-
                 break;
         }
 
