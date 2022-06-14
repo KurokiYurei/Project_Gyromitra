@@ -71,8 +71,8 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_health = m_maxHealth;
 
         m_healthColorLimit = 90;
-        m_fullHealthColor = new Color(9, 191, 0, 255)*0.5f;
-        m_damagedHealthColor = new Color(0, 99, 191, 255)*0.5f;
+        m_fullHealthColor = new Color(9, 191, 0, 255)*3.0f;
+        m_damagedHealthColor = new Color(99, 0, 74, 255)*3.0f;
     }
 
     void Update()
