@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7584798134262268846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 192.3, y: 36.71, z: 194.39}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,19 +51,22 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1
+      - m_Value: 0.5
         m_Name: Size
         m_Overridden: 1
       - m_Value: 1
         m_Name: Trails Life Time
         m_Overridden: 1
+      - m_Value: 50000
+        m_Name: Spawn Rate
+        m_Overridden: 0
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 2.1185474, y: 0.6433285, z: 1.3975757, w: 0}
+      - m_Value: {x: 77.87429, y: 0, z: 40.77188, w: 0}
         m_Name: Color
         m_Overridden: 1
     m_Uint:

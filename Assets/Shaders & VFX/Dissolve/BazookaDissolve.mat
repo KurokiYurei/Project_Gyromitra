@@ -10,7 +10,7 @@ Material:
   m_Name: BazookaDissolve
   m_Shader: {fileID: -6465566751694194690, guid: 0dc5bd11a509e564297689779dd7990e, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -85,6 +85,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_39f83113f86448bf958a78468a3bb1fd: 50
+    - Vector1_65512d1017564722a278b180ffa847e8: 0
     - Vector1_8610c585f5a64fbdb9d0d96f1a507ae6: 1
     - Vector1_d3a6c2ec13ce4cf797aa21245f2b8621: 0.25
     - Vector1_fa590fdc373545f18d0a7e5a418a137e: 0.01
@@ -97,6 +98,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Dissolve: 0.8722987
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -114,8 +116,9 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _dissolve: 0
     m_Colors:
-    - Color_0d677df9e95640f2b2f77a3178f2b6ed: {r: 11.89624, g: 0, b: 5.948118, a: 0}
+    - Color_0d677df9e95640f2b2f77a3178f2b6ed: {r: 766.9961, g: 0, b: 385.5059, a: 0}
     - Color_e76aedb89f474f189b7a4bb2a5d93123: {r: 0.44313726, g: 0.3137255, b: 0.21176471, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

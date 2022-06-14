@@ -20,6 +20,8 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
     private EnemyMovement m_enemyMovement;
     private EnemyShoot m_enemyShoot;
 
+    private Enemy_Breakdown m_golemBreakdown;
+
     [Header("Attributes of the FSM")]
     [SerializeField]
     private float m_playerInRange;
@@ -93,6 +95,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
         m_enemyMovement = GetComponent<EnemyMovement>();
         m_enemyShoot = GetComponent<EnemyShoot>();
         m_hp = GetComponent<Enemy1HP>();
+        m_golemBreakdown = GetComponent<Enemy_Breakdown>();
 
         m_enemyMovement.enabled = false;
         m_enemyShoot.enabled = false;
@@ -209,10 +212,10 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
             case State.DEATH:
 
-                if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Destroy"))
-                {
-                    Destroy(this.gameObject);
-                }
+                //if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Destroy"))
+                //{
+                    //Destroy(this.gameObject);
+                //}
 
                 break;
         }
@@ -274,7 +277,8 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 break;
 
             case State.DEATH:
-                m_animator.SetTrigger("Death");
+                //m_animator.SetTrigger("Death");
+                m_golemBreakdown.Explode();
                 break;
         }
         m_currentState = l_newState;

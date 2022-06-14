@@ -1182,6 +1182,7 @@ GameObject:
   - component: {fileID: 2625165978283179700}
   - component: {fileID: 2625165978283179701}
   - component: {fileID: 2625165978283179703}
+  - component: {fileID: 6534581134766803542}
   m_Layer: 11
   m_Name: GolemBazooka
   m_TagString: Enemy
@@ -1248,6 +1249,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 833
   m_animator: {fileID: 2625165978283179703}
+  is_aiming: 0
 --- !u!114 &2625165978283179696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,6 +1277,7 @@ MonoBehaviour:
   m_arm2VFX: {fileID: 2625165978502665805}
   m_headVFX: {fileID: 2625165977535964170}
   m_golemMaterial: {fileID: 2100000, guid: 97efbb4a06889044d86d2345d474dee6, type: 2}
+  m_soundEmitter: {fileID: 0}
 --- !u!114 &2625165978283179697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,6 +1377,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6534581134766803542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625165978283179720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67247067f32706b49bf6cf2cccf5b317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_golem: {fileID: 2625165976566598832}
+  m_brokenGolem: {fileID: 729076646645058185, guid: 19dbd20433d5cf2479620164f4a7757d, type: 3}
+  m_explosion: {fileID: 1396028907035705987, guid: e6df6eb1f34a743499ee5f092ec112b2, type: 3}
+  m_explosionMinForce: 10
+  m_explosionMaxForce: 50
+  m_explosionRadius: 10
+  m_scaleFactor: 1
+  m_dissolve: {fileID: 2100000, guid: 5e13c49deb876bf4891d3c7fb6e6454c, type: 2}
 --- !u!1 &2625165978332758348
 GameObject:
   m_ObjectHideFlags: 0
