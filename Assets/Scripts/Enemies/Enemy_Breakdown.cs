@@ -10,6 +10,8 @@ public class Enemy_Breakdown : MonoBehaviour
     private GameObject m_brokenGolem;
     [SerializeField]
     private GameObject m_explosion;
+    [SerializeField]
+    private GameObject m_smokeExplosion;
 
     [SerializeField]
     private float m_explosionMinForce = 5.0f;
@@ -65,10 +67,13 @@ public class Enemy_Breakdown : MonoBehaviour
 
                 Destroy(m_fracturedGolem, 3.5f);
 
-                if(m_explosion != null)
+                if(m_explosion != null && m_smokeExplosion != null)
                 {
                     GameObject _explosionVFX = Instantiate(m_explosion, m_golem.transform.position, m_golem.transform.rotation) as GameObject;
                     Destroy(_explosionVFX, 7);
+
+                    GameObject _smokeexplosionVFX = Instantiate(m_smokeExplosion, m_golem.transform.position, m_golem.transform.rotation) as GameObject;
+                    Destroy(_smokeexplosionVFX, 2);
                 }
             }
         }
