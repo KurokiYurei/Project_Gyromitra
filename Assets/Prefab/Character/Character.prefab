@@ -285,6 +285,36 @@ Transform:
   m_Father: {fileID: 8640378254013377150}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6143667389926141809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3942499856063697242}
+  m_Layer: 6
+  m_Name: CenterFirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3942499856063697242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6143667389926141809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8640378254261655955}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7849959172331474865
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,6 +4043,7 @@ Transform:
   - {fileID: 8640378254311228784}
   - {fileID: 442356491377557137}
   - {fileID: 5605467154935269356}
+  - {fileID: 3942499856063697242}
   m_Father: {fileID: 8640378254307423970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4061,8 +4092,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_groundRunEffect: {fileID: 5129442136385957515, guid: 56436a62a8107b3448aad7e48aff6ece, type: 3}
+  m_jumpEffect: {fileID: 5129442136385957515, guid: 674ca77755a2ee444855a759695117ef, type: 3}
   m_leftFootFirepoint: {fileID: 7849959172331474865}
   m_rightFootFirepoint: {fileID: 5149663801724873067}
+  m_centerFootFirepoint: {fileID: 6143667389926141809}
 --- !u!1 &8640378254301773619
 GameObject:
   m_ObjectHideFlags: 0
