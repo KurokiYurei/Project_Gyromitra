@@ -72,8 +72,8 @@ public class Enemy_Breakdown : MonoBehaviour
                     GameObject _explosionVFX = Instantiate(m_explosion, m_golem.transform.position, m_golem.transform.rotation) as GameObject;
                     Destroy(_explosionVFX, 7);
 
-                    GameObject _smokeexplosionVFX = Instantiate(m_smokeExplosion, m_golem.transform.position, m_golem.transform.rotation) as GameObject;
-                    Destroy(_smokeexplosionVFX, 2);
+                    GameObject _smokeExplosionVFX = Instantiate(m_smokeExplosion, m_golem.transform.position, m_golem.transform.rotation) as GameObject;
+                    Destroy(_smokeExplosionVFX, 2);
                 }
             }
         }

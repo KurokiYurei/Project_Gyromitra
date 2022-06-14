@@ -15,6 +15,12 @@ public class EnemyShoot : MonoBehaviour
     private GameObject m_projectile;
 
     [SerializeField]
+    private GameObject m_fireVFX;
+
+    [SerializeField]
+    private GameObject m_chargeVFX;
+
+    [SerializeField]
     private float m_projectileSpeed = 100f;
 
     [SerializeField]
@@ -91,6 +97,13 @@ public class EnemyShoot : MonoBehaviour
             {
                 m_ray.enabled = true;
                 is_aiming = true;
+
+                if (m_chargeVFX != null)
+                {
+                    GameObject _smokeChargeVFX = Instantiate(m_chargeVFX, m_firePoint.transform.position, m_firePoint.transform.rotation) as GameObject;
+                    _smokeChargeVFX.transform.parent = m_firePoint.transform;
+                    Destroy(_smokeChargeVFX, 4);
+                }
             }
         }
         else
@@ -143,6 +156,12 @@ public class EnemyShoot : MonoBehaviour
     private void Shoot(Vector3 dir)
     {
         GameObject l_projectile = m_projectilePool.GetNextElement();
+
+        if(m_fireVFX != null)
+        {
+            GameObject _smokeFireVFX = Instantiate(m_fireVFX, m_firePoint.transform.position, m_firePoint.transform.rotation) as GameObject;
+            Destroy(_smokeFireVFX, 2);
+        }
 
         l_projectile.transform.position = m_firePoint.position;
         Rigidbody rb = l_projectile.GetComponent<Rigidbody>();
