@@ -674,6 +674,7 @@ GameObject:
   - component: {fileID: 6651239351279189311}
   - component: {fileID: 6651239351279189309}
   - component: {fileID: 2908845359526122797}
+  - component: {fileID: 3398996954081842719}
   m_Layer: 11
   m_Name: GolemSniper
   m_TagString: Enemy
@@ -819,7 +820,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.99999994
-  m_BaseOffset: 0
+  m_BaseOffset: -0.17
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &6651239351279189310
@@ -891,6 +892,21 @@ MonoBehaviour:
   m_explosionRadius: 10
   m_scaleFactor: 1
   m_dissolve: {fileID: 2100000, guid: a500e514b1b281f4f81aa411670b8441, type: 2}
+--- !u!114 &3398996954081842719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651239351279189314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59846ba64441097449e32a32a3df478f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_groundWalkEffect: {fileID: 5129442136385957515, guid: 56436a62a8107b3448aad7e48aff6ece, type: 3}
+  m_leftFootFirepoint: {fileID: 1739185502158496292}
+  m_rightFootFirepoint: {fileID: 2049667228051697948}
 --- !u!1 &6651239351427632308
 GameObject:
   m_ObjectHideFlags: 0

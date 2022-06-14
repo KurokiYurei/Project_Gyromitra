@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113724122737195254}
   m_Layer: 0
-  m_Name: smokeRunVFX
+  m_Name: smokeRunVFX 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

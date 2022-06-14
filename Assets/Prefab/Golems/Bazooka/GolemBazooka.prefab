@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2625165976566598832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.017836273, z: -0.059753194}
+  m_LocalPosition: {x: -0.000000059604638, y: 0.24497348, z: -0.059753194}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2625165978283179709}
@@ -391,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2625165976905807204}
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 8.1712415e-14, y: 1.0204198, z: 0}
+  m_LocalPosition: {x: 0, y: 0.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2625165977341963294}
@@ -1183,6 +1183,7 @@ GameObject:
   - component: {fileID: 2625165978283179701}
   - component: {fileID: 2625165978283179703}
   - component: {fileID: 6534581134766803542}
+  - component: {fileID: 4582985209687806919}
   m_Layer: 11
   m_Name: GolemBazooka
   m_TagString: Enemy
@@ -1328,7 +1329,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.99999994
-  m_BaseOffset: 0
+  m_BaseOffset: -0.17
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &2625165978283179700
@@ -1400,6 +1401,21 @@ MonoBehaviour:
   m_explosionRadius: 10
   m_scaleFactor: 1
   m_dissolve: {fileID: 2100000, guid: 5e13c49deb876bf4891d3c7fb6e6454c, type: 2}
+--- !u!114 &4582985209687806919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625165978283179720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59846ba64441097449e32a32a3df478f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_groundWalkEffect: {fileID: 5129442136385957515, guid: 56436a62a8107b3448aad7e48aff6ece, type: 3}
+  m_leftFootFirepoint: {fileID: 2625165976914344373}
+  m_rightFootFirepoint: {fileID: 2625165978252785275}
 --- !u!1 &2625165978332758348
 GameObject:
   m_ObjectHideFlags: 0

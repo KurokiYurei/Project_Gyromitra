@@ -4091,7 +4091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a595124ee657ad4695dd0bfb2aa746d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_groundRunEffect: {fileID: 5129442136385957515, guid: 56436a62a8107b3448aad7e48aff6ece, type: 3}
+  m_groundRunEffect: {fileID: 5129442136385957515, guid: ea9480b26d7022a488fac0af44be5954, type: 3}
   m_jumpEffect: {fileID: 5129442136385957515, guid: 674ca77755a2ee444855a759695117ef, type: 3}
   m_leftFootFirepoint: {fileID: 7849959172331474865}
   m_rightFootFirepoint: {fileID: 5149663801724873067}
