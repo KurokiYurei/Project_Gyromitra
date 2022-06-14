@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d2ada8b5de1de394c9760278edf8bb98, type: 2}
     - target: {fileID: 919132149155446097, guid: b3fccbc51e490064face919bc45bfb02, type: 3}
       propertyPath: m_Name
-      value: Little_Rock_1_LP
+      value: Little_Rock_1_LP Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3fccbc51e490064face919bc45bfb02, type: 3}
