@@ -77,13 +77,13 @@ public class GameManagerScript : MonoBehaviour
 
     [Header("Loading Screen")]
     [SerializeField]
-    private GameObject m_logo;
-
-    [SerializeField]
-    private GameObject m_background;
+    private GameObject m_MainMenu;
 
     [SerializeField]
     private GameObject m_loadingScreenGame;
+
+    [SerializeField]
+    private Animation m_animation;
 
     [SerializeField]
     private List<AsyncOperation> m_scenesLoading = new List<AsyncOperation>();
@@ -143,8 +143,9 @@ public class GameManagerScript : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        m_logo.SetActive(true);
-        m_background.SetActive(true);
+        m_MainMenu.SetActive(true);
+
+        m_animation.Play("Logo_Fade");
 
         m_scenesLoading.Add(SceneManager.LoadSceneAsync(((int)Scenes.Main_Menu), LoadSceneMode.Additive));
 
@@ -188,8 +189,7 @@ public class GameManagerScript : MonoBehaviour
 
             yield return new WaitForSeconds(m_secondsToWait);
 
-            m_logo.SetActive(false);
-            m_background.SetActive(false);
+            m_MainMenu.SetActive(false);
             m_loadingScreenGame.SetActive(false);
 
         }

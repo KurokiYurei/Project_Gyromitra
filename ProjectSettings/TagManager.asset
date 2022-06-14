@@ -13,6 +13,7 @@ TagManager:
   - MobilePlatform
   - ChangeOcclusion
   - Tutorial
+  - Credits
   layers:
   - Default
   - TransparentFX

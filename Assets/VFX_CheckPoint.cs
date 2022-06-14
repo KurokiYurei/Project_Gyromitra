@@ -9,19 +9,8 @@ public class VFX_CheckPoint : MonoBehaviour
     public ParticleSystem VFX_InnerRadius;
     public ParticleSystem VFX_OutterRadius;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         var cs = VFX_CircleSpin.main;
         var ccw = VFX_CCW.main;

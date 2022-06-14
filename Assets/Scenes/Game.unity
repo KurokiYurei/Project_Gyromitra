@@ -1042,12 +1042,12 @@ GameObject:
   - component: {fileID: 2048703348}
   - component: {fileID: 2048703347}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Canvas_MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2048703347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,7 @@ GameObject:
   - component: {fileID: 2100468128}
   - component: {fileID: 2100468127}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas_Loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1243,6 +1243,14 @@ PrefabInstance:
       propertyPath: m_logo
       value: 
       objectReference: {fileID: 721194287}
+    - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
+      propertyPath: m_MainMenu
+      value: 
+      objectReference: {fileID: 2048703346}
+    - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
+      propertyPath: m_animation
+      value: 
+      objectReference: {fileID: 721194291}
     - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
       propertyPath: m_background
       value: 
