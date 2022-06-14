@@ -9636,7 +9636,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3649217603863640343}
-  - component: {fileID: 7982705481314778041}
   m_Layer: 14
   m_Name: Circle Spin VFX
   m_TagString: Untagged
@@ -9662,19 +9661,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7982705481314778041
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4322419514086087587}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.6941357, y: 2.305602, z: 5.6627083}
-  m_Center: {x: -0.010072708, y: 0.65280104, z: 0.3926258}
 --- !u!1 &6002419277071725838
 GameObject:
   m_ObjectHideFlags: 0

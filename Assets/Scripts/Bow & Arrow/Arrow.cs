@@ -29,9 +29,14 @@ public class Arrow : MonoBehaviour
     {
         GameObject l_mushroom = null;
 
+        print("hit");
+
         if ((collision.transform.CompareTag(m_mushroomSpawnableTag) || collision.transform.CompareTag(m_mobilePlatformTag)) 
             && collision.contacts[0].normal.y >= -0.01f && UtilsGyromitra.FindMushroomsWithinRadius(gameObject, "Mushroom", 1f) == null)
         {
+
+            print("spawn");
+
             if (collision.contacts[0].normal.y < 0.35f) //WALL MUSHROOM
             {
                 l_mushroom = CharacterControllerScript.GetMushroomPool().GetNextElement(false);

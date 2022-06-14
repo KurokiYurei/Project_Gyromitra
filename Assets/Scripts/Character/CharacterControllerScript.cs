@@ -180,8 +180,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     void Update()
     {
-        //print(m_mushroomPool.m_ActiveElementsList.Count);
-        print(m_mushroomPool.m_CurrentAmount);
         m_mushroomPool.m_CurrentAmount = m_mushroomPool.m_ActiveElementsList.Count;
 
         Jump();

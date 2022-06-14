@@ -218,8 +218,6 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 break;
         }
 
-        print("Aiming : " + m_enemyShoot.is_aiming);
-        print("Played : " + m_played);
     }
 
     private void ChangeState(State l_newState)
