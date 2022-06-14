@@ -1240,7 +1240,7 @@ MonoBehaviour:
   m_projectile: {fileID: 3190672902253047373, guid: a674971b686cd5b4c91a085f7ea678df, type: 3}
   m_fireVFX: {fileID: 5129442136385957515, guid: d5909e1df405a51408b2e74d63215fe9, type: 3}
   m_chargeVFX: {fileID: 5129442136385957515, guid: b6628aa55f4241a43bf55cb8cd368420, type: 3}
-  m_projectileSpeed: 40
+  m_projectileSpeed: 10
   m_cooldownTime: 1
   m_lockTime: 3
   m_warningTime: 2

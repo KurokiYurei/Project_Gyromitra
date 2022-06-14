@@ -729,9 +729,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cadenceShoot: 0
   m_projectile: {fileID: 5903353976143995575, guid: 6a7f3d7f3977eb549ac20411bf39c8cd, type: 3}
-  m_fireVFX: {fileID: 0}
-  m_chargeVFX: {fileID: 0}
-  m_projectileSpeed: 60
+  m_fireVFX: {fileID: 5129442136385957515, guid: 6f7ca865e5eb8c04cbfef8d5dc0339bb, type: 3}
+  m_chargeVFX: {fileID: 5129442136385957515, guid: aa4efa40bffbfb743beaab1a8d32c6ef, type: 3}
+  m_projectileSpeed: 30
   m_cooldownTime: 1
   m_lockTime: 2
   m_warningTime: 1

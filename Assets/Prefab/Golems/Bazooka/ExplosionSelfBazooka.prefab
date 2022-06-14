@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4558799330584512918}
   m_Layer: 0
-  m_Name: ExplosionSelfBazooka 1
+  m_Name: ExplosionSelfBazooka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
