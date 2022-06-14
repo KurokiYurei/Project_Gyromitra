@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5056520454639831518}
   m_Layer: 0
-  m_Name: Brambles Ground
+  m_Name: Brambles_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
