@@ -29,6 +29,9 @@ public class UI_Manager : MonoBehaviour
 
     private Color m_color;
 
+    [SerializeField]
+    private Color m_ColorMushrom = new Color(84, 240, 203);
+
     private Gradient m_gradient;
 
     private void Update()
@@ -38,8 +41,6 @@ public class UI_Manager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-
-
             if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag(UtilsGyromitra.SearchForTag("Enemy"))))
             {
                 ChangeColorCrosshair(Color.red);
@@ -48,8 +49,8 @@ public class UI_Manager : MonoBehaviour
             {
                 if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MushroomSpawnable")) || hit.transform.CompareTag(UtilsGyromitra.SearchForTag("MobilePlatform")))
                 {
-                    ChangeColorCrosshair(Color.green);
-                    m_color = Color.green;
+                    ChangeColorCrosshair(m_ColorMushrom);
+                    m_color = m_ColorMushrom;
                 }
                 else
                 {

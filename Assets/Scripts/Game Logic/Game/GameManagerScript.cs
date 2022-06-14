@@ -148,6 +148,20 @@ public class GameManagerScript : MonoBehaviour
         m_animation.Play("Logo_Fade");
 
         m_scenesLoading.Add(SceneManager.LoadSceneAsync(((int)Scenes.Main_Menu), LoadSceneMode.Additive));
+        //m_scenesLoading.Add(SceneManager.UnloadSceneAsync(((int)Scenes.Mapa)));
+
+        m_secondsToWait = 2f;
+
+        StartCoroutine(GetSceneLoadProgress());
+
+    }
+
+    public void LoadMainMenuFromGame()
+    {
+        m_loadingScreenGame.SetActive(true);
+
+        m_scenesLoading.Add(SceneManager.LoadSceneAsync(((int)Scenes.Main_Menu), LoadSceneMode.Additive));
+        m_scenesLoading.Add(SceneManager.UnloadSceneAsync(((int)Scenes.Mapa)));
 
         m_secondsToWait = 2f;
 
@@ -167,6 +181,8 @@ public class GameManagerScript : MonoBehaviour
         StartCoroutine(GetSceneLoadProgress());
 
     }
+
+
 
     public IEnumerator GetSceneLoadProgress()
     {
@@ -197,12 +213,12 @@ public class GameManagerScript : MonoBehaviour
 
     public void OnClickPlaySound()
     {
-        UtilsGyromitra.playSound(m_eventClick, m_soundEmitter);
+        UtilsGyromitra.playSound(m_eventHover, m_soundEmitter);
     }
 
     public void OnHoverPlaySound()
     {
-        UtilsGyromitra.playSound(m_eventHover, m_soundEmitter);
+        UtilsGyromitra.playSound(m_eventClick, m_soundEmitter);
     }
 
     public void OnChangeMenuPlaySound()

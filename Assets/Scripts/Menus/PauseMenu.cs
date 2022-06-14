@@ -162,7 +162,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        SceneManager.LoadScene((int)Scenes.Main_Menu);      
+        Time.timeScale = 1.0f;
+        m_gameManager.LoadMainMenuFromGame();
     }
 
     private void CreateResList()
