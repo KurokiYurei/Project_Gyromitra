@@ -75,6 +75,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 265946a463fb6a14198f3c3765ff380d, type: 3}
   m_PrefabInstance: {fileID: 1537650918026503846}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &3620642019448141744
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844149886502099959}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.395696
+  m_Center: {x: 0.09903127, y: 0.8149218, z: -0.15655273}
 --- !u!114 &6031116849844185596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,19 +104,6 @@ MonoBehaviour:
   VFX_CCW: {fileID: 6856270203141620365}
   VFX_InnerRadius: {fileID: 905732462455656603}
   VFX_OutterRadius: {fileID: 5870847187905759168}
---- !u!135 &3620642019448141744
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844149886502099959}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.395696
-  m_Center: {x: 0.09903127, y: 0.8149218, z: -0.15655273}
 --- !u!1001 &7962052425427445032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +111,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1359080078884503885}
     m_Modifications:
+    - target: {fileID: 307416275196129947, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716646955175088823, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3649217603863640343, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -158,6 +166,18 @@ PrefabInstance:
     - target: {fileID: 4322419514086087587, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
       propertyPath: m_Name
       value: Circle Spin VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 4322419514086087587, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002419277071725838, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692553964599618068, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
