@@ -107,6 +107,7 @@ public class WeaponController : MonoBehaviour
         if (m_shootArrow.triggered && m_reloadTimer < 0f)
         {
             m_firePower = m_minFirePower;
+            m_SpeedCircle = m_minSpeedCircle;
             m_fire = true;
 
             // charge bow sound
@@ -126,8 +127,8 @@ public class WeaponController : MonoBehaviour
                     m_firePower += (Time.deltaTime * m_firePowerSpeed) / Time.timeScale;
                 }
 
-                m_SpeedCircle += (Time.deltaTime * 40f) / Time.timeScale;
-                m_currentRadius -= (Time.deltaTime * m_SpeedCircle) / Time.timeScale;
+                m_SpeedCircle += (Time.deltaTime) / Time.timeScale;
+                m_currentRadius -= (Time.deltaTime * m_SpeedCircle * 0.9f) / Time.timeScale;
                 if(m_arrowVFX.transform.localScale.x <= 3) 
                     m_arrowVFX.transform.localScale += new Vector3(0.02f, 0.02f, 0.02f);
             }
@@ -147,27 +148,18 @@ public class WeaponController : MonoBehaviour
             m_animController.AnimationAiming(false);
             m_arrowVFX.SetActive(false);
             m_arrowVFX.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-
-            if (Time.timeScale > 0f)
-            {
-                m_SpeedCircle -= (Time.deltaTime * 50f) / Time.timeScale;
-                m_currentRadius += (Time.deltaTime * m_SpeedCircle) / Time.timeScale;
-            }
-            else
-            {
-                m_SpeedCircle -= Time.deltaTime * 50f;
-                m_currentRadius += Time.deltaTime * m_SpeedCircle;
-            }
         }
 
         if (m_shootArrow.WasReleasedThisFrame() && m_fire)
         {
             // release arrow
+            m_currentRadius = m_maxRadius;
+            m_SpeedCircle = m_minSpeedCircle;
 
             UtilsGyromitra.stopSound(m_eventChargeBow);
             UtilsGyromitra.playSound(m_eventReleaseBow, m_soundEmitter);
 
-            if (m_firePower >= m_maxFirePower)
+            if (m_firePower >= m_maxFirePower - 5f)
             {
                 m_animController.AnimationShootLong();
                 m_weapon.FireArrow(m_firePower, false);
@@ -206,9 +198,9 @@ public class WeaponController : MonoBehaviour
     private void checkRadiusCircle()
     {
         if (m_currentRadius <= m_minRadius) m_currentRadius = m_minRadius;
-        if (m_currentRadius >= m_maxRadius) m_currentRadius = m_maxRadius;
-        if (m_SpeedCircle <= m_minSpeedCircle) m_SpeedCircle = m_minSpeedCircle;
-        if (m_SpeedCircle >= m_maxSpeedCircle) m_SpeedCircle = m_maxSpeedCircle;
+        //if (m_currentRadius >= m_maxRadius) m_currentRadius = m_maxRadius;
+        //if (m_SpeedCircle <= m_minSpeedCircle) m_SpeedCircle = m_minSpeedCircle;
+        //if (m_SpeedCircle >= m_maxSpeedCircle) m_SpeedCircle = m_maxSpeedCircle;
     }
 
     //private void playSound(EventInstance l_event, Transform l_emitterTransform)

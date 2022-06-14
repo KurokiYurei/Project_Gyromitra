@@ -52,6 +52,9 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
     [SerializeField]
     private Enemy1HP m_hp;
 
+    [SerializeField]
+    private Transform m_body;
+
     [Header("Animation")]
     [SerializeField]
     private Animator m_animator;
@@ -213,8 +216,10 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
             case State.DEATH:
                 //if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Destroy"))
                 //{
-                    //Destroy(this.gameObject);
+                //Destroy(this.gameObject);
                 //}
+                m_body.gameObject.SetActive(false);
+                gameObject.GetComponent<BoxCollider>().enabled = false;
                 break;
         }
 

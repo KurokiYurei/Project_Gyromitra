@@ -186,7 +186,7 @@ Transform:
   - {fileID: 2455234800564107921}
   - {fileID: 2395451836170355116}
   m_Father: {fileID: 6651239351279189303}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
 --- !u!1 &1642633675806449604
 GameObject:
@@ -401,6 +401,7 @@ Transform:
   m_LocalScale: {x: 1.000001, y: 1, z: 1}
   m_Children:
   - {fileID: 4935485315602821302}
+  - {fileID: 6651239351427632311}
   m_Father: {fileID: 5590588634098797676}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -691,7 +692,6 @@ Transform:
   m_LocalPosition: {x: -3.53, y: 0.00000023841858, z: 32.371494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6651239351427632311}
   - {fileID: 1186725588894327356}
   - {fileID: 5622906033554165589}
   - {fileID: 5819539936134870687}
@@ -729,6 +729,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cadenceShoot: 0
   m_projectile: {fileID: 5903353976143995575, guid: 6a7f3d7f3977eb549ac20411bf39c8cd, type: 3}
+  m_fireVFX: {fileID: 0}
+  m_chargeVFX: {fileID: 0}
   m_projectileSpeed: 60
   m_cooldownTime: 1
   m_lockTime: 2
@@ -762,6 +764,7 @@ MonoBehaviour:
   m_startPos: {x: 0, y: 0, z: 0}
   m_startRot: {x: 0, y: 0, z: 0, w: 0}
   m_hp: {fileID: 6651239351279189307}
+  m_body: {fileID: 5622906033554165589}
   m_animator: {fileID: 6651239351279189309}
   m_arm1VFX: {fileID: 9159884662214027482}
   m_arm2VFX: {fileID: 9159884663008732533}
@@ -913,12 +916,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6651239351427632308}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.23, z: 0.661}
-  m_LocalScale: {x: 0.6, y: 0.5, z: 0.6}
+  m_LocalRotation: {x: -0.69413126, y: 0.24154162, z: 0.6355075, w: 0.2365791}
+  m_LocalPosition: {x: -0.31843203, y: 0.20823453, z: -0.05403158}
+  m_LocalScale: {x: 0.59999996, y: 0.49999982, z: 0.5999997}
   m_Children: []
-  m_Father: {fileID: 6651239351279189303}
-  m_RootOrder: 0
+  m_Father: {fileID: 110879990771092148}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &6651239351427632305
 SphereCollider:
@@ -1106,7 +1109,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6651239351279189303}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8400844898127450475
 GameObject:
@@ -1137,7 +1140,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6651239351279189303}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &6847829069242837012
 SkinnedMeshRenderer:

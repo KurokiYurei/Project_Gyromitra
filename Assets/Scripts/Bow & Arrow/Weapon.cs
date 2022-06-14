@@ -36,6 +36,7 @@ public class Weapon : MonoBehaviour
         l_arrow.transform.rotation = m_arrowSpawnPoint.transform.rotation;
 
         l_arrow.transform.GetComponent<TrailRenderer>().Clear();
+        l_arrow.transform.GetComponentInChildren<ParticleSystem>().Clear();
 
         Rigidbody l_rb = l_arrow.GetComponent<Rigidbody>();
         if (m_hasGravity)
@@ -48,7 +49,7 @@ public class Weapon : MonoBehaviour
         }
 
         if (Time.timeScale >= 0)
-            l_rb.velocity = ((targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power) / Time.timeScale;
+            l_rb.velocity = (targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power / Time.timeScale;
         else
             l_rb.velocity = (targetPoint - m_arrowSpawnPoint.transform.position).normalized * m_Power;
 

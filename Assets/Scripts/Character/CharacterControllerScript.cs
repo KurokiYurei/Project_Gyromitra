@@ -423,11 +423,13 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             if (hit.normal.y < 0.5f)
             {
+                hit.transform.Find("Spores_particles_normal").GetComponent<ParticleSystem>().Emit(40);
                 hit.gameObject.GetComponent<Mushroom>().PlayHorizontalBounceAnim();
                 SetBounceParameters(hit.transform.position - transform.position, m_mushroomBouncePower, m_mushroomBounceDuration, 0f);
             }
             else
             {
+                hit.transform.Find("Spores_particles_down").GetComponent<ParticleSystem>().Emit(40);
                 hit.gameObject.GetComponent<Mushroom>().PlayVerticalBounceAnim();
                 m_applyJumpHorizontalSpeedDivider = true;
                 m_jumpedOnMushroom = true;
@@ -458,7 +460,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
         if (hit.collider.tag == "Enemy")
         {
-            SetBounceParameters(-hit.normal, m_bramblePushPower, m_bramblePushDuration, 0f);
+            if(hit.gameObject.GetComponent<EnemyBehaviour>().m_currentState != EnemyBehaviour.State.DEATH)
+                SetBounceParameters(-hit.normal, m_bramblePushPower, m_bramblePushDuration, 0f);
         }
     }
 
