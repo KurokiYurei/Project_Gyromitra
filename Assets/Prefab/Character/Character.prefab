@@ -255,6 +255,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsText: {fileID: 4623299212371739779}
   deltaTime: 0
+--- !u!1 &5149663801724873067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7894900868511050032}
+  m_Layer: 6
+  m_Name: RFootFirepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7894900868511050032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5149663801724873067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8640378254013377150}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7849959172331474865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1936246806581573240}
+  m_Layer: 6
+  m_Name: LFootFirepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1936246806581573240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849959172331474865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8640378252826325125}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8640378252773483387
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +851,8 @@ Transform:
   m_LocalRotation: {x: -0.000010926845, y: 0.000018592145, z: -0.5094961, w: 0.86047304}
   m_LocalPosition: {x: -0.10258739, y: 0, z: 0.000000006055832}
   m_LocalScale: {x: 0.99999654, y: 1.0000035, z: 0.9999999}
-  m_Children: []
+  m_Children:
+  - {fileID: 1936246806581573240}
   m_Father: {fileID: 8640378254185823325}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3285,7 +3346,8 @@ Transform:
   m_LocalRotation: {x: 0.000010986382, y: -0.00001864469, z: -0.50949657, w: 0.8604727}
   m_LocalPosition: {x: -0.10258739, y: -0.00000001513958, z: -0.000000012111664}
   m_LocalScale: {x: 0.9999985, y: 1.0000012, z: 0.9999998}
-  m_Children: []
+  m_Children:
+  - {fileID: 7894900868511050032}
   m_Father: {fileID: 8640378253692065746}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3925,6 +3987,7 @@ GameObject:
   - component: {fileID: 8640378254261655955}
   - component: {fileID: 8640378254261655954}
   - component: {fileID: 685729263466614081}
+  - component: {fileID: 5954345455722843889}
   m_Layer: 6
   m_Name: seiri_model 1
   m_TagString: Untagged
@@ -3985,6 +4048,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_soundEmitter: {fileID: 0}
+--- !u!114 &5954345455722843889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8640378254261655957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a595124ee657ad4695dd0bfb2aa746d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_groundRunEffect: {fileID: 5129442136385957515, guid: 56436a62a8107b3448aad7e48aff6ece, type: 3}
+  m_leftFootFirepoint: {fileID: 7849959172331474865}
+  m_rightFootFirepoint: {fileID: 5149663801724873067}
 --- !u!1 &8640378254301773619
 GameObject:
   m_ObjectHideFlags: 0
