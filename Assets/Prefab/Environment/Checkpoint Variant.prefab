@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 184985504354429463, guid: 86251a5204c59fa48a0ee07cd8371c44, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 184985505824319984, guid: 86251a5204c59fa48a0ee07cd8371c44, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -66,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 184985505824319985, guid: 86251a5204c59fa48a0ee07cd8371c44, type: 3}
       propertyPath: m_Name
       value: Checkpoint_Bramp VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 184985505824319985, guid: 86251a5204c59fa48a0ee07cd8371c44, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86251a5204c59fa48a0ee07cd8371c44, type: 3}
@@ -132,6 +140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 265946a463fb6a14198f3c3765ff380d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 265946a463fb6a14198f3c3765ff380d, type: 3}
 --- !u!1 &1844149886502099959 stripped
@@ -182,11 +194,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 307416275196129947, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1716646955175088823, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3649217603863640343, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
       propertyPath: m_RootOrder
@@ -238,15 +250,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4322419514086087587, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6002419277071725838, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7692553964599618068, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75685ff901ed7c64f875b15eabbf12bd, type: 3}
