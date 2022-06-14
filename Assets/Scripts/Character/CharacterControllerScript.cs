@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -149,6 +150,12 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private float m_fallShakeTime;
 
+    [Header("FMOD")]
+    [SerializeField]
+    private Transform m_soundEmitter;
+
+    [SerializeField]
+    private EventInstance m_eventEsvarzers;
 
     private void Awake()
     {
@@ -168,6 +175,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
         m_fovInArea = 80f;
         m_fovOutArea = 40f;
+
+        m_eventEsvarzers = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/19 - Esbarzer impacte");
     }
 
     void Start()
@@ -441,6 +450,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
         if (hit.collider.tag == "Bramble" && m_brambleInvulnerabilityTimer <= 0f)
         {
+            Esbarzers();
             CameraShake.instance.DoShake(1f, 0.25f);
             if (m_brambleInvulnerabilityTimer <= 0f)
             {
@@ -542,5 +552,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             CameraShake.instance.DoShake(m_fallShakeIntensity, m_fallShakeTime);
             m_player.Damage(10 - ((m_VerticalSpeed + m_speedToFallDamage) * 3));
         }
+    }
+
+    public void Esbarzers()
+    {
+        UtilsGyromitra.stopSound(m_eventEsvarzers);
+        UtilsGyromitra.playSound(m_eventEsvarzers, m_soundEmitter);
     }
 }
