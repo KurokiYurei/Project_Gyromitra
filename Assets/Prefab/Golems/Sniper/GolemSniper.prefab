@@ -672,6 +672,7 @@ GameObject:
   - component: {fileID: 6651239351279189310}
   - component: {fileID: 6651239351279189311}
   - component: {fileID: 6651239351279189309}
+  - component: {fileID: 2908845359526122797}
   m_Layer: 11
   m_Name: GolemSniper
   m_TagString: Enemy
@@ -738,6 +739,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 833
   m_animator: {fileID: 6651239351279189309}
+  is_aiming: 0
 --- !u!114 &6651239351279189306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,6 +767,7 @@ MonoBehaviour:
   m_arm2VFX: {fileID: 9159884663008732533}
   m_headVFX: {fileID: 9159884662005848391}
   m_golemMaterial: {fileID: 2100000, guid: 2421a404fd994594d92e2337af39a502, type: 2}
+  m_soundEmitter: {fileID: 0}
 --- !u!114 &6651239351279189307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,6 +867,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2908845359526122797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651239351279189314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67247067f32706b49bf6cf2cccf5b317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_golem: {fileID: 8400844898127450475}
+  m_brokenGolem: {fileID: 8568332615669881043, guid: 4440683c6768fac47839d66665791830, type: 3}
+  m_explosion: {fileID: 1396028907035705987, guid: e6df6eb1f34a743499ee5f092ec112b2, type: 3}
+  m_explosionMinForce: 5
+  m_explosionMaxForce: 100
+  m_explosionRadius: 10
+  m_scaleFactor: 1
+  m_dissolve: {fileID: 2100000, guid: a500e514b1b281f4f81aa411670b8441, type: 2}
 --- !u!1 &6651239351427632308
 GameObject:
   m_ObjectHideFlags: 0
