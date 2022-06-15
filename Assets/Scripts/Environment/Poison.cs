@@ -37,12 +37,12 @@ public class Poison : MonoBehaviour
 
     private void Awake()
     {
-        m_durationVenom = 3f;
+        m_durationVenom = 1f;
 
         m_venomDamageTimer = 1f;
         m_currentVenomDamageTimer = m_venomDamageTimer;
 
-        m_damage = 10f;
+        m_damage = 30f;
 
         m_playerIsIn = false;
 
