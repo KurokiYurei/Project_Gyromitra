@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class CharacterHP : MonoBehaviour, IDamagable
 {
@@ -27,6 +28,10 @@ public class CharacterHP : MonoBehaviour, IDamagable
 
     [SerializeField]
     private RagdollController m_ragdollController;
+
+    private GameObject m_postPro;
+
+    private Vignette m_vignette;
 
     [Header("Health Shader")]
     [SerializeField]
@@ -76,6 +81,10 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_healthColorLimit = 90;
         m_fullHealthColor = new Color(9, 191, 0, 255)*3.0f;
         m_damagedHealthColor = new Color(99, 0, 74, 255)*3.0f;
+
+        m_postPro = GameObject.Find("PostProcessing");
+        var v = m_postPro.GetComponent<UnityEngine.Rendering.Volume>()?.profile;
+        v.TryGet(out m_vignette);
     }
 
     void Update()
@@ -120,6 +129,7 @@ public class CharacterHP : MonoBehaviour, IDamagable
     {
         m_timerToRegen = m_startTimeToRegen;
         m_health -= damage;
+        StartCoroutine(VignetteEffect());
         if (m_health <= m_minHealth)
         {
             transform.GetComponentInChildren<NewCameraController>().SetFollowAt(false);
@@ -160,5 +170,13 @@ public class CharacterHP : MonoBehaviour, IDamagable
     public void ResetHP()
     {
         m_health = m_maxHealth;
+    }
+    public IEnumerator VignetteEffect()
+    {
+        m_vignette.intensity.Override(0.35f);
+        m_vignette.color.value = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        m_vignette.intensity.Override(0.2f);
+        m_vignette.color.value = Color.black;
     }
 }

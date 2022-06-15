@@ -4312,6 +4312,7 @@ MonoBehaviour:
   m_smoothInputSpeed: 0.1
   m_fallShakeIntensity: 10
   m_fallShakeTime: 0.1
+  m_soundEmitter: {fileID: 0}
 --- !u!143 &672335282
 CharacterController:
   m_ObjectHideFlags: 0
@@ -13744,6 +13745,7 @@ MonoBehaviour:
   m_startPos: {x: 0, y: 0, z: 0}
   m_startRot: {x: 0, y: 0, z: 0, w: 0}
   m_hp: {fileID: 1858563984682299525}
+  m_body: {fileID: 0}
   m_animator: {fileID: 1858563984682299523}
   m_arm1VFX: {fileID: 1858563984211183870}
   m_arm2VFX: {fileID: 1858563984463452281}
@@ -13859,7 +13861,7 @@ MonoBehaviour:
   m_ray: {fileID: 1858563985212045255}
   m_shootLayerMask:
     serializedVersion: 2
-    m_Bits: 833
+    m_Bits: 1
   m_animator: {fileID: 1858563984682299523}
   is_aiming: 0
 --- !u!1 &1858563984682299644

@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_ray: {fileID: 2625165977774799347}
   m_shootLayerMask:
     serializedVersion: 2
-    m_Bits: 833
+    m_Bits: 321
   m_animator: {fileID: 2625165978283179703}
   is_aiming: 0
 --- !u!114 &2625165978283179696

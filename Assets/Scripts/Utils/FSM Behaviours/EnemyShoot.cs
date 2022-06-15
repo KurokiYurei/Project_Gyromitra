@@ -131,15 +131,17 @@ public class EnemyShoot : MonoBehaviour
             m_alreadyLocked = true;
         }
 
-        //Ray l_Ray = new Ray(m_firePoint.position, l_playerPos - m_firePoint.position);
-        //if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, (l_playerPos - m_firePoint.position).magnitude, m_shootLayerMask.value))
-        //{
-        //    m_ray.SetPosition(0, m_firePoint.position);
-        //    m_ray.SetPosition(1, l_playerPos);
-        //}
-
         m_ray.SetPosition(0, m_firePoint.position);
-        m_ray.SetPosition(1, l_playerPos);
+        Ray l_Ray = new Ray(m_firePoint.position, l_playerPos - m_firePoint.position);
+        if (Physics.Raycast(l_Ray, out RaycastHit l_RaycastHit, (l_playerPos - m_firePoint.position).magnitude, m_shootLayerMask.value))
+        {
+            m_ray.SetPosition(1, l_RaycastHit.point);
+        }
+        else
+        {
+            m_ray.SetPosition(1, l_playerPos);
+        }
+      
 
         if (m_cadenceShoot >= m_lockTime)
         {
