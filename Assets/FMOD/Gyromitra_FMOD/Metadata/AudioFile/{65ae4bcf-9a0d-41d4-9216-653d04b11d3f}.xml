@@ -8,13 +8,13 @@
 			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>96</value>
+			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="length">
-			<value>15.143895833333334</value>
+			<value>2.0230385487528344</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{e498a2ba-14b1-499a-912e-86aa46699dd5}</destination>
