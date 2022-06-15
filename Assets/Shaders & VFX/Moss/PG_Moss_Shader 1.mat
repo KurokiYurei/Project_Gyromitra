@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PG_Moss_Shader 1
+  m_Shader: {fileID: -6465566751694194690, guid: eabad34b2aa9f2849822f96bae24a76e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_5c44ff01e2814e5ea3f0c90d866d4d2c:
+        m_Texture: {fileID: 2800000, guid: c8d6a2fdc9314bb41b7364f0fb2a2f0c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_b8c458a192444bf9930f2144cefa7783:
+        m_Texture: {fileID: 2800000, guid: bf7468511d59659428df457943b9829d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_f3264d35006843f39f88af0a3ae7cb97:
+        m_Texture: {fileID: 2800000, guid: f2ad8eb76fe3f6e45bf1c8a0bf5c9e1f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_f710bcce387c436ea2113934444833e5:
+        m_Texture: {fileID: 2800000, guid: b146e440b6e66924384cdeb8b67c4f4f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_2de1873e355e4d8e87465525358fe206: 1
+    - Vector1_4695812fa5034b819429f713e814758d: 1
+    - Vector1_4fc36ee904b64b1b817cbaff7679c866: 0
+    - Vector1_58e9dcd5e4194eeaa7c524d3372dd474: 0.03
+    - Vector1_7b938deeba0344ba98e9703a65711e53: 0.093
+    - Vector1_cc08859cb0914a5980ca0571475ab5b9: 0
+    - Vector1_ea7ea538e6464a668863a61f922a67d6: 1
+    m_Colors:
+    - Color_1e423bf4e23e43fe83ef68d212bc7894: {r: 0.254717, g: 0.254717, b: 0.254717, a: 0}
+    - Vector3_c500ae6b8b9f41969f25442f4ab3c34a: {r: 10.12, g: 54.9, b: 0, a: 0}
+  m_BuildTextureStacks: []
