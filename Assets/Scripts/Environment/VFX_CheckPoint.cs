@@ -8,6 +8,7 @@ public class VFX_CheckPoint : MonoBehaviour
     public ParticleSystem VFX_CCW;
     public ParticleSystem VFX_InnerRadius;
     public ParticleSystem VFX_OutterRadius;
+    public ParticleSystem VFX_Vertical;
 
 
     private void OnTriggerEnter(Collider other)
@@ -16,11 +17,13 @@ public class VFX_CheckPoint : MonoBehaviour
         var ccw = VFX_CCW.main;
         var ir = VFX_InnerRadius.main;
         var or = VFX_OutterRadius.main;
+        var v = VFX_Vertical.main;
 
         cs.startColor = new ParticleSystem.MinMaxGradient(Color.green, Color.blue + Color.green);
         ccw.startColor = new ParticleSystem.MinMaxGradient(Color.green, Color.blue + Color.white);
         ir.startColor = new ParticleSystem.MinMaxGradient(Color.green, Color.green + Color.white);
         or.startColor = new ParticleSystem.MinMaxGradient(Color.green, Color.green +Color.blue);
+        v.startColor = new ParticleSystem.MinMaxGradient(Color.green, Color.green +Color.blue);
     }
 
 }
