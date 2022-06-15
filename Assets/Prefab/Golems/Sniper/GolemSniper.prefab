@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentState: 0
-  m_playerInRange: 25
+  m_playerInRange: 30
   m_playerOutOfRange: 35
   m_mushroomImpact: 0
   m_antiPlayerSpamReset: 1
