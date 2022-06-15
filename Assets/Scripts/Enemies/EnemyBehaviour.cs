@@ -279,6 +279,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
             case State.DEATH:
                 //m_animator.SetTrigger("Death");
+                m_animator.enabled = false;
                 gameObject.transform.GetComponent<GolemEffects>().GolemDies();
                 m_golemBreakdown.Explode();
                 break;

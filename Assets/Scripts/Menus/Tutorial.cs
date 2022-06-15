@@ -36,12 +36,18 @@ public class Tutorial : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            // StartCoroutine(WaitForHalfASecondCourotine());
+            m_player = other.gameObject;
+
             ShowTutorial();
-            other.GetComponent<CharacterControllerScript>().enabled = false;
-            other.GetComponent<WeaponController>().enabled = false;
-            m_playerIsInArea = true;
+
+            m_player.GetComponent<CharacterControllerScript>().enabled = false;
+            m_player.GetComponent<WeaponController>().enabled = false;
+            m_player.GetComponentInChildren<Animator>().enabled = false;
+
             m_input = other.GetComponent<PlayerInput>();
+
+            m_playerIsInArea = true;
+
             m_unpause = m_input.actions["UnPause"];
         }
     }
@@ -62,10 +68,14 @@ public class Tutorial : MonoBehaviour
         {
             if (m_unpause.triggered)
             {
+                HideTutorial();
+
                 m_player.GetComponent<CharacterControllerScript>().enabled = true;
                 m_player.GetComponent<WeaponController>().enabled = true;
+                m_player.GetComponentInChildren<Animator>().enabled = true;
+
                 m_playerIsInArea = true;
-                HideTutorial();
+
             }
         }
     }
