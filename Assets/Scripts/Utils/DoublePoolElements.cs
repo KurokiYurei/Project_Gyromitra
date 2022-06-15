@@ -51,6 +51,7 @@ public class DoublePoolElements
     {
         if(m_CurrentAmount >= m_MaxAmount)
         {
+            m_ActiveElementsList[0].GetComponent<Mushroom>().SmokeVFX();
             m_ActiveElementsList[0].SetActive(false);
             m_ActiveElementsList.RemoveAt(0);
 

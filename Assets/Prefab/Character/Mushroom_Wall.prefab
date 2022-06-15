@@ -1023,6 +1023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetscale: {x: 1.5, y: 1.2, z: 1.5}
   m_animator: {fileID: 1967581422203047387}
+  m_smokeVFX: {fileID: 5129442136385957515, guid: c8e4027c12171a64890dde96d4f82409, type: 3}
   m_soundEmitter: {fileID: 8928039843230248085}
 --- !u!135 &368984347204711708
 SphereCollider:
