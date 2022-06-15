@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2089251412928921184}
   - component: {fileID: 7930138298657229652}
   - component: {fileID: 5944567523703721654}
+  - component: {fileID: 6889062082211443131}
   m_Layer: 2
   m_Name: CheckPoint
   m_TagString: CheckPoint
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_startPosition: {fileID: 2089251412928921185}
+  m_soundEmitter: {fileID: 2089251412928921185}
 --- !u!65 &2089251412928921184
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -109,3 +111,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089251412928921187}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6889062082211443131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089251412928921187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1

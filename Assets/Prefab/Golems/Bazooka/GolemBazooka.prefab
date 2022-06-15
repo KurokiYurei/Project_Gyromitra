@@ -1084,6 +1084,7 @@ GameObject:
   - component: {fileID: 2625165978164236093}
   - component: {fileID: 2625165978164236091}
   - component: {fileID: 2625165978164236092}
+  - component: {fileID: 6552664108608296918}
   m_Layer: 11
   m_Name: Head
   m_TagString: Enemy
@@ -1134,6 +1135,36 @@ MonoBehaviour:
   m_enemy: {fileID: 2625165978283179696}
   m_BodyHitAmount: 1
   m_HeadHitAmount: 5
+--- !u!114 &6552664108608296918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625165978164236094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &2625165978252785275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1447,7 @@ MonoBehaviour:
   m_groundWalkEffect: {fileID: 5129442136385957515, guid: 56436a62a8107b3448aad7e48aff6ece, type: 3}
   m_leftFootFirepoint: {fileID: 2625165976914344373}
   m_rightFootFirepoint: {fileID: 2625165978252785275}
+  m_soundEmitter: {fileID: 2625165978164236093}
 --- !u!1 &2625165978332758348
 GameObject:
   m_ObjectHideFlags: 0

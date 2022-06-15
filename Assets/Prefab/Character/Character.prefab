@@ -5092,9 +5092,6 @@ MonoBehaviour:
   m_startPos: {x: 0, y: 0, z: 0}
   m_startRot: {x: 0, y: 0, z: 0, w: 0}
   m_currentCheckPoint: {fileID: 0}
-  m_occlusionCamera: {fileID: 0}
-  m_fovInArea: 0
-  m_fovOutArea: 0
   m_animController: {fileID: 0}
   m_currentInputVector: {x: 0, y: 0}
   m_smoothInputVelocity: {x: 0, y: 0}
@@ -6508,11 +6505,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_RootOrder
@@ -6536,11 +6533,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6572,11 +6581,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 320
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 240
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 510189906665828222, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6596,7 +6605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7139086398791391642, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a14ce66a5eb5e53429bb906ca71dbd97, type: 3}
