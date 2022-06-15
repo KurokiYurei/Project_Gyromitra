@@ -72,7 +72,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557412962643420564, guid: 89ffae12950f64041be2ccb92bb5686b, type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 557412962643420564, guid: 89ffae12950f64041be2ccb92bb5686b, type: 3}
       propertyPath: ClampVelocityModule.dampen
