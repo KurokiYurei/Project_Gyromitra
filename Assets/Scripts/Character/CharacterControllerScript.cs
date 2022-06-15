@@ -486,6 +486,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             m_occlusionCamera.fieldOfView = m_fovInArea;
         }
+
+        if (other.CompareTag(UtilsGyromitra.SearchForTag("Credits")))
+        {
+            gameObject.transform.Find("CreditsCanvas").transform.GetComponent<Credits>().StartCinematics(this.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
