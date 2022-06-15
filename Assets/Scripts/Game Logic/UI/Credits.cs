@@ -41,6 +41,7 @@ public class Credits : MonoBehaviour
         l_player.GetComponent<CharacterController>().enabled = false;
         l_player.GetComponent<CharacterControllerScript>().enabled = false;
         l_player.GetComponent<WeaponController>().enabled = false;
+        l_player.GetComponent<Animator>().enabled = false;
 
         m_animation.PlayQueued(m_titleAnim, QueueMode.CompleteOthers);
         m_animation.PlayQueued(m_developersAnim, QueueMode.CompleteOthers);
