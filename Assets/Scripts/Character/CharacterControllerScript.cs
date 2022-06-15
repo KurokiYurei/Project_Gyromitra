@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.VFX;
 
 public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 {
@@ -119,14 +120,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private CheckPoint m_currentCheckPoint;
 
-    [Header("Occlusion Camera")]
-    [SerializeField]
-    private Camera m_occlusionCamera;
-    [SerializeField]
-    private float m_fovInArea;
-    [SerializeField]
-    private float m_fovOutArea;
-
     [Header("Animation")]
     [SerializeField]
     private AnimationController m_animController;
@@ -143,6 +136,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     public delegate void OnStopPoisonDelegate();
     public OnStopPoisonDelegate OnStopPoison;
+
+    public VisualEffect m_poisonedParticles;
 
     [Header("CameraShake")]
     [SerializeField]
@@ -173,14 +168,13 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         m_mushroomPool = new DoublePoolElements(5, transform, m_mushroomPrefab, m_mushroomWallPrefab);
         m_arrowPool = new PoolElements(5, transform, m_arrow);
 
-        m_fovInArea = 80f;
-        m_fovOutArea = 40f;
-
         m_eventEsvarzers = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/19 - Esbarzer impacte");
     }
 
     void Start()
     {
+        m_poisonedParticles.Stop();
+
         m_startPos = transform.position;
         m_startRot = transform.rotation;
 
@@ -482,22 +476,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             m_currentCheckPoint = other.GetComponent<CheckPoint>();
         }
 
-        if (other.CompareTag(UtilsGyromitra.SearchForTag("ChangeOcclusion")))
-        {
-            m_occlusionCamera.fieldOfView = m_fovInArea;
-        }
-
         if (other.CompareTag(UtilsGyromitra.SearchForTag("Credits")))
         {
             gameObject.transform.Find("CreditsCanvas").transform.GetComponent<Credits>().StartCinematics(this.gameObject);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag(UtilsGyromitra.SearchForTag("ChangeOcclusion")))
-        {
-            m_occlusionCamera.fieldOfView = m_fovOutArea;
         }
     }
 

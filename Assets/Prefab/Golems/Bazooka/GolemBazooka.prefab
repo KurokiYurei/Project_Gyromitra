@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_arm2VFX: {fileID: 2625165978502665805}
   m_headVFX: {fileID: 2625165977535964170}
   m_golemMaterial: {fileID: 2100000, guid: 97efbb4a06889044d86d2345d474dee6, type: 2}
-  m_soundEmitter: {fileID: 0}
+  m_soundEmitter: {fileID: 2625165978283179709}
 --- !u!114 &2625165978283179697
 MonoBehaviour:
   m_ObjectHideFlags: 0

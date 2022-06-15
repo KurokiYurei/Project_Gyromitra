@@ -91,6 +91,11 @@ public class Poison : MonoBehaviour
                 UtilsGyromitra.playSound(m_eventPoison, m_soundEmitter);
                 m_playerHealth.Damage(m_damage);
             }
+        }
+        else
+        {
+            if(m_player.m_poisonedParticles.isActiveAndEnabled)
+                m_player.m_poisonedParticles.Stop();
         } 
     }
 
@@ -99,6 +104,7 @@ public class Poison : MonoBehaviour
         if (other.tag == m_playerTag)
         {
             m_playerIsIn = true;
+            m_player.m_poisonedParticles.Play();
             m_soundEmitter = other.transform;
         }
     }
@@ -113,6 +119,7 @@ public class Poison : MonoBehaviour
 
     private void StopPoison()
     {
+        m_player.m_poisonedParticles.Stop();
         m_playerIsIn = false;
         m_currentDurationVenom = 0f;
         m_currentVenomDamageTimer = m_venomDamageTimer;
