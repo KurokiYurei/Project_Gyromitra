@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dff3996b89ca84e97c5b38ffb67a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damage: 25
+  m_damage: 70
   m_rigidBody: {fileID: 8272729674931008831}
   m_rayPoint: {fileID: 8875680627669792292}
   m_distanceHit: 1

@@ -733,9 +733,9 @@ MonoBehaviour:
   m_fireVFX: {fileID: 5129442136385957515, guid: 6f7ca865e5eb8c04cbfef8d5dc0339bb, type: 3}
   m_chargeVFX: {fileID: 5129442136385957515, guid: aa4efa40bffbfb743beaab1a8d32c6ef, type: 3}
   m_projectileSpeed: 30
-  m_cooldownTime: 1
+  m_cooldownTime: 0.5
   m_lockTime: 2
-  m_warningTime: 1
+  m_warningTime: 0.5
   m_firePoint: {fileID: 6651239351809161848}
   m_ray: {fileID: 6651239351809161849}
   m_shootLayerMask:

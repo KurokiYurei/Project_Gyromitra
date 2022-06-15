@@ -64,7 +64,7 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_maxHealth = 100f;
 
         m_timerToRegen = 2f;
-        m_startTimeToRegen = 2f;
+        m_startTimeToRegen = 3f;
         m_healthPerSecond = 10f;
         m_tickPerSecondHealth = 1f;
 
