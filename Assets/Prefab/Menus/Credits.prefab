@@ -486,7 +486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7345080997769519824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -985,7 +985,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Work :\n\n\t- Gameplay programmer\n\t- Mushroom feature\n\t- Bug fixing"
+  m_Text: "Work :\n\n\t- Gameplay programmer\n\t- Mushroom feature\n\t- Bug fixing\n\t-
+    FSM\n\t- Animator controller"
 --- !u!1 &1531168794260342620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,7 +4225,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Work :\n\n\t- Gameplay programmer\n\t- UI and Menus Logic\n\t- Bug fixing\n\t-
-    FSM"
+    FSM\n\t- Animator controller"
 --- !u!1 &7460731210187271070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4489,7 +4490,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1021.9, y: 223}
-  m_SizeDelta: {x: 1192.9, y: 641}
+  m_SizeDelta: {x: 1192.9, y: 714.568}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &3887566238739483476
 CanvasRenderer:
@@ -4533,7 +4534,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Work :\n\n\t- Enemies concept\n\t- Character 3D model\n\t- Shaders and
-    VFX\n\t- Animations\n\t- Illumination"
+    VFX\n\t- Animations\n\t- Illumination\n\t- Animator controller"
 --- !u!1 &7921379090526473346
 GameObject:
   m_ObjectHideFlags: 0

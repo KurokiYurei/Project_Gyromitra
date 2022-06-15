@@ -158,9 +158,8 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                     if (!m_played)
                     {
                         playSound(m_enemyAimSound);
+                        m_played = true;
                     }
-
-                    m_played = true;
 
                 } else
                 {
