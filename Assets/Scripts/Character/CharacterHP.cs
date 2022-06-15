@@ -25,6 +25,9 @@ public class CharacterHP : MonoBehaviour, IDamagable
     [SerializeField]
     private UI_Manager m_ui;
 
+    [SerializeField]
+    private RagdollController m_ragdollController;
+
     [Header("Health Shader")]
     [SerializeField]
     private Material m_quiverShader;
@@ -128,7 +131,9 @@ public class CharacterHP : MonoBehaviour, IDamagable
 
     IEnumerator waitToDie()
     {
+        m_ragdollController.EnableRagdoll();
         yield return new WaitForSeconds(0.5f);
+        m_ragdollController.DisableRagdoll();
         GameManagerScript.m_instance.RestartGame();
     }
 
