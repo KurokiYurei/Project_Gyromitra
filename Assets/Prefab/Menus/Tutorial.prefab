@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9143223432008937332}
   - component: {fileID: 6427656182170440268}
   - component: {fileID: 8777783847347745988}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tutorial
   m_TagString: Tutorial
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1565727374174196053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 171.92, y: 33.11, z: 230.98}
-  m_LocalScale: {x: 0.33333334, y: 0.28571412, z: 0.33333328}
+  m_LocalScale: {x: 0.11111112, y: 0.081632555, z: 0.111111075}
   m_Children:
   - {fileID: 7656582075337605487}
   - {fileID: 4728613384716314036}
@@ -46,8 +46,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.731638, y: 3.7411065, z: 5.093496}
-  m_Center: {x: -0.82039344, y: 1.3705398, z: 0.31954375}
+  m_Size: {x: 434.95227, y: 72.83689, z: 17.525057}
+  m_Center: {x: 33.29785, y: 35.91843, z: -5.897353}
 --- !u!114 &6427656182170440268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 6583589835346222670}
   - component: {fileID: 5786063574532809810}
   - component: {fileID: 8129100369610371213}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7656582075337605487}
   - component: {fileID: 7393292881794898529}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Video Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4135071271277041296}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 04546b1f85368634e9db0a2f4f71a1ed, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 419ff8d07d63286428a588b7343ed233, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 937586380172994836}
   - component: {fileID: 1960889677520223794}
   - component: {fileID: 6486401557477551492}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 3536678070953330752}
   - component: {fileID: 7437353074791288178}
   - component: {fileID: 7778856148491963653}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 63d41f1791037814f800b4b327359d64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be202a75e773ddb479f13215194ddfac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

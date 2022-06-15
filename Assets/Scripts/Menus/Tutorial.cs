@@ -17,21 +17,16 @@ public class Tutorial : MonoBehaviour
     private Animation m_animation;
 
     [SerializeField]
-    private PlayerInput m_playerInput;
+    private GameObject m_player;
 
     [SerializeField]
-    private InputAction m_unpause;
-
-    private void Awake()
-    {
-        m_playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
-        m_unpause = m_playerInput.actions["UnPause"];
-    }
+    private float m_timer;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            // StartCoroutine(WaitForHalfASecondCourotine());
             ShowTutorial();
             other.GetComponent<CharacterControllerScript>().enabled = false;
             other.GetComponent<WeaponController>().enabled = false;
@@ -39,17 +34,28 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    IEnumerator WaitForHalfASecondCourotine()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
+
     private void Update()
     {
-
-        print(m_unpause.triggered);
-
-        if (m_playerIsInArea && m_unpause.triggered)
+        if (m_player == null)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterControllerScript>().enabled = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponController>().enabled = true;
-            m_playerIsInArea = true;
-            HideTutorial();
+            m_player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (m_playerIsInArea)
+        {
+            m_timer -= Time.deltaTime;
+            if (m_timer <= 0f)
+            {
+                m_player.GetComponent<CharacterControllerScript>().enabled = true;
+                m_player.GetComponent<WeaponController>().enabled = true;
+                m_playerIsInArea = true;
+                HideTutorial();
+            }
         }
     }
 
