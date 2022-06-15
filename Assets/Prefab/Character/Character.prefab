@@ -240,7 +240,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!114 &79295927179334113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8640378252793110119
 MonoBehaviour:
@@ -2096,7 +2096,7 @@ MonoBehaviour:
   m_camera: {fileID: 0}
   m_layerMask:
     serializedVersion: 2
-    m_Bits: 6070
+    m_Bits: 6134
 --- !u!1 &8640378253218911938
 GameObject:
   m_ObjectHideFlags: 0
@@ -4833,7 +4833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538ebdc4ebe18444ab47a07d8d44cf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundEmitter: {fileID: 0}
+  m_soundEmitter: {fileID: 8640378254307423970}
 --- !u!114 &5954345455722843889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4962,13 +4962,13 @@ MonoBehaviour:
   m_FollowRot: {fileID: 8640378253077450399}
   m_lateralSpeedMultiplier: 0.7
   m_backwardsSpeedMultiplier: 0.5
-  m_WalkSpeed: 10
+  m_WalkSpeed: 8
   m_OnGround: 0
   m_JumpSpeed: 6.5
   m_jumpHorizontalSpeedDivider: 0.75
   m_VerticalSpeed: 0
   m_fallGravityMultiplier: 3
-  m_speedToFallDamage: 20
+  m_speedToFallDamage: 25
   m_timeForBulletTime: 0.1
   m_arrow: {fileID: 5903353976143995575, guid: 96cf4d3737f43f446a25ba5472f6ec17, type: 3}
   m_pauseMenu: {fileID: 0}
@@ -4979,7 +4979,7 @@ MonoBehaviour:
   m_mushroomJumpSpeed: 17
   m_brambleDamage: 25
   m_bramblePushPower: 10
-  m_bramblePushDuration: 0.5
+  m_bramblePushDuration: 0.25
   m_startPos: {x: 0, y: 0, z: 0}
   m_startRot: {x: 0, y: 0, z: 0, w: 0}
   m_currentCheckPoint: {fileID: 0}
@@ -4992,7 +4992,7 @@ MonoBehaviour:
   m_smoothInputSpeed: 0.1
   m_fallShakeIntensity: 10
   m_fallShakeTime: 0.1
-  m_soundEmitter: {fileID: 0}
+  m_soundEmitter: {fileID: 8640378253077450399}
 --- !u!114 &8640378254307423975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5028,7 +5028,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   m_arrowVFX: {fileID: 8640378254116645486}
-  m_soundEmitter: {fileID: 0}
+  m_soundEmitter: {fileID: 8640378253077450399}
 --- !u!114 &8640378254307423974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5089,12 +5089,12 @@ MonoBehaviour:
   m_timerToRegen: 0
   m_tickPerSecondHealth: 0
   m_ui: {fileID: 8640378252773483385}
-  m_ragdollController: {fileID: 0}
+  m_ragdollController: {fileID: 3321793302160934016}
   m_quiverShader: {fileID: 2100000, guid: 34e4037bb2fc8954f9c16aee405080ba, type: 2}
   m_healthColorLimit: 0
   m_fullHealthColor: {r: 0.1300379, g: 1, b: 0, a: 0}
   m_damagedHealthColor: {r: 0, g: 0.6733866, b: 1, a: 0}
-  m_soundEmitter: {fileID: 0}
+  m_soundEmitter: {fileID: 8640378254261655955}
 --- !u!114 &8640378254307423979
 MonoBehaviour:
   m_ObjectHideFlags: 0
