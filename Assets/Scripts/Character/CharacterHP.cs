@@ -36,12 +36,10 @@ public class CharacterHP : MonoBehaviour, IDamagable
     [Header("Health Shader")]
     [SerializeField]
     private Material m_quiverShader;
-    [SerializeField]
-    private float m_healthColorLimit;
-    [SerializeField]
+
     private Color m_fullHealthColor;
-    [SerializeField]
     private Color m_damagedHealthColor;
+    private Color m_crititalHealthColor;
 
     [Header("FMOD")]
     [SerializeField]
@@ -78,9 +76,11 @@ public class CharacterHP : MonoBehaviour, IDamagable
 
         m_health = m_maxHealth;
 
-        m_healthColorLimit = 90;
-        m_fullHealthColor = new Color(9, 191, 0, 255)*3.0f;
-        m_damagedHealthColor = new Color(99, 0, 74, 255)*3.0f;
+        m_fullHealthColor = new Color(0, 255, 0, 255)*0.05f;
+        m_damagedHealthColor = new Color(0, 0, 255, 255)*0.5f;
+        m_crititalHealthColor = new Color(255, 0, 0, 255) * 0.5f;
+
+        m_quiverShader.SetColor("_EmissionColor", m_fullHealthColor);
 
         m_postPro = GameObject.Find("PostProcessing");
         var v = m_postPro.GetComponent<UnityEngine.Rendering.Volume>()?.profile;
@@ -91,10 +91,9 @@ public class CharacterHP : MonoBehaviour, IDamagable
     {
         m_ui.SetHealth(m_health);
 
-        m_quiverShader.SetFloat("_Fill", m_health/100f);
-
-        if (m_health >= m_healthColorLimit) m_quiverShader.SetColor("_EmissionColor", m_fullHealthColor);
-        else m_quiverShader.SetColor("_EmissionColor", m_damagedHealthColor);
+        if (m_health >= 66) m_quiverShader.SetColor("_EmissionColor", m_fullHealthColor);
+        else if(m_health < 66 && m_health >= 33) m_quiverShader.SetColor("_EmissionColor", m_damagedHealthColor);
+        else m_quiverShader.SetColor("_EmissionColor", m_crititalHealthColor);
 
         m_timerToRegen -= Time.deltaTime;
 
