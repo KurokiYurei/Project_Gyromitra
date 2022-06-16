@@ -161,12 +161,10 @@ public class WeaponController : MonoBehaviour
 
             if (m_firePower >= m_maxFirePower - 5f)
             {
-                m_animController.AnimationShootLong();
                 m_weapon.FireArrow(m_firePower, false);
             }
             else
-            {
-                m_animController.AnimationShootShort();
+            {                
                 m_weapon.FireArrow(m_firePower, true);
             }
             m_reloadTimer = m_reloadTime;

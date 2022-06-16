@@ -192,7 +192,7 @@ AvatarMask:
   - m_Path: CATRigHub003Bone003BowGizmo
     m_Weight: 0
   - m_Path: CATRigHub003Bone004ArrowGizmo
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: CATRigHub003Gizmo
     m_Weight: 0
   - m_Path: CATRigLArm1Gizmo

@@ -10,13 +10,23 @@ public class AnimationController : MonoBehaviour
     private float m_WeightSmoothAim = 1.0f;
     [SerializeField]
     private float m_WeightSmoothHolster = 1.0f;
+    [SerializeField]
+    private GameObject m_arrow;
 
     private bool m_shoot = false;
+
+    private bool m_arrowVisible = false;
 
     private float m_timer = 0.0f;
 
     static float t = 0.0f;
     static float s = 0.0f;
+
+    private void Update()
+    {
+        if(m_arrowVisible)
+            SetArrowVisible();
+    }
 
     public void AnimationAirTimer(float _airTimer)
     {
@@ -43,6 +53,7 @@ public class AnimationController : MonoBehaviour
     {
         if (_isAiming)
         {
+            m_arrow.SetActive(true);
             m_timer += Time.deltaTime;
             s = 0;
             t += m_WeightSmoothAim * Time.deltaTime;
@@ -55,16 +66,19 @@ public class AnimationController : MonoBehaviour
             if (m_timer < 0.2)
             {
                 m_Animator.SetTrigger("shootShort");
+                m_arrow.SetActive(false);
             }
             else
             {
                 m_Animator.SetTrigger("shootLong");
+                m_arrow.SetActive(false);
             }
             m_shoot = false;
             m_timer = 0;
         }
         else
         {
+            m_arrowVisible = true;
             t = 0;
             s += m_WeightSmoothHolster * Time.deltaTime;
             m_Animator.SetLayerWeight(1, Mathf.Lerp(1f, 0f, s));
@@ -72,23 +86,21 @@ public class AnimationController : MonoBehaviour
         }
     }
 
+    public void SetArrowVisible()
+    {
+        m_timer += Time.deltaTime;
+
+        if (m_timer > 0.7f)
+        {
+            m_arrow.SetActive(true);
+            m_arrowVisible = false;
+            m_timer = 0;
+        }
+    }
+
     public void AnimationAimAngle(float _angle)
     {
         m_Animator.SetFloat("AimX", _angle);
-    }
-
-    public void AnimationShootShort()
-    {
-        //m_Animator.SetTrigger("shootShort");
-        //m_Animator.SetLayerWeight(1, 1f);
-        //m_Animator.SetLayerWeight(2, 1);
-    }
-
-    public void AnimationShootLong()
-    {
-        m_Animator.SetTrigger("shootLong");
-        //m_Animator.SetLayerWeight(1, 1f);
-        //m_Animator.SetLayerWeight(2, 1);
     }
 
 }

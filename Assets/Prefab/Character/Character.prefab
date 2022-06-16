@@ -5034,7 +5034,6 @@ MonoBehaviour:
   m_ui: {fileID: 8640378252773483385}
   m_ragdollController: {fileID: 3321793302160934016}
   m_quiverShader: {fileID: 2100000, guid: 95b439433deb6f8468f215e74f10b44a, type: 2}
-  m_healthColorLimit: 0
   m_soundEmitter: {fileID: 8640378254261655955}
 --- !u!114 &8640378254307423979
 MonoBehaviour:
@@ -5051,6 +5050,7 @@ MonoBehaviour:
   m_Animator: {fileID: 8640378254261655954}
   m_WeightSmoothAim: 7
   m_WeightSmoothHolster: 3
+  m_arrow: {fileID: 8640378253473871157}
 --- !u!114 &140014494122589858
 MonoBehaviour:
   m_ObjectHideFlags: 0

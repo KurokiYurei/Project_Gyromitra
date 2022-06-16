@@ -78,7 +78,7 @@ AvatarMask:
   - m_Path: CATRigHub002/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigHub003/CATRigHub003Bone003Bow/CATRigHub003Bone003Bone003
     m_Weight: 1
   - m_Path: CATRigHub002/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigHub003/CATRigHub003Bone004Arrow
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: CATRigHub002/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigHub003/CATRigLArmCollarbone
     m_Weight: 1
   - m_Path: CATRigHub002/CATRigSpine1/CATRigSpine2/CATRigSpine3/CATRigSpine4/CATRigSpine5/CATRigHub003/CATRigLArmCollarbone/CATRigLArm1
@@ -192,7 +192,7 @@ AvatarMask:
   - m_Path: CATRigHub003Bone003BowGizmo
     m_Weight: 0
   - m_Path: CATRigHub003Bone004ArrowGizmo
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: CATRigHub003Gizmo
     m_Weight: 0
   - m_Path: CATRigLArm1Gizmo
