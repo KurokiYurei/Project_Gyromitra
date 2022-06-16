@@ -4165,6 +4165,7 @@ MonoBehaviour:
   m_Animator: {fileID: 1148180091}
   m_WeightSmoothAim: 1
   m_WeightSmoothHolster: 1
+  m_arrow: {fileID: 408336953}
 --- !u!114 &672335277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4181,10 +4182,8 @@ MonoBehaviour:
   m_tickPerSecondHealth: 0
   m_ui: {fileID: 1281520570}
   m_ragdollController: {fileID: 0}
+  m_postPro: {fileID: 0}
   m_quiverShader: {fileID: 2100000, guid: 34e4037bb2fc8954f9c16aee405080ba, type: 2}
-  m_healthColorLimit: 0
-  m_fullHealthColor: {r: 0, g: 0, b: 0, a: 0}
-  m_damagedHealthColor: {r: 0, g: 0, b: 0, a: 0}
   m_soundEmitter: {fileID: 672335283}
 --- !u!114 &672335278
 MonoBehaviour:
@@ -4304,9 +4303,6 @@ MonoBehaviour:
   m_startPos: {x: 0, y: 0, z: 0}
   m_startRot: {x: 0, y: 0, z: 0, w: 0}
   m_currentCheckPoint: {fileID: 0}
-  m_occlusionCamera: {fileID: 0}
-  m_fovInArea: 0
-  m_fovOutArea: 0
   m_animController: {fileID: 0}
   m_currentInputVector: {x: 0, y: 0}
   m_smoothInputVelocity: {x: 0, y: 0}

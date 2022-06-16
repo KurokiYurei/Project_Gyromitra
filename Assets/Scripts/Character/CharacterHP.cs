@@ -29,6 +29,7 @@ public class CharacterHP : MonoBehaviour, IDamagable
     [SerializeField]
     private RagdollController m_ragdollController;
 
+    [SerializeField]
     private GameObject m_postPro;
 
     private Vignette m_vignette;
@@ -81,14 +82,17 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_crititalHealthColor = new Color(255, 0, 0, 255) * 0.5f;
 
         m_quiverShader.SetColor("_EmissionColor", m_fullHealthColor);
-
-        m_postPro = GameObject.Find("PostProcessing");
-        var v = m_postPro.GetComponent<UnityEngine.Rendering.Volume>()?.profile;
-        v.TryGet(out m_vignette);
     }
 
     void Update()
     {
+        if(m_postPro == null)
+        {
+            m_postPro = GameObject.Find("PostProcessing");
+            var v = m_postPro.GetComponent<UnityEngine.Rendering.Volume>()?.profile;
+            v.TryGet(out m_vignette);
+        }
+
         m_ui.SetHealth(m_health);
 
         if (m_health >= 66) m_quiverShader.SetColor("_EmissionColor", m_fullHealthColor);
