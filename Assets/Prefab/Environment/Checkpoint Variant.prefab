@@ -77,6 +77,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86251a5204c59fa48a0ee07cd8371c44, type: 3}
+--- !u!198 &500922303502222221 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 184985504354429460, guid: 86251a5204c59fa48a0ee07cd8371c44, type: 3}
+  m_PrefabInstance: {fileID: 315974869860116889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1537650918026503846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +190,7 @@ MonoBehaviour:
   VFX_CCW: {fileID: 6856270203141620365}
   VFX_InnerRadius: {fileID: 905732462455656603}
   VFX_OutterRadius: {fileID: 5870847187905759168}
+  VFX_Vertical: {fileID: 500922303502222221}
 --- !u!1001 &7962052425427445032
 PrefabInstance:
   m_ObjectHideFlags: 0
