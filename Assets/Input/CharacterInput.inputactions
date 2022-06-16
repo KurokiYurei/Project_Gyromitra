@@ -60,9 +60,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UnPause",
+                    "name": "CloseTutorial",
                     "type": "Button",
-                    "id": "2c43964c-7369-4ce0-80c4-6a3c46f55c8e",
+                    "id": "060febab-f954-47d2-84e9-342b0b3b6de1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -292,23 +292,23 @@
                 },
                 {
                     "name": "",
-                    "id": "80d58b22-92ea-47f9-a607-ece8d2b1c3b0",
-                    "path": "<Keyboard>/escape",
+                    "id": "5ad7a82f-6f0b-4229-b84d-38b36441e889",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UnPause",
+                    "action": "CloseTutorial",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "e2029435-0f7e-4b6b-b99e-a781f27a69db",
+                    "id": "1a48dc9f-d3c7-4584-8fe5-95ac32d3d8a7",
                     "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UnPause",
+                    "action": "CloseTutorial",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

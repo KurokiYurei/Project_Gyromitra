@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: bd4e6036f9c393a4e82611dfec9a0e62, type: 2}
     - target: {fileID: 549146597262186614, guid: a434ce6967ce3e9459ae7a33f840197f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 549146597262186614, guid: a434ce6967ce3e9459ae7a33f840197f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -498,7 +498,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &917470470
 PrefabInstance:
@@ -533,7 +533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9085547388893983932, guid: 7497b6a840779d84a9b69d4ef17ea2f6, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9085547388893983932, guid: 7497b6a840779d84a9b69d4ef17ea2f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -677,7 +677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8592950939814888710, guid: b337714c2d0fd8c44a28183a23d4d2e6, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8592950939814888710, guid: b337714c2d0fd8c44a28183a23d4d2e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -817,6 +817,7 @@ GameObject:
   - component: {fileID: 1293614651}
   - component: {fileID: 1293614654}
   - component: {fileID: 1293614655}
+  - component: {fileID: 1293614656}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -936,6 +937,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
   ListenerNumber: -1
+--- !u!114 &1293614656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293614650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1001 &1639083653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -945,7 +976,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4534817336647142898, guid: dab72a1f6789f7b4ca83f289cfd54c07, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4534817336647142898, guid: dab72a1f6789f7b4ca83f289cfd54c07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1259,6 +1290,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 721194287}
     - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
+      propertyPath: m_camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
       propertyPath: m_MainMenu
       value: 
       objectReference: {fileID: 2048703346}
@@ -1278,6 +1313,10 @@ PrefabInstance:
       propertyPath: m_soundEmitter
       value: 
       objectReference: {fileID: 1293614653}
+    - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
+      propertyPath: m_cameraOutGame
+      value: 
+      objectReference: {fileID: 1293614650}
     - target: {fileID: 1812228763704686221, guid: f9a20ce4f5848db4d9e18061aa890769, type: 3}
       propertyPath: m_loadingScreenGame
       value: 

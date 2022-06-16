@@ -119,7 +119,6 @@ public class EnemyShoot : MonoBehaviour
         m_animator.SetBool("TurnR", isRight);
 
         float direction = Vector3.Angle(m_player.transform.position - transform.position, transform.forward);
-        print(direction);
         if (direction <= 10f)
         {
             m_animator.SetLayerWeight(1, 0);

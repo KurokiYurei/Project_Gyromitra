@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{264d426b-0c93-439f-8c0b-dcb10d45f5b8}">
+		<property name="assetPath">
+			<value>Ambiental/Waterfall.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>33.412063492063496</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e498a2ba-14b1-499a-912e-86aa46699dd5}</destination>
+		</relationship>
+	</object>
+</objects>

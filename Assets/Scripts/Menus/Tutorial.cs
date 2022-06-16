@@ -48,7 +48,7 @@ public class Tutorial : MonoBehaviour
 
             m_playerIsInArea = true;
 
-            m_unpause = m_input.actions["UnPause"];
+            m_unpause = m_input.actions["CloseTutorial"];
         }
     }
 

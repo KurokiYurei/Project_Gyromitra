@@ -241,6 +241,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 m_animator.SetLayerWeight(1, 0);          
                 m_animator.SetBool("Aiming", false);
                 m_animator.SetBool("Shoot", false);
+                gameObject.transform.GetComponent<GolemEffects>().GolemMusicStanceStop();
                 break;
 
             case State.STUN:
@@ -267,6 +268,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
                 m_animator.SetBool("Aiming", true);
                 m_enemyShoot.setPlayer(m_player);
                 m_played = false;
+                gameObject.transform.GetComponent<GolemEffects>().GolemMusicStancePlay();
                 break;
                     
             case State.STUN:

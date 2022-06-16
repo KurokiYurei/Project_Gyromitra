@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
@@ -135,6 +136,12 @@ public class CanvasManager : MonoBehaviour
 
         SetSettingsValues();
 
+    }
+
+    private void Start()
+    {
+        var eventSystem = EventSystem.current;
+        eventSystem.SetSelectedGameObject(m_startGame.gameObject, new BaseEventData(eventSystem));
     }
 
     private void Update()

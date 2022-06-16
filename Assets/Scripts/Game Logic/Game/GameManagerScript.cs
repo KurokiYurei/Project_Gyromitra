@@ -75,6 +75,9 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     private EventInstance m_eventChangeMenu;
 
+    [SerializeField]
+    private EventInstance m_eventMenuMusic;
+
     [Header("Loading Screen")]
     [SerializeField]
     private GameObject m_MainMenu;
@@ -84,6 +87,12 @@ public class GameManagerScript : MonoBehaviour
 
     [SerializeField]
     private Animation m_animation;
+
+    [SerializeField]
+    private GameObject m_cameraInGame;
+
+    [SerializeField]
+    private GameObject m_cameraOutGame;
 
     [SerializeField]
     private List<AsyncOperation> m_scenesLoading = new List<AsyncOperation>();
@@ -124,7 +133,20 @@ public class GameManagerScript : MonoBehaviour
         m_eventClick = FMODUnity.RuntimeManager.CreateInstance("event:/UI/3 - Click");
         m_eventHover = FMODUnity.RuntimeManager.CreateInstance("event:/UI/1 - Pasar por encima");
         m_eventChangeMenu = FMODUnity.RuntimeManager.CreateInstance("event:/UI/2 - Canviar menú");
+        m_eventMenuMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/MenuMusic");
 
+        m_cameraInGame = null;
+
+        UtilsGyromitra.playSound(m_eventMenuMusic, m_soundEmitter);
+
+    }
+
+    private void Update()
+    {
+        if (m_cameraInGame == null)
+        {
+            m_cameraInGame = GameObject.Find("CameraPlayer");
+        }
     }
 
     public void AddRestartGameElement(IRestartGameElement RestartGameElement)
@@ -158,6 +180,8 @@ public class GameManagerScript : MonoBehaviour
 
         m_secondsToWait = 2f;
 
+        m_cameraOutGame.GetComponent<StudioListener>().enabled = true;
+
         StartCoroutine(GetSceneLoadProgress());
 
     }
@@ -171,6 +195,10 @@ public class GameManagerScript : MonoBehaviour
 
         m_secondsToWait = 2f;
 
+        m_cameraOutGame.GetComponent<StudioListener>().enabled = true;
+
+        UtilsGyromitra.playSound(m_eventMenuMusic, m_soundEmitter);
+
         StartCoroutine(GetSceneLoadProgress());
 
     }
@@ -179,10 +207,14 @@ public class GameManagerScript : MonoBehaviour
     {
         m_loadingScreenGame.SetActive(true);
 
+        UtilsGyromitra.stopSound(m_eventMenuMusic);
+
         m_scenesLoading.Add(SceneManager.LoadSceneAsync(((int)Scenes.Mapa), LoadSceneMode.Additive));
         m_scenesLoading.Add(SceneManager.UnloadSceneAsync(((int)Scenes.Main_Menu)));
 
-        m_secondsToWait = 5f;
+        m_secondsToWait = 10f;
+
+        m_cameraOutGame.GetComponent<StudioListener>().enabled = false;
 
         StartCoroutine(GetSceneLoadProgress());
 
@@ -213,6 +245,11 @@ public class GameManagerScript : MonoBehaviour
 
             m_MainMenu.SetActive(false);
             m_loadingScreenGame.SetActive(false);
+
+            //if (m_cameraInGame != null)
+            //{
+                //m_cameraInGame.GetComponent<StudioListener>().enabled = true;
+            //}
 
         }
     }

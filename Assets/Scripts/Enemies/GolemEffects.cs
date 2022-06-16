@@ -23,10 +23,14 @@ public class GolemEffects : MonoBehaviour
     [SerializeField]
     private EventInstance m_eventDie;
 
+    [SerializeField]
+    private EventInstance m_eventMusic;
+
     private void Awake()
     {
         m_eventStep = FMODUnity.RuntimeManager.CreateInstance("event:/Enemics/21 - Golem step");
         m_eventDie = FMODUnity.RuntimeManager.CreateInstance("event:/Enemics/20 -  Golem death");
+        m_eventMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/BattleMusic");
     }
 
     public void StepLeft()
@@ -49,6 +53,16 @@ public class GolemEffects : MonoBehaviour
     {
         UtilsGyromitra.stopSound(m_eventStep);
         UtilsGyromitra.playSound(m_eventDie, m_soundEmitter);
+    }
+
+    public void GolemMusicStancePlay()
+    {
+        UtilsGyromitra.playSound(m_eventMusic, m_soundEmitter);
+    }
+
+    public void GolemMusicStanceStop()
+    {
+        UtilsGyromitra.stopSound(m_eventMusic);
     }
 
 }
