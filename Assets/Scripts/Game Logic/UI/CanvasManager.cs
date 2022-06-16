@@ -150,7 +150,20 @@ public class CanvasManager : MonoBehaviour
             m_gameManager.OnClickPlaySound();
         }
 
-        if (m_currentCanvas == m_startMenu && Input.anyKeyDown)
+        if (m_currentCanvas == m_startMenu && Input.anyKeyDown || 
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton0) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton1) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton2) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton3) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton4) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton5) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton6) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton7) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton8) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton9) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton10) ||
+            m_currentCanvas == m_startMenu && Input.GetKeyDown(KeyCode.JoystickButton11)
+            )
         {
             ChangeCanvasToMainMenu();
         }

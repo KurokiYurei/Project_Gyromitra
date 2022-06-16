@@ -96,6 +96,7 @@ public class GameManagerScript : MonoBehaviour
 
     private float m_totalSceneProgress;
 
+    [SerializeField]
     List<IRestartGameElement> m_RestartGameElements;
 
     public Settings Settings { get => m_settings; set => m_settings = value; }
@@ -133,6 +134,11 @@ public class GameManagerScript : MonoBehaviour
     public void DeleteRestartGameElement(IRestartGameElement RestartGameElement)
     {
         m_RestartGameElements.Remove(RestartGameElement);
+    }
+
+    public void RestartRestartGameElement()
+    {
+        m_RestartGameElements.Clear();
     }
 
     public void RestartGame()

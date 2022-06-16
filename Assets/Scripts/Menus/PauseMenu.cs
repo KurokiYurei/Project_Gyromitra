@@ -163,6 +163,7 @@ public class PauseMenu : MonoBehaviour
     public void Quit()
     {
         Time.timeScale = 1.0f;
+        m_gameManager.RestartRestartGameElement();
         m_gameManager.LoadMainMenuFromGame();
     }
 
