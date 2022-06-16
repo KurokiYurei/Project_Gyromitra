@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8308639537610140612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.432
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.928
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.08468044
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7575419
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.34855947
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.54540426
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -14.591
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -113.813
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581707745823658041, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -140.123
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923097664336276004, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a6e67c3c5faeb9345999bfa880aae297, type: 2}
+    - target: {fileID: 8844447400851439349, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
+      propertyPath: m_Name
+      value: Brambles Helix  (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 576d6b2f73ec12046bcf347d86bb5e30, type: 3}
