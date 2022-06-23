@@ -471,7 +471,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(UtilsGyromitra.SearchForTag("CheckPoint")))
+        if (other.CompareTag(UtilsGyromitra.SearchForTag("CheckPoint")) && m_currentCheckPoint != other.GetComponent<CheckPoint>())
         {
             m_currentCheckPoint = other.GetComponent<CheckPoint>();
             m_currentCheckPoint.PlaySound();
