@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Credits : MonoBehaviour
@@ -25,6 +26,8 @@ public class Credits : MonoBehaviour
     private string m_thanksAnim;
     private string m_changeToMainMenuAnim;
 
+    private bool m_alreadyQuit;
+
     private void Awake()
     {
         m_titleAnim = "TheEndText";
@@ -47,9 +50,11 @@ public class Credits : MonoBehaviour
             m_gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         }
 
-        if (m_animation.IsPlaying(m_changeToMainMenuAnim))
+        if (m_animation.IsPlaying(m_changeToMainMenuAnim) && !m_alreadyQuit)
         {
-            Application.Quit();
+            m_gameManager.RestartRestartGameElement();
+            m_gameManager.LoadMainMenuFromGame();
+            m_alreadyQuit = true;
         }
     }
 
@@ -64,6 +69,7 @@ public class Credits : MonoBehaviour
         m_player.GetComponent<CharacterControllerScript>().enabled = false;
         m_player.GetComponent<WeaponController>().enabled = false;
         m_player.GetComponentInChildren<Animator>().enabled = false;
+        m_player.GetComponent<PlayerInput>().enabled = false;
 
         m_animation.PlayQueued(m_titleAnim, QueueMode.CompleteOthers);
         m_animation.PlayQueued(m_developersAnim, QueueMode.CompleteOthers);
