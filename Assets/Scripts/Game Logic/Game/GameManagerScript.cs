@@ -41,8 +41,8 @@ public class Settings
     {
         Resoution = new ResolutionString(1920, 1080);
         FullScreen = true;
-        MusicVolume = 0.5f;
-        SfxVolume = 0.5f;
+        MusicVolume = 0.1f;
+        SfxVolume = 0.1f;
         SensitivityMouse = 0.05f;
         SensitivityController = 1.7f;
     }

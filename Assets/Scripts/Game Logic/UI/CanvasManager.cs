@@ -399,8 +399,8 @@ public class CanvasManager : MonoBehaviour
 
     private void UpdateTextSliders()
     {
-        m_musicText.text = m_musicSlider.value.ToString("0.0") + " db";
-        m_sfxText.text = m_sfxSlider.value.ToString("0.0") + " db";
+        m_musicText.text = m_musicSlider.value.ToString("0.0") + "%";
+        m_sfxText.text = m_sfxSlider.value.ToString("0.0") + "%";
         m_sensitivityMouseText.text = m_sensitivityMouseSlider.value.ToString("0.0#");
         m_sensitivityControllerText.text = m_sensitivityControllerSlider.value.ToString("0.0#");
     }
