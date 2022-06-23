@@ -54,6 +54,7 @@ public class Credits : MonoBehaviour
         {
             m_gameManager.RestartRestartGameElement();
             m_gameManager.LoadMainMenuFromGame();
+            Cursor.lockState = CursorLockMode.Confined;
             m_alreadyQuit = true;
         }
     }
