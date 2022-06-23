@@ -16,11 +16,6 @@ public class Enemy1HP : MonoBehaviour, IDamagable
     public void Damage(float l_damage)
     {
         m_health -= l_damage;
-
-        if (m_health <= 0)
-        {
-            GameManagerScript.m_instance.DeleteRestartGameElement(gameObject.GetComponent<EnemyBehaviour>());
-        }
     }
     public void ResetHP()
     {
