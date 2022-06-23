@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1639147158}
-  m_IndirectSpecularColor: {r: 0.9676462, g: 1.012486, b: 1.0118389, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.96764475, g: 1.0124849, b: 1.0118384, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4128,7 +4128,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1640037720}
         m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: LeftButtonResolution
+        m_MethodName: RightButtonResolution
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
