@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,6 +15,11 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField]
     private GameObject m_blur;
+
+    [SerializeField]
+    private GameObject m_firstPauseMenuButton;
+    [SerializeField]
+    private GameObject m_firstSettingsMenuButton;
 
     [Header("Menus")]
     [SerializeField]
@@ -78,9 +84,25 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private Text m_sensitivityControllerText;
 
+    private bool m_onSettings;
+
     public bool GetPaused()
     {
         return m_paused;
+    }
+
+    public void SetSelectedButton(bool settings)
+    {
+        if (settings)
+        {
+            m_onSettings = true;
+            EventSystem.current.SetSelectedGameObject(m_firstSettingsMenuButton);
+        }
+        else
+        {
+            m_onSettings = false;
+            EventSystem.current.SetSelectedGameObject(m_firstPauseMenuButton);
+        }    
     }
 
     void Start()
@@ -92,7 +114,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_pauseGame.triggered)
+        if (m_pauseGame.triggered && !m_onSettings)
         {
             PauseGame();
         }
@@ -157,6 +179,8 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = true;
             m_blur.SetActive(true);
             m_paused = true;
+
+            SetSelectedButton(false);
         }
     }
 

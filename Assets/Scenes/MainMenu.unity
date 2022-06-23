@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1639147158}
-  m_IndirectSpecularColor: {r: 0.96764475, g: 1.0124849, b: 1.0118384, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.9676462, g: 1.012486, b: 1.0118389, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -894,9 +894,9 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1750321199}
-    m_SelectOnDown: {fileID: 938799427}
+    m_SelectOnDown: {fileID: 1185379826}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 938799427}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4099,7 +4099,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 226498882}
     m_SelectOnDown: {fileID: 1185379826}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 226498882}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -5340,9 +5340,9 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 938799427}
-    m_SelectOnDown: {fileID: 1720538872}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnDown: {fileID: 980658087}
+    m_SelectOnLeft: {fileID: 1720538872}
+    m_SelectOnRight: {fileID: 1720538872}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.56, g: 0.56, b: 0.56, a: 1}
@@ -7350,6 +7350,8 @@ MonoBehaviour:
   - {fileID: 1543275038}
   - {fileID: 1843935818}
   - {fileID: 2050165198}
+  m_firstMainMenuButton: {fileID: 871766316}
+  m_firstSettingsMenuButton: {fileID: 1185379824}
 --- !u!4 &1640037721
 Transform:
   m_ObjectHideFlags: 0
@@ -7594,10 +7596,10 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1185379826}
+    m_SelectOnUp: {fileID: 938799427}
     m_SelectOnDown: {fileID: 980658087}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1185379826}
+    m_SelectOnRight: {fileID: 1185379826}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.56, g: 0.56, b: 0.56, a: 1}

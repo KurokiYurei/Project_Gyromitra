@@ -109,6 +109,11 @@ public class CanvasManager : MonoBehaviour
     [SerializeField]
     private Image[] m_buttonsImage;
 
+    [SerializeField]
+    private GameObject m_firstMainMenuButton;
+    [SerializeField]
+    private GameObject m_firstSettingsMenuButton;
+
     private void Awake()
     {
 
@@ -200,7 +205,6 @@ public class CanvasManager : MonoBehaviour
     {
         m_gameManager.OnChangeMenuPlaySound();
 
-
         m_currentCanvas = m_startMenu;
         m_startMenu.SetActive(true);
         m_mainMenu.SetActive(false);
@@ -218,7 +222,6 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void ChangeCanvasToMainMenu()
     {
-
         m_gameManager.OnChangeMenuPlaySound();
 
         m_currentCanvas = m_mainMenu;
@@ -231,6 +234,8 @@ public class CanvasManager : MonoBehaviour
         m_mainBackground.gameObject.SetActive(true);
         m_settingsBackground.gameObject.SetActive(false);
         DisableButtonImages();
+
+        EventSystem.current.SetSelectedGameObject(m_firstMainMenuButton);
     }
 
     /// <summary>
@@ -238,7 +243,6 @@ public class CanvasManager : MonoBehaviour
     /// </summary>
     public void ChangeCanvasToSettingsMenu()
     {
-
         m_gameManager.OnChangeMenuPlaySound();
 
         m_currentCanvas = m_settingsMenu;
@@ -252,6 +256,8 @@ public class CanvasManager : MonoBehaviour
         m_settingsBackground.gameObject.SetActive(true);
         UpdateValuesSettings();
         DisableButtonImages();
+
+        EventSystem.current.SetSelectedGameObject(m_firstSettingsMenuButton);
     }
 
     /// <summary>
