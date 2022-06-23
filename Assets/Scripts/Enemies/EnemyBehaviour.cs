@@ -290,6 +290,11 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
     public void RestartGame()
     {
+        m_body.gameObject.SetActive(true);
+        gameObject.GetComponent<BoxCollider>().enabled = true;
+        m_animator.enabled = true;
+        m_golemBreakdown.SetActive();
+
         ChangeState(State.INITIAL);
         gameObject.GetComponent<Enemy1HP>().ResetHP();
         m_enemyMovement.m_navMeshAgent.enabled = false;

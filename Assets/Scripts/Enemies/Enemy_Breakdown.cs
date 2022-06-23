@@ -30,6 +30,10 @@ public class Enemy_Breakdown : MonoBehaviour
 
     private GameObject m_fracturedGolem;
 
+    public void SetActive()
+    {
+        m_golem.SetActive(true);
+    }
     private void Start()
     {
         m_dissolveAmount = 0.0f;
@@ -77,6 +81,6 @@ public class Enemy_Breakdown : MonoBehaviour
                 }
             }
         }
-        Destroy(this.gameObject, 3.5f);
+        //Destroy(this.gameObject, 3.5f);
     }
 }
