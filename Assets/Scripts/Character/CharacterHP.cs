@@ -49,6 +49,8 @@ public class CharacterHP : MonoBehaviour, IDamagable
     [SerializeField]
     private EventInstance m_eventDie;
 
+    private float m_timer;
+
     //[SerializeField]
     //private EventInstance m_eventRegen;
 
@@ -75,6 +77,8 @@ public class CharacterHP : MonoBehaviour, IDamagable
         m_healthPerSecond = 10f;
         m_tickPerSecondHealth = 1f;
 
+        m_timer = 1f;
+
         m_health = m_maxHealth;
 
         m_fullHealthColor = new Color(0, 255, 0, 255)*0.05f;
@@ -86,6 +90,16 @@ public class CharacterHP : MonoBehaviour, IDamagable
 
     void Update()
     {
+
+        m_timer -= Time.deltaTime;
+
+        if (m_timer <= 0f && m_played == true)
+        {
+            print("canplay");
+            m_timer = 1f;
+            m_played = false;
+        }
+
         if(m_postPro == null)
         {
             m_postPro = GameObject.Find("PostProcessing");
@@ -95,14 +109,24 @@ public class CharacterHP : MonoBehaviour, IDamagable
 
         m_ui.SetHealth(m_health);
 
-        if (m_health >= 66) m_quiverShader.SetColor("_EmissionColor", m_fullHealthColor);
-        else if(m_health < 66 && m_health >= 33) m_quiverShader.SetColor("_EmissionColor", m_damagedHealthColor);
-        else m_quiverShader.SetColor("_EmissionColor", m_crititalHealthColor);
+        if (m_health >= 66)
+        {
+            m_quiverShader.SetColor("_EmissionColor", m_fullHealthColor);
+        }
+        else {
+            if (m_health < 66 && m_health >= 33)
+            {
+                m_quiverShader.SetColor("_EmissionColor", m_damagedHealthColor);
+            }
+            else {
+                m_quiverShader.SetColor("_EmissionColor", m_crititalHealthColor);}
+        }
 
         m_timerToRegen -= Time.deltaTime;
 
-        if(m_health <= 50f && m_health >= 1f && !m_played)
+        if(m_health <= 66f && !m_played)
         {
+            print("playsound");
             UtilsGyromitra.playSound(m_eventLowHealth, m_soundEmitter);
             m_played = true;
         } else
