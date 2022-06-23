@@ -49,8 +49,8 @@ public class CharacterHP : MonoBehaviour, IDamagable
     [SerializeField]
     private EventInstance m_eventDie;
 
-    [SerializeField]
-    private EventInstance m_eventRegen;
+    //[SerializeField]
+    //private EventInstance m_eventRegen;
 
     [SerializeField]
     private EventInstance m_eventLowHealth;
@@ -60,8 +60,8 @@ public class CharacterHP : MonoBehaviour, IDamagable
     private void Awake()
     {
         m_eventDie = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/17 - Death sound");
-        m_eventRegen = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/15 - Curació");
-        m_eventLowHealth = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/16 - Low health");
+        //m_eventRegen = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/15 - Curació");
+        m_eventLowHealth = FMODUnity.RuntimeManager.CreateInstance("event:/Personatge/HearthBeat");
         m_played = false;
     }
 
@@ -157,12 +157,12 @@ public class CharacterHP : MonoBehaviour, IDamagable
     {
         if(m_health >= m_maxHealth)
         {
-            UtilsGyromitra.stopSound(m_eventRegen);
+            //UtilsGyromitra.stopSound(m_eventRegen);
             m_health = m_maxHealth;
         }
         else
         {
-            UtilsGyromitra.playSound(m_eventRegen, m_soundEmitter);
+            //UtilsGyromitra.playSound(m_eventRegen, m_soundEmitter);
             m_health += m_healthPerSecond;
         }
     }

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{0ac56f55-d292-49dd-8ffb-24611dae70ab}">
 		<property name="name">
-			<value>16 - Low health</value>
+			<value>HearthBeat</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -76,7 +76,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{cf4c06af-ac85-40db-8ad0-d89f3d2a4717}">
 		<property name="volume">
-			<value>-17.5</value>
+			<value>-7.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{766408a2-4f95-4616-ac0b-4a2d9ad7c329}</destination>
