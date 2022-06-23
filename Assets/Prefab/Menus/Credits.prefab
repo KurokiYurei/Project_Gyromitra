@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 629, y: 663}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchoredPosition: {x: 995.9, y: 663}
+  m_SizeDelta: {x: 1441.9, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &8839572683176343033
 CanvasRenderer:
@@ -153,7 +153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xD3uscargh"
+  m_Text: Oscar Paz
 --- !u!1 &312894839511356649
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,8 +548,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 629, y: 663}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchoredPosition: {x: 1050.8, y: 663}
+  m_SizeDelta: {x: 1441.9, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &210582269125042374
 CanvasRenderer:
@@ -592,9 +592,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Alexsus
-
-'
+  m_Text: Alex Terradas
 --- !u!1 &840829548776156917
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,8 +627,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 629, y: 663}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchoredPosition: {x: 961.6, y: 663}
+  m_SizeDelta: {x: 1441.9, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &2688822863820705727
 CanvasRenderer:
@@ -673,7 +671,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Marinya
+  m_Text: "Marina Cam\xED"
 --- !u!1 &845456382534985051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,8 +2987,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 629, y: 663}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchoredPosition: {x: 976, y: 663}
+  m_SizeDelta: {x: 1441.9, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &81927064715993920
 CanvasRenderer:
@@ -3033,7 +3031,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Laidya
+  m_Text: Lidia Alvarez
 --- !u!1 &4957349772017125607
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,8 +3366,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 800, y: 663}
-  m_SizeDelta: {x: 1071.89, y: 200}
+  m_AnchoredPosition: {x: 995.15, y: 663}
+  m_SizeDelta: {x: 1441.9, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &8810417248751836755
 CanvasRenderer:
@@ -3412,7 +3410,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pauuuughhh
+  m_Text: "Pau S\xE1nchez"
 --- !u!1 &5781994515428836392
 GameObject:
   m_ObjectHideFlags: 0
@@ -4410,8 +4408,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 629, y: 663}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchoredPosition: {x: 1174.9, y: 663}
+  m_SizeDelta: {x: 1677.954, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &7283298823514239268
 CanvasRenderer:
@@ -4454,7 +4452,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Er Jozeh
+  m_Text: Jose Canovas
 --- !u!1 &7916459342944911678
 GameObject:
   m_ObjectHideFlags: 0
@@ -4729,8 +4727,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1128.1394, y: 663}
-  m_SizeDelta: {x: 1638.979, y: 200}
+  m_AnchoredPosition: {x: 1045, y: 663}
+  m_SizeDelta: {x: 1441.9, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &3198957239549696326
 CanvasRenderer:
@@ -4773,7 +4771,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Joel Rodr\xEDguez ^ \u03C0"
+  m_Text: "Joel Rodr\xEDguez "
 --- !u!1 &8371073421890015084
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,8 +5039,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 629, y: 663}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchoredPosition: {x: 1021.9, y: 663}
+  m_SizeDelta: {x: 1441.9, y: 200}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &417316528225187017
 CanvasRenderer:
@@ -5085,7 +5083,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Josepe
+  m_Text: 'Josep Franqueza
 
 '
 --- !u!1 &9171754631098869377
