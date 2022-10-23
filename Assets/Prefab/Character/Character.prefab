@@ -4920,7 +4920,7 @@ MonoBehaviour:
   m_mushroomPrefab: {fileID: 3339725421873900907, guid: c40e9777c38294949a0dd391e6a14c7e, type: 3}
   m_mushroomWallPrefab: {fileID: 7242151149131114434, guid: 3577215026a1c9f459ea34d7add8a5b9, type: 3}
   m_mushroomBounceDuration: 0.5
-  m_mushroomBouncePower: 10
+  m_mushroomBouncePower: 6
   m_mushroomJumpSpeed: 17
   m_brambleDamage: 25
   m_bramblePushPower: 10
@@ -5033,6 +5033,7 @@ MonoBehaviour:
   m_tickPerSecondHealth: 0
   m_ui: {fileID: 8640378252773483385}
   m_ragdollController: {fileID: 3321793302160934016}
+  m_postPro: {fileID: 0}
   m_quiverShader: {fileID: 2100000, guid: 95b439433deb6f8468f215e74f10b44a, type: 2}
   m_soundEmitter: {fileID: 8640378254261655955}
 --- !u!114 &8640378254307423979
