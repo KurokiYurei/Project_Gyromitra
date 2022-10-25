@@ -49,7 +49,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private float m_timeForBulletTime;
 
     private float m_onAirTimer;
-    
+
     private bool m_jumped;
 
     private float m_bouncePower;
@@ -59,9 +59,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private float m_bounceTimer;
 
     private float m_bounceDuration;
-    
+
     private bool m_bouncing;
-    
+
     private Vector3 m_bounceDirection;
 
     static PoolElements m_arrowPool;
@@ -78,6 +78,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private InputAction m_moveAction;
     private InputAction m_jumpAction;
     private InputAction m_AimAction;
+
+    private InputAction m_ReloadScene;
 
     private CharacterController m_CharacterController;
 
@@ -97,7 +99,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     private float m_mushroomBouncePower;
     [SerializeField]
     private float m_mushroomJumpSpeed = 10f;
-    
+
     private bool m_jumpedOnMushroom;
 
     private bool m_gravityMushroom;
@@ -152,6 +154,9 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     [SerializeField]
     private EventInstance m_eventEsvarzers;
 
+    [SerializeField]
+    private bool m_HasBeenReloaded;
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -160,6 +165,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         m_moveAction = m_playerInput.actions["Movement"];
         m_jumpAction = m_playerInput.actions["Jump"];
         m_AimAction = m_playerInput.actions["Aim"];
+
+        m_ReloadScene = m_playerInput.actions["ReloadScene"];
 
         m_player = GetComponent<CharacterHP>();
 
@@ -179,6 +186,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         m_startRot = transform.rotation;
 
         GameManagerScript.m_instance.AddRestartGameElement(this);
+
+        m_HasBeenReloaded = false;
     }
 
     void Update()
@@ -187,11 +196,11 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
         Jump();
 
-        if(m_brambleInvulnerabilityTimer > 0)
+        if (m_brambleInvulnerabilityTimer > 0)
         {
             m_brambleInvulnerabilityTimer -= Time.deltaTime;
         }
-     
+
         //Aim
         if (!m_pauseMenu.GetPaused())
         {
@@ -224,6 +233,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         //Movement function
         Movement();
         AnimationUpdates();
+
+        ReloadBaseScene();
     }
 
     private void AnimationUpdates()
@@ -261,8 +272,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             {
                 l_Movement = l_Right * input.x;
             }
-           
-            if(input.y < 0 && !m_jumped)
+
+            if (input.y < 0 && !m_jumped)
             {
                 l_Movement += l_Forward * input.y * m_backwardsSpeedMultiplier;
             }
@@ -270,7 +281,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             {
                 l_Movement += l_Forward * input.y;
             }
-           
+
             float l_Speed = m_WalkSpeed;
 
             if (m_jumped && !m_applyJumpHorizontalSpeedDivider)
@@ -309,7 +320,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             if (m_gravityMushroom)
             {
                 m_VerticalSpeed += Physics.gravity.y * Time.deltaTime * m_fallGravityMultiplier;
-            } else
+            }
+            else
             {
                 m_VerticalSpeed += Physics.gravity.y * Time.deltaTime;
             }
@@ -351,12 +363,12 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         var l_ray = new Ray(transform.position, Vector3.down);
 
-        if(Physics.Raycast(l_ray, out RaycastHit hit, 1.5f))
+        if (Physics.Raycast(l_ray, out RaycastHit hit, 1.5f))
         {
             var l_slopeRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
             var l_adjustedVelocity = l_slopeRotation * velocity;
 
-            if(l_adjustedVelocity.y < 0)
+            if (l_adjustedVelocity.y < 0)
             {
                 return l_adjustedVelocity;
             }
@@ -395,7 +407,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             transform.position = m_startPos;
             transform.rotation = m_startRot;
-        }      
+        }
         m_player.ResetHP();
         m_CharacterController.enabled = true;
         transform.GetComponentInChildren<NewCameraController>().SetFollowAt(true);
@@ -459,12 +471,12 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             else
             {
                 SetBounceParameters(-hit.normal, m_bramblePushPower, m_bramblePushDuration, 1f);
-            }   
+            }
         }
 
         if (hit.collider.tag == "Enemy")
         {
-            if(hit.gameObject.GetComponent<EnemyBehaviour>().m_currentState != EnemyBehaviour.State.DEATH)
+            if (hit.gameObject.GetComponent<EnemyBehaviour>().m_currentState != EnemyBehaviour.State.DEATH)
                 SetBounceParameters(-hit.normal, m_bramblePushPower, m_bramblePushDuration, 0f);
         }
     }
@@ -545,5 +557,16 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         UtilsGyromitra.stopSound(m_eventEsvarzers);
         UtilsGyromitra.playSound(m_eventEsvarzers, m_soundEmitter);
+    }
+
+    public void ReloadBaseScene()
+    {
+        if (m_ReloadScene.triggered && !m_HasBeenReloaded)
+        {
+            //print("S'ha apretat una vegada");
+            GameManagerScript.m_instance.ReloadMainScene();
+
+            m_HasBeenReloaded = true;
+        }
     }
 }

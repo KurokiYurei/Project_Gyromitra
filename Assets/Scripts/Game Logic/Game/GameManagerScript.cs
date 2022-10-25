@@ -220,6 +220,22 @@ public class GameManagerScript : MonoBehaviour
 
     }
 
+    public void ReloadMainScene()
+    {
+        m_loadingScreenGame.SetActive(true);
+
+        //m_scenesLoading.Add(SceneManager.UnloadSceneAsync(((int)Scenes.Mapa)));
+        var l_unloadScene = SceneManager.UnloadSceneAsync((int)Scenes.Mapa);
+        m_scenesLoading.Remove(l_unloadScene);
+
+        m_scenesLoading.Add(SceneManager.LoadSceneAsync(((int)Scenes.Mapa), LoadSceneMode.Additive));
+
+        m_secondsToWait = 10f;
+        m_cameraOutGame.GetComponent<StudioListener>().enabled = false;
+
+        StartCoroutine(GetSceneLoadProgress());
+    }
+
 
 
     public IEnumerator GetSceneLoadProgress()
