@@ -487,6 +487,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             m_currentCheckPoint = other.GetComponent<CheckPoint>();
             m_currentCheckPoint.PlaySound();
+            //m_currentCheckPoint.DeleteElements();
         }
 
         if (other.CompareTag(UtilsGyromitra.SearchForTag("Credits")))
