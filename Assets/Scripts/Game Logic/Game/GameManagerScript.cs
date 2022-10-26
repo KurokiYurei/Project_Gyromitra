@@ -97,6 +97,8 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     private List<AsyncOperation> m_scenesLoading = new List<AsyncOperation>();
 
+    public List<GameObject> m_DisabledElements = new List<GameObject>();
+
     [Header("Settings")]
     [SerializeField]
     private Settings m_settings;
@@ -228,6 +230,8 @@ public class GameManagerScript : MonoBehaviour
         var l_unloadScene = SceneManager.UnloadSceneAsync((int)Scenes.Mapa);
         m_scenesLoading.Remove(l_unloadScene);
 
+        m_RestartGameElements.Clear();
+
         m_scenesLoading.Add(SceneManager.LoadSceneAsync(((int)Scenes.Mapa), LoadSceneMode.Additive));
 
         m_secondsToWait = 10f;
@@ -264,7 +268,7 @@ public class GameManagerScript : MonoBehaviour
 
             //if (m_cameraInGame != null)
             //{
-                //m_cameraInGame.GetComponent<StudioListener>().enabled = true;
+            //m_cameraInGame.GetComponent<StudioListener>().enabled = true;
             //}
 
         }
@@ -284,5 +288,15 @@ public class GameManagerScript : MonoBehaviour
     {
         UtilsGyromitra.playSound(m_eventChangeMenu, m_soundEmitter);
     }
+
+    //public void RestoreElements()
+    //{
+    //    foreach (GameObject element in m_DisabledElements)
+    //    {
+    //        GameManagerScript.m_instance.AddRestartGameElement(element.GetComponent<EnemyBehaviour>());
+    //    }
+
+    //    m_DisabledElements.Clear();
+    //}
 }
 

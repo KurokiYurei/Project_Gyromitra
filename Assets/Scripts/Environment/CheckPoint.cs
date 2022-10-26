@@ -11,8 +11,8 @@ public class CheckPoint : MonoBehaviour
     [SerializeField]
     private Transform m_soundEmitter;
 
-    ////[SerializeField, SerializeReference]
-    //public List<GameObject> m_ElementsToDisable = new List<GameObject>();
+    //[SerializeField, SerializeReference]
+    public List<GameObject> m_ElementsToDisable = new List<GameObject>();
 
 
     [SerializeField]
@@ -29,11 +29,14 @@ public class CheckPoint : MonoBehaviour
         UtilsGyromitra.playSound(m_eventCheckpoint, m_soundEmitter);
     }
 
-    //public void DeleteElements()
-    //{
-    //    foreach (GameObject element in m_ElementsToDisable)
-    //    {
-    //        GameManagerScript.m_instance.DeleteRestartGameElement(element.GetComponent<IRestartGameElement>());
-    //    }
-    //}
+    public void DeleteElements()
+    {
+        foreach (GameObject element in m_ElementsToDisable)
+        {
+            //GameManagerScript.m_instance.m_DisabledElements.Add(element);
+            GameManagerScript.m_instance.DeleteRestartGameElement(element.GetComponent<EnemyBehaviour>());
+        }
+    }
+
+
 }

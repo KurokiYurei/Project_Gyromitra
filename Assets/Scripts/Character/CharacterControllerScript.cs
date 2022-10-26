@@ -487,7 +487,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         {
             m_currentCheckPoint = other.GetComponent<CheckPoint>();
             m_currentCheckPoint.PlaySound();
-            //m_currentCheckPoint.DeleteElements();
+            m_currentCheckPoint.DeleteElements();
         }
 
         if (other.CompareTag(UtilsGyromitra.SearchForTag("Credits")))
@@ -565,6 +565,8 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
         if (m_ReloadScene.triggered && !m_HasBeenReloaded)
         {
             //print("S'ha apretat una vegada");
+            //GameManagerScript.m_instance.RestoreElements();            
+
             GameManagerScript.m_instance.ReloadMainScene();
 
             m_HasBeenReloaded = true;
