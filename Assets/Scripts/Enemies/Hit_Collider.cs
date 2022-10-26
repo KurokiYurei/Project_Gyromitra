@@ -40,6 +40,8 @@ public class Hit_Collider : MonoBehaviour
         if(m_enemy.GetMushroomHit())
             l_HitAmount *= 2;
         m_enemy.GetComponent<Enemy1HP>().Damage(l_HitAmount);
+
+        StartCoroutine(ChangeMaterial());
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -70,5 +72,14 @@ public class Hit_Collider : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         mushroom.DestroyMushroom();
+    }
+    IEnumerator ChangeMaterial()
+    {
+        m_enemy.m_golemMaterial.SetColor("_EmissionColor", Color.red);
+        yield return new WaitForSeconds(0.2f);
+        if(m_enemy.m_mushroomImpact)
+            m_enemy.m_golemMaterial.SetColor("_EmissionColor", new Color(222, 58, 0, 100) * 0.01f);
+        else
+            m_enemy.m_golemMaterial.SetColor("_EmissionColor", new Color(56, 0, 116, 100) * 0.01f);
     }
 }

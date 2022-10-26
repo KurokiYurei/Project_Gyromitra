@@ -564,9 +564,6 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         if (m_ReloadScene.triggered && !m_HasBeenReloaded)
         {
-            //print("S'ha apretat una vegada");
-            //GameManagerScript.m_instance.RestoreElements();            
-
             GameManagerScript.m_instance.ReloadMainScene();
 
             m_HasBeenReloaded = true;

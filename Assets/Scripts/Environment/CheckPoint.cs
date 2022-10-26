@@ -11,7 +11,6 @@ public class CheckPoint : MonoBehaviour
     [SerializeField]
     private Transform m_soundEmitter;
 
-    //[SerializeField, SerializeReference]
     public List<GameObject> m_ElementsToDisable = new List<GameObject>();
 
 
@@ -33,10 +32,7 @@ public class CheckPoint : MonoBehaviour
     {
         foreach (GameObject element in m_ElementsToDisable)
         {
-            //GameManagerScript.m_instance.m_DisabledElements.Add(element);
             GameManagerScript.m_instance.DeleteRestartGameElement(element.GetComponent<EnemyBehaviour>());
         }
     }
-
-
 }

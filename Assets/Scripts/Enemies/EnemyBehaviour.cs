@@ -67,7 +67,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
     [SerializeField]
     private VisualEffect m_headVFX;    
     [SerializeField]
-    private Material m_golemMaterial;
+    public Material m_golemMaterial;
 
     [Header("FMOD")]
     [SerializeField]

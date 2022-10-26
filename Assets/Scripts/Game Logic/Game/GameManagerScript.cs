@@ -97,8 +97,6 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField]
     private List<AsyncOperation> m_scenesLoading = new List<AsyncOperation>();
 
-    public List<GameObject> m_DisabledElements = new List<GameObject>();
-
     [Header("Settings")]
     [SerializeField]
     private Settings m_settings;
@@ -288,15 +286,5 @@ public class GameManagerScript : MonoBehaviour
     {
         UtilsGyromitra.playSound(m_eventChangeMenu, m_soundEmitter);
     }
-
-    //public void RestoreElements()
-    //{
-    //    foreach (GameObject element in m_DisabledElements)
-    //    {
-    //        GameManagerScript.m_instance.AddRestartGameElement(element.GetComponent<EnemyBehaviour>());
-    //    }
-
-    //    m_DisabledElements.Clear();
-    //}
 }
 
