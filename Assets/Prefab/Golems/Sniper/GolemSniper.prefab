@@ -499,6 +499,67 @@ Transform:
   m_Father: {fileID: 8488955175970710879}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4997448934534455242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4523928759630258019}
+  - component: {fileID: 7146702760743672107}
+  - component: {fileID: 3931880947352112405}
+  m_Layer: 11
+  m_Name: StunHitbox
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4523928759630258019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997448934534455242}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0.041}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6651239351279189303}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7146702760743672107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997448934534455242}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2856455, y: 1.0468824, z: 1.1872005}
+  m_Center: {x: -0.0278306, y: 0.56626916, z: -0.021021843}
+--- !u!114 &3931880947352112405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4997448934534455242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7548efa7ec7ff77439f4c52b6397d64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ColliderType: 2
+  m_enemy: {fileID: 6651239351279189306}
+  m_BodyHitAmount: 1
+  m_HeadHitAmount: 5
 --- !u!1 &5078000210763731045
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,6 +757,7 @@ Transform:
   - {fileID: 1186725588894327356}
   - {fileID: 5622906033554165589}
   - {fileID: 5819539936134870687}
+  - {fileID: 4523928759630258019}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -850,8 +912,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1242504, y: 1.0364053, z: 1.1082596}
-  m_Center: {x: -0.029999971, y: 1.3068298, z: -0.05412978}
+  m_Size: {x: 1.3634834, y: 0.79971004, z: 1.1082596}
+  m_Center: {x: -0.027491808, y: 1.5176626, z: -0.05412978}
 --- !u!95 &6651239351279189309
 Animator:
   serializedVersion: 3

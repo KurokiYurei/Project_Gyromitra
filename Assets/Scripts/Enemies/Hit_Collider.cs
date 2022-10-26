@@ -8,7 +8,8 @@ public class Hit_Collider : MonoBehaviour
     public enum THitColliderType
     {
         BODY = 0,
-        HEAD
+        HEAD,
+        STUN
     }
 
     public THitColliderType m_ColliderType;
@@ -28,9 +29,15 @@ public class Hit_Collider : MonoBehaviour
     public void Hit()
     {
         int l_HitAmount = m_HeadHitAmount;
-        if (m_ColliderType == THitColliderType.BODY)
+
+        if(m_ColliderType==THitColliderType.STUN)
+        {
+            CreateMushroom();
+            l_HitAmount=m_BodyHitAmount;
+        }
+        if(m_ColliderType == THitColliderType.BODY)
             l_HitAmount = m_BodyHitAmount;
-        if (m_enemy.GetMushroomHit())
+        if(m_enemy.GetMushroomHit())
             l_HitAmount *= 2;
         m_enemy.GetComponent<Enemy1HP>().Damage(l_HitAmount);
     }
@@ -45,6 +52,17 @@ public class Hit_Collider : MonoBehaviour
             }
             StartCoroutine(Destroy(collision.transform.GetComponent<Mushroom>()));
         }
+    }
+
+    void CreateMushroom()
+    {
+        GameObject l_Mushroom = null;
+        l_Mushroom=CharacterControllerScript.GetMushroomPool().GetNextElement(true);
+        l_Mushroom.GetComponent<Mushroom>().SetCurrentTime(0f);
+        l_Mushroom.GetComponent<Mushroom>().transform.localScale = new Vector3(0, 0, 0);
+        l_Mushroom.transform.position=transform.parent.transform.position;
+        l_Mushroom.transform.SetParent(null);
+        l_Mushroom.SetActive(true);
     }
 
     IEnumerator Destroy(Mushroom mushroom)

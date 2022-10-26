@@ -1236,6 +1236,7 @@ Transform:
   - {fileID: 2625165977210484189}
   - {fileID: 2625165976905807203}
   - {fileID: 2625165976566598847}
+  - {fileID: 6086321697077741220}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1390,8 +1391,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1242504, y: 1.11273, z: 1.1082596}
-  m_Center: {x: -0.029999971, y: 1.2686675, z: -0.05412978}
+  m_Size: {x: 1.4544617, y: 0.8492358, z: 1.1082596}
+  m_Center: {x: 0.0015369058, y: 1.4004146, z: -0.05412978}
 --- !u!95 &2625165978283179703
 Animator:
   serializedVersion: 3
@@ -1619,3 +1620,64 @@ Transform:
   m_Father: {fileID: 2625165977678333076}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4837314368722619176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6086321697077741220}
+  - component: {fileID: 6619295437191493509}
+  - component: {fileID: 1366627299952758817}
+  m_Layer: 11
+  m_Name: StunHitbox
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6086321697077741220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837314368722619176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2625165978283179709}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6619295437191493509
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837314368722619176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2856455, y: 1.0430092, z: 1.1872005}
+  m_Center: {x: -0.0278306, y: 0.3947205, z: -0.021021843}
+--- !u!114 &1366627299952758817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837314368722619176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7548efa7ec7ff77439f4c52b6397d64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ColliderType: 2
+  m_enemy: {fileID: 2625165978283179696}
+  m_BodyHitAmount: 1
+  m_HeadHitAmount: 5
