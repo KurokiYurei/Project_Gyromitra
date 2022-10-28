@@ -54,6 +54,8 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
     [SerializeField]
     private Transform m_body;
+    [SerializeField]
+    private BoxCollider m_stunHitbox;
 
     [Header("Animation")]
     [SerializeField]
@@ -279,6 +281,7 @@ public class EnemyBehaviour : FiniteStateMachine, IRestartGameElement
 
             case State.DEATH:
                 //m_animator.SetTrigger("Death");
+                m_stunHitbox.enabled=false;
                 m_animator.enabled = false;
                 gameObject.transform.GetComponent<GolemEffects>().GolemMusicStanceStop();
                 gameObject.transform.GetComponent<GolemEffects>().GolemDies();

@@ -828,6 +828,7 @@ MonoBehaviour:
   m_startRot: {x: 0, y: 0, z: 0, w: 0}
   m_hp: {fileID: 6651239351279189307}
   m_body: {fileID: 5622906033554165589}
+  m_stunHitbox: {fileID: 7146702760743672107}
   m_animator: {fileID: 6651239351279189309}
   m_arm1VFX: {fileID: 9159884662214027482}
   m_arm2VFX: {fileID: 9159884663008732533}

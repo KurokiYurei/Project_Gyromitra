@@ -207,7 +207,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             if (m_AimAction.triggered)
             {
                 m_camController.SetIsAiming(true);
-                if (m_onAirTimer > m_timeForBulletTime)
+                if (m_onAirTimer > m_timeForBulletTime || m_jumped)
                     OnBulletTime?.Invoke(true);
             }
             if (m_AimAction.WasReleasedThisFrame())
@@ -436,7 +436,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
     {
         if (hit.collider.tag == "Mushroom")
         {
-            if (hit.normal.y < 0.5f)
+            if (hit.normal.y < 0.01f)
             {
                 hit.transform.Find("Spores_particles_normal").GetComponent<ParticleSystem>().Emit(40);
                 hit.gameObject.GetComponent<Mushroom>().PlayHorizontalBounceAnim();

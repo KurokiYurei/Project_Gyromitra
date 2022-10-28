@@ -4919,7 +4919,7 @@ MonoBehaviour:
   m_pauseMenu: {fileID: 0}
   m_mushroomPrefab: {fileID: 3339725421873900907, guid: c40e9777c38294949a0dd391e6a14c7e, type: 3}
   m_mushroomWallPrefab: {fileID: 7242151149131114434, guid: 3577215026a1c9f459ea34d7add8a5b9, type: 3}
-  m_mushroomBounceDuration: 0.5
+  m_mushroomBounceDuration: 0.3
   m_mushroomBouncePower: 6
   m_mushroomJumpSpeed: 17
   m_brambleDamage: 25
@@ -4936,6 +4936,7 @@ MonoBehaviour:
   m_fallShakeIntensity: 10
   m_fallShakeTime: 0.1
   m_soundEmitter: {fileID: 8640378253077450399}
+  m_HasBeenReloaded: 0
 --- !u!114 &8640378254307423975
 MonoBehaviour:
   m_ObjectHideFlags: 0
