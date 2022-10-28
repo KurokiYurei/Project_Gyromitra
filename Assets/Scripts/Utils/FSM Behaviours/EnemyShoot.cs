@@ -111,24 +111,24 @@ public class EnemyShoot : MonoBehaviour
             m_cadenceShoot += Time.deltaTime;
         }
 
-        bool isRight;
+        //bool isRight;
         Quaternion lookDirection = Quaternion.LookRotation(m_player.transform.position - transform.position);
 
-        isRight = GetRotateDirection(transform.rotation, lookDirection);
+        //isRight = GetRotateDirection(transform.rotation, lookDirection);
 
-        m_animator.SetBool("TurnR", isRight);
+        //m_animator.SetBool("TurnR", isRight);
 
-        float direction = Vector3.Angle(m_player.transform.position - transform.position, transform.forward);
-        if (direction <= 10f)
-        {
-            m_animator.SetLayerWeight(1, 0);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, 5f * Time.deltaTime);
-            transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
-            m_animator.SetLayerWeight(1, 1);
-        }
+        //float direction = Vector3.Angle(m_player.transform.position - transform.position, transform.forward);
+        //if (direction <= 10f)
+        //{
+        //    m_animator.SetLayerWeight(1, 0);
+        //}
+        //else
+        //{
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, 5f * Time.deltaTime);
+        transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
+        m_animator.SetLayerWeight(1, 1);
+        //}
 
         Vector3 l_playerPos = m_player.transform.position;
 
