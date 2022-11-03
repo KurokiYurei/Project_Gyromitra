@@ -34,12 +34,15 @@ public class UI_Manager : MonoBehaviour
 
     private Gradient m_gradient;
 
+    [SerializeField]
+    private LayerMask m_layerMask;
+
     private void Update()
     {
         Ray ray = m_camera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, 1000.0f, m_layerMask))
         {
             if (hit.transform.CompareTag(UtilsGyromitra.SearchForTag(UtilsGyromitra.SearchForTag("Enemy"))))
             {
@@ -61,9 +64,8 @@ public class UI_Manager : MonoBehaviour
 
         } else
         {
-
             ChangeColorCrosshair(Color.white);
-            m_color = Color.white;
+            m_color = Color.white;  
         }
     }
 

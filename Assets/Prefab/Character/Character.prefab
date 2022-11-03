@@ -413,6 +413,9 @@ MonoBehaviour:
   m_CircleRenderer: {fileID: 8640378254219435234}
   m_HealthBar: {fileID: 8640378252951273370}
   m_ColorMushrom: {r: 0.2627451, g: 0.7490196, b: 0.63529414, a: 1}
+  m_layerMask:
+    serializedVersion: 2
+    m_Bits: 2049
 --- !u!1 &8640378252774733204
 GameObject:
   m_ObjectHideFlags: 0

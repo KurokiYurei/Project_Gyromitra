@@ -6,7 +6,7 @@ using FMOD.Studio;
 
 public class Mushroom : MonoBehaviour
 {
-    private float m_timeToDestroy = 5.0f;
+    private float m_timeToDestroy = 7.5f;
     private float m_currentTime;
 
     [SerializeField]
