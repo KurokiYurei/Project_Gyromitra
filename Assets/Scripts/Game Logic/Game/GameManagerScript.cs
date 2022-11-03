@@ -110,6 +110,8 @@ public class GameManagerScript : MonoBehaviour
 
     public Settings Settings { get => m_settings; set => m_settings = value; }
 
+    public bool m_gameLoaded = false;
+
     private void Awake()
     {
 
@@ -205,6 +207,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void LoadGame()
     {
+        m_gameLoaded = false;
         m_loadingScreenGame.SetActive(true);
 
         UtilsGyromitra.stopSound(m_eventMenuMusic);
@@ -263,6 +266,7 @@ public class GameManagerScript : MonoBehaviour
 
             m_MainMenu.SetActive(false);
             m_loadingScreenGame.SetActive(false);
+            m_gameLoaded = true;
 
             //if (m_cameraInGame != null)
             //{

@@ -192,49 +192,55 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
     void Update()
     {
-        m_mushroomPool.m_CurrentAmount = m_mushroomPool.m_ActiveElementsList.Count;
-
-        Jump();
-
-        if (m_brambleInvulnerabilityTimer > 0)
+        if (GameManagerScript.m_instance.m_gameLoaded)
         {
-            m_brambleInvulnerabilityTimer -= Time.deltaTime;
-        }
+            m_mushroomPool.m_CurrentAmount = m_mushroomPool.m_ActiveElementsList.Count;
 
-        //Aim
-        if (!m_pauseMenu.GetPaused())
-        {
-            if (m_AimAction.triggered)
+            Jump();
+
+            if (m_brambleInvulnerabilityTimer > 0)
             {
-                m_camController.SetIsAiming(true);
-                if (m_onAirTimer > m_timeForBulletTime || m_jumped)
-                    OnBulletTime?.Invoke(true);
+                m_brambleInvulnerabilityTimer -= Time.deltaTime;
             }
-            if (m_AimAction.WasReleasedThisFrame())
-            {
-                m_camController.SetIsAiming(false);
-                OnBulletTime?.Invoke(false);
-            }
-        }
 
-        float l_rotation;
-        if (m_camController.transform.eulerAngles.x <= 180f)
-        {
-            l_rotation = m_camController.transform.eulerAngles.x;
+            //Aim
+            if (!m_pauseMenu.GetPaused())
+            {
+                if (m_AimAction.triggered)
+                {
+                    m_camController.SetIsAiming(true);
+                    if (m_onAirTimer > m_timeForBulletTime || m_jumped)
+                        OnBulletTime?.Invoke(true);
+                }
+                if (m_AimAction.WasReleasedThisFrame())
+                {
+                    m_camController.SetIsAiming(false);
+                    OnBulletTime?.Invoke(false);
+                }
+            }
+
+            float l_rotation;
+            if (m_camController.transform.eulerAngles.x <= 180f)
+            {
+                l_rotation = m_camController.transform.eulerAngles.x;
+            }
+            else
+            {
+                l_rotation = m_camController.transform.eulerAngles.x - 360f;
+            }
+            m_animController.AnimationAimAngle(l_rotation);
         }
-        else
-        {
-            l_rotation = m_camController.transform.eulerAngles.x - 360f;
-        }
-        m_animController.AnimationAimAngle(l_rotation);
     }
     void FixedUpdate()
     {
-        //Movement function
-        Movement();
-        AnimationUpdates();
+        if (GameManagerScript.m_instance.m_gameLoaded)
+        {
+            //Movement function
+            Movement();
+            AnimationUpdates();
 
-        ReloadBaseScene();
+            ReloadBaseScene();
+        }
     }
 
     private void AnimationUpdates()
@@ -409,6 +415,7 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
             transform.rotation = m_startRot;
         }
         m_player.ResetHP();
+        m_camController.SetIsAiming(false);
         m_CharacterController.enabled = true;
         transform.GetComponentInChildren<NewCameraController>().SetFollowAt(true);
         gameObject.GetComponent<PlayerInput>().enabled = true;
@@ -568,5 +575,10 @@ public class CharacterControllerScript : MonoBehaviour, IRestartGameElement
 
             m_HasBeenReloaded = true;
         }
+    }
+
+    public NewCameraController GetCameraController()
+    {
+        return m_camController;
     }
 }

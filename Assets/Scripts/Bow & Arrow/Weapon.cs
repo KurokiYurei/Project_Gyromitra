@@ -63,8 +63,11 @@ public class Weapon : MonoBehaviour
     /// <param name="firepower"></param>
     public void FireArrow(float firepower, bool gravity)
     {
-        m_Power = firepower;
-        m_hasGravity = gravity;
-        Shoot();
+        if (GameManagerScript.m_instance.m_gameLoaded)
+        {
+            m_Power = firepower;
+            m_hasGravity = gravity;
+            Shoot();
+        }
     }
 }
